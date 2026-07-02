@@ -174,16 +174,42 @@ cd hotpicklab && npm install && npm run dev
 
 ---
 
+## 对话 14：今晚部署 + 客户向改版 + 归档
+
+**你的要求：**
+- 网站面向客户价值，不写怎么赚佣金
+- 热点选购指南要靠谱（who it's for / who should skip）
+- 精品工具独立页；文章里短链接或小弹层
+- 技术工作 AI 来做，只问账号密码
+
+**已完成：**
+- Cloudflare 部署上线（wrangler 直传 dist）
+- 全站改版（About、首页、趋势页、工具页）
+- trends-ops.json 分离内部运营数据
+- 本地 commit `f20b248`
+
+**你的要求（休息前）：**
+- 聊天记录打包上 GitHub，明天另一台电脑继续
+
+**归档文件：**
+- `docs/SESSION_HANDOFF_2026-07-02.md`
+- `docs/archive/cursor-chat-2026-07-02-deploy-reposition.jsonl`（脱敏）
+
+---
+
 ## 给未来 AI 的上下文（复制粘贴用）
 
 ```
 项目：HotPick Lab (hotpicklab.com)
 GitHub：stone13825110136/hotpicklab
-核心原则：热点 + 赚钱
-模式：热点雷达 → 改 trends.json 发页 → 当天 Reddit/X 推广 → AI SaaS/Amazon 联盟
-市场：英文全球，美国优先，Cloudflare 部署免备案
-当前状态：代码已上 GitHub，待 Cloudflare 部署 + 域名绑定 + 联盟申请 + Reddit 推广
-请先读：docs/PROJECT_HANDOFF.md
+运营原则：热点 + 赚钱（内部）
+公开站原则：热点选购靠谱指南 + 精品免费工具，不写佣金教程
+市场：英文全球，美国优先，Cloudflare 已部署
+当前状态：hotpicklab.com 已上线改版；待 Search Console、联盟申请、Reddit 推广
+请先读：
+  docs/SESSION_HANDOFF_2026-07-02.md
+  docs/PROJECT_HANDOFF.md
+  docs/archive/cursor-chat-2026-07-02-deploy-reposition.jsonl
 ```
 
 ---

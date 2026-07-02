@@ -1,7 +1,7 @@
 # HotPick Lab 项目总纲（必读）
 
-> **核心原则：热点 + 赚钱**  
-> 不是做常青工具站躺 SEO，而是 **追热点 → 快速发页 → 当天推广 → 高佣金变现**。
+> **核心原则：热点 + 赚钱**（运营侧）  
+> **公开站原则：面向客户价值** — 热点选购靠谱指南 + 精品免费工具；佣金怎么赚只在内部沟通，不上网站。
 
 ---
 
@@ -147,27 +147,29 @@ git push
 
 - [x] 选定模式：热点 + 高佣金 + 国外市场
 - [x] 选定域名：hotpicklab.com
-- [x] 搭建 Astro 静态站（12 页）
+- [x] 搭建 Astro 静态站
 - [x] 3 个热点导购页 + 3 个工具页
 - [x] 推广文案 promote-copy.json
 - [x] 联盟申请清单 affiliate-checklist.json
-- [x] 代码推送 GitHub：stone13825110136/hotpicklab
+- [x] **Cloudflare 部署上线**（wrangler 直传 dist）
+- [x] **域名绑定** hotpicklab.com 可访问
+- [x] **网站改版**：面向客户（About 页、选购指南结构、工具独立页+弹层）
+- [x] 运营数据分离：trends-ops.json（内部，不上站）
+- [x] 沟通记录归档：docs/archive/ + SESSION_HANDOFF_2026-07-02.md
 
 ### 待完成（下一步）
 
-- [ ] **Cloudflare Pages 部署**
-  - Workers & Pages → Connect Git → 选 hotpicklab
-  - Build: `npm run build` / Output: `dist`
-- [ ] **绑定域名 hotpicklab.com**
-  - Cloudflare 添加站点 → 改 DNS → Custom domains
+- [ ] **确认 GitHub 已同步最新代码**（含 f20b248 改版 commit）
 - [ ] **Google Search Console**
   - 验证域名 → 提交 sitemap: https://hotpicklab.com/sitemap.xml
 - [ ] **Amazon Associates 申请**
   - 通过后替换 trends.json 里的 affiliateUrl
 - [ ] **AI 工具联盟申请**（Runway 等）
 - [ ] **上线当天发 3 条 Reddit 帖**（文案在 promote-copy.json）
+- [ ] **热点指南自动化**（每周雷达 + 草稿，讨论过未实现）
 - [ ] **第 2 周申请 Google AdSense**
 - [ ] **privacy.astro 联系邮箱改成你的真实邮箱**
+- [ ] **轮换** GitHub 密码 / Cloudflare API Token（曾在对话中出现）
 
 ---
 
@@ -199,9 +201,20 @@ npm run dev
 **在 Cursor 新对话里告诉 AI：**
 
 ```
-项目：hotpicklab.com 热点导购站，核心原则「热点+赚钱」
+项目：hotpicklab.com — 面向客户的热点选购指南 + 免费工具
 GitHub：stone13825110136/hotpicklab
-请先读 docs/PROJECT_HANDOFF.md 和 docs/EXECUTION_CHECKLIST.md
+请先读：
+  docs/SESSION_HANDOFF_2026-07-02.md
+  docs/PROJECT_HANDOFF.md
+  docs/archive/cursor-chat-2026-07-02-deploy-reposition.jsonl
+运营侧仍遵循「热点+赚钱」，但公开站不写佣金教程。
+```
+
+**改代码后重新部署：**
+
+```powershell
+npm run build
+npx wrangler pages deploy dist --project-name=hotpicklab --branch=main
 ```
 
 ---
@@ -210,14 +223,16 @@ GitHub：stone13825110136/hotpicklab
 
 | 文件 | 用途 |
 |------|------|
-| `src/data/trends.json` | **热点页内容 + 联盟链接（最常改）** |
+| `src/data/trends.json` | **公开热点选购指南（最常改）** |
+| `src/data/trends-ops.json` | **内部**佣金/推广策略（不上站） |
 | `src/data/tools.json` | 配套小工具 |
 | `src/data/promote-copy.json` | Reddit/X 推广文案 |
 | `src/data/affiliate-checklist.json` | 联盟申请步骤 |
 | `src/lib/site.ts` | 站名、域名、邮箱 |
 | `docs/PROJECT_HANDOFF.md` | 本文档 |
 | `docs/EXECUTION_CHECKLIST.md` | 执行清单 |
-| `docs/archive/` | 沟通记录归档 |
+| `docs/SESSION_HANDOFF_2026-07-02.md` | 今晚会话交接（换电脑先看） |
+| `docs/archive/` | 沟通记录归档（含 JSONL） |
 
 ---
 
@@ -246,5 +261,5 @@ GitHub：stone13825110136/hotpicklab
 
 ---
 
-*最后更新：2026-07-02*  
+*最后更新：2026-07-02 晚（部署完成 + 客户向改版 + 聊天记录归档）*  
 *项目所有者：stone13825110136*

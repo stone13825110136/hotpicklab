@@ -10,10 +10,10 @@
 
 ### 阶段 A：让网站能访问（域名下来后立刻做）
 
-- [ ] Cloudflare 注册并连接 GitHub 仓库 `stone13825110136/hotpicklab`
-- [ ] Pages 部署：build=`npm run build`，output=`dist`
-- [ ] 绑定 `hotpicklab.com`
-- [ ] 浏览器打开 https://hotpicklab.com 确认 3 个热点页能访问
+- [x] Cloudflare 注册并连接 / wrangler 部署
+- [x] Pages 部署：build=`npm run build`，output=`dist`
+- [x] 绑定 `hotpicklab.com`
+- [x] 浏览器打开 https://hotpicklab.com 确认改版后页面
 - [ ] Google Search Console 添加站点 + 提交 sitemap
 
 ### 阶段 B：能赚钱（部署后 48 小时内）
@@ -62,7 +62,11 @@ cd hotpicklab
 npm install
 ```
 
-然后让 Cursor 读：`docs/PROJECT_HANDOFF.md`
+然后让 Cursor 读：
+
+1. `docs/SESSION_HANDOFF_2026-07-02.md`（今晚交接）
+2. `docs/PROJECT_HANDOFF.md`
+3. `docs/archive/cursor-chat-2026-07-02-deploy-reposition.jsonl`（完整对话，已脱敏）
 
 ---
 
