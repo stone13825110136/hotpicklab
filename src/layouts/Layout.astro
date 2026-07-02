@@ -1,0 +1,327 @@
+---
+import { SITE } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string[];
+  type?: 'website' | 'article';
+  published?: string;
+}
+
+const { title, description, keywords = [], type = 'website', published } = Astro.props;
+const fullTitle = title === SITE.name ? title : `${title} | ${SITE.name}`;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    {published && <meta property="article:published_time" content={published} />}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="/">{SITE.name}</a>
+        <nav>
+          <a href="/trends">Hot Trends</a>
+          <a href="/tools">Tools</a>
+          <a href="/how-we-find-trends">Method</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <p>{SITE.tagline}</p>
+        <p class="muted">
+          <a href="/privacy">Privacy</a> · <a href="/disclosure">Affiliate Disclosure</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #0b1020;
+    --surface: #141b2f;
+    --text: #eef2ff;
+    --muted: #9aa8c7;
+    --accent: #ff6b35;
+    --accent-2: #22d3ee;
+    --border: #24304d;
+    --radius: 12px;
+    --max: 960px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--accent-2);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .container {
+    width: min(100% - 2rem, var(--max));
+    margin-inline: auto;
+  }
+
+  .site-header {
+    border-bottom: 1px solid var(--border);
+    background: rgba(11, 16, 32, 0.9);
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(8px);
+    z-index: 10;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  .logo {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  nav {
+    display: flex;
+    gap: 1rem;
+  }
+
+  nav a {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  main {
+    padding: 2rem 0 4rem;
+  }
+
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+
+  .hero {
+    padding: 2rem 0 1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    margin: 0 0 0.75rem;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(255, 107, 53, 0.15);
+    color: #ffb38a;
+    border: 1px solid rgba(255, 107, 53, 0.35);
+  }
+
+  .grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    margin-top: 1.5rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem;
+  }
+
+  .card h2,
+  .card h3 {
+    margin: 0.4rem 0;
+    font-size: 1.1rem;
+  }
+
+  .card p {
+    margin: 0.5rem 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .score {
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 0.55rem 0.9rem;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #111;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .btn:hover {
+    filter: brightness(1.05);
+    text-decoration: none;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .section-title {
+    margin: 2rem 0 0.5rem;
+    font-size: 1.35rem;
+  }
+
+  .prose h2 {
+    margin-top: 2rem;
+  }
+
+  .prose ul {
+    padding-left: 1.2rem;
+  }
+
+  .product-list {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .product {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem;
+  }
+
+  .product h3 {
+    margin: 0.25rem 0;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    color: var(--accent-2);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .disclosure {
+    margin: 1.5rem 0;
+    padding: 0.9rem 1rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(255, 107, 53, 0.08);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .tool-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  input,
+  select,
+  button {
+    font: inherit;
+  }
+
+  input,
+  select {
+    width: 100%;
+    max-width: 280px;
+    padding: 0.55rem 0.65rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #0d1428;
+    color: var(--text);
+  }
+
+  button {
+    margin-top: 0.75rem;
+    padding: 0.55rem 0.9rem;
+    border: 0;
+    border-radius: 8px;
+    background: var(--accent-2);
+    color: #042028;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .result {
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #a7f3d0;
+  }
+
+  @media (max-width: 640px) {
+    nav {
+      gap: 0.65rem;
+      font-size: 0.85rem;
+    }
+  }
+</style>

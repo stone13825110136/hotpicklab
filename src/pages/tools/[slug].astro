@@ -1,0 +1,147 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import tools from '../../data/tools.json';
+import trends from '../../data/trends.json';
+
+export function getStaticPaths() {
+  return tools.map((tool) => ({ params: { slug: tool.slug } }));
+}
+
+const { slug } = Astro.params;
+const tool = tools.find((t) => t.slug === slug);
+
+if (!tool) {
+  throw new Error(`Tool not found: ${slug}`);
+}
+
+const relatedTrend = tool.relatedTrend
+  ? trends.find((t) => t.slug === tool.relatedTrend)
+  : null;
+---
+
+<Layout title={tool.title} description={tool.description} keywords={tool.keywords}>
+  <article>
+    <h1>{tool.title}</h1>
+    <p class="muted">{tool.description}</p>
+
+    {
+      tool.slug === 'video-aspect-ratio-calculator' && (
+        <div class="tool-box" id="aspect-tool">
+          <label for="platform">Platform preset</label>
+          <select id="platform">
+            {tool.platforms?.map((p) => <option value={`${p.width}x${p.height}`}>{p.name} ({p.ratio})</option>)}
+          </select>
+          <label for="width">Width (px)</label>
+          <input id="width" type="number" value={1080} />
+          <label for="height">Height (px)</label>
+          <input id="height" type="number" value={1920} />
+          <button type="button" id="calc-aspect">Calculate ratio</button>
+          <p class="result" id="aspect-result"></p>
+        </div>
+      )
+    }
+
+    {
+      tool.slug === 'gaming-session-timer' && (
+        <div class="tool-box" id="timer-tool">
+          <label for="minutes">Session length (minutes)</label>
+          <input id="minutes" type="number" value={tool.defaultMinutes ?? 60} min="1" max="480" />
+          <button type="button" id="start-timer">Start timer</button>
+          <p class="result" id="timer-result">Ready</p>
+        </div>
+      )
+    }
+
+    {
+      tool.slug === 'amazon-prime-day-savings-calculator' && (
+        <div class="tool-box" id="savings-tool">
+          <label for="original">Original price ($)</label>
+          <input id="original" type="number" value="99" step="0.01" />
+          <label for="sale">Sale price ($)</label>
+          <input id="sale" type="number" value="69" step="0.01" />
+          <button type="button" id="calc-savings">Calculate savings</button>
+          <p class="result" id="savings-result"></p>
+        </div>
+      )
+    }
+
+    {
+      relatedTrend && (
+        <section style="margin-top: 2rem;">
+          <h2>Related trending guide</h2>
+          <div class="card">
+            <h3><a href={`/trends/${relatedTrend.slug}`}>{relatedTrend.title}</a></h3>
+            <p>{relatedTrend.summary}</p>
+            <a class="btn" href={`/trends/${relatedTrend.slug}`}>See picks →</a>
+          </div>
+        </section>
+      )
+    }
+  </article>
+</Layout>
+
+<script>
+  const platform = document.getElementById('platform') as HTMLSelectElement | null;
+  const width = document.getElementById('width') as HTMLInputElement | null;
+  const height = document.getElementById('height') as HTMLInputElement | null;
+  const calcAspect = document.getElementById('calc-aspect');
+  const aspectResult = document.getElementById('aspect-result');
+
+  platform?.addEventListener('change', () => {
+    if (!platform || !width || !height) return;
+    const [w, h] = platform.value.split('x').map(Number);
+    width.value = String(w);
+    height.value = String(h);
+  });
+
+  calcAspect?.addEventListener('click', () => {
+    if (!width || !height || !aspectResult) return;
+    const w = Number(width.value);
+    const h = Number(height.value);
+    if (!w || !h) return;
+    const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b));
+    const d = gcd(w, h);
+    aspectResult.textContent = `Aspect ratio: ${w / d}:${h / d} (${(w / h).toFixed(3)})`;
+  });
+
+  const startTimer = document.getElementById('start-timer');
+  const minutesInput = document.getElementById('minutes') as HTMLInputElement | null;
+  const timerResult = document.getElementById('timer-result');
+  let timerId: number | undefined;
+
+  startTimer?.addEventListener('click', () => {
+    if (!minutesInput || !timerResult) return;
+    const total = Number(minutesInput.value) * 60;
+    if (!total || total <= 0) return;
+    if (timerId) window.clearInterval(timerId);
+    let left = total;
+    timerResult.textContent = `Time left: ${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}`;
+    timerId = window.setInterval(() => {
+      left -= 1;
+      if (left <= 0) {
+        window.clearInterval(timerId);
+        timerResult.textContent = 'Session over — take a break!';
+        return;
+      }
+      timerResult.textContent = `Time left: ${Math.floor(left / 60)}:${String(left % 60).padStart(2, '0')}`;
+    }, 1000);
+  });
+
+  const calcSavings = document.getElementById('calc-savings');
+  const original = document.getElementById('original') as HTMLInputElement | null;
+  const sale = document.getElementById('sale') as HTMLInputElement | null;
+  const savingsResult = document.getElementById('savings-result');
+
+  calcSavings?.addEventListener('click', () => {
+    if (!original || !sale || !savingsResult) return;
+    const o = Number(original.value);
+    const s = Number(sale.value);
+    if (!o || s >= o) {
+      savingsResult.textContent = 'Enter a valid sale price lower than original.';
+      return;
+    }
+    const saved = o - s;
+    const pct = (saved / o) * 100;
+    savingsResult.textContent = `You save $${saved.toFixed(2)} (${pct.toFixed(1)}% off)`;
+  });
+</script>

@@ -1,0 +1,87 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import trends from '../../data/trends.json';
+import tools from '../../data/tools.json';
+import { AFFILIATE_DISCLOSURE, CATEGORIES, formatDate, SITE } from '../../lib/site';
+
+export function getStaticPaths() {
+  return trends.map((trend) => ({ params: { slug: trend.slug } }));
+}
+
+const { slug } = Astro.params;
+const trend = trends.find((t) => t.slug === slug);
+
+if (!trend) {
+  throw new Error(`Trend not found: ${slug}`);
+}
+
+const relatedTool = trend.relatedTool
+  ? tools.find((t) => t.slug === trend.relatedTool)
+  : null;
+---
+
+<Layout
+  title={trend.title}
+  description={trend.summary}
+  keywords={trend.keywords}
+  type="article"
+  published={trend.updated}
+>
+  <article class="prose">
+    <span class="badge">{CATEGORIES[trend.category] ?? trend.category}</span>
+    <span class="badge">Score {trend.trendScore}</span>
+    <h1>{trend.title}</h1>
+    <p class="muted">Updated {formatDate(trend.updated)} · Search volume: {trend.searchVolume}</p>
+
+    <div class="disclosure">{AFFILIATE_DISCLOSURE}</div>
+
+    <h2>Why it's hot</h2>
+    <p>{trend.whyHot}</p>
+
+    <h2>Commission strategy</h2>
+    <p>
+      <strong>{trend.commissionType}</strong> — {trend.commissionNote}
+    </p>
+
+    <h2>Top picks</h2>
+    <div class="product-list">
+      {
+        trend.products.map((product) => (
+          <div class="product">
+            <div class="tag">{product.tag}</div>
+            <h3>{product.name}</h3>
+            <p class="muted">Typical price: {product.price}</p>
+            <p><strong>Pros:</strong> {product.pros.join(' · ')}</p>
+            <p><strong>Cons:</strong> {product.cons.join(' · ')}</p>
+            <a class="btn" href={product.affiliateUrl} rel="nofollow sponsored" target="_blank">
+              Check price →
+            </a>
+            <p class="muted" style="font-size:0.8rem;margin-top:0.5rem;">{product.affiliateNote}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    {
+      relatedTool && (
+        <>
+          <h2>Related free tool</h2>
+          <div class="card">
+            <h3>{relatedTool.title}</h3>
+            <p>{relatedTool.description}</p>
+            <a class="btn btn-secondary" href={`/tools/${relatedTool.slug}`}>Use tool</a>
+          </div>
+        </>
+      )
+    }
+
+    <h2>Where to promote (fast traffic)</h2>
+    <ul>
+      {trend.promoteOn.map((channel) => <li>{channel}</li>)}
+    </ul>
+
+    <p class="muted">
+      SEO catches long-tail weeks later. For hot trends, post on the channels above within 24–48 hours of publishing.
+    </p>
+  </article>
+</Layout>

@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TrendCard from '../components/TrendCard.astro';
+import trends from '../data/trends.json';
+import tools from '../data/tools.json';
+import { SITE } from '../lib/site';
+
+const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
+---
+
+<Layout
+  title={SITE.name}
+  description={SITE.description}
+  keywords={['trending products 2026', 'ai tools trending', 'amazon tiktok finds']}
+>
+  <section class="hero">
+    <span class="badge">Updated weekly · US market</span>
+    <h1>Follow the heat. Ship the page. Collect the commission.</h1>
+    <p class="muted">
+      We track rising searches and viral products, publish fast landing pages, and pair them with micro tools.
+      Built for speed — not evergreen fluff.
+    </p>
+  </section>
+
+  <h2 class="section-title">🔥 Hot right now</h2>
+  <div class="grid">
+    {hotTrends.map((trend) => <TrendCard trend={trend} />)}
+  </div>
+
+  <h2 class="section-title">🛠 Trend-matched tools</h2>
+  <div class="grid">
+    {
+      tools.map((tool) => (
+        <article class="card">
+          <h3>
+            <a href={`/tools/${tool.slug}`}>{tool.title}</a>
+          </h3>
+          <p>{tool.description}</p>
+          <a class="btn btn-secondary" href={`/tools/${tool.slug}`}>Open tool</a>
+        </article>
+      ))
+    }
+  </div>
+
+  <section class="prose" style="margin-top: 3rem;">
+    <h2>How this site makes money</h2>
+    <ul>
+      <li><strong>High-commission SaaS</strong> — AI tools (often 20–40% recurring)</li>
+      <li><strong>Amazon Associates</strong> — viral physical products (volume play)</li>
+      <li><strong>Google AdSense</strong> — once traffic stabilizes</li>
+    </ul>
+    <p>
+      <a href="/how-we-find-trends">Read our trend-hunting workflow →</a>
+    </p>
+  </section>
+</Layout>

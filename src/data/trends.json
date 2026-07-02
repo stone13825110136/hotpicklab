@@ -1,0 +1,119 @@
+[
+  {
+    "slug": "ai-video-generators-2026",
+    "title": "Best AI Video Generators Trending Right Now (2026)",
+    "category": "ai-tools",
+    "trendScore": 95,
+    "searchVolume": "rising",
+    "updated": "2026-07-02",
+    "summary": "AI video tools are exploding on TikTok and YouTube Shorts. Creators search for fast, affordable options daily.",
+    "whyHot": "New model releases every month. High buyer intent from content creators and marketers.",
+    "commissionType": "saas-affiliate",
+    "commissionNote": "AI SaaS affiliates often pay 20-40% recurring — much higher than Amazon.",
+    "keywords": ["ai video generator", "best ai video tool 2026", "text to video ai"],
+    "products": [
+      {
+        "name": "Runway Gen-3",
+        "tag": "Editor's pick",
+        "price": "$12/mo+",
+        "pros": ["Professional quality", "Fast iterations", "Creator-friendly"],
+        "cons": ["Learning curve", "Credits run out quickly"],
+        "affiliateUrl": "https://runwayml.com/?utm_source=trendpulse",
+        "affiliateNote": "Replace with your affiliate link when approved"
+      },
+      {
+        "name": "Pika Labs",
+        "tag": "Trending on TikTok",
+        "price": "Free tier + paid",
+        "pros": ["Easy for beginners", "Viral effects", "Mobile-friendly"],
+        "cons": ["Queue times on free plan"],
+        "affiliateUrl": "https://pika.art",
+        "affiliateNote": "Check partner program"
+      },
+      {
+        "name": "CapCut AI Video",
+        "tag": "Budget pick",
+        "price": "Free / $9.99/mo",
+        "pros": ["All-in-one editor", "Huge template library"],
+        "cons": ["Less control than pro tools"],
+        "affiliateUrl": "https://www.capcut.com",
+        "affiliateNote": "CapCut creator program varies by region"
+      }
+    ],
+    "relatedTool": "video-aspect-ratio-calculator",
+    "promoteOn": ["Reddit r/ArtificialInteligence", "X #AItools", "YouTube Shorts comments"],
+    "status": "hot"
+  },
+  {
+    "slug": "portable-blenders-amazon-trending",
+    "title": "TikTok-Viral Portable Blenders — Worth It? (2026)",
+    "category": "amazon-trending",
+    "trendScore": 88,
+    "searchVolume": "high",
+    "updated": "2026-07-02",
+    "summary": "Compact USB blenders keep trending on TikTok 'Amazon finds' hashtags. Strong impulse-buy traffic.",
+    "whyHot": "Summer + fitness + dorm room content. Low price = high conversion.",
+    "commissionType": "amazon-associates",
+    "commissionNote": "Kitchen appliances ~4-8% on Amazon Associates.",
+    "keywords": ["portable blender amazon", "tiktok blender", "best portable blender 2026"],
+    "products": [
+      {
+        "name": "BlendJet 2",
+        "tag": "Most viral",
+        "price": "~$35",
+        "pros": ["Self-cleaning", "USB-C charging", "Travel-friendly"],
+        "cons": ["Ice crushes slowly", "Battery degrades over time"],
+        "affiliateUrl": "https://www.amazon.com/s?k=blendjet+2",
+        "affiliateNote": "Replace with amzn.to affiliate link"
+      },
+      {
+        "name": "Hamilton Beach Personal Blender",
+        "tag": "Best value",
+        "price": "~$22",
+        "pros": ["Reliable brand", "Easy to replace jars"],
+        "cons": ["Corded — not truly portable"],
+        "affiliateUrl": "https://www.amazon.com/s?k=hamilton+beach+personal+blender",
+        "affiliateNote": "Replace with amzn.to affiliate link"
+      }
+    ],
+    "relatedTool": null,
+    "promoteOn": ["TikTok Amazon finds", "Pinterest summer kitchen", "Facebook deal groups"],
+    "status": "hot"
+  },
+  {
+    "slug": "nintendo-switch-2-accessories",
+    "title": "Nintendo Switch 2 Accessories Everyone Is Buying",
+    "category": "gaming",
+    "trendScore": 92,
+    "searchVolume": "spike",
+    "updated": "2026-07-02",
+    "summary": "Console launch windows create 60-90 day affiliate gold rushes for cases, grips, and docks.",
+    "whyHot": "Launch hype + accessory bundles = high search volume with clear purchase intent.",
+    "commissionType": "amazon-associates",
+    "commissionNote": "Gaming accessories 4-10%. Bundle guides convert well.",
+    "keywords": ["switch 2 accessories", "best switch 2 case", "switch 2 screen protector"],
+    "products": [
+      {
+        "name": "Tempered Glass Screen Protector (2-pack)",
+        "tag": "Must-have",
+        "price": "~$12",
+        "pros": ["First purchase for new owners", "High review velocity"],
+        "cons": ["Many identical listings — pick reputable brand"],
+        "affiliateUrl": "https://www.amazon.com/s?k=switch+2+screen+protector",
+        "affiliateNote": "Replace with amzn.to affiliate link"
+      },
+      {
+        "name": "Carrying Case with Game Slots",
+        "tag": "Best seller",
+        "price": "~$25",
+        "pros": ["Gift-friendly", "High AOV bundles"],
+        "cons": ["Fit varies by model revision"],
+        "affiliateUrl": "https://www.amazon.com/s?k=switch+2+carrying+case",
+        "affiliateNote": "Replace with amzn.to affiliate link"
+      }
+    ],
+    "relatedTool": "gaming-session-timer",
+    "promoteOn": ["Reddit r/NintendoSwitch", "Discord gaming servers", "X gaming hashtags"],
+    "status": "hot"
+  }
+]

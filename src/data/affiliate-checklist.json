@@ -1,0 +1,40 @@
+{
+  "amazonAssociates": {
+    "url": "https://affiliate-program.amazon.com",
+    "pagesToUpdate": [
+      "portable-blenders-amazon-trending",
+      "nintendo-switch-2-accessories"
+    ],
+    "steps": [
+      "Register / log in with amazon.com account",
+      "Add website: https://hotpicklab.com (or pages.dev URL while waiting for DNS)",
+      "After approval, create links for BlendJet, Hamilton Beach, screen protector, case",
+      "Replace affiliateUrl in src/data/trends.json",
+      "Push to GitHub — Cloudflare auto-redeploys"
+    ],
+    "note": "Amazon requires qualifying sales within 180 days — keep promoting."
+  },
+  "aiAffiliates": {
+    "pagesToUpdate": ["ai-video-generators-2026"],
+    "programs": [
+      { "name": "Runway", "search": "Runway affiliate program", "priority": 1 },
+      { "name": "Pika", "search": "Pika art partner program", "priority": 2 },
+      { "name": "CapCut", "search": "CapCut creator affiliate", "priority": 3 }
+    ],
+    "fallback": "Use official URLs until approved — still useful for traffic."
+  },
+  "adsense": {
+    "url": "https://www.google.com/adsense",
+    "when": "After site is live 1-2 weeks with 12+ pages",
+    "prereqs": ["privacy.astro live", "disclosure.astro live", "real contact email on privacy page"]
+  },
+  "searchConsole": {
+    "url": "https://search.google.com/search-console",
+    "when": "Same day domain goes live",
+    "steps": [
+      "Add property https://hotpicklab.com",
+      "Verify via DNS TXT record in Cloudflare",
+      "Submit sitemap: https://hotpicklab.com/sitemap.xml"
+    ]
+  }
+}

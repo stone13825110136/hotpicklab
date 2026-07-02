@@ -1,0 +1,22 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TrendCard from '../../components/TrendCard.astro';
+import trends from '../../data/trends.json';
+import { SITE } from '../../lib/site';
+
+const sorted = [...trends].sort((a, b) => b.trendScore - a.trendScore);
+---
+
+<Layout
+  title="Hot Trends"
+  description="Trending AI tools, Amazon viral products, and gaming launches — updated for the US market."
+  keywords={['trending products', 'viral amazon finds', 'ai tools 2026']}
+>
+  <section class="hero">
+    <h1>Hot Trends</h1>
+    <p class="muted">Sorted by trend score. Replace affiliate links in src/data/trends.json after you join programs.</p>
+  </section>
+  <div class="grid">
+    {sorted.map((trend) => <TrendCard trend={trend} />)}
+  </div>
+</Layout>
