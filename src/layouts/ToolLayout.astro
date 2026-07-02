@@ -1,0 +1,171 @@
+---
+import Layout from './Layout.astro';
+import { SITE } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string[];
+  backHref?: string;
+  backLabel?: string;
+}
+
+const {
+  title,
+  description,
+  keywords = [],
+  backHref = '/tools',
+  backLabel = 'All tools',
+} = Astro.props;
+
+const fullTitle = `${title} | ${SITE.name}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+    <link rel="canonical" href={new URL(Astro.url.pathname, SITE.url).href} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={new URL(Astro.url.pathname, SITE.url).href} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body class="tool-page-body">
+    <header class="tool-page-header">
+      <div class="container tool-page-header-inner">
+        <a class="logo" href="/">{SITE.name}</a>
+        <a class="back-link" href={backHref}>← {backLabel}</a>
+      </div>
+    </header>
+    <main class="tool-page-main">
+      <slot />
+    </main>
+    <footer class="tool-page-footer">
+      <p class="muted">Free tool · No sign-up · Works in your browser</p>
+      <p class="muted">
+        <a href="/privacy">Privacy</a> · <a href="/disclosure">Affiliate Disclosure</a>
+      </p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #0b1020;
+    --surface: #141b2f;
+    --text: #eef2ff;
+    --muted: #9aa8c7;
+    --accent: #ff6b35;
+    --accent-2: #22d3ee;
+    --border: #24304d;
+    --radius: 12px;
+    --max: 960px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--accent-2);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .container {
+    width: min(100% - 2rem, var(--max));
+    margin-inline: auto;
+  }
+
+  .muted {
+    color: var(--muted);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.55rem 0.9rem;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #111;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .tool-page-body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .tool-page-header {
+    border-bottom: 1px solid var(--border);
+    background: rgba(11, 16, 32, 0.92);
+    backdrop-filter: blur(8px);
+  }
+
+  .tool-page-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 0;
+  }
+
+  .logo {
+    font-weight: 800;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .back-link {
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .tool-page-main {
+    display: grid;
+    place-items: center;
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .tool-page-footer {
+    text-align: center;
+    padding: 1rem 1rem 1.5rem;
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .tool-page-footer p {
+    margin: 0.25rem 0;
+  }
+
+  .tool-related {
+    width: min(100%, 420px);
+    margin: 1rem auto 0;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+
+  .tool-related a {
+    color: var(--muted);
+  }
+</style>

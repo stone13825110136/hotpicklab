@@ -4,13 +4,15 @@ import tools from '../../data/tools.json';
 ---
 
 <Layout
-  title="Free Micro Tools"
-  description="Small utilities matched to trending topics — video sizes, gaming timers, sale calculators."
-  keywords={['online tools', 'video size calculator', 'gaming timer']}
+  title="Free Tools"
+  description="Practical free calculators for shoppers and creators — no sign-up, works in your browser."
+  keywords={['free online tools', 'deal calculator', 'video size calculator']}
 >
   <section class="hero">
-    <h1>Trend-matched tools</h1>
-    <p class="muted">Tools exist to rank on long-tail searches and funnel readers into trend guides.</p>
+    <h1>Free tools</h1>
+    <p class="muted">
+      Small, focused utilities you can bookmark or add to your home screen. Open anytime — no article required.
+    </p>
   </section>
   <div class="grid">
     {
@@ -20,7 +22,7 @@ import tools from '../../data/tools.json';
             <a href={`/tools/${tool.slug}`}>{tool.title}</a>
           </h2>
           <p>{tool.description}</p>
-          <a class="btn" href={`/tools/${tool.slug}`}>Open →</a>
+          <a class="btn" href={`/tools/${tool.slug}`}>Open tool →</a>
         </article>
       ))
     }

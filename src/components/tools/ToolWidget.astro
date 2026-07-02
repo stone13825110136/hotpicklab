@@ -1,0 +1,70 @@
+---
+import tools from '../../data/tools.json';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const tool = tools.find((t) => t.slug === slug);
+
+if (!tool) {
+  throw new Error(`Tool component not found: ${slug}`);
+}
+---
+
+{
+  slug === 'video-aspect-ratio-calculator' && (
+    <div class="aspect-tool" data-tool="aspect">
+      <label for={`platform-${slug}`}>Platform preset</label>
+      <select id={`platform-${slug}`} data-aspect-platform>
+        {tool.platforms?.map((p) => (
+          <option value={`${p.width}x${p.height}`}>{p.name} ({p.ratio})</option>
+        ))}
+      </select>
+      <label for={`width-${slug}`}>Width (px)</label>
+      <input id={`width-${slug}`} type="number" value={1080} data-aspect-width />
+      <label for={`height-${slug}`}>Height (px)</label>
+      <input id={`height-${slug}`} type="number" value={1920} data-aspect-height />
+      <button type="button" class="tool-action" data-aspect-calc>Calculate ratio</button>
+      <p class="tool-result is-empty" data-aspect-result></p>
+      <div class="tool-copy-row" data-aspect-copy-row>
+        <button type="button" class="tool-copy-btn" data-aspect-copy>Copy dimensions</button>
+      </div>
+    </div>
+  )
+}
+
+{
+  slug === 'gaming-session-timer' && (
+    <div class="timer-tool" data-tool="timer">
+      <label for={`minutes-${slug}`}>Session length (minutes)</label>
+      <input
+        id={`minutes-${slug}`}
+        type="number"
+        value={tool.defaultMinutes ?? 60}
+        min="1"
+        max="480"
+        data-timer-minutes
+      />
+      <button type="button" class="tool-action" data-timer-start>Start timer</button>
+      <p class="tool-result" data-timer-result>Ready — tap start when you begin playing.</p>
+    </div>
+  )
+}
+
+{
+  slug === 'amazon-prime-day-savings-calculator' && (
+    <div class="savings-tool" data-tool="savings">
+      <label for={`original-${slug}`}>Original price ($)</label>
+      <input id={`original-${slug}`} type="number" value="99" step="0.01" data-savings-original />
+      <label for={`sale-${slug}`}>Sale price ($)</label>
+      <input id={`sale-${slug}`} type="number" value="69" step="0.01" data-savings-sale />
+      <button type="button" class="tool-action" data-savings-calc>Calculate savings</button>
+      <p class="tool-result is-empty" data-savings-result></p>
+      <div class="tool-copy-row" data-savings-copy-row>
+        <button type="button" class="tool-copy-btn" data-savings-copy>Copy result</button>
+      </div>
+    </div>
+  )
+}

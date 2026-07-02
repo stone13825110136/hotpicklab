@@ -1,8 +1,8 @@
 export const SITE = {
   name: 'HotPick Lab',
-  tagline: 'Hot trends, fast picks, honest tools',
+  tagline: "What's trending. What's worth it.",
   description:
-    'Track trending products and AI tools in the US market. Quick guides, micro tools, and affiliate picks updated weekly.',
+    'Curated hotspot buying guides and free tools for the US market — honest picks, clear comparisons, updated weekly.',
   url: 'https://hotpicklab.com',
   author: 'HotPick Lab',
   contactEmail: 'contact@hotpicklab.com',

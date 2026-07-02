@@ -11,23 +11,27 @@ const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
 <Layout
   title={SITE.name}
   description={SITE.description}
-  keywords={['trending products 2026', 'ai tools trending', 'amazon tiktok finds']}
+  keywords={['trending products 2026', 'worth it reviews', 'hot buying guides', 'free shopping tools']}
 >
   <section class="hero">
     <span class="badge">Updated weekly · US market</span>
-    <h1>Follow the heat. Ship the page. Collect the commission.</h1>
-    <p class="muted">
-      We track rising searches and viral products, publish fast landing pages, and pair them with micro tools.
-      Built for speed — not evergreen fluff.
+    <h1>What's trending. What's actually worth it.</h1>
+    <p class="muted hero-lead">
+      Curated hotspot buying guides and free tools — honest comparisons, clear pros and cons, no hype.
     </p>
   </section>
 
   <h2 class="section-title">🔥 Hot right now</h2>
+  <p class="section-intro muted">Spiking topics we narrowed down so you can decide faster.</p>
   <div class="grid">
     {hotTrends.map((trend) => <TrendCard trend={trend} />)}
   </div>
+  <p class="section-cta">
+    <a href="/trends">Browse all guides →</a>
+  </p>
 
-  <h2 class="section-title">🛠 Trend-matched tools</h2>
+  <h2 class="section-title">🛠 Free tools</h2>
+  <p class="section-intro muted">Bookmark these — use anytime without opening a guide.</p>
   <div class="grid">
     {
       tools.map((tool) => (
@@ -36,21 +40,61 @@ const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
             <a href={`/tools/${tool.slug}`}>{tool.title}</a>
           </h3>
           <p>{tool.description}</p>
-          <a class="btn btn-secondary" href={`/tools/${tool.slug}`}>Open tool</a>
+          <a class="btn btn-secondary" href={`/tools/${tool.slug}`}>Open tool →</a>
         </article>
       ))
     }
   </div>
 
-  <section class="prose" style="margin-top: 3rem;">
-    <h2>How this site makes money</h2>
-    <ul>
-      <li><strong>High-commission SaaS</strong> — AI tools (often 20–40% recurring)</li>
-      <li><strong>Amazon Associates</strong> — viral physical products (volume play)</li>
-      <li><strong>Google AdSense</strong> — once traffic stabilizes</li>
-    </ul>
-    <p>
-      <a href="/how-we-find-trends">Read our trend-hunting workflow →</a>
+  <section class="value-props">
+    <h2 class="section-title">Why HotPick Lab</h2>
+    <div class="value-grid">
+      <article class="card">
+        <h3>Curated, not cluttered</h3>
+        <p>We track what's rising and narrow it to a short list — not endless scroll of affiliate links.</p>
+      </article>
+      <article class="card">
+        <h3>Honest takes</h3>
+        <p>Every pick includes pros, cons, and who should skip it. We tell you when not to buy.</p>
+      </article>
+      <article class="card">
+        <h3>Free tools that help</h3>
+        <p>Small calculators you can use on their own — check a deal, size a video, or set a timer.</p>
+      </article>
+    </div>
+    <p class="section-cta">
+      <a href="/about">How we pick trends →</a>
     </p>
   </section>
 </Layout>
+
+<style>
+  .hero-lead {
+    max-width: 42rem;
+    font-size: 1.05rem;
+  }
+
+  .section-intro {
+    margin: -0.25rem 0 0;
+  }
+
+  .section-cta {
+    margin: 1rem 0 0;
+  }
+
+  .value-props {
+    margin-top: 3rem;
+  }
+
+  .value-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    margin-top: 1rem;
+  }
+
+  .value-grid h3 {
+    margin: 0.2rem 0 0.5rem;
+    font-size: 1.05rem;
+  }
+</style>

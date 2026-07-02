@@ -1,5 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import TrendCard from '../../components/TrendCard.astro';
+import ToolLauncher from '../../components/ToolLauncher.astro';
+import ToolModal from '../../components/ToolModal.astro';
 import trends from '../../data/trends.json';
 import tools from '../../data/tools.json';
 import { AFFILIATE_DISCLOSURE, CATEGORIES, formatDate, SITE } from '../../lib/site';
@@ -18,6 +21,8 @@ if (!trend) {
 const relatedTool = trend.relatedTool
   ? tools.find((t) => t.slug === trend.relatedTool)
   : null;
+
+const modalSlugs = relatedTool ? [relatedTool.slug] : [];
 ---
 
 <Layout
@@ -27,23 +32,37 @@ const relatedTool = trend.relatedTool
   type="article"
   published={trend.updated}
 >
-  <article class="prose">
-    <span class="badge">{CATEGORIES[trend.category] ?? trend.category}</span>
-    <span class="badge">Score {trend.trendScore}</span>
+  <article class="prose guide-article">
+    <div class="guide-meta">
+      <span class="badge">{CATEGORIES[trend.category] ?? trend.category}</span>
+      {trend.status === 'hot' && <span class="badge">🔥 Trending</span>}
+    </div>
     <h1>{trend.title}</h1>
-    <p class="muted">Updated {formatDate(trend.updated)} · Search volume: {trend.searchVolume}</p>
+    <p class="muted">Updated {formatDate(trend.updated)} · US market</p>
+
+    <p class="guide-lead">{trend.summary}</p>
 
     <div class="disclosure">{AFFILIATE_DISCLOSURE}</div>
 
-    <h2>Why it's hot</h2>
+    <h2>Why it's trending</h2>
     <p>{trend.whyHot}</p>
 
-    <h2>Commission strategy</h2>
-    <p>
-      <strong>{trend.commissionType}</strong> — {trend.commissionNote}
-    </p>
+    <h2>Who this is for</h2>
+    <ul>
+      {trend.whoItsFor.map((item) => <li>{item}</li>)}
+    </ul>
 
-    <h2>Top picks</h2>
+    <h2>Who should skip</h2>
+    <ul>
+      {trend.whoShouldSkip.map((item) => <li>{item}</li>)}
+    </ul>
+
+    <h2>Before you buy</h2>
+    <ul>
+      {trend.buyerPitfalls.map((item) => <li>{item}</li>)}
+    </ul>
+
+    <h2>Our top picks</h2>
     <div class="product-list">
       {
         trend.products.map((product) => (
@@ -54,9 +73,8 @@ const relatedTool = trend.relatedTool
             <p><strong>Pros:</strong> {product.pros.join(' · ')}</p>
             <p><strong>Cons:</strong> {product.cons.join(' · ')}</p>
             <a class="btn" href={product.affiliateUrl} rel="nofollow sponsored" target="_blank">
-              Check price →
+              View pricing →
             </a>
-            <p class="muted" style="font-size:0.8rem;margin-top:0.5rem;">{product.affiliateNote}</p>
           </div>
         ))
       }
@@ -65,23 +83,32 @@ const relatedTool = trend.relatedTool
     {
       relatedTool && (
         <>
-          <h2>Related free tool</h2>
-          <div class="card">
-            <h3>{relatedTool.title}</h3>
-            <p>{relatedTool.description}</p>
-            <a class="btn btn-secondary" href={`/tools/${relatedTool.slug}`}>Use tool</a>
-          </div>
+          <h2>Helpful tool</h2>
+          <p class="muted">Quick check while you read — or open the full tool page to bookmark for later.</p>
+          <ToolLauncher slug={relatedTool.slug} />
         </>
       )
     }
-
-    <h2>Where to promote (fast traffic)</h2>
-    <ul>
-      {trend.promoteOn.map((channel) => <li>{channel}</li>)}
-    </ul>
-
-    <p class="muted">
-      SEO catches long-tail weeks later. For hot trends, post on the channels above within 24–48 hours of publishing.
-    </p>
   </article>
+
+  {modalSlugs.length > 0 && <ToolModal slugs={modalSlugs} />}
 </Layout>
+
+<script>
+  import '../../scripts/tool-widgets.ts';
+</script>
+
+<style>
+  .guide-meta {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .guide-lead {
+    font-size: 1.08rem;
+    line-height: 1.55;
+    color: #d9e2ff;
+  }
+</style>

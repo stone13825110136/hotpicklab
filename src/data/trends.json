@@ -6,10 +6,23 @@
     "trendScore": 95,
     "searchVolume": "rising",
     "updated": "2026-07-02",
-    "summary": "AI video tools are exploding on TikTok and YouTube Shorts. Creators search for fast, affordable options daily.",
-    "whyHot": "New model releases every month. High buyer intent from content creators and marketers.",
-    "commissionType": "saas-affiliate",
-    "commissionNote": "AI SaaS affiliates often pay 20-40% recurring — much higher than Amazon.",
+    "summary": "New AI video tools drop every month. We narrowed the field to options that are actually worth your time — whether you're a beginner or posting daily.",
+    "whyHot": "Creators on TikTok and YouTube Shorts are racing to turn ideas into clips without a full editing team. New models ship monthly, and search volume for 'text to video' keeps climbing.",
+    "whoItsFor": [
+      "Short-form creators who post multiple times per week",
+      "Marketers testing ad concepts before a full shoot",
+      "Beginners who want templates more than a pro timeline"
+    ],
+    "whoShouldSkip": [
+      "You only need basic cuts — a free editor may be enough",
+      "You need broadcast-level control over every frame",
+      "You won't post often enough to justify a subscription"
+    ],
+    "buyerPitfalls": [
+      "Credit-based pricing can burn through fast on trial-and-error prompts",
+      "Free tiers often mean long queues at peak hours",
+      "Export sizes differ by platform — wrong aspect ratio means re-editing"
+    ],
     "keywords": ["ai video generator", "best ai video tool 2026", "text to video ai"],
     "products": [
       {
@@ -18,8 +31,7 @@
         "price": "$12/mo+",
         "pros": ["Professional quality", "Fast iterations", "Creator-friendly"],
         "cons": ["Learning curve", "Credits run out quickly"],
-        "affiliateUrl": "https://runwayml.com/?utm_source=trendpulse",
-        "affiliateNote": "Replace with your affiliate link when approved"
+        "affiliateUrl": "https://runwayml.com/?utm_source=hotpicklab"
       },
       {
         "name": "Pika Labs",
@@ -27,8 +39,7 @@
         "price": "Free tier + paid",
         "pros": ["Easy for beginners", "Viral effects", "Mobile-friendly"],
         "cons": ["Queue times on free plan"],
-        "affiliateUrl": "https://pika.art",
-        "affiliateNote": "Check partner program"
+        "affiliateUrl": "https://pika.art"
       },
       {
         "name": "CapCut AI Video",
@@ -36,12 +47,10 @@
         "price": "Free / $9.99/mo",
         "pros": ["All-in-one editor", "Huge template library"],
         "cons": ["Less control than pro tools"],
-        "affiliateUrl": "https://www.capcut.com",
-        "affiliateNote": "CapCut creator program varies by region"
+        "affiliateUrl": "https://www.capcut.com"
       }
     ],
     "relatedTool": "video-aspect-ratio-calculator",
-    "promoteOn": ["Reddit r/ArtificialInteligence", "X #AItools", "YouTube Shorts comments"],
     "status": "hot"
   },
   {
@@ -51,10 +60,23 @@
     "trendScore": 88,
     "searchVolume": "high",
     "updated": "2026-07-02",
-    "summary": "Compact USB blenders keep trending on TikTok 'Amazon finds' hashtags. Strong impulse-buy traffic.",
-    "whyHot": "Summer + fitness + dorm room content. Low price = high conversion.",
-    "commissionType": "amazon-associates",
-    "commissionNote": "Kitchen appliances ~4-8% on Amazon Associates.",
+    "summary": "Portable blenders are everywhere on TikTok 'Amazon finds.' Here's when they're worth buying — and when a regular blender or a café run makes more sense.",
+    "whyHot": "Summer, gym, and dorm-room content keeps pushing compact USB blenders. They're cheap enough to impulse-buy — which is exactly why a quick reality check helps.",
+    "whoItsFor": [
+      "Commuters who want smoothies without a full kitchen",
+      "Dorm or office workers with limited counter space",
+      "Travelers who pack light but still want protein shakes"
+    ],
+    "whoShouldSkip": [
+      "You blend ice-heavy smoothies daily — motor life may disappoint",
+      "You already own a reliable countertop blender",
+      "You use it less than once a week (cost per use adds up)"
+    ],
+    "buyerPitfalls": [
+      "Many listings look identical — battery quality varies wildly",
+      "'Portable' models still struggle with ice and frozen fruit",
+      "Replacement cups and blades can cost nearly as much as the unit"
+    ],
     "keywords": ["portable blender amazon", "tiktok blender", "best portable blender 2026"],
     "products": [
       {
@@ -63,8 +85,7 @@
         "price": "~$35",
         "pros": ["Self-cleaning", "USB-C charging", "Travel-friendly"],
         "cons": ["Ice crushes slowly", "Battery degrades over time"],
-        "affiliateUrl": "https://www.amazon.com/s?k=blendjet+2",
-        "affiliateNote": "Replace with amzn.to affiliate link"
+        "affiliateUrl": "https://www.amazon.com/s?k=blendjet+2"
       },
       {
         "name": "Hamilton Beach Personal Blender",
@@ -72,12 +93,10 @@
         "price": "~$22",
         "pros": ["Reliable brand", "Easy to replace jars"],
         "cons": ["Corded — not truly portable"],
-        "affiliateUrl": "https://www.amazon.com/s?k=hamilton+beach+personal+blender",
-        "affiliateNote": "Replace with amzn.to affiliate link"
+        "affiliateUrl": "https://www.amazon.com/s?k=hamilton+beach+personal+blender"
       }
     ],
-    "relatedTool": null,
-    "promoteOn": ["TikTok Amazon finds", "Pinterest summer kitchen", "Facebook deal groups"],
+    "relatedTool": "amazon-prime-day-savings-calculator",
     "status": "hot"
   },
   {
@@ -87,10 +106,23 @@
     "trendScore": 92,
     "searchVolume": "spike",
     "updated": "2026-07-02",
-    "summary": "Console launch windows create 60-90 day affiliate gold rushes for cases, grips, and docks.",
-    "whyHot": "Launch hype + accessory bundles = high search volume with clear purchase intent.",
-    "commissionType": "amazon-associates",
-    "commissionNote": "Gaming accessories 4-10%. Bundle guides convert well.",
+    "summary": "New console, long accessory lists. We separated must-haves from nice-to-haves so you don't overbuy on day one.",
+    "whyHot": "Console launches spike searches for screen protectors, cases, and docks within the first few weeks. Most new owners buy protection first — the rest can wait.",
+    "whoItsFor": [
+      "Day-one buyers who want to protect a new console immediately",
+      "Commuters who need a slim case and extra game storage",
+      "Gift shoppers bundling practical add-ons"
+    ],
+    "whoShouldSkip": [
+      "You mostly play docked at home — a fancy travel case can wait",
+      "You already have Switch 1 accessories (check compatibility first)",
+      "You won't carry the console outside often"
+    ],
+    "buyerPitfalls": [
+      "Many 'Switch 2' listings are relabeled older accessories — read fit notes",
+      "Cheap screen protectors bubble easily; stick to well-reviewed brands",
+      "Third-party docks vary in chip quality — don't risk bricking your console"
+    ],
     "keywords": ["switch 2 accessories", "best switch 2 case", "switch 2 screen protector"],
     "products": [
       {
@@ -99,8 +131,7 @@
         "price": "~$12",
         "pros": ["First purchase for new owners", "High review velocity"],
         "cons": ["Many identical listings — pick reputable brand"],
-        "affiliateUrl": "https://www.amazon.com/s?k=switch+2+screen+protector",
-        "affiliateNote": "Replace with amzn.to affiliate link"
+        "affiliateUrl": "https://www.amazon.com/s?k=switch+2+screen+protector"
       },
       {
         "name": "Carrying Case with Game Slots",
@@ -108,12 +139,10 @@
         "price": "~$25",
         "pros": ["Gift-friendly", "High AOV bundles"],
         "cons": ["Fit varies by model revision"],
-        "affiliateUrl": "https://www.amazon.com/s?k=switch+2+carrying+case",
-        "affiliateNote": "Replace with amzn.to affiliate link"
+        "affiliateUrl": "https://www.amazon.com/s?k=switch+2+carrying+case"
       }
     ],
     "relatedTool": "gaming-session-timer",
-    "promoteOn": ["Reddit r/NintendoSwitch", "Discord gaming servers", "X gaming hashtags"],
     "status": "hot"
   }
 ]

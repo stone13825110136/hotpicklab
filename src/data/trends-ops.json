@@ -1,0 +1,18 @@
+{
+  "_note": "Operator-only fields. Not rendered on the public site.",
+  "ai-video-generators-2026": {
+    "commissionType": "saas-affiliate",
+    "commissionNote": "AI SaaS affiliates often pay 20-40% recurring — much higher than Amazon.",
+    "promoteOn": ["Reddit r/ArtificialInteligence", "X #AItools", "YouTube Shorts comments"]
+  },
+  "portable-blenders-amazon-trending": {
+    "commissionType": "amazon-associates",
+    "commissionNote": "Kitchen appliances ~4-8% on Amazon Associates.",
+    "promoteOn": ["TikTok Amazon finds", "Pinterest summer kitchen", "Facebook deal groups"]
+  },
+  "nintendo-switch-2-accessories": {
+    "commissionType": "amazon-associates",
+    "commissionNote": "Gaming accessories 4-10%. Bundle guides convert well.",
+    "promoteOn": ["Reddit r/NintendoSwitch", "Discord gaming servers", "X gaming hashtags"]
+  }
+}

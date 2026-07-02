@@ -1,11 +1,10 @@
 ---
-import { CATEGORIES } from '../lib/site';
+import { CATEGORIES, formatDate } from '../lib/site';
 
 interface Trend {
   slug: string;
   title: string;
   category: string;
-  trendScore: number;
   summary: string;
   updated: string;
   status: string;
@@ -21,12 +20,12 @@ const { trend } = Astro.props;
 <article class="card">
   <div class="card-top">
     <span class="badge">{CATEGORIES[trend.category] ?? trend.category}</span>
-    {trend.status === 'hot' && <span class="badge">🔥 HOT</span>}
+    {trend.status === 'hot' && <span class="badge">🔥 Trending</span>}
   </div>
   <h2><a href={`/trends/${trend.slug}`}>{trend.title}</a></h2>
   <p>{trend.summary}</p>
-  <p class="muted">Trend score: <span class="score">{trend.trendScore}</span> · Updated {trend.updated}</p>
-  <a class="btn" href={`/trends/${trend.slug}`}>View picks →</a>
+  <p class="muted">Updated {formatDate(trend.updated)}</p>
+  <a class="btn" href={`/trends/${trend.slug}`}>Read guide →</a>
 </article>
 
 <style>

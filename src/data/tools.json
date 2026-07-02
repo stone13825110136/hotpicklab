@@ -2,7 +2,9 @@
   {
     "slug": "video-aspect-ratio-calculator",
     "title": "Video Aspect Ratio Calculator",
-    "description": "Resize video dimensions for TikTok, YouTube Shorts, Instagram Reels — trending formats 2026.",
+    "shortTitle": "Video size calculator",
+    "description": "Get the right width and height for TikTok, YouTube Shorts, and Reels — copy dimensions in one tap.",
+    "launcherLabel": "Calculate video size",
     "keywords": ["video aspect ratio calculator", "tiktok video size", "youtube shorts dimensions"],
     "platforms": [
       { "name": "TikTok", "ratio": "9:16", "width": 1080, "height": 1920 },
@@ -15,17 +17,21 @@
   {
     "slug": "gaming-session-timer",
     "title": "Gaming Session Timer",
-    "description": "Set play-time reminders — pairs well with new console launch content.",
+    "shortTitle": "Session timer",
+    "description": "Set a play-time limit and get a clear reminder when your session ends — helpful during long launch-week gaming binges.",
+    "launcherLabel": "Set session timer",
     "keywords": ["gaming timer online", "game session limit timer"],
     "defaultMinutes": 60,
     "relatedTrend": "nintendo-switch-2-accessories"
   },
   {
     "slug": "amazon-prime-day-savings-calculator",
-    "title": "Prime Day Savings Calculator",
-    "description": "Calculate real discount % during Amazon sale events — publish 2 weeks before Prime Day.",
+    "title": "Deal Savings Calculator",
+    "shortTitle": "Deal calculator",
+    "description": "Enter original and sale price to see exactly how much you save — works for Prime Day, Black Friday, or any listed discount.",
+    "launcherLabel": "Check if it's a real deal",
     "keywords": ["prime day calculator", "discount percentage calculator", "amazon deal calculator"],
     "seasonal": "prime-day",
-    "relatedTrend": null
+    "relatedTrend": "portable-blenders-amazon-trending"
   }
 ]
