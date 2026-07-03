@@ -59,13 +59,16 @@ Google Trends / Amazon 飙升 / Reddit 热帖（雷达）
 
 ---
 
-## 三、当前已上线的 3 个示例热点
+## 三、当前已上线的 4 个示例热点
 
 | 热点 | 页面路径 | 变现 | 推广渠道 |
 |------|----------|------|----------|
-| AI 视频生成器 | `/trends/ai-video-generators-2026` | SaaS 高佣 20-40% | r/ArtificialInteligence, X #AItools |
-| TikTok 爆款榨汁机 | `/trends/portable-blenders-amazon-trending` | Amazon 3-8% | r/AmazonFinds, Pinterest |
-| Switch 2 配件 | `/trends/nintendo-switch-2-accessories` | Amazon 4-10% | r/NintendoSwitch, Discord |
+| AI 视频生成器 | `/trends/ai-video-generators-2026` | SaaS 高佣 20-40% | r/ArtificialInteligence, Quora, Medium |
+| TikTok 爆款榨汁机 | `/trends/portable-blenders-amazon-trending` | Amazon 3-8% | r/AmazonFinds, Quora, Bing |
+| Switch 2 配件 | `/trends/nintendo-switch-2-accessories` | Amazon 4-10% | r/NintendoSwitch, Quora |
+| 手持风扇（2026-07 新增） | `/trends/portable-handheld-fans-amazon-2026` | Amazon 4-8% | r/AmazonFinds, Quora |
+
+> **Reddit 备注（2026-07-03）：** 国内用自由门访问 Reddit 常被「网络安全屏蔽」，登录也无效。优先 **Bing Webmaster + Quora + Medium**；Reddit 可试手机 4G 注册。
 
 **配套工具页：**
 
@@ -159,17 +162,18 @@ git push
 
 ### 待完成（下一步）
 
-- [ ] **确认 GitHub 已同步最新代码**（含 f20b248 改版 commit）
-- [ ] **Google Search Console**
-  - 验证域名 → 提交 sitemap: https://hotpicklab.com/sitemap.xml
-- [ ] **Amazon Associates 申请**
-  - 通过后替换 trends.json 里的 affiliateUrl
-- [ ] **AI 工具联盟申请**（Runway 等）
-- [ ] **上线当天发 3 条 Reddit 帖**（文案在 promote-copy.json）
+- [x] **GitHub 已同步最新代码**（含 `77b1ea6` 风扇 ASIN 修复 + 链接校验）
+- [x] **Amazon Associates 已批** — tag `hotpicklab20-20`，Payoneer + W-8BEN 已配
+- [ ] **Bing Webmaster** — 添加站点 + 提交 sitemap（**不用翻墙，优先做**）
+- [ ] **Google Search Console** — 验证域名 + sitemap（需翻墙）
+- [ ] **Quora 发 1–2 条**（文案在 promote-copy.json，`npm run promote quora`）
+- [ ] **Medium 发 1 篇**（可选）
+- [ ] **Reddit** — 自由门不可用；可试手机 4G，或暂缓
+- [ ] **CapCut Impact** — 流量起来后再申（曾被 marketplace 拒）
+- [ ] **AI 工具现金联盟**（Runway 无公开 signup，见 affiliate-checklist.json）
 - [ ] **热点指南自动化**（每周雷达 + 草稿，讨论过未实现）
 - [ ] **第 2 周申请 Google AdSense**
 - [ ] **privacy.astro 联系邮箱改成你的真实邮箱**
-- [ ] **轮换** GitHub 密码 / Cloudflare API Token（曾在对话中出现）
 
 ---
 
@@ -204,9 +208,11 @@ npm run dev
 项目：hotpicklab.com — 面向客户的热点选购指南 + 免费工具
 GitHub：stone13825110136/hotpicklab
 请先读：
-  docs/SESSION_HANDOFF_2026-07-02.md
+  docs/SESSION_HANDOFF_2026-07-03.md
   docs/PROJECT_HANDOFF.md
-  docs/archive/cursor-chat-2026-07-02-deploy-reposition.jsonl
+  docs/archive/cursor-chat-2026-07-03-session.md
+Amazon tag：hotpicklab20-20
+Reddit 用自由门进不去，优先 Bing + Quora。
 运营侧仍遵循「热点+赚钱」，但公开站不写佣金教程。
 ```
 
@@ -231,8 +237,9 @@ npx wrangler pages deploy dist --project-name=hotpicklab --branch=main
 | `src/lib/site.ts` | 站名、域名、邮箱 |
 | `docs/PROJECT_HANDOFF.md` | 本文档 |
 | `docs/EXECUTION_CHECKLIST.md` | 执行清单 |
-| `docs/SESSION_HANDOFF_2026-07-02.md` | 今晚会话交接（换电脑先看） |
-| `docs/archive/` | 沟通记录归档（含 JSONL） |
+| `docs/SESSION_HANDOFF_2026-07-03.md` | **最新**会话交接（换电脑先看） |
+| `docs/SESSION_HANDOFF_2026-07-02.md` | 2026-07-02 部署+改版交接 |
+| `docs/archive/` | 沟通记录归档（含 JSONL / MD 摘要） |
 
 ---
 
@@ -261,5 +268,5 @@ npx wrangler pages deploy dist --project-name=hotpicklab --branch=main
 
 ---
 
-*最后更新：2026-07-02 晚（部署完成 + 客户向改版 + 聊天记录归档）*  
+*最后更新：2026-07-03 晚（风扇 ASIN 修复已 push + 会话交接 + Reddit/自由门结论）*  
 *项目所有者：stone13825110136*
