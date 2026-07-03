@@ -14,20 +14,33 @@ jobs:
   radar:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Run radar scan + WeChat push
         env:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-        run: node scripts/daily-radar.mjs
+        run: |
+          if [ -z "$PUSHPLUS_TOKEN" ]; then
+            echo "::error::PUSHPLUS_TOKEN secret is missing. Add it at https://github.com/stone13825110136/hotpicklab/settings/secrets/actions"
+            exit 1
+          fi
+          echo "PUSHPLUS_TOKEN configured (length ${#PUSHPLUS_TOKEN})"
+          node scripts/daily-radar.mjs
 
       - name: Commit radar results
         run: |
           git config user.name "HotPick Lab Bot"
           git config user.email "contact@hotpicklab.com"
+          git pull --rebase origin main
           git add radar/
-          git diff --staged --quiet || git commit -m "Daily radar $(date -u +%Y-%m-%d)"
-          git push
+          if ! git diff --staged --quiet; then
+            git commit -m "Daily radar $(date -u +%Y-%m-%d)"
+            git push
+          else
+            echo "No radar changes to commit"
+          fi
 
       - name: Create confirmation Issue
         env:
@@ -35,6 +48,11 @@ jobs:
         run: |
           gh label create radar --color E4A000 --description "Daily hotspot radar" 2>/dev/null || true
           DATE=$(date -u +%Y-%m-%d)
+          EXISTING=$(gh issue list --label radar --search "Radar $DATE" --json number --jq 'length')
+          if [ "$EXISTING" != "0" ]; then
+            echo "Issue already exists for $DATE — skip"
+            exit 0
+          fi
           BODY=$(node --input-type=module -e "
             import { readFileSync } from 'node:fs';
             const p=JSON.parse(readFileSync('./radar/latest.json','utf8'));

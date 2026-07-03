@@ -22,7 +22,7 @@ jobs:
       (github.event_name == 'issue_comment' && contains(github.event.comment.body, 'approve'))
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Parse approve command
         id: parse

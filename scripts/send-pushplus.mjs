@@ -4,7 +4,7 @@
  * Requires env: PUSHPLUS_TOKEN
  */
 
-export async function sendPushPlus({ title, content, token }) {
+export async function sendPushPlus({ title, content, token, template = 'txt' }) {
   const pushToken = token || process.env.PUSHPLUS_TOKEN;
   if (!pushToken) {
     console.warn('PUSHPLUS_TOKEN not set — skip WeChat push');
@@ -18,7 +18,7 @@ export async function sendPushPlus({ title, content, token }) {
       token: pushToken,
       title,
       content,
-      template: 'html',
+      template,
       channel: 'wechat',
     }),
   });
@@ -34,6 +34,29 @@ export async function sendPushPlus({ title, content, token }) {
     throw new Error(`PushPlus failed: ${JSON.stringify(json)}${hint}`);
   }
   return { ok: true, data: json };
+}
+
+export function formatRadarText(payload) {
+  const lines = payload.candidates.map(
+    (c) =>
+      `${c.id}. [${c.score}分] ${c.title}\n来源：${c.source}\n类目：${c.category} · ${c.commissionHint}\n${c.reason}`,
+  );
+
+  const list = lines.length
+    ? lines.join('\n\n')
+    : '今日数据源暂不可用，请稍后重试或在 Cursor 手动扫热点。';
+
+  return [
+    `HotPick Lab 每日热点雷达`,
+    `日期：${payload.date}`,
+    `站点：${payload.site}`,
+    '',
+    list,
+    '',
+    '确认发布（任选一种）：',
+    `1. Cursor：发布雷达 ${payload.date} 第1,3条`,
+    `2. GitHub Issue 评论：approve 1,3`,
+  ].join('\n');
 }
 
 export function formatRadarHtml(payload) {
