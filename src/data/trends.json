@@ -52,6 +52,7 @@
         "pros": ["All-in-one editor", "Huge template library"],
         "cons": ["Less control than pro tools"],
         "affiliateUrl": "https://www.capcut.com",
+        "affiliateNote": "Pending CapCut Impact affiliate — replace URL after approval (see affiliate-checklist.json)",
         "image": "/images/brands/capcut.svg"
       }
     ],

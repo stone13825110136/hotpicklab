@@ -1,5 +1,7 @@
 {
   "amazonAssociates": {
+    "status": "active",
+    "tag": "hotpicklab20-20",
     "url": "https://affiliate-program.amazon.com",
     "pagesToUpdate": [
       "portable-blenders-amazon-trending",
@@ -7,21 +9,61 @@
     ],
     "steps": [
       "Register / log in with amazon.com account",
-      "Add website: https://hotpicklab.com (or pages.dev URL while waiting for DNS)",
+      "Add website: https://hotpicklab.com",
       "After approval, create links for BlendJet, Hamilton Beach, screen protector, case",
       "Replace affiliateUrl in src/data/trends.json",
       "Push to GitHub — Cloudflare auto-redeploys"
     ],
     "note": "Amazon requires qualifying sales within 180 days — keep promoting."
   },
-  "aiAffiliates": {
-    "pagesToUpdate": ["ai-video-generators-2026"],
-    "programs": [
-      { "name": "Runway", "search": "Runway affiliate program", "priority": 1 },
-      { "name": "Pika", "search": "Pika art partner program", "priority": 2 },
-      { "name": "CapCut", "search": "CapCut creator affiliate", "priority": 3 }
+  "capcutImpact": {
+    "status": "apply-now",
+    "priority": 1,
+    "programUrl": "https://www.capcut.com/partners/affiliate-program",
+    "impactSignup": "https://app.impact.com/signup/partner",
+    "impactHelp": "https://help.impact.com/partner/what-would-you-like-to-learn-about/getting-started/sign-up-as-a-partner-on-impactcom",
+    "siteUrl": "https://hotpicklab.com",
+    "guideToPromote": "https://hotpicklab.com/trends/ai-video-generators-2026/",
+    "commission": "Up to 35% recurring on CapCut Pro (US, UK, Germany, France subscribers)",
+    "approvalTime": "Impact marketplace ~72h, then CapCut program ~5 business days",
+    "steps": [
+      "Go to https://app.impact.com/signup/partner — sign up as Partner (Publisher)",
+      "Add and verify media property: https://hotpicklab.com (DNS TXT or meta tag in Cloudflare)",
+      "Complete marketplace profile — paste profileDescription below",
+      "After Impact marketplace approved: Brands → Find Brands → search CapCut → Apply",
+      "In CapCut application, paste whyWorkWithCapCut below",
+      "Once accepted: copy tracking link from Impact → replace CapCut affiliateUrl in trends.json → push"
     ],
-    "fallback": "Use official URLs until approved — still useful for traffic."
+    "applicationCopy": {
+      "profileDescription": "HotPick Lab (https://hotpicklab.com) is a US-focused editorial site publishing weekly hotspot buying guides and free browser tools. We cover trending AI video tools, viral Amazon products, and gaming accessories. Each guide includes honest pros/cons, who should skip, and a short curated pick list — not generic listicles. Example guide: Best AI Video Generators (2026) — https://hotpicklab.com/trends/ai-video-generators-2026/. We also offer free utilities (video aspect ratio calculator, deal savings calculator) to support creators. Audience: US shoppers and short-form creators researching tools before subscribing. Affiliate disclosure live at /disclosure; privacy at /privacy.",
+      "whyWorkWithCapCut": "HotPick Lab already recommends CapCut as our Budget pick in our AI video generators guide for US creators who want an all-in-one editor with templates and AI features. Our content model matches CapCut's affiliate goals: honest comparison articles, clear use cases, and free companion tools (video aspect ratio calculator) that attract creator traffic. We plan to keep CapCut featured in the guide, mention CapCut Pro AI features in future updates, and cross-link from our tools hub. Promotion channels: on-site guide (primary), organic search, and planned Quora/Medium posts. We disclose affiliate relationships on every guide page.",
+      "promotionPlan": "Primary: permanent placement in /trends/ai-video-generators-2026/ with View pricing CTA. Secondary: link from /tools/video-aspect-ratio-calculator (creator workflow tool). Future: seasonal updates when CapCut ships new AI features; optional dedicated CapCut vs competitors mini-guide if traffic grows."
+    },
+    "afterApproval": {
+      "file": "src/data/trends.json",
+      "slug": "ai-video-generators-2026",
+      "productName": "CapCut AI Video",
+      "field": "affiliateUrl",
+      "note": "Paste Impact tracking link. Keep rel=nofollow sponsored on the page — already set in [slug].astro."
+    }
+  },
+  "aiAffiliates": {
+    "runway": {
+      "status": "no-cash-affiliate",
+      "cashAffiliateUrl": "https://affiliates.runwayml.com/",
+      "cashAffiliateNote": "Login-only portal; no public signup as of 2026. Do not expect commission links.",
+      "creativePartnersUrl": "https://runwayml.com/creative-partners-program",
+      "creativePartnersApply": "https://cpp.runwayml.com",
+      "creativePartnersNote": "Free Max plan + credits for artists — not cash commissions. Optional for personal use only."
+    },
+    "pika": {
+      "status": "no-public-affiliate",
+      "siteUrl": "https://pika.art",
+      "note": "No public affiliate program for Pika Labs AI video. pika.style is a different product — do not confuse.",
+      "action": "Keep as content/traffic only, or swap to another AI video tool with an active affiliate later."
+    },
+    "pagesToUpdate": ["ai-video-generators-2026"],
+    "fallback": "Use official URLs until CapCut Impact link is approved."
   },
   "adsense": {
     "url": "https://www.google.com/adsense",
