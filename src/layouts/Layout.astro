@@ -242,10 +242,47 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
   }
 
   .product {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 1rem 1.1rem;
+  }
+
+  .product-image-wrap {
+    flex-shrink: 0;
+    display: block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 0.35rem;
+    line-height: 0;
+  }
+
+  .product-image-wrap img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+
+  .product-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  @media (max-width: 520px) {
+    .product {
+      flex-direction: column;
+    }
+
+    .product-image-wrap img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      aspect-ratio: 1;
+    }
   }
 
   .product h3 {

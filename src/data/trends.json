@@ -33,7 +33,8 @@
         "price": "$12/mo+",
         "pros": ["Professional quality", "Fast iterations", "Creator-friendly"],
         "cons": ["Learning curve", "Credits run out quickly"],
-        "affiliateUrl": "https://runwayml.com/?utm_source=hotpicklab"
+        "affiliateUrl": "https://runwayml.com/?utm_source=hotpicklab",
+        "image": "https://logo.clearbit.com/runwayml.com"
       },
       {
         "name": "Pika Labs",
@@ -41,7 +42,8 @@
         "price": "Free tier + paid",
         "pros": ["Easy for beginners", "Viral effects", "Mobile-friendly"],
         "cons": ["Queue times on free plan"],
-        "affiliateUrl": "https://pika.art"
+        "affiliateUrl": "https://pika.art",
+        "image": "https://logo.clearbit.com/pika.art"
       },
       {
         "name": "CapCut AI Video",
@@ -49,7 +51,8 @@
         "price": "Free / $9.99/mo",
         "pros": ["All-in-one editor", "Huge template library"],
         "cons": ["Less control than pro tools"],
-        "affiliateUrl": "https://www.capcut.com"
+        "affiliateUrl": "https://www.capcut.com",
+        "image": "https://logo.clearbit.com/capcut.com"
       }
     ],
     "relatedTool": "video-aspect-ratio-calculator",

@@ -6,6 +6,7 @@ import ToolModal from '../../components/ToolModal.astro';
 import trends from '../../data/trends.json';
 import tools from '../../data/tools.json';
 import { CATEGORIES, formatDate, SITE } from '../../lib/site';
+import { resolveProductImage } from '../../lib/product-images';
 
 export function getStaticPaths() {
   return trends.map((trend) => ({ params: { slug: trend.slug } }));
@@ -64,8 +65,28 @@ const modalSlugs = relatedTool ? [relatedTool.slug] : [];
     <p class="muted picks-note">Amazon links open in a <strong>new tab</strong> — switch back to this tab to continue reading.</p>
     <div class="product-list">
       {
-        trend.products.map((product) => (
+        trend.products.map((product) => {
+          const imageUrl = resolveProductImage(product.affiliateUrl, product.image);
+          return (
           <div class="product">
+            {imageUrl && (
+              <a
+                class="product-image-wrap"
+                href={product.affiliateUrl}
+                rel="nofollow sponsored noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  src={imageUrl}
+                  alt={product.name}
+                  loading="lazy"
+                  decoding="async"
+                  width="160"
+                  height="160"
+                />
+              </a>
+            )}
+            <div class="product-body">
             <div class="tag">{product.tag}</div>
             <h3>{product.name}</h3>
             <p class="muted">Typical price: {product.price}</p>
@@ -74,8 +95,10 @@ const modalSlugs = relatedTool ? [relatedTool.slug] : [];
             <a class="btn" href={product.affiliateUrl} rel="nofollow sponsored noopener noreferrer" target="_blank">
               View pricing →
             </a>
+            </div>
           </div>
-        ))
+          );
+        })
       }
     </div>
 
