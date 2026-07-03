@@ -22,8 +22,10 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
+          token: ${{ github.token }}
 
       - name: Run radar scan + WeChat push
+        id: wechat_push
         env:
           PUSHPLUS_TOKEN: ${{ github.event.inputs.pushplus_token || secrets.PUSHPLUS_TOKEN }}
         run: |
@@ -37,19 +39,22 @@ jobs:
           node scripts/daily-radar.mjs
 
       - name: Commit radar results
+        if: success()
+        continue-on-error: true
         run: |
-          git config user.name "HotPick Lab Bot"
-          git config user.email "contact@hotpicklab.com"
-          git pull --rebase origin main
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add radar/
-          if ! git diff --staged --quiet; then
-            git commit -m "Daily radar $(date -u +%Y-%m-%d)"
-            git push
-          else
+          if git diff --staged --quiet; then
             echo "No radar changes to commit"
+            exit 0
           fi
+          git commit -m "Daily radar $(date -u +%Y-%m-%d)"
+          git pull --rebase origin main
+          git push
 
       - name: Create confirmation Issue
+        if: success()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
