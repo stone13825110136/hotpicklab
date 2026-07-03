@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Canva">
+  <rect width="400" height="400" fill="#ccfbf1"/>
+  <circle cx="200" cy="185" r="70" fill="#14b8a6"/>
+  <path d="M155 185 l30 -45 l30 45 l-30 45 Z" fill="#fff" opacity="0.9"/>
+  <text x="200" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="700" fill="#0f766e">Canva</text>
+</svg>

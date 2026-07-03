@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Nugget ice maker">
+  <rect width="400" height="400" fill="#f0f9ff"/>
+  <rect x="95" y="120" width="210" height="170" rx="16" fill="#e2e8f0" stroke="#64748b" stroke-width="4"/>
+  <rect x="115" y="145" width="170" height="90" rx="8" fill="#bae6fd"/>
+  <circle cx="145" cy="280" r="8" fill="#0ea5e9"/>
+  <circle cx="175" cy="275" r="8" fill="#38bdf8"/>
+  <circle cx="205" cy="282" r="8" fill="#0ea5e9"/>
+  <circle cx="235" cy="276" r="8" fill="#7dd3fc"/>
+  <circle cx="265" cy="281" r="8" fill="#0ea5e9"/>
+  <text x="200" y="350" text-anchor="middle" font-family="system-ui,sans-serif" font-size="17" font-weight="700" fill="#0369a1">Nugget Ice</text>
+</svg>

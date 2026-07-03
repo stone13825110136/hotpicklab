@@ -244,7 +244,8 @@
         "pros": ["Low entry smart home", "Often steep Prime Day discount", "Easy gift"],
         "cons": ["Privacy tradeoffs", "Alexa ecosystem lock-in"],
         "affiliateUrl": "https://www.amazon.com/dp/B09B8V1LZ3?tag=hotpicklab20-20",
-        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/echo-pop.svg"
       },
       {
         "name": "Instant Pot Duo 7-in-1",
@@ -253,7 +254,8 @@
         "pros": ["Real utility if you cook", "Frequent Prime Day markdown", "Strong review history"],
         "cons": ["Bulky if you rarely cook", "Learning curve for pressure mode"],
         "affiliateUrl": "https://www.amazon.com/dp/B00FLYWNYQ?tag=hotpicklab20-20",
-        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/instant-pot.svg"
       }
     ],
     "relatedTool": "amazon-prime-day-savings-calculator",
@@ -294,7 +296,8 @@
         "pros": ["Huge TikTok presence", "Car cup holder friendly base", "Keeps ice hours"],
         "cons": ["Often out of stock in hype colors", "Handle adds bulk in bags"],
         "affiliateUrl": "https://www.amazon.com/dp/B0CRMYT2WC?tag=hotpicklab20-20",
-        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/stanley-quencher.svg"
       },
       {
         "name": "Owala FreeSip (32 oz)",
@@ -303,7 +306,8 @@
         "pros": ["Straw + wide mouth in one lid", "Strong leak resistance", "Easier to clean than many Stanleys"],
         "cons": ["Less 'status' hype than Stanley", "32 oz may feel small for all-day ice"],
         "affiliateUrl": "https://www.amazon.com/dp/B085DVNHHK?tag=hotpicklab20-20",
-        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/owala-freesip.svg"
       }
     ],
     "relatedTool": "amazon-prime-day-savings-calculator",
@@ -344,7 +348,8 @@
         "pros": ["44 lbs/day class", "Self-clean cycle", "Strong Amazon review volume"],
         "cons": ["Not as quiet as premium Opal", "Takes counter footprint"],
         "affiliateUrl": "https://www.amazon.com/dp/B08M8VFJ2Z?tag=hotpicklab20-20",
-        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/nugget-ice-frigidaire.svg"
       },
       {
         "name": "NewAir 44 lbs/Day Nugget Maker",
@@ -353,7 +358,8 @@
         "pros": ["Fast daily output", "Refillable tank — no plumbing", "Self-cleaning"],
         "cons": ["Premium price", "Still countertop noise"],
         "affiliateUrl": "https://www.amazon.com/dp/B09HWD3FZN?tag=hotpicklab20-20",
-        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/nugget-ice-newair.svg"
       }
     ],
     "relatedTool": "amazon-prime-day-savings-calculator",
@@ -394,7 +400,8 @@
         "pros": ["USAPA approved", "Complete kit for two players", "Lightweight for beginners"],
         "cons": ["Not for advanced spin players", "Bag is basic"],
         "affiliateUrl": "https://www.amazon.com/dp/B0BNTL3Q2C?tag=hotpicklab20-20",
-        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/pickleball-set.svg"
       },
       {
         "name": "Niupipo Paddle Set of 2",
@@ -403,7 +410,8 @@
         "pros": ["USAPA approved", "Larger sweet spot design", "Strong beginner reviews"],
         "cons": ["Heavier than ultra-budget sets", "Graphics vary by listing"],
         "affiliateUrl": "https://www.amazon.com/dp/B07GVDXW5D?tag=hotpicklab20-20",
-        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/pickleball-set.svg"
       }
     ],
     "relatedTool": "gaming-session-timer",
@@ -444,7 +452,8 @@
         "pros": ["Bladeless design", "Hours of runtime on low", "Lightweight for travel"],
         "cons": ["Not strong enough for direct sun all day", "Looks like headphones — not for everyone"],
         "affiliateUrl": "https://www.amazon.com/dp/B088ZN47V8?tag=hotpicklab20-20",
-        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/neck-fan.svg"
       },
       {
         "name": "JISULIFE Neck Fan Pro (100 speeds)",
@@ -453,7 +462,8 @@
         "pros": ["Stepless speed knob", "Longer battery on some modes", "LED battery display"],
         "cons": ["Costs more than basic neck fans", "Still not a replacement for AC"],
         "affiliateUrl": "https://www.amazon.com/dp/B0BYSKX3BX?tag=hotpicklab20-20",
-        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/neck-fan-pro.svg"
       }
     ],
     "relatedTool": "amazon-prime-day-savings-calculator",
@@ -494,7 +504,7 @@
         "pros": ["Fast background removal", "Marketplace-friendly templates", "Mobile + web"],
         "cons": ["Pro needed for bulk exports", "Cloud upload required"],
         "affiliateUrl": "https://www.photoroom.com/?utm_source=hotpicklab",
-        "image": "/images/products/placeholder.svg"
+        "image": "/images/brands/photoroom.svg"
       },
       {
         "name": "Canva Pro (Magic Edit)",
@@ -503,7 +513,7 @@
         "pros": ["Edit + design in one place", "Huge template library", "Team sharing"],
         "cons": ["Not the deepest raw photo editor", "Best AI features need Pro"],
         "affiliateUrl": "https://www.canva.com/?utm_source=hotpicklab",
-        "image": "/images/products/placeholder.svg"
+        "image": "/images/brands/canva.svg"
       },
       {
         "name": "Remini",
@@ -512,7 +522,7 @@
         "pros": ["Strong face enhancement", "Mobile-first workflow", "Viral before/after results"],
         "cons": ["Can look over-processed", "Subscription for HD exports"],
         "affiliateUrl": "https://remini.ai/?utm_source=hotpicklab",
-        "image": "/images/products/placeholder.svg"
+        "image": "/images/brands/remini.svg"
       }
     ],
     "relatedTool": "video-aspect-ratio-calculator",

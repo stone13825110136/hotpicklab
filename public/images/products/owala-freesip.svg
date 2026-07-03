@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Owala FreeSip">
+  <rect width="400" height="400" fill="#dbeafe"/>
+  <rect x="158" y="90" width="84" height="220" rx="28" fill="#2563eb"/>
+  <rect x="172" y="105" width="56" height="50" rx="10" fill="#93c5fd"/>
+  <circle cx="200" cy="200" r="22" fill="#1d4ed8"/>
+  <rect x="185" y="78" width="30" height="22" rx="11" fill="#1e40af"/>
+  <text x="200" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#1e40af">Owala FreeSip</text>
+</svg>
