@@ -25,7 +25,13 @@ export async function sendPushPlus({ title, content, token }) {
 
   const json = await res.json().catch(() => ({}));
   if (!res.ok || json.code !== 200) {
-    throw new Error(`PushPlus failed: ${JSON.stringify(json)}`);
+    const hint =
+      json.code === 905
+        ? ' (PushPlus 需要实名认证才能发微信消息)'
+        : json.msg?.includes('无用户')
+          ? ' (请关注「pushplus 推送加」公众号并开启接收通知)'
+          : '';
+    throw new Error(`PushPlus failed: ${JSON.stringify(json)}${hint}`);
   }
   return { ok: true, data: json };
 }
