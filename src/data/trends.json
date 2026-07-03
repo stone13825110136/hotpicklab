@@ -5,9 +5,11 @@
     "category": "ai-tools",
     "trendScore": 95,
     "searchVolume": "rising",
-    "updated": "2026-07-02",
+    "updated": "2026-07-03",
     "summary": "New AI video tools drop every month. We narrowed the field to options that are actually worth your time — whether you're a beginner or posting daily.",
     "whyHot": "Creators on TikTok and YouTube Shorts are racing to turn ideas into clips without a full editing team. New models ship monthly, and search volume for 'text to video' keeps climbing.",
+    "commissionType": "saas-affiliate",
+    "commissionNote": "AI SaaS affiliates often pay 20-40% recurring — much higher than Amazon.",
     "whoItsFor": [
       "Short-form creators who post multiple times per week",
       "Marketers testing ad concepts before a full shoot",
@@ -59,9 +61,11 @@
     "category": "amazon-trending",
     "trendScore": 88,
     "searchVolume": "high",
-    "updated": "2026-07-02",
+    "updated": "2026-07-03",
     "summary": "Portable blenders are everywhere on TikTok 'Amazon finds.' Here's when they're worth buying — and when a regular blender or a café run makes more sense.",
     "whyHot": "Summer, gym, and dorm-room content keeps pushing compact USB blenders. They're cheap enough to impulse-buy — which is exactly why a quick reality check helps.",
+    "commissionType": "amazon-associates",
+    "commissionNote": "Kitchen appliances ~4-8% on Amazon Associates.",
     "whoItsFor": [
       "Commuters who want smoothies without a full kitchen",
       "Dorm or office workers with limited counter space",
@@ -85,7 +89,8 @@
         "price": "~$35",
         "pros": ["Self-cleaning", "USB-C charging", "Travel-friendly"],
         "cons": ["Ice crushes slowly", "Battery degrades over time"],
-        "affiliateUrl": "https://www.amazon.com/s?k=blendjet+2"
+        "affiliateUrl": "https://www.amazon.com/dp/B0D3VQ2YLG?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20"
       },
       {
         "name": "Hamilton Beach Personal Blender",
@@ -93,7 +98,8 @@
         "price": "~$22",
         "pros": ["Reliable brand", "Easy to replace jars"],
         "cons": ["Corded — not truly portable"],
-        "affiliateUrl": "https://www.amazon.com/s?k=hamilton+beach+personal+blender"
+        "affiliateUrl": "https://www.amazon.com/dp/B0017XHSC2?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20"
       }
     ],
     "relatedTool": "amazon-prime-day-savings-calculator",
@@ -105,9 +111,11 @@
     "category": "gaming",
     "trendScore": 92,
     "searchVolume": "spike",
-    "updated": "2026-07-02",
+    "updated": "2026-07-03",
     "summary": "New console, long accessory lists. We separated must-haves from nice-to-haves so you don't overbuy on day one.",
     "whyHot": "Console launches spike searches for screen protectors, cases, and docks within the first few weeks. Most new owners buy protection first — the rest can wait.",
+    "commissionType": "amazon-associates",
+    "commissionNote": "Gaming accessories 4-10%. Bundle guides convert well.",
     "whoItsFor": [
       "Day-one buyers who want to protect a new console immediately",
       "Commuters who need a slim case and extra game storage",
@@ -131,7 +139,8 @@
         "price": "~$12",
         "pros": ["First purchase for new owners", "High review velocity"],
         "cons": ["Many identical listings — pick reputable brand"],
-        "affiliateUrl": "https://www.amazon.com/s?k=switch+2+screen+protector"
+        "affiliateUrl": "https://www.amazon.com/dp/B0DRCKDWD1?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20 (amFilm Switch 2)"
       },
       {
         "name": "Carrying Case with Game Slots",
@@ -139,7 +148,8 @@
         "price": "~$25",
         "pros": ["Gift-friendly", "High AOV bundles"],
         "cons": ["Fit varies by model revision"],
-        "affiliateUrl": "https://www.amazon.com/s?k=switch+2+carrying+case"
+        "affiliateUrl": "https://www.amazon.com/dp/B0DRV6H6VM?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20 (ProCase Switch 2)"
       }
     ],
     "relatedTool": "gaming-session-timer",
