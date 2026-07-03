@@ -1,5 +1,12 @@
 {
   "site": "https://hotpicklab.com",
+  "bingUrlSubmission": [
+    "https://hotpicklab.com/trends/portable-blenders-amazon-trending",
+    "https://hotpicklab.com/trends/ai-video-generators-2026",
+    "https://hotpicklab.com/trends/nintendo-switch-2-accessories",
+    "https://hotpicklab.com/tools/video-aspect-ratio-calculator",
+    "https://hotpicklab.com/tools/amazon-prime-day-savings-calculator"
+  ],
   "posts": [
     {
       "trend": "ai-video-generators-2026",
@@ -29,5 +36,43 @@
     "New guide: 3 AI video tools trending for Shorts/Reels creators → https://hotpicklab.com/trends/ai-video-generators-2026 #AItools #ContentCreation",
     "TikTok viral portable blenders — worth it or hype? Quick comparison → https://hotpicklab.com/trends/portable-blenders-amazon-trending #AmazonFinds",
     "Switch 2 owners: first accessories worth buying (screen protector + case picks) → https://hotpicklab.com/trends/nintendo-switch-2-accessories #NintendoSwitch"
-  ]
+  ],
+  "pinterest": [
+    {
+      "board": "Amazon Finds 2026",
+      "title": "Are TikTok Portable Blenders Worth It? Honest 2026 Comparison",
+      "description": "BlendJet 2 vs budget portable blender — pros, cons, and who should skip the hype. Full guide with affiliate disclosure.",
+      "link": "https://hotpicklab.com/trends/portable-blenders-amazon-trending"
+    },
+    {
+      "board": "Nintendo Switch 2",
+      "title": "Switch 2 Accessories Worth Buying First (Not a Generic Top 10)",
+      "description": "Screen protector and case picks for new Switch 2 owners — honest pros and cons.",
+      "link": "https://hotpicklab.com/trends/nintendo-switch-2-accessories"
+    },
+    {
+      "board": "AI Tools for Creators",
+      "title": "Best AI Video Generators Trending in 2026 — Runway vs Pika vs CapCut",
+      "description": "Quick comparison for Shorts/Reels creators. Free aspect ratio calculator linked in guide.",
+      "link": "https://hotpicklab.com/trends/ai-video-generators-2026"
+    }
+  ],
+  "quora": [
+    {
+      "searchQuery": "Is BlendJet 2 worth it",
+      "answer": "It depends on how you use it. BlendJet 2 is great for quick smoothies on the go if you accept smaller batches and battery charging. For daily heavy use or crushing ice daily, a plug-in blender is still better.\n\nI put together a simple comparison of the viral BlendJet 2 vs a reliable budget option — specs, pros/cons, and who should skip portable blenders entirely:\nhttps://hotpicklab.com/trends/portable-blenders-amazon-trending\n\n(Disclosure: affiliate links on that page.)"
+    },
+    {
+      "searchQuery": "best AI video generator for beginners",
+      "answer": "For beginners posting Shorts/Reels, CapCut is the easiest starting point (free tier, familiar editor). Runway and Pika are stronger if you care about generative quality and are okay paying monthly.\n\nI compared pricing, pros/cons, and who each tool is actually for here:\nhttps://hotpicklab.com/trends/ai-video-generators-2026\n\nAlso made a free aspect ratio calculator for TikTok/Shorts/Reels: https://hotpicklab.com/tools/video-aspect-ratio-calculator"
+    },
+    {
+      "searchQuery": "Nintendo Switch 2 accessories must have",
+      "answer": "For most new owners: screen protector first (cheap insurance), then a slim case that fits the dock. Skip buying ten accessories on day one.\n\nI listed first-buy picks with honest pros/cons (not a spammy top-10 list):\nhttps://hotpicklab.com/trends/nintendo-switch-2-accessories\n\n(Disclosure: Amazon affiliate links on the guide.)"
+    }
+  ],
+  "medium": {
+    "title": "3 AI Video Tools Trending for Shorts Creators (2026 Quick Compare)",
+    "body": "AI video generators are shipping updates every month. If you post Shorts or Reels, you do not need every tool — you need the one that matches your workflow and budget.\n\n**CapCut** — Best for beginners already editing in CapCut. Fast, familiar, generous free tier.\n\n**Pika** — Strong for stylized generative clips when you want something that looks \"AI-made\" on purpose.\n\n**Runway** — Deeper generative controls; worth it if video is core to your content business.\n\nFull comparison with pricing notes and who should skip each tool:\nhttps://hotpicklab.com/trends/ai-video-generators-2026\n\nFree bonus — aspect ratio calculator for TikTok / Shorts / Reels:\nhttps://hotpicklab.com/tools/video-aspect-ratio-calculator\n\n*Disclosure: the guide may contain affiliate links.*"
+  }
 }
