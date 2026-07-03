@@ -61,6 +61,7 @@ const modalSlugs = relatedTool ? [relatedTool.slug] : [];
     </ul>
 
     <h2>Our top picks</h2>
+    <p class="muted picks-note">Amazon links open in a <strong>new tab</strong> — switch back to this tab to continue reading.</p>
     <div class="product-list">
       {
         trend.products.map((product) => (
@@ -70,7 +71,7 @@ const modalSlugs = relatedTool ? [relatedTool.slug] : [];
             <p class="muted">Typical price: {product.price}</p>
             <p><strong>Pros:</strong> {product.pros.join(' · ')}</p>
             <p><strong>Cons:</strong> {product.cons.join(' · ')}</p>
-            <a class="btn" href={product.affiliateUrl} rel="nofollow sponsored" target="_blank">
+            <a class="btn" href={product.affiliateUrl} rel="nofollow sponsored noopener noreferrer" target="_blank">
               View pricing →
             </a>
           </div>
