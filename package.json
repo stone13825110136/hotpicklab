@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "radar": "node scripts/daily-radar.mjs",
+    "radar:scan": "node scripts/scan-trends.mjs"
   },
   "dependencies": {
     "astro": "^5.7.10"

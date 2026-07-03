@@ -6,7 +6,7 @@
 
 1. **[项目总纲（完整方案）](docs/PROJECT_HANDOFF.md)** ← AI 和你都先读这个
 2. **[执行清单（打勾干活）](docs/EXECUTION_CHECKLIST.md)**
-3. **[完整沟通记录（可读版）](docs/archive/CONVERSATION_LOG.md)**
+3. **[微信雷达设置](docs/RADAR_WECHAT_SETUP.md)** ← 每日热点推微信
 
 在 Cursor 新对话里说：
 

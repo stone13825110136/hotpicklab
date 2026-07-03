@@ -1,0 +1,44 @@
+name: Daily Hotspot Radar
+
+on:
+  schedule:
+    # 每天北京时间 08:00（UTC 00:00）
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  radar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run radar scan + WeChat push
+        env:
+          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+        run: node scripts/daily-radar.mjs
+
+      - name: Commit radar results
+        run: |
+          git config user.name "HotPick Lab Bot"
+          git config user.email "contact@hotpicklab.com"
+          git add radar/
+          git diff --staged --quiet || git commit -m "Daily radar $(date -u +%Y-%m-%d)"
+          git push
+
+      - name: Create confirmation Issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create radar --color E4A000 --description "Daily hotspot radar" 2>/dev/null || true
+          DATE=$(date -u +%Y-%m-%d)
+          BODY=$(node --input-type=module -e "
+            import { readFileSync } from 'node:fs';
+            const p=JSON.parse(readFileSync('./radar/latest.json','utf8'));
+            const list=p.candidates.map(c=>'- **'+c.id+'** ['+c.score+'] '+c.title+' ('+c.source+')').join('\n');
+            console.log('## HotPick Lab Radar '+p.date+'\n\n'+list+'\n\n---\n**Confirm:** comment \`approve 1,3\` to publish those items.\n\nOr tell Cursor: \`发布雷达 '+p.date+' 第1,3条\`');
+          ")
+          gh issue create --title "Radar $DATE — confirm picks" --body "$BODY" --label radar
