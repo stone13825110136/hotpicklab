@@ -5,6 +5,11 @@ on:
     # 每天北京时间 08:00（UTC 00:00）
     - cron: '0 0 * * *'
   workflow_dispatch:
+    inputs:
+      pushplus_token:
+        description: 'PushPlus token（Secret 未生效时在此粘贴）'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -20,10 +25,12 @@ jobs:
 
       - name: Run radar scan + WeChat push
         env:
-          PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
+          PUSHPLUS_TOKEN: ${{ github.event.inputs.pushplus_token || secrets.PUSHPLUS_TOKEN }}
         run: |
           if [ -z "$PUSHPLUS_TOKEN" ]; then
-            echo "::error::PUSHPLUS_TOKEN secret is missing. Add it at https://github.com/stone13825110136/hotpicklab/settings/secrets/actions"
+            echo "::error::No PushPlus token found."
+            echo "::error::Fix A: Run workflow again and paste token into the pushplus_token field."
+            echo "::error::Fix B: Add repository secret PUSHPLUS_TOKEN at https://github.com/stone13825110136/hotpicklab/settings/secrets/actions"
             exit 1
           fi
           echo "PUSHPLUS_TOKEN configured (length ${#PUSHPLUS_TOKEN})"
