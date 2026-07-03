@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="CapCut">
+  <rect width="400" height="400" fill="#000"/>
+  <rect x="95" y="120" width="70" height="160" rx="12" fill="#00f2ea"/>
+  <rect x="165" y="120" width="70" height="160" rx="12" fill="#fff"/>
+  <rect x="235" y="120" width="70" height="160" rx="12" fill="#ff0050"/>
+  <text x="200" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="38" font-weight="700" fill="#fff">CapCut</text>
+</svg>

@@ -4,26 +4,45 @@ export function extractAmazonAsin(url: string): string | null {
   return match ? match[1].toUpperCase() : null;
 }
 
-/** Amazon Associates product image (official widget — works for US visitors) */
-export function amazonProductImageUrl(asin: string, size = 400): string {
-  return `https://ws-na.amazon-adsystem.com/widgets/q?_Encoding=UTF8&MarketPlace=US&ASIN=${asin}&ServiceVersion=20070822&ID=AsinImage&WS=1&Format=_SL${size}_`;
+export const PRODUCT_IMAGE_PLACEHOLDER = '/images/products/placeholder.svg';
+
+/** Self-hosted product images — avoids Amazon CDN / widget hotlink blocks */
+const LOCAL_ASIN_IMAGES: Record<string, string> = {
+  B0D3VQ2YLG: '/images/products/blendjet-2.svg',
+  B0D3VNPS6C: '/images/products/blendjet-2.svg',
+  B0017XHSC2: '/images/products/hamilton-beach.svg',
+  B0DRCKDWD1: '/images/products/switch-protector.svg',
+  B0DRV6H6VM: '/images/products/switch-case.svg',
+};
+
+function isLocalImage(url: string): boolean {
+  return url.startsWith('/');
 }
 
-/** Optional manual overrides — faster load than widget redirect */
-const AMAZON_IMAGE_OVERRIDES: Record<string, string> = {
-  B0D3VQ2YLG: 'https://m.media-amazon.com/images/I/71PHH2ehHfL._AC_SL500_.jpg',
-  B0D3VNPS6C: 'https://m.media-amazon.com/images/I/71PHH2ehHfL._AC_SL500_.jpg',
-  B0017XHSC2: 'https://m.media-amazon.com/images/I/71Qt0PLbFZL._AC_SL500_.jpg',
-};
+function isBrokenRemoteImage(url: string): boolean {
+  return (
+    url.includes('logo.clearbit.com') ||
+    url.includes('amazon-adsystem.com') ||
+    url.includes('media-amazon.com')
+  );
+}
 
 export function resolveProductImage(
   affiliateUrl: string,
   image?: string,
-): string | null {
-  if (image) return image;
+): string {
+  if (image && isLocalImage(image) && !isBrokenRemoteImage(image)) {
+    return image;
+  }
 
   const asin = extractAmazonAsin(affiliateUrl);
-  if (!asin) return null;
+  if (asin && LOCAL_ASIN_IMAGES[asin]) {
+    return LOCAL_ASIN_IMAGES[asin];
+  }
 
-  return AMAZON_IMAGE_OVERRIDES[asin] ?? amazonProductImageUrl(asin);
+  if (image && !isBrokenRemoteImage(image)) {
+    return image;
+  }
+
+  return PRODUCT_IMAGE_PLACEHOLDER;
 }

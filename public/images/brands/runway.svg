@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Runway">
+  <rect width="400" height="400" fill="#0a0a0a"/>
+  <circle cx="200" cy="170" r="56" fill="none" stroke="#fff" stroke-width="8"/>
+  <path d="M170 170 L200 130 L230 170 L200 210 Z" fill="#fff"/>
+  <text x="200" y="290" text-anchor="middle" font-family="system-ui,sans-serif" font-size="42" font-weight="700" fill="#fff">Runway</text>
+  <text x="200" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#a3a3a3">Gen-3</text>
+</svg>

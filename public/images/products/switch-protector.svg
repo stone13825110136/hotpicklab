@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Screen protector">
+  <rect width="400" height="400" fill="#dbeafe"/>
+  <rect x="95" y="70" width="210" height="260" rx="24" fill="#1e293b"/>
+  <rect x="110" y="85" width="180" height="230" rx="16" fill="#334155"/>
+  <rect x="120" y="95" width="160" height="210" rx="12" fill="#60a5fa" opacity="0.35"/>
+  <path d="M200 120 L240 170 L220 170 L220 230 L180 230 L180 170 L160 170 Z" fill="#93c5fd"/>
+  <text x="200" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="17" font-weight="600" fill="#1e40af">Screen Protector</text>
+</svg>

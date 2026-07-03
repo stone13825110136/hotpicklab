@@ -6,7 +6,7 @@ import ToolModal from '../../components/ToolModal.astro';
 import trends from '../../data/trends.json';
 import tools from '../../data/tools.json';
 import { CATEGORIES, formatDate, SITE } from '../../lib/site';
-import { resolveProductImage } from '../../lib/product-images';
+import { resolveProductImage, PRODUCT_IMAGE_PLACEHOLDER } from '../../lib/product-images';
 
 export function getStaticPaths() {
   return trends.map((trend) => ({ params: { slug: trend.slug } }));
@@ -69,23 +69,22 @@ const modalSlugs = relatedTool ? [relatedTool.slug] : [];
           const imageUrl = resolveProductImage(product.affiliateUrl, product.image);
           return (
           <div class="product">
-            {imageUrl && (
-              <a
-                class="product-image-wrap"
-                href={product.affiliateUrl}
-                rel="nofollow sponsored noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  src={imageUrl}
-                  alt={product.name}
-                  loading="lazy"
-                  decoding="async"
-                  width="160"
-                  height="160"
-                />
-              </a>
-            )}
+            <a
+              class="product-image-wrap"
+              href={product.affiliateUrl}
+              rel="nofollow sponsored noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                src={imageUrl}
+                alt={product.name}
+                loading="lazy"
+                decoding="async"
+                width="160"
+                height="160"
+                onerror={`this.onerror=null;this.src='${PRODUCT_IMAGE_PLACEHOLDER}';`}
+              />
+            </a>
             <div class="product-body">
             <div class="tag">{product.tag}</div>
             <h3>{product.name}</h3>

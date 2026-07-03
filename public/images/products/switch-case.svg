@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Carrying case">
+  <rect width="400" height="400" fill="#ede9fe"/>
+  <rect x="70" y="110" width="260" height="170" rx="20" fill="#7c3aed"/>
+  <rect x="90" y="130" width="220" height="130" rx="14" fill="#a78bfa"/>
+  <rect x="110" y="150" width="60" height="90" rx="8" fill="#ddd6fe"/>
+  <rect x="180" y="150" width="60" height="90" rx="8" fill="#ddd6fe"/>
+  <rect x="250" y="150" width="40" height="90" rx="8" fill="#ddd6fe"/>
+  <rect x="170" y="285" width="60" height="12" rx="6" fill="#5b21b6"/>
+  <text x="200" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="600" fill="#5b21b6">Carrying Case</text>
+</svg>

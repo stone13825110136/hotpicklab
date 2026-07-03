@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Personal blender">
+  <rect width="400" height="400" fill="#fef3c7"/>
+  <rect x="145" y="70" width="110" height="210" rx="18" fill="#dc2626"/>
+  <rect x="160" y="85" width="80" height="70" rx="10" fill="#fff" opacity="0.25"/>
+  <rect x="125" y="280" width="150" height="28" rx="14" fill="#991b1b"/>
+  <ellipse cx="200" cy="310" rx="95" ry="18" fill="#fca5a5"/>
+  <text x="200" y="360" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="600" fill="#92400e">Personal Blender</text>
+</svg>

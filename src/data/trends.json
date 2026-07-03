@@ -34,7 +34,7 @@
         "pros": ["Professional quality", "Fast iterations", "Creator-friendly"],
         "cons": ["Learning curve", "Credits run out quickly"],
         "affiliateUrl": "https://runwayml.com/?utm_source=hotpicklab",
-        "image": "https://logo.clearbit.com/runwayml.com"
+        "image": "/images/brands/runway.svg"
       },
       {
         "name": "Pika Labs",
@@ -43,7 +43,7 @@
         "pros": ["Easy for beginners", "Viral effects", "Mobile-friendly"],
         "cons": ["Queue times on free plan"],
         "affiliateUrl": "https://pika.art",
-        "image": "https://logo.clearbit.com/pika.art"
+        "image": "/images/brands/pika.svg"
       },
       {
         "name": "CapCut AI Video",
@@ -52,7 +52,7 @@
         "pros": ["All-in-one editor", "Huge template library"],
         "cons": ["Less control than pro tools"],
         "affiliateUrl": "https://www.capcut.com",
-        "image": "https://logo.clearbit.com/capcut.com"
+        "image": "/images/brands/capcut.svg"
       }
     ],
     "relatedTool": "video-aspect-ratio-calculator",
