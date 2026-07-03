@@ -14,5 +14,40 @@
     "commissionType": "amazon-associates",
     "commissionNote": "Gaming accessories 4-10%. Bundle guides convert well.",
     "promoteOn": ["Reddit r/NintendoSwitch", "Discord gaming servers", "X gaming hashtags"]
+  },
+  "portable-handheld-fans-amazon-2026": {
+    "commissionType": "amazon-associates",
+    "commissionNote": "Small electronics ~4-8% on Amazon Associates.",
+    "promoteOn": ["Pinterest summer finds", "X #AmazonFinds", "Bing SEO"]
+  },
+  "amazon-prime-day-deals-worth-it-2026": {
+    "commissionType": "amazon-associates",
+    "commissionNote": "Prime Day spike — electronics & kitchen 4-8%.",
+    "promoteOn": ["Bing SEO", "deal newsletters", "X #PrimeDay"]
+  },
+  "stanley-owala-water-bottles-worth-it-2026": {
+    "commissionType": "amazon-associates",
+    "commissionNote": "Kitchen & dining ~4-8%. High TikTok search volume.",
+    "promoteOn": ["Pinterest gifts", "X hydration hashtags", "Bing SEO"]
+  },
+  "countertop-nugget-ice-makers-2026": {
+    "commissionType": "amazon-associates",
+    "commissionNote": "Appliances ~4-8%; high AOV per sale.",
+    "promoteOn": ["Pinterest kitchen", "X #AmazonFinds", "Bing SEO"]
+  },
+  "pickleball-paddles-beginners-2026": {
+    "commissionType": "amazon-associates",
+    "commissionNote": "Sports equipment ~4-7%.",
+    "promoteOn": ["Pinterest sports gifts", "local court communities", "Bing SEO"]
+  },
+  "cooling-neck-fans-amazon-2026": {
+    "commissionType": "amazon-associates",
+    "commissionNote": "Summer electronics ~4-8%.",
+    "promoteOn": ["Pinterest summer", "X heat wave posts", "Bing SEO"]
+  },
+  "ai-photo-enhancers-2026": {
+    "commissionType": "saas-affiliate",
+    "commissionNote": "Photo SaaS — apply Photoroom/Canva affiliates when available.",
+    "promoteOn": ["Pinterest Etsy tips", "X #AItools", "Bing SEO"]
   }
 }
