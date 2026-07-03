@@ -9,7 +9,8 @@
     "radar": "node scripts/daily-radar.mjs",
     "radar:scan": "node scripts/scan-trends.mjs",
     "radar:test-push": "node scripts/test-pushplus.mjs",
-    "indexnow": "node scripts/ping-indexnow.mjs"
+    "indexnow": "node scripts/ping-indexnow.mjs",
+    "promote": "node scripts/promote-helper.mjs"
   },
   "dependencies": {
     "astro": "^5.7.10"

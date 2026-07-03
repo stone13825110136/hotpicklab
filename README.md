@@ -51,5 +51,6 @@ npm run dev
 | 文件 | 用途 |
 |------|------|
 | `src/data/trends.json` | 热点页 + 联盟链接 |
-| `src/data/promote-copy.json` | Reddit/X 文案 |
+| `src/data/promote-copy.json` | Reddit/X/Quora/Medium 文案 |
+| `npm run promote` | 推广助手脚本（无 VPN 清单 + 复制文案） |
 | `src/data/affiliate-checklist.json` | 联盟申请步骤 |

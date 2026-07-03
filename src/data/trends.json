@@ -158,5 +158,55 @@
     ],
     "relatedTool": "gaming-session-timer",
     "status": "hot"
+  },
+  {
+    "slug": "portable-handheld-fans-amazon-2026",
+    "title": "TikTok-Viral Handheld Fans — Actually Worth It? (2026)",
+    "category": "amazon-trending",
+    "trendScore": 86,
+    "searchVolume": "high",
+    "updated": "2026-07-03",
+    "summary": "Rechargeable mini fans blow up every summer on TikTok and Amazon finds. Here's when they're worth buying — and when a cheap desk fan or staying indoors makes more sense.",
+    "whyHot": "Heat waves and outdoor event season push 'portable turbo fan' clips every year. They're impulse-buy cheap — which is why a quick sanity check saves money.",
+    "commissionType": "amazon-associates",
+    "commissionNote": "Small electronics ~4-8% on Amazon Associates.",
+    "whoItsFor": [
+      "Commuters sweating on hot platforms or bus stops",
+      "Festival, theme park, or outdoor concert goers",
+      "Office workers when AC is weak or broken"
+    ],
+    "whoShouldSkip": [
+      "You mostly stay in air-conditioned spaces",
+      "You need hours of strong airflow — battery life may disappoint",
+      "You already own a reliable desk or tower fan at home"
+    ],
+    "buyerPitfalls": [
+      "'Turbo' marketing often means loud, not long-lasting",
+      "Battery mAh claims don't always match real runtime on high speed",
+      "Many look identical on Amazon — motor quality varies a lot"
+    ],
+    "keywords": ["portable handheld fan amazon", "tiktok mini fan", "best rechargeable fan 2026"],
+    "products": [
+      {
+        "name": "JISULIFE Portable Handheld Turbo Fan",
+        "tag": "Most viral",
+        "price": "~$25",
+        "pros": ["Strong for the size", "Doubles as power bank on some models", "Foldable handle"],
+        "cons": ["Louder on turbo", "Premium vs generic lookalikes"],
+        "affiliateUrl": "https://www.amazon.com/dp/B09TBD2P46?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+      },
+      {
+        "name": "COMLIFE Mini USB Desk Fan",
+        "tag": "Best budget",
+        "price": "~$15",
+        "pros": ["Cheap backup fan", "USB powered — good for desk"],
+        "cons": ["Not truly handheld", "Needs cable or power bank"],
+        "affiliateUrl": "https://www.amazon.com/dp/B01LL8NE28?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20"
+      }
+    ],
+    "relatedTool": "amazon-prime-day-savings-calculator",
+    "status": "hot"
   }
 ]

@@ -13,6 +13,8 @@ const LOCAL_ASIN_IMAGES: Record<string, string> = {
   B0017XHSC2: '/images/products/hamilton-beach.svg',
   B0DRCKDWD1: '/images/products/switch-protector.svg',
   B0DRV6H6VM: '/images/products/switch-case.svg',
+  B09TBD2P46: '/images/products/jisulife-fan.svg',
+  B01LL8NE28: '/images/products/mini-usb-fan.svg',
 };
 
 function isLocalImage(url: string): boolean {

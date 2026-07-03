@@ -10,6 +10,7 @@ const URLS = [
   `https://${HOST}/trends/ai-video-generators-2026`,
   `https://${HOST}/trends/portable-blenders-amazon-trending`,
   `https://${HOST}/trends/nintendo-switch-2-accessories`,
+  `https://${HOST}/trends/portable-handheld-fans-amazon-2026`,
   `https://${HOST}/tools/video-aspect-ratio-calculator`,
   `https://${HOST}/tools/gaming-session-timer`,
   `https://${HOST}/tools/amazon-prime-day-savings-calculator`,
