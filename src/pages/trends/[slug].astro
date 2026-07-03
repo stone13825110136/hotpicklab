@@ -5,7 +5,7 @@ import ToolLauncher from '../../components/ToolLauncher.astro';
 import ToolModal from '../../components/ToolModal.astro';
 import trends from '../../data/trends.json';
 import tools from '../../data/tools.json';
-import { AFFILIATE_DISCLOSURE, CATEGORIES, formatDate, SITE } from '../../lib/site';
+import { CATEGORIES, formatDate, SITE } from '../../lib/site';
 
 export function getStaticPaths() {
   return trends.map((trend) => ({ params: { slug: trend.slug } }));
@@ -41,8 +41,6 @@ const modalSlugs = relatedTool ? [relatedTool.slug] : [];
     <p class="muted">Updated {formatDate(trend.updated)} · US market</p>
 
     <p class="guide-lead">{trend.summary}</p>
-
-    <div class="disclosure">{AFFILIATE_DISCLOSURE}</div>
 
     <h2>Why it's trending</h2>
     <p>{trend.whyHot}</p>
