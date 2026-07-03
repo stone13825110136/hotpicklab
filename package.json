@@ -4,13 +4,14 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/verify-affiliate-links.mjs && astro build",
     "preview": "astro preview",
     "radar": "node scripts/daily-radar.mjs",
     "radar:scan": "node scripts/scan-trends.mjs",
     "radar:test-push": "node scripts/test-pushplus.mjs",
     "indexnow": "node scripts/ping-indexnow.mjs",
-    "promote": "node scripts/promote-helper.mjs"
+    "promote": "node scripts/promote-helper.mjs",
+    "verify-links": "node scripts/verify-affiliate-links.mjs"
   },
   "dependencies": {
     "astro": "^5.7.10"
