@@ -1,0 +1,83 @@
+---
+import type { TrendVsTruthRow } from '../lib/trend-drivers';
+
+interface Props {
+  intro?: string;
+  rows: TrendVsTruthRow[];
+}
+
+const { intro, rows } = Astro.props;
+---
+
+<section class="trend-vs-truth" aria-labelledby="trend-vs-truth-heading">
+  <h2 id="trend-vs-truth-heading">Trend vs. truth</h2>
+  {intro && <p class="tvt-intro">{intro}</p>}
+  <div class="tvt-table-wrap">
+    <table class="tvt-table">
+      <thead>
+        <tr>
+          <th scope="col">The trend says…</th>
+          <th scope="col">The fuller picture</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          rows.map((row) => (
+            <tr>
+              <td>{row.trendSays}</td>
+              <td>{row.fullPicture}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<style>
+  .trend-vs-truth {
+    margin: 2rem 0;
+  }
+
+  .tvt-intro {
+    color: var(--muted);
+    max-width: 42rem;
+  }
+
+  .tvt-table-wrap {
+    overflow-x: auto;
+    margin-top: 0.75rem;
+  }
+
+  .tvt-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+
+  .tvt-table th,
+  .tvt-table td {
+    padding: 0.75rem 0.85rem;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .tvt-table th {
+    background: var(--surface);
+    color: var(--accent-2);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .tvt-table td:first-child {
+    color: #ffb38a;
+    background: rgba(255, 107, 53, 0.06);
+    width: 42%;
+  }
+
+  .tvt-table td:last-child {
+    color: var(--muted);
+  }
+</style>

@@ -1,57 +1,57 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import AudienceSection from '../components/AudienceSection.astro';
+import { AUDIENCE } from '../lib/audience';
 import { SITE } from '../lib/site';
 ---
 
 <Layout
   title="About"
-  description="HotPick Lab helps US shoppers and creators keep up with trending products — curated guides and free tools, updated weekly."
-  keywords={['about hotpick lab', 'trending product guides', 'honest product picks']}
+  description="HotPick Lab serves US shoppers and short-form creators with independent buying briefs on trending products — who to buy, who to skip, and why."
+  keywords={['about hotpick lab', 'buying briefs', 'worth it guides', 'trending product research']}
 >
   <article class="prose about-page">
     <h1>About {SITE.name}</h1>
-    <p class="about-lead">
-      We help you keep up with what's trending — and decide what's actually worth buying.
-    </p>
+    <p class="about-lead">{AUDIENCE.mission}</p>
 
-    <h2>What we do</h2>
+    <h2>What we publish</h2>
     <p>
-      {SITE.name} publishes <strong>hotspot buying guides</strong> for the US market: AI tools, viral Amazon
-      products, gaming gear, and seasonal deals. Each guide includes who it's for, who should skip it, honest
-      pros and cons, and a short list of top picks.
+      {SITE.name} is an independent research site for the <strong>US market</strong>. We publish
+      <strong>buying briefs</strong> — structured guides on products spiking in search and social:
+      viral Amazon finds, AI tools for creators, gaming accessories, and seasonal deals.
     </p>
     <p>
-      We also build <strong>free browser tools</strong> — small calculators you can bookmark and use anytime,
-      without reading an article first.
+      Each brief answers the same decision questions: <strong>who should buy</strong>,
+      <strong>who should skip</strong>, common pitfalls, a short compared pick list, and a clear
+      verdict. We also ship <strong>free browser tools</strong> for deal math, video sizing, and
+      session timing.
+    </p>
+    <p>
+      <a href="/methodology">Read our research methodology →</a>
     </p>
 
-    <h2>Who it's for</h2>
+    <AudienceSection showNotFor={true} compact={true} />
+
+    <h2 id="how-we-pick">How we choose topics</h2>
+    <p>
+      Every week we scan US-market signals — rising searches, viral products, launch cycles, and
+      seasonal retail moments — then ask:
+    </p>
     <ul>
-      <li>Shoppers tired of TikTok hype who want a quick reality check</li>
-      <li>Creators comparing AI tools, gear, or accessories</li>
-      <li>Anyone who wants a short, current answer — not a 3,000-word SEO essay</li>
-    </ul>
-
-    <h2 id="how-we-pick">How we pick trends</h2>
-    <p>Every week we scan signals from the US market — rising searches, viral products, and real buyer discussions — then ask:</p>
-    <ul>
-      <li>Is interest still climbing, or already fading?</li>
-      <li>Can we give a useful answer in one page — who it's for, pitfalls, and top picks?</li>
-      <li>Would we honestly recommend skipping some options?</li>
+      <li>Is purchase intent real, or is the trend already fading?</li>
+      <li>Can we deliver a useful buy / skip / wait answer on one page?</li>
+      <li>Would we honestly tell some readers not to buy?</li>
     </ul>
     <p>
-      If we can't add clarity, we don't publish. Guides are updated when products, prices, or hype shift —
-      not left to rot with outdated picks.
+      If we cannot add clarity, we do not publish. Briefs are revised when prices, products, or
+      hype shift — not left with outdated picks.
     </p>
-
-    <h2>Our tools</h2>
-    <p>
-      Each tool has its own page you can bookmark or add to your home screen. Guides link to tools when
-      they're helpful in context — but tools work on their own, anytime.
-    </p>
-    <p><a href="/tools">Browse free tools →</a></p>
 
     <h2>Transparency</h2>
+    <p>
+      We may earn affiliate commissions when you buy through our links. That never changes our
+      skip lists or verdicts — we make nothing when you decide not to buy.
+    </p>
     <p>
       <a href="/disclosure">Affiliate disclosure →</a> ·
       <a href="/privacy">Privacy policy →</a>
@@ -59,7 +59,8 @@ import { SITE } from '../lib/site';
 
     <h2>Contact</h2>
     <p>
-      Questions or corrections? Email <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>
+      Questions, corrections, or product updates? Email
+      <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>
     </p>
   </article>
 </Layout>
@@ -68,6 +69,10 @@ import { SITE } from '../lib/site';
   .about-lead {
     font-size: 1.1rem;
     color: #d9e2ff;
-    max-width: 40rem;
+    max-width: 42rem;
+  }
+
+  .about-page :global(.audience) {
+    margin: 2rem 0;
   }
 </style>

@@ -1,10 +1,10 @@
 export const SITE = {
   name: 'HotPick Lab',
-  tagline: "What's trending. What's worth it.",
+  tagline: 'Buying research for trending products.',
   description:
-    'Curated hotspot buying guides and free tools for the US market — honest picks, clear comparisons, updated weekly.',
+    'Independent buying briefs for US shoppers and short-form creators — structured verdicts on viral Amazon products, AI tools, and seasonal deals.',
   url: 'https://hotpicklab.com',
-  author: 'HotPick Lab',
+  author: 'HotPick Lab Editorial',
   contactEmail: 'contact@hotpicklab.com',
   locale: 'en-US',
 };

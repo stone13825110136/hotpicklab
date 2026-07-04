@@ -1,0 +1,117 @@
+---
+import { VERDICT_LABELS, type TrendVerdict } from '../lib/trend-drivers';
+
+interface Props {
+  verdict: TrendVerdict;
+  updated: string;
+}
+
+const { verdict, updated } = Astro.props;
+const actionClass = `verdict-action verdict-${verdict.action}`;
+---
+
+<aside class="verdict-box" aria-label="Buying verdict">
+  <div class="verdict-header">
+    <span class={actionClass}>{VERDICT_LABELS[verdict.action]}</span>
+    <span class="verdict-updated">Researched {updated}</span>
+  </div>
+  <p class="verdict-summary">{verdict.summary}</p>
+  <dl class="verdict-details">
+    <div>
+      <dt>Best for</dt>
+      <dd>{verdict.bestFor}</dd>
+    </div>
+    <div>
+      <dt>Skip if</dt>
+      <dd>{verdict.skipIf}</dd>
+    </div>
+  </dl>
+  {verdict.whyFeelGood && <p class="verdict-feel-good">{verdict.whyFeelGood}</p>}
+</aside>
+
+<style>
+  .verdict-box {
+    margin: 1.25rem 0 1.75rem;
+    padding: 1.15rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(34, 211, 238, 0.08), rgba(20, 27, 47, 0.95));
+  }
+
+  .verdict-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .verdict-action {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .verdict-buy {
+    background: rgba(167, 243, 208, 0.2);
+    color: #a7f3d0;
+    border: 1px solid rgba(167, 243, 208, 0.45);
+  }
+
+  .verdict-skip {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fcd34d;
+    border: 1px solid rgba(251, 191, 36, 0.35);
+  }
+
+  .verdict-wait {
+    background: rgba(147, 197, 253, 0.15);
+    color: #93c5fd;
+    border: 1px solid rgba(147, 197, 253, 0.35);
+  }
+
+  .verdict-updated {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .verdict-summary {
+    margin: 0 0 0.85rem;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  .verdict-details {
+    margin: 0;
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .verdict-details dt {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent-2);
+  }
+
+  .verdict-details dd {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .verdict-feel-good {
+    margin: 0.85rem 0 0;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.92rem;
+    color: #c7d2fe;
+  }
+</style>

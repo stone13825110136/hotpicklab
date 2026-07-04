@@ -1,0 +1,149 @@
+{
+  "scoredAt": "2026-07-04",
+  "rubric": {
+    "minPublish": 18,
+    "priorityThreshold": 24,
+    "dimensions": ["d1PurchaseIntent", "d2TrendSignal", "d3DecisionClarity", "d4Monetization", "d5Proof"]
+  },
+  "summary": {
+    "p0Count": 6,
+    "p1Count": 3,
+    "p2Count": 1,
+    "avgScore": 24.1,
+    "upgradeOrder": [
+      "stanley-owala-water-bottles-worth-it-2026",
+      "amazon-prime-day-deals-worth-it-2026",
+      "ai-video-generators-2026",
+      "portable-handheld-fans-amazon-2026",
+      "nintendo-switch-2-accessories",
+      "countertop-nugget-ice-makers-2026",
+      "portable-blenders-amazon-trending",
+      "cooling-neck-fans-amazon-2026",
+      "ai-photo-enhancers-2026",
+      "pickleball-paddles-beginners-2026"
+    ]
+  },
+  "topics": [
+    {
+      "slug": "stanley-owala-water-bottles-worth-it-2026",
+      "title": "Stanley vs Owala — Viral Water Bottles Worth It? (2026)",
+      "primaryPersona": "pre-purchase-amazon-shopper",
+      "scores": { "d1": 6, "d2": 6, "d3": 6, "d4": 3, "d5": 5, "total": 26 },
+      "priority": "P0",
+      "trendDrivers": ["social-proof", "identity-fit", "demo-moment", "platform-halo", "seasonal"],
+      "expectedVerdict": "Buy one — not both. Owala for straw/portability; Stanley for capacity/aesthetic.",
+      "signalNotes": "Multi-year TikTok water-bottle wave; strong 'stanley vs owala worth it' intent; summer + gift season.",
+      "gaps": ["Low Amazon commission only"],
+      "action": "Shopper-proof pilot live — template for remaining P0 briefs"
+    },
+    {
+      "slug": "amazon-prime-day-deals-worth-it-2026",
+      "title": "Amazon Prime Day 2026 — Deals Actually Worth Buying",
+      "primaryPersona": "seasonal-deal-shopper",
+      "scores": { "d1": 6, "d2": 6, "d3": 6, "d4": 4, "d5": 4, "total": 26 },
+      "priority": "P0",
+      "urgency": "high",
+      "trendDrivers": ["seasonal", "social-proof", "low-regret-price"],
+      "expectedVerdict": "Wait for Prime Day only if you already planned the purchase; skip pure impulse.",
+      "signalNotes": "Mid-July 2026 spike; 'prime day worth it' searches peak 2–3 weeks before event.",
+      "gaps": ["Refresh picks 7 days before Prime Day"],
+      "action": "Shopper-proof pilot live — refresh deals before event"
+    },
+    {
+      "slug": "ai-video-generators-2026",
+      "title": "Best AI Video Generators Trending Right Now (2026)",
+      "primaryPersona": "short-form-creator",
+      "scores": { "d1": 5, "d2": 6, "d3": 6, "d4": 5, "d5": 4, "total": 26 },
+      "priority": "P0",
+      "trendDrivers": ["launch-cycle", "social-proof", "platform-halo", "identity-fit"],
+      "expectedVerdict": "CapCut to start; Runway if video is core business; skip if you rarely post.",
+      "signalNotes": "Monthly model launches; 'text to video' rising; creator economy affiliate upside.",
+      "gaps": ["CapCut affiliate pending", "Add Runway vs Pika spoke page later"],
+      "action": "Second pilot for SaaS brief; deepen monetization"
+    },
+    {
+      "slug": "nintendo-switch-2-accessories",
+      "title": "Nintendo Switch 2 Accessories Everyone Is Buying",
+      "primaryPersona": "niche-early-buyer",
+      "scores": { "d1": 6, "d2": 5, "d3": 6, "d4": 4, "d5": 5, "total": 26 },
+      "priority": "P0",
+      "trendDrivers": ["launch-cycle", "social-proof", "platform-halo"],
+      "expectedVerdict": "Buy screen protector first; case if you travel; skip day-one accessory bundles.",
+      "signalNotes": "Launch-window search spike; relabeled Switch 1 junk is a real buyer trap.",
+      "gaps": ["Trend may cool — verify search volume monthly", "Add compatibility callout in verdict"],
+      "action": "Add shopper proof; check if launch spike is fading"
+    },
+    {
+      "slug": "portable-handheld-fans-amazon-2026",
+      "title": "TikTok-Viral Handheld Fans — Actually Worth It? (2026)",
+      "primaryPersona": "pre-purchase-amazon-shopper",
+      "scores": { "d1": 5, "d2": 6, "d3": 6, "d4": 3, "d5": 4, "total": 24 },
+      "priority": "P0",
+      "trendDrivers": ["seasonal", "demo-moment", "low-regret-price", "platform-halo", "social-proof"],
+      "expectedVerdict": "Buy handheld if you commute outdoors in heat; skip if you are mostly in AC.",
+      "signalNotes": "Annual July heat-wave cycle; JISULIFE-style demos drive TikTok → Amazon halo.",
+      "gaps": ["Cluster with neck-fan brief under 'Summer cooling' hub", "Amazon commission low"],
+      "action": "Seasonal push now; link to neck-fan as comparison spoke"
+    },
+    {
+      "slug": "countertop-nugget-ice-makers-2026",
+      "title": "Countertop Nugget Ice Makers — Worth the Hype? (2026)",
+      "primaryPersona": "pre-purchase-amazon-shopper",
+      "scores": { "d1": 5, "d2": 5, "d3": 6, "d4": 4, "d5": 5, "total": 25 },
+      "priority": "P0",
+      "trendDrivers": ["demo-moment", "social-proof", "identity-fit", "seasonal"],
+      "expectedVerdict": "Buy if chewable ice is daily ritual; skip if you hate counter clutter and maintenance.",
+      "signalNotes": "'Good ice' TikTok wave; high AOV ($200–300) = fewer clicks but solid per-sale commission.",
+      "gaps": ["Add noise/maintenance to trendVsTruth", "Strong proof potential — emphasize demo vs reality"],
+      "action": "Good candidate for Trend vs Truth table (hype vs upkeep)"
+    },
+    {
+      "slug": "portable-blenders-amazon-trending",
+      "title": "TikTok-Viral Portable Blenders — Worth It? (2026)",
+      "primaryPersona": "pre-purchase-amazon-shopper",
+      "scores": { "d1": 5, "d2": 5, "d3": 6, "d4": 3, "d5": 4, "total": 23 },
+      "priority": "P1",
+      "trendDrivers": ["seasonal", "demo-moment", "low-regret-price", "platform-halo"],
+      "expectedVerdict": "Buy BlendJet only if you blend 3+ times/week on the go; skip if you need ice daily.",
+      "signalNotes": "Summer/gym cycle; saturated category — differentiation is honest skip list.",
+      "gaps": ["Slightly saturated SEO", "Many clone listings hurt trust"],
+      "action": "Maintain; upgrade proof modules when P0 batch done"
+    },
+    {
+      "slug": "cooling-neck-fans-amazon-2026",
+      "title": "Wearable Neck Fans — TikTok Hype vs Reality (2026)",
+      "primaryPersona": "pre-purchase-amazon-shopper",
+      "scores": { "d1": 5, "d2": 5, "d3": 5, "d4": 3, "d5": 4, "total": 22 },
+      "priority": "P1",
+      "trendDrivers": ["seasonal", "demo-moment", "low-regret-price", "platform-halo"],
+      "expectedVerdict": "Buy for hands-free commute/festival; skip if self-conscious or you need all-day power.",
+      "signalNotes": "Overlaps handheld fan brief — risk of keyword cannibalization.",
+      "gaps": ["Merge into summer cooling cluster", "Add handheld vs neck comparison spoke"],
+      "action": "Cross-link with handheld fan; consider hub page"
+    },
+    {
+      "slug": "ai-photo-enhancers-2026",
+      "title": "Best AI Photo Enhancers for Creators — Worth It? (2026)",
+      "primaryPersona": "short-form-creator",
+      "scores": { "d1": 5, "d2": 4, "d3": 5, "d4": 4, "d5": 4, "total": 22 },
+      "priority": "P1",
+      "trendDrivers": ["launch-cycle", "social-proof", "identity-fit"],
+      "expectedVerdict": "Photoroom for product shots; Canva if you design too; skip if one photo/month.",
+      "signalNotes": "Steady Etsy/reseller demand; less viral spike than AI video — more evergreen.",
+      "gaps": ["Weaker 'trend story' than video brief", "Confirm SaaS affiliate approvals"],
+      "action": "Evergreen maintenance; pair with video brief in creator cluster"
+    },
+    {
+      "slug": "pickleball-paddles-beginners-2026",
+      "title": "Best Pickleball Paddles for Beginners — Worth It? (2026)",
+      "primaryPersona": "niche-early-buyer",
+      "scores": { "d1": 4, "d2": 4, "d3": 5, "d4": 3, "d5": 4, "total": 20 },
+      "priority": "P2",
+      "trendDrivers": ["social-proof", "identity-fit"],
+      "expectedVerdict": "Buy USAPA starter set if trying with a friend; skip full kit if you only need balls.",
+      "signalNotes": "Sport growth is real but less TikTok-impulse than cooling/water bottle categories.",
+      "gaps": ["Lower 'worth it' search volume", "Less urgent seasonal window"],
+      "action": "Keep indexed; refresh only if USAPA rules or top SKUs change"
+    }
+  ]
+}

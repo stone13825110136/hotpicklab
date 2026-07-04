@@ -1,8 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TrendCard from '../components/TrendCard.astro';
+import AudienceSection from '../components/AudienceSection.astro';
 import trends from '../data/trends.json';
 import tools from '../data/tools.json';
+import { AUDIENCE } from '../lib/audience';
 import { SITE } from '../lib/site';
 
 const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
@@ -11,26 +13,53 @@ const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
 <Layout
   title={SITE.name}
   description={SITE.description}
-  keywords={['trending products 2026', 'worth it reviews', 'hot buying guides', 'free shopping tools']}
+  keywords={[
+    'worth it reviews',
+    'trending products 2026',
+    'buying briefs',
+    'amazon viral products',
+    'ai tools for creators',
+  ]}
 >
   <section class="hero">
-    <span class="badge">Updated weekly · US market</span>
-    <h1>What's trending. What's actually worth it.</h1>
+    <span class="badge">US market · Decision-first briefs · Updated weekly</span>
+    <h1>Research-backed buying briefs for products trending now.</h1>
     <p class="muted hero-lead">
-      Curated hotspot buying guides and free tools — honest comparisons, clear pros and cons, no hype.
+      For US shoppers and creators who search <em>worth it</em> before they buy — structured verdicts,
+      skip lists, and free tools. Not hype lists.
+    </p>
+    <p class="hero-cta">
+      <a class="btn" href="/trends">Read buying briefs</a>
+      <a class="btn btn-secondary" href="/methodology">How we research</a>
     </p>
   </section>
 
-  <h2 class="section-title">🔥 Hot right now</h2>
-  <p class="section-intro muted">Spiking topics we narrowed down so you can decide faster.</p>
+  <AudienceSection />
+
+  <section class="value-props">
+    <h2 class="section-title">What you get on every brief</h2>
+    <div class="value-grid">
+      {
+        AUDIENCE.valuePillars.map((pillar) => (
+          <article class="card">
+            <h3>{pillar.title}</h3>
+            <p>{pillar.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <h2 class="section-title">Latest buying briefs</h2>
+  <p class="section-intro muted">Trending topics narrowed to a short list — so you can decide in minutes.</p>
   <div class="grid">
     {hotTrends.map((trend) => <TrendCard trend={trend} />)}
   </div>
   <p class="section-cta">
-    <a href="/trends">Browse all guides →</a>
+    <a href="/trends">Browse all briefs →</a>
   </p>
 
-  <h2 class="section-title">🛠 Free tools</h2>
+  <h2 class="section-title">Research tools</h2>
   <p class="section-intro muted">Bookmark these — use anytime without opening a guide.</p>
   <div class="grid">
     {
@@ -46,32 +75,31 @@ const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
     }
   </div>
 
-  <section class="value-props">
-    <h2 class="section-title">Why HotPick Lab</h2>
-    <div class="value-grid">
-      <article class="card">
-        <h3>Curated, not cluttered</h3>
-        <p>We track what's rising and narrow it to a short list — not endless scroll of affiliate links.</p>
-      </article>
-      <article class="card">
-        <h3>Honest takes</h3>
-        <p>Every pick includes pros, cons, and who should skip it. We tell you when not to buy.</p>
-      </article>
-      <article class="card">
-        <h3>Free tools that help</h3>
-        <p>Small calculators you can use on their own — check a deal, size a video, or set a timer.</p>
-      </article>
-    </div>
-    <p class="section-cta">
-      <a href="/about">How we pick trends →</a>
-    </p>
-  </section>
+  <p class="section-cta about-cta">
+    <a href="/about">About HotPick Lab →</a>
+  </p>
 </Layout>
 
 <style>
   .hero-lead {
     max-width: 42rem;
     font-size: 1.05rem;
+  }
+
+  .hero-lead em {
+    font-style: normal;
+    color: #c7d2fe;
+  }
+
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin: 1.25rem 0 0;
+  }
+
+  .hero-cta .btn {
+    margin-top: 0;
   }
 
   .section-intro {
@@ -82,6 +110,10 @@ const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
     margin: 1rem 0 0;
   }
 
+  .about-cta {
+    margin-top: 2.5rem;
+  }
+
   .value-props {
     margin-top: 3rem;
   }
@@ -89,7 +121,7 @@ const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
   .value-grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     margin-top: 1rem;
   }
 

@@ -5,17 +5,23 @@ import trends from '../../data/trends.json';
 ---
 
 <Layout
-  title="Hot Trends"
-  description="Trending products and tools in the US market — curated picks with honest pros, cons, and prices."
-  keywords={['trending products', 'viral amazon finds', 'ai tools 2026', 'worth it reviews']}
+  title="Buying Briefs"
+  description="Independent buying briefs on trending US products — structured verdicts, skip lists, and compared picks."
+  keywords={['buying briefs', 'worth it reviews', 'trending products', 'viral amazon finds', 'ai tools 2026']}
 >
   <section class="hero">
-    <h1>Hot trends</h1>
-    <p class="muted">
-      What's spiking right now in the US — narrowed to picks worth your attention, with clear pros and cons.
+    <h1>Buying briefs</h1>
+    <p class="muted brief-lead">
+      Structured verdicts on viral Amazon products, AI creator tools, gaming gear, and seasonal deals.
     </p>
   </section>
   <div class="grid">
     {trends.map((trend) => <TrendCard trend={trend} />)}
   </div>
 </Layout>
+
+<style>
+  .brief-lead {
+    max-width: 40rem;
+  }
+</style>

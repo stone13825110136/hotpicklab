@@ -1,0 +1,39 @@
+---
+import { driverLabel } from '../lib/trend-drivers';
+
+interface Props {
+  drivers: string[];
+}
+
+const { drivers } = Astro.props;
+---
+
+<ul class="driver-tags" aria-label="Trend drivers">
+  {drivers.map((key) => (
+    <li>
+      <span class="driver-tag">{driverLabel(key)}</span>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .driver-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+  }
+
+  .driver-tag {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #c7d2fe;
+    background: rgba(34, 211, 238, 0.1);
+    border: 1px solid rgba(34, 211, 238, 0.25);
+  }
+</style>

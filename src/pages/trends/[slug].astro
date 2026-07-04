@@ -1,6 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import TrendCard from '../../components/TrendCard.astro';
+import TrendDriverTags from '../../components/TrendDriverTags.astro';
+import TrendVsTruth from '../../components/TrendVsTruth.astro';
+import VerdictBox from '../../components/VerdictBox.astro';
 import ToolLauncher from '../../components/ToolLauncher.astro';
 import ToolModal from '../../components/ToolModal.astro';
 import trends from '../../data/trends.json';
@@ -24,6 +27,11 @@ const relatedTool = trend.relatedTool
   : null;
 
 const modalSlugs = relatedTool ? [relatedTool.slug] : [];
+
+const hasProof = Boolean(
+  trend.verdict || trend.trendVsTruth || trend.trendDrivers?.length || trend.signalNotes
+);
+const updatedLabel = formatDate(trend.updated);
 ---
 
 <Layout
@@ -36,15 +44,36 @@ const modalSlugs = relatedTool ? [relatedTool.slug] : [];
   <article class="prose guide-article">
     <div class="guide-meta">
       <span class="badge">{CATEGORIES[trend.category] ?? trend.category}</span>
-      {trend.status === 'hot' && <span class="badge">🔥 Trending</span>}
+      {trend.status === 'hot' && <span class="badge badge-hot">High signal</span>}
     </div>
     <h1>{trend.title}</h1>
-    <p class="muted">Updated {formatDate(trend.updated)} · US market</p>
+    <p class="muted">Updated {updatedLabel} · US market</p>
 
     <p class="guide-lead">{trend.summary}</p>
 
+    {
+      trend.verdict && (
+        <VerdictBox verdict={trend.verdict} updated={updatedLabel} />
+      )
+    }
+
     <h2>Why it's trending</h2>
     <p>{trend.whyHot}</p>
+    {trend.signalNotes && <p class="signal-notes">{trend.signalNotes}</p>}
+    {trend.trendDrivers && trend.trendDrivers.length > 0 && (
+      <TrendDriverTags drivers={trend.trendDrivers} />
+    )}
+    {hasProof && (
+      <p class="methodology-link muted">
+        <a href="/methodology">How we research trends →</a>
+      </p>
+    )}
+
+    {
+      trend.trendVsTruth && (
+        <TrendVsTruth intro={trend.trendVsTruth.intro} rows={trend.trendVsTruth.rows} />
+      )
+    }
 
     <h2>Who this is for</h2>
     <ul>
@@ -127,9 +156,29 @@ const modalSlugs = relatedTool ? [relatedTool.slug] : [];
     margin-bottom: 0.75rem;
   }
 
+  .badge-hot {
+    background: rgba(255, 107, 53, 0.15);
+    color: #ffb38a;
+    border: 1px solid rgba(255, 107, 53, 0.35);
+  }
+
   .guide-lead {
     font-size: 1.08rem;
     line-height: 1.55;
     color: #d9e2ff;
+  }
+
+  .signal-notes {
+    margin-top: 0.65rem;
+    padding: 0.75rem 0.9rem;
+    border-left: 3px solid var(--accent-2);
+    background: rgba(34, 211, 238, 0.06);
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .methodology-link {
+    margin: 0.75rem 0 0;
+    font-size: 0.88rem;
   }
 </style>

@@ -1,19 +1,23 @@
 #!/usr/bin/env node
 /** Ping IndexNow (Bing/Yandex) after new pages go live. */
 
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+
 const HOST = 'hotpicklab.com';
 const KEY = '8f3a2b1c9d4e5f60718293a4b5c6d7e8';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const trends = JSON.parse(readFileSync(join(root, 'src/data/trends.json'), 'utf8'));
+const tools = JSON.parse(readFileSync(join(root, 'src/data/tools.json'), 'utf8'));
+
+const staticPaths = ['', '/trends', '/tools', '/about', '/methodology', '/privacy'];
 const URLS = [
-  `https://${HOST}/`,
-  `https://${HOST}/trends/ai-video-generators-2026`,
-  `https://${HOST}/trends/portable-blenders-amazon-trending`,
-  `https://${HOST}/trends/nintendo-switch-2-accessories`,
-  `https://${HOST}/trends/portable-handheld-fans-amazon-2026`,
-  `https://${HOST}/tools/video-aspect-ratio-calculator`,
-  `https://${HOST}/tools/gaming-session-timer`,
-  `https://${HOST}/tools/amazon-prime-day-savings-calculator`,
+  ...staticPaths.map((p) => `https://${HOST}${p || '/'}`),
+  ...trends.map((t) => `https://${HOST}/trends/${t.slug}`),
+  ...tools.map((t) => `https://${HOST}/tools/${t.slug}`),
 ];
 
 const res = await fetch('https://api.indexnow.org/indexnow', {
