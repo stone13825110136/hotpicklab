@@ -80,6 +80,51 @@ function dedupe(candidates) {
   });
 }
 
+/** When Google/Reddit are blocked, still send pickable seasonal items. */
+function getSeasonalFallbackCandidates() {
+  const year = new Date().getFullYear();
+  const month = new Date().getMonth() + 1;
+  const items = [];
+
+  if (month >= 6 && month <= 7) {
+    items.push({
+      source: 'seasonal-calendar',
+      title: 'Amazon Prime Day deals worth buying',
+      keyword: 'Prime Day 2026 deals',
+      suggestedSlug: `amazon-prime-day-deals-worth-it-${year}`,
+      category: 'amazon-trending',
+      reason: 'Prime Day mid-July — update existing guide + Bing resubmit',
+      score: 94,
+      commissionHint: 'amazon-associates',
+    });
+  }
+
+  items.push(
+    {
+      source: 'seasonal-calendar',
+      title: 'Stanley vs Owala water bottles — worth the hype?',
+      keyword: 'Stanley vs Owala',
+      suggestedSlug: `stanley-owala-water-bottles-worth-it-${year}`,
+      category: 'amazon-trending',
+      reason: 'Evergreen Amazon trending — strong Bing long-tail',
+      score: 88,
+      commissionHint: 'amazon-associates',
+    },
+    {
+      source: 'seasonal-calendar',
+      title: 'Portable handheld fans — TikTok hype check',
+      keyword: 'JISULIFE handheld fan worth it',
+      suggestedSlug: `portable-handheld-fans-amazon-${year}`,
+      category: 'amazon-trending',
+      reason: 'Summer seasonal — matches live guide on site',
+      score: 82,
+      commissionHint: 'amazon-associates',
+    },
+  );
+
+  return items.map((c, i) => ({ ...c, id: i + 1 }));
+}
+
 export async function runRadarScan() {
   const [trends, amazonFinds, aiSubs] = await Promise.all([
     fetchGoogleTrendsUS().catch((e) => {
@@ -90,13 +135,14 @@ export async function runRadarScan() {
     fetchReddit('ArtificialInteligence', 3).catch(() => []),
   ]);
 
-  const candidates = dedupe([...amazonFinds, ...aiSubs, ...trends])
+  let candidates = dedupe([...amazonFinds, ...aiSubs, ...trends])
     .sort((a, b) => b.score - a.score)
     .slice(0, 10)
     .map((c, i) => ({ ...c, id: i + 1 }));
 
   if (candidates.length === 0) {
-    console.warn('No candidates found — check network or data sources');
+    console.warn('Live sources empty — using seasonal fallback picks');
+    candidates = getSeasonalFallbackCandidates();
   }
 
   const date = new Date().toISOString().slice(0, 10);

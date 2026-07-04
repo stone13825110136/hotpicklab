@@ -11,8 +11,19 @@ const result = await sendPushPlus({
   template: 'txt',
 });
 
-console.log('WeChat push:', result.ok ? 'sent' : 'skipped');
-console.log(JSON.stringify({ date: payload.date, count: payload.candidates.length, push: result }, null, 2));
+console.log('WeChat push:', result.ok ? 'sent' : result.skipped ? 'skipped (no token)' : 'failed');
+console.log(
+  JSON.stringify(
+    {
+      date: payload.date,
+      count: payload.candidates.length,
+      push: result,
+      pushplusData: result.data?.data ?? null,
+    },
+    null,
+    2,
+  ),
+);
 
 if (process.env.GITHUB_ACTIONS === 'true') {
   if (result.skipped) {
