@@ -3,6 +3,9 @@ import trends from '../data/trends.json';
 import tools from '../data/tools.json';
 import { SITE } from '../lib/site';
 
+/** Static file at build time — Bing/Google must not hit a failing server route. */
+export const prerender = true;
+
 export const GET: APIRoute = () => {
   const staticPaths = ['', '/trends', '/tools', '/about', '/methodology', '/how-we-find-trends', '/privacy', '/disclosure'];
   const trendPaths = trends.map((t) => `/trends/${t.slug}`);
