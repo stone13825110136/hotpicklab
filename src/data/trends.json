@@ -333,13 +333,13 @@
     "slug": "amazon-prime-day-deals-worth-it-2026",
     "title": "Amazon Prime Day 2026 — Deals Actually Worth Buying",
     "category": "amazon-trending",
-    "trendScore": 94,
+    "trendScore": 96,
     "searchVolume": "spike",
     "updated": "2026-07-04",
-    "summary": "Prime Day hype lists are endless. We filtered to categories that are usually real discounts — not junk you will return in a week.",
-    "whyHot": "Prime Day (mid-July) spikes searches for 'best deals' and 'worth it Prime Day.' Shoppers want a short list before carts fill with impulse buys.",
+    "summary": "Prime Day 2026 lands mid-July. We trimmed the hype to staples that usually see real discounts — plus a free calculator to check whether a 'deal' is actually a deal before you checkout.",
+    "whyHot": "Search volume for 'Prime Day 2026 deals' climbs about two weeks before the sale. Right now is list-building season — not cart-filling season.",
     "trendDrivers": ["seasonal", "social-proof", "low-regret-price"],
-    "signalNotes": "Prime Day searches climb 2–3 weeks before mid-July. Deal listicles spike across social — we filtered for categories that usually discount real staples, not junk returns.",
+    "signalNotes": "Radar pick (Jul 4): Prime Day window approaching mid-July 2026. Early deal pages are live — use our calculator and price targets before lightning-deal pressure hits.",
     "trendVsTruth": {
       "intro": "Prime Day is a real sale window. It is also designed to make everything feel urgent.",
       "rows": [
@@ -363,10 +363,10 @@
     },
     "verdict": {
       "action": "wait",
-      "summary": "Wait for Prime Day only for purchases you already planned — replace worn gear, gifts you budgeted, or tools you use weekly. Skip the event entirely if you are shopping because the banner says 'deal.'",
-      "bestFor": "Prime members with one or two planned upgrades (kitchen, smart home entry) and a price target in mind before the sale starts.",
+      "summary": "Wait to buy until Prime Day week — but start now: pick one or two items you already planned (smart speaker, pressure cooker, replace worn gear) and set a target price. Use the savings calculator when early 'deal' banners appear.",
+      "bestFor": "Prime members with a short pre-sale list and a max price in mind before July 14–16-style deal windows.",
       "skipIf": "You do not have Prime, you are buying purely because of countdown timers, or the 'deal' is only a few dollars off a no-name listing.",
-      "whyFeelGood": "Showing up with a short list — Echo Pop if you wanted smart home, Instant Pot if you cook — beats scrolling infinite deal walls."
+      "whyFeelGood": "A two-item list — Echo Pop if you wanted Alexa, Instant Pot if you cook — beats scrolling infinite deal walls when the sale actually starts."
     },
     "commissionType": "amazon-associates",
     "commissionNote": "Electronics & kitchen ~4-8% on Amazon Associates.",
@@ -381,11 +381,12 @@
       "The 'deal' is only a few dollars off a no-name listing"
     ],
     "buyerPitfalls": [
+      "Early July 'Prime Day' teasers are not always the lowest price — compare before the main event",
       "Inflated 'was' prices make discounts look bigger than they are",
       "Lightning deals pressure you — compare the normal 30-day price first",
       "Open-box and third-party sellers mixed into deal pages — check who ships"
     ],
-    "keywords": ["amazon prime day 2026", "best prime day deals", "prime day worth it"],
+    "keywords": ["amazon prime day 2026", "best prime day deals", "prime day worth it", "prime day deals july 2026"],
     "products": [
       {
         "name": "Echo Pop (Smart Speaker)",
