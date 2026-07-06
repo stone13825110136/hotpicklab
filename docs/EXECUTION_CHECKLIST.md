@@ -28,6 +28,7 @@
 - [x] Amazon Associates 已批 — tag `hotpicklab20-20`
 - [x] trends.json 联盟链接已换真实 tag
 - [x] `npm run verify-links` 全部 Amazon 链接 200
+- [x] **产品图必须真实** — `npm run scrape-images` + `verify-images` 已接入 build（缺图会阻断部署）
 - [ ] **Prime Day 窗口（7 月中旬）** — 内容已就绪，盯收录与展示
 - [ ] Quora — **跳过**（国内打不开）
 - [ ] Reddit — **跳过**（自由门 / 代理 IP 被屏蔽）
@@ -71,7 +72,7 @@ https://hotpicklab.com/tools/amazon-prime-day-savings-calculator/
 1. 微信雷达 PushPlus 推送 → 看 candidates
 2. Bing 搜 site:hotpicklab.com → 记收录条数
 3. （可选，需翻墙）Google Trends 美国 Rising
-4. 有符合条件且未重复的 → 改 trends.json → push → indexnow
+4. 有符合条件且未重复的 → 改 trends.json → **`npm run scrape-images`** → push → indexnow
 ```
 
 ---

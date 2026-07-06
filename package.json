@@ -4,14 +4,16 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/verify-affiliate-links.mjs && astro build",
+    "build": "node scripts/verify-affiliate-links.mjs && node scripts/verify-product-images.mjs && astro build",
     "preview": "astro preview",
     "radar": "node scripts/daily-radar.mjs",
     "radar:scan": "node scripts/scan-trends.mjs",
     "radar:test-push": "node scripts/test-pushplus.mjs",
     "indexnow": "node scripts/ping-indexnow.mjs",
     "promote": "node scripts/promote-helper.mjs",
-    "verify-links": "node scripts/verify-affiliate-links.mjs"
+    "verify-links": "node scripts/verify-affiliate-links.mjs",
+    "verify-images": "node scripts/verify-product-images.mjs",
+    "scrape-images": "node scripts/scrape-all-amazon-images.mjs"
   },
   "dependencies": {
     "astro": "^5.7.10"

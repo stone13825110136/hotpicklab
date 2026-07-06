@@ -2,6 +2,8 @@
  * Amazon product social proof — fetched 2026-07-06 from amazon.com/dp pages.
  * Re-run: node scripts/fetch-amazon-meta.mjs
  */
+import amazonProductImages from '../data/amazon-product-images.json';
+
 export type AmazonProductMeta = {
   shortName: string;
   rating: number;
@@ -49,27 +51,13 @@ export function amazonCtaLabel(shortName: string): string {
 
 /**
  * Per-ASIN Amazon product photo URLs (hiRes from product pages).
- * Generic /images/P/{ASIN}.01._SL500_.jpg often returns a 1x1 placeholder GIF for some ASINs.
- * Refresh: node scripts/scrape-all-amazon-images.mjs (2026-07-06)
+ * Source: src/data/amazon-product-images.json — refresh with npm run scrape-images
  */
-export const AMAZON_PRODUCT_IMAGES: Record<string, string> = {
-  B0D3VQ2YLG: 'https://m.media-amazon.com/images/I/711YR6asQxL._AC_SL1500_.jpg',
-  B0017XHSC2: 'https://m.media-amazon.com/images/I/6119zYpvpoL._AC_SL1500_.jpg',
-  B0DRCKDWD1: 'https://m.media-amazon.com/images/I/61eLt9bO17L._AC_SL1500_.jpg',
-  B0DRV6H6VM: 'https://m.media-amazon.com/images/I/81zN4IX1pML._SL1500_.jpg',
-  B0CR3JJJTS: 'https://m.media-amazon.com/images/I/61MskgkLE6L._AC_SL1500_.jpg',
-  B0865ZR8DB: 'https://m.media-amazon.com/images/I/71SRioWH3mL._AC_SL1500_.jpg',
-  B09B8V1LZ3: 'https://m.media-amazon.com/images/I/61J2sQtBYDL._AC_SL1500_.jpg',
-  B00FLYWNYQ: 'https://m.media-amazon.com/images/I/71Z401LjFFL._AC_SL1500_.jpg',
-  B0CRMYT2WC: 'https://m.media-amazon.com/images/I/61bBQS+lKJL._AC_SL1500_.jpg',
-  B085DVNHHK: 'https://m.media-amazon.com/images/I/71XJK6bWJKL._AC_SL1500_.jpg',
-  B08M8VFJ2Z: 'https://m.media-amazon.com/images/I/71+iQvOVH+L._AC_SL1500_.jpg',
-  B09HWD3FZN: 'https://m.media-amazon.com/images/I/71AB1lG7A6L._AC_SL1500_.jpg',
-  B0BNTL3Q2C: 'https://m.media-amazon.com/images/I/71nAtm2q7EL._AC_SL1500_.jpg',
-  B07GVDXW5D: 'https://m.media-amazon.com/images/I/716IY53o9TL._AC_SL1500_.jpg',
-  B088ZN47V8: 'https://m.media-amazon.com/images/I/61Fa85X0GNL._AC_SL1500_.jpg',
-  B0BYSKX3BX: 'https://m.media-amazon.com/images/I/61HkG-lkuRL._AC_SL1500_.jpg',
-};
+export const AMAZON_PRODUCT_IMAGES: Record<string, string> = Object.fromEntries(
+  Object.entries(amazonProductImages).filter(
+    ([key, value]) => !key.startsWith('_') && typeof value === 'string',
+  ),
+) as Record<string, string>;
 
 export function getAmazonProductImageUrl(asin: string): string | null {
   return AMAZON_PRODUCT_IMAGES[asin.toUpperCase()] ?? null;
