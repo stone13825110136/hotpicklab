@@ -1,4 +1,4 @@
-import { amazonProductPhotoUrl, hasVerifiedAmazonPhoto } from './amazon-product-meta';
+import { getAmazonProductImageUrl } from './amazon-product-meta';
 
 /** Extract ASIN from amazon.com/dp/... affiliate URLs */
 export function extractAmazonAsin(url: string): string | null {
@@ -55,14 +55,15 @@ export function resolveProductImageFallback(affiliateUrl: string, image?: string
   return PRODUCT_IMAGE_PLACEHOLDER;
 }
 
-/** Prefer verified Amazon photos; otherwise self-hosted SVG (avoids 1x1 Amazon placeholder GIFs). */
+/** Per-ASIN Amazon hiRes photo when known; else self-hosted SVG. */
 export function resolveProductImage(
   affiliateUrl: string,
   image?: string,
 ): string {
   const asin = extractAmazonAsin(affiliateUrl);
-  if (asin && hasVerifiedAmazonPhoto(asin)) {
-    return amazonProductPhotoUrl(asin);
+  const amazonPhoto = asin ? getAmazonProductImageUrl(asin) : null;
+  if (amazonPhoto) {
+    return amazonPhoto;
   }
 
   if (asin && LOCAL_ASIN_IMAGES[asin]) {
