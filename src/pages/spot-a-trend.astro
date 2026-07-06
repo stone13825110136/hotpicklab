@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../lib/site';
+
+const subject = encodeURIComponent('Trend tip for HotPick Lab');
+const body = encodeURIComponent(
+  'What product or trend should we research?\n\nWhere you saw it (TikTok, Reddit, search, etc.):\n\nYour question (worth it? vs something else?):\n\n'
+);
+const mailto = `mailto:${SITE.contactEmail}?subject=${subject}&body=${body}`;
+---
+
+<Layout
+  title="Spot a trend"
+  description="Suggest a trending product or topic for a HotPick Lab buying brief. Private email — we read every tip."
+  keywords={['spot a trend', 'suggest product research', 'hotpick lab tip']}
+>
+  <article class="prose spot-page">
+    <h1>Spot a trend</h1>
+    <p class="spot-lead">
+      See something spiking on TikTok, Reddit, or Amazon that we have not covered? Send a private tip.
+      We read every message — no public comment threads, no spam.
+    </p>
+
+    <h2>What to include</h2>
+    <ul>
+      <li>Product name or trend (e.g. “JISULIFE neck fan”, “nugget ice maker under $200”)</li>
+      <li>Where you saw it — search query, subreddit, creator, sale event</li>
+      <li>Your real question — worth it? vs a competitor? buy now or wait?</li>
+    </ul>
+
+    <p>
+      <a class="btn" href={mailto}>Email {SITE.contactEmail}</a>
+    </p>
+    <p class="muted">
+      Opens your mail app with a template. We do not publish your email or run a public submission feed.
+    </p>
+
+    <h2>What happens next</h2>
+    <p>
+      Tips that match US purchase intent and fit our brief format may become a new guide or FAQ update.
+      We cannot reply to every message, but high-signal trends get prioritized in our weekly scan.
+    </p>
+    <p>
+      <a href="/about#how-we-pick">How we choose topics →</a>
+    </p>
+  </article>
+</Layout>
+
+<style>
+  .spot-lead {
+    font-size: 1.05rem;
+    color: #d9e2ff;
+    max-width: 40rem;
+  }
+</style>

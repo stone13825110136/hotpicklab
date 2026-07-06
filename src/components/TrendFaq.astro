@@ -1,0 +1,70 @@
+---
+import type { TrendFaqItem } from '../lib/trend-faqs';
+
+interface Props {
+  items: TrendFaqItem[];
+}
+
+const { items } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <section class="trend-faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Common questions</h2>
+      <p class="muted faq-intro">
+        Answers shaped by what US shoppers actually search — updated when new queries show up in search data.
+      </p>
+      <dl class="faq-list">
+        {items.map((item) => (
+          <div class="faq-item">
+            <dt>{item.question}</dt>
+            <dd>{item.answer}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  )
+}
+
+<style>
+  .trend-faq {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .faq-intro {
+    margin: -0.25rem 0 1rem;
+    font-size: 0.92rem;
+  }
+
+  .faq-list {
+    margin: 0;
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .faq-item {
+    margin: 0;
+    padding: 1rem 1.1rem;
+    background: rgba(20, 27, 47, 0.6);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  .faq-item dt {
+    margin: 0 0 0.45rem;
+    font-weight: 700;
+    color: var(--text);
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .faq-item dd {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+</style>

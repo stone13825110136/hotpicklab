@@ -7,7 +7,7 @@ import { SITE } from '../lib/site';
 export const prerender = true;
 
 export const GET: APIRoute = () => {
-  const staticPaths = ['', '/trends', '/tools', '/about', '/methodology', '/how-we-find-trends', '/privacy', '/disclosure'];
+  const staticPaths = ['', '/trends', '/tools', '/about', '/methodology', '/how-we-find-trends', '/spot-a-trend', '/privacy', '/disclosure'];
   const trendPaths = trends.map((t) => `/trends/${t.slug}`);
   const toolPaths = tools.map((t) => `/tools/${t.slug}`);
   const allPaths = [...staticPaths, ...trendPaths, ...toolPaths];

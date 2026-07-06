@@ -103,5 +103,9 @@ export const AUDIENCE = {
       title: 'Tools for the decision moment',
       body: 'Calculators for deal math, video sizes, and session timing — usable on their own, without reading a full guide first.',
     },
+    {
+      title: 'FAQs that follow search',
+      body: 'Each brief answers the exact questions US shoppers type — updated when new queries show up in search data, not buried in comment threads.',
+    },
   ],
 };

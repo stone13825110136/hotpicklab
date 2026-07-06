@@ -12,6 +12,8 @@ import { CATEGORIES, formatDate, SITE } from '../../lib/site';
 import { resolveProductImage, resolveProductImageFallback, PRODUCT_IMAGE_PLACEHOLDER } from '../../lib/product-images';
 import { amazonCtaLabel, getAmazonProductMeta } from '../../lib/amazon-product-meta';
 import ProductSocialProof from '../../components/ProductSocialProof.astro';
+import TrendFaq from '../../components/TrendFaq.astro';
+import { getTrendFaqs } from '../../lib/trend-faqs';
 
 export function getStaticPaths() {
   return trends.map((trend) => ({ params: { slug: trend.slug } }));
@@ -34,6 +36,22 @@ const hasProof = Boolean(
   trend.verdict || trend.trendVsTruth || trend.trendDrivers?.length || trend.signalNotes
 );
 const updatedLabel = formatDate(trend.updated);
+const faqs = getTrendFaqs(trend.slug);
+const faqJsonLd =
+  faqs.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((item) => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : null;
 ---
 
 <Layout
@@ -147,7 +165,20 @@ const updatedLabel = formatDate(trend.updated);
         </>
       )
     }
+
+    <TrendFaq items={faqs} />
+
+    <p class="spot-trend muted">
+      See something trending we have not covered?
+      <a href="/spot-a-trend">Spot a trend →</a>
+    </p>
   </article>
+
+  {
+    faqJsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+    )
+  }
 
   {modalSlugs.length > 0 && <ToolModal slugs={modalSlugs} />}
 </Layout>
@@ -188,5 +219,10 @@ const updatedLabel = formatDate(trend.updated);
   .methodology-link {
     margin: 0.75rem 0 0;
     font-size: 0.88rem;
+  }
+
+  .spot-trend {
+    margin-top: 1.5rem;
+    font-size: 0.92rem;
   }
 </style>
