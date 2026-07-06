@@ -45,6 +45,23 @@ export function amazonCtaLabel(shortName: string): string {
   return `Check ${shortName} price on Amazon →`;
 }
 
+/** ASINs where m.media-amazon.com/images/P/{ASIN}.01._SL500_.jpg returns a real JPEG (not 43-byte placeholder GIF). Run scripts/check-amazon-images.mjs to refresh. */
+export const VERIFIED_AMAZON_PHOTO_ASINS = new Set([
+  'B0017XHSC2',
+  'B0CR3JJJTS',
+  'B0865ZR8DB',
+  'B09B8V1LZ3',
+  'B00FLYWNYQ',
+  'B0CRMYT2WC',
+  'B085DVNHHK',
+  'B08M8VFJ2Z',
+  'B09HWD3FZN',
+]);
+
 export function amazonProductPhotoUrl(asin: string): string {
   return `https://m.media-amazon.com/images/P/${asin}.01._SL500_.jpg`;
+}
+
+export function hasVerifiedAmazonPhoto(asin: string): boolean {
+  return VERIFIED_AMAZON_PHOTO_ASINS.has(asin.toUpperCase());
 }
