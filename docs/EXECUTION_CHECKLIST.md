@@ -20,7 +20,7 @@
 - [x] `hotpicklab.com prime day` 指南排 Bing 第一条
 - [x] `npm run indexnow` — 19 URL，200 OK（2026-07-06）
 - [ ] **`site:hotpicklab.com` 从 1 条涨到 10+**（等 1–2 周，每周查一次）
-- [ ] **Bing Webmaster 手动提交重点 URL**（见下方步骤，需你登录操作）
+- [x] **Bing Webmaster 手动提交重点 URL**（2026-07-06：Prime Day、风扇、Stanley、sitemap 已提交）
 - [ ] Google Search Console（需稳定翻墙，非紧急）
 
 ### 阶段 B：能赚钱（进行中）
