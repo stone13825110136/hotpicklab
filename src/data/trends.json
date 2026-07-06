@@ -336,24 +336,24 @@
     "trendScore": 96,
     "searchVolume": "spike",
     "updated": "2026-07-06",
-    "summary": "Prime Day 2026 lands mid-July. Sale week is the buy window — we list staples that usually see real discounts, with target prices and a free calculator so you only checkout when the deal is real.",
-    "whyHot": "Search volume for 'Prime Day 2026 deals' climbs about two weeks before the sale. We are in the final prep window — pick your list now, buy when prices hit during the event.",
+    "summary": "Prime Day 2026 ran June 23–26. If you missed it, here is what was actually worth buying — and when to wait for the next real markdown instead of paying full price today.",
+    "whyHot": "Post-sale searches spike for 'did I miss Prime Day' and 'Prime Day vs Black Friday.' Shoppers still want to know whether checkout makes sense after the event ends.",
     "trendDrivers": ["seasonal", "social-proof", "low-regret-price"],
-    "signalNotes": "Updated Jul 6: Prime Day week (~July 14–16) is the conversion window. Check Echo Pop and Instant Pot prices during the sale — use the calculator before lightning-deal pressure hits.",
+    "signalNotes": "Updated Jul 6 post-event: Prime Day 2026 ended June 26. Echo Pop and Instant Pot were watchlist staples — compare today's price to your target before buying; next big window is typically October Prime Big Deal Days or Black Friday.",
     "trendVsTruth": {
-      "intro": "Prime Day is a real sale window. It is also designed to make everything feel urgent.",
+      "intro": "Prime Day was a real sale window. It is also designed to make everything feel urgent — including the week after.",
       "rows": [
         {
           "trendSays": "Everything on Prime Day is a must-buy deal.",
-          "fullPicture": "Many items are small markdowns on things you never planned to own. A deal is only good if you already wanted the product."
+          "fullPicture": "Many items were small markdowns on things you never planned to own. A deal is only good if you already wanted the product."
+        },
+        {
+          "trendSays": "If you missed Prime Day, you lost your only chance.",
+          "fullPicture": "Staples like Echo and Instant Pot often dip again on Prime Big Deal Days and Black Friday. Paying full price the week after is usually the worst timing."
         },
         {
           "trendSays": "Lightning deals mean you must buy now.",
           "fullPicture": "Check the 30-day price history first. Inflated 'was' prices make discounts look bigger than they are."
-        },
-        {
-          "trendSays": "More items in cart = more savings.",
-          "fullPicture": "One or two planned upgrades beat a cart full of impulse gadgets you will return."
         },
         {
           "trendSays": "If it is on a Prime Day list, it is the best in class.",
@@ -362,11 +362,11 @@
       ]
     },
     "verdict": {
-      "action": "buy",
-      "summary": "Buy during Prime Day week (~July 14–16) when the price hits your target — Echo Pop and Instant Pot are our watchlist picks. Use the savings calculator before checkout; skip cart-fillers you did not plan before the sale.",
-      "bestFor": "Prime members with one or two planned items and a max price written down before the sale starts.",
-      "skipIf": "You do not have Prime, the 'deal' is only a few dollars off, or you are buying because of countdown timers — not because you wanted the product.",
-      "whyFeelGood": "You are buying on a real markdown during the sale window — not on a teaser banner a week early."
+      "action": "wait",
+      "summary": "Wait unless you need an item today at a price you already researched. Prime Day 2026 ended June 26 — Echo Pop and Instant Pot are worth buying only when the price hits your target again, likely on the next fall sale event.",
+      "bestFor": "Shoppers who wrote down one or two items and a max price before Prime Day — and can still wait for the next markdown.",
+      "skipIf": "You are paying full post-sale price out of FOMO, the 'deal' is only a few dollars off, or you are buying because of countdown timers — not because you wanted the product.",
+      "whyFeelGood": "You are not panic-buying after the sale — you are waiting for a verified price drop on something you already planned to own."
     },
     "commissionType": "amazon-associates",
     "commissionNote": "Electronics & kitchen ~4-8% on Amazon Associates.",
@@ -381,12 +381,12 @@
       "The 'deal' is only a few dollars off a no-name listing"
     ],
     "buyerPitfalls": [
-      "Early July 'Prime Day' teasers are not always the lowest price — compare before the main event",
-      "Inflated 'was' prices make discounts look bigger than they are",
+      "Paying full price the week after Prime Day is often worse than waiting for the next fall sale",
+      "Inflated 'was' prices make post-event 'deals' look bigger than they are",
       "Lightning deals pressure you — compare the normal 30-day price first",
       "Open-box and third-party sellers mixed into deal pages — check who ships"
     ],
-    "keywords": ["amazon prime day 2026", "best prime day deals", "prime day worth it", "prime day deals july 2026"],
+    "keywords": ["amazon prime day 2026", "missed prime day", "prime day worth it", "prime day vs black friday"],
     "products": [
       {
         "name": "Echo Pop (Smart Speaker)",
@@ -407,6 +407,89 @@
         "affiliateUrl": "https://www.amazon.com/dp/B00FLYWNYQ?tag=hotpicklab20-20",
         "affiliateNote": "Amazon Associates — hotpicklab20-20",
         "image": "/images/products/instant-pot.svg"
+      }
+    ],
+    "relatedTool": "amazon-prime-day-savings-calculator",
+    "status": "hot"
+  },
+  {
+    "slug": "ninja-creami-vs-slushi-worth-it-2026",
+    "title": "Ninja CREAMi vs SLUSHi — Worth It in 2026?",
+    "category": "amazon-trending",
+    "trendScore": 91,
+    "searchVolume": "high",
+    "updated": "2026-07-06",
+    "summary": "Ninja CREAMi and SLUSHi both blew up on TikTok and sold out during Prime Day 2026. They are not the same machine — one makes scoopable frozen treats, the other makes pourable slushies. Here is who should buy which.",
+    "whyHot": "Summer drink content and Prime Day sellout lists keep 'ninja creami vs slushi' and 'is ninja creami worth it' climbing on Amazon. Many shoppers impulse-buy the wrong one.",
+    "trendDrivers": ["seasonal", "social-proof", "demo-moment", "platform-halo"],
+    "signalNotes": "Prime Day 2026 sellout predictor category; 'ninja creami worth it' and 'ninja slushi machine' searches spike every summer — high ticket ($200–350), so use-case fit matters more than TikTok demos.",
+    "trendVsTruth": {
+      "intro": "Both machines make cold treats at home. CREAMi is for spoonable desserts; SLUSHi is for drinkable frozen beverages — not interchangeable.",
+      "rows": [
+        {
+          "trendSays": "CREAMi and SLUSHi do the same thing.",
+          "fullPicture": "CREAMi spins a pre-frozen pint into ice cream, sorbet, or smoothie bowls. SLUSHi chills liquid in an 88-oz vessel into slushies and frappés — no pre-freezing step."
+        },
+        {
+          "trendSays": "You can make slushies in a CREAMi.",
+          "fullPicture": "CREAMi output is thick and scoopable. SLUSHi is built for pourable drinks at party scale — different texture and workflow."
+        },
+        {
+          "trendSays": "CREAMi is instant — just press a button.",
+          "fullPicture": "You freeze your base in a pint for ~24 hours first. SLUSHi is faster day-of once you pour liquid in."
+        },
+        {
+          "trendSays": "Everyone needs one after Prime Day FOMO.",
+          "fullPicture": "Skip both if you rarely drink iced treats, hate cleaning appliances, or have no counter space — convenience-store runs may beat a $250+ gadget."
+        }
+      ]
+    },
+    "verdict": {
+      "action": "buy",
+      "summary": "Buy CREAMi if you want customizable ice cream, gelato, and smoothie bowls you will eat weekly. Buy SLUSHi if you host summer gatherings and want large-batch slushies and frappés without ice. Skip both if frozen treats are a once-a-month craving.",
+      "bestFor": "CREAMi: households that make protein ice cream or sorbet on repeat. SLUSHi: party hosts and iced-drink households who want 7+ servings per batch.",
+      "skipIf": "You rarely drink cold treats, kitchen counter space is full, you hate multi-part cleanup, or you only wanted a TikTok kitchen flex.",
+      "whyFeelGood": "You are matching the machine to what you actually consume — scoopable dessert vs pourable drinks — not buying whichever sold out first."
+    },
+    "commissionType": "amazon-associates",
+    "commissionNote": "Kitchen appliances ~4-8%; $200–350 ticket = solid commission per sale when intent is high.",
+    "whoItsFor": [
+      "Households that make iced coffee, slushies, or frozen cocktails in summer",
+      "Parents who want portion-controlled homemade ice cream (CREAMi)",
+      "Hosts who want party-scale frozen drinks without bagged ice (SLUSHi)"
+    ],
+    "whoShouldSkip": [
+      "You drink hot beverages only or rarely want cold treats",
+      "Counter space is already full — SLUSHi is especially tall and heavy",
+      "You will not run the cleanup cycle — both need regular washing"
+    ],
+    "buyerPitfalls": [
+      "CREAMi requires 24-hour pre-freeze — not a same-day craving fix",
+      "SLUSHi needs sugar or sweetener in most liquids — diet drinks may not slush well",
+      "Post-Prime Day full price hurts — set a target price and wait for the next sale if you can",
+      "CREAMi pints and SLUSHi vessel take freezer/fridge planning — not zero prep"
+    ],
+    "keywords": ["ninja creami worth it", "ninja creami vs slushi", "ninja slushi machine", "is ninja creami worth it 2026"],
+    "products": [
+      {
+        "name": "Ninja CREAMi NC301",
+        "tag": "Best for ice cream",
+        "price": "~$180–220",
+        "pros": ["7 one-touch programs", "Custom mix-ins", "Compact vs SLUSHi"],
+        "cons": ["24-hour pre-freeze required", "Small pint batches"],
+        "affiliateUrl": "https://www.amazon.com/dp/B08QXB9BH5?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/ninja-creami.svg"
+      },
+      {
+        "name": "Ninja SLUSHi FS301",
+        "tag": "Best for slushies",
+        "price": "~$250–350",
+        "pros": ["88-oz vessel — 7+ servings", "No ice needed", "Keeps slush up to 12 hours"],
+        "cons": ["Larger footprint", "Premium price", "Liquids need sweetener to freeze well"],
+        "affiliateUrl": "https://www.amazon.com/dp/B0D2LZYQ2M?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/ninja-slushi.svg"
       }
     ],
     "relatedTool": "amazon-prime-day-savings-calculator",

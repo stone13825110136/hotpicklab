@@ -26,6 +26,8 @@ export const AMAZON_PRODUCT_META: Record<string, AmazonProductMeta> = {
   B07GVDXW5D: { shortName: 'Niupipo paddle set', rating: 4.6, reviewCount: 9211 },
   B088ZN47V8: { shortName: 'JISULIFE neck fan', rating: 4.1, reviewCount: 12267 },
   B0BYSKX3BX: { shortName: 'JISULIFE Neck Fan Pro', rating: 4.1, reviewCount: 12983 },
+  B08QXB9BH5: { shortName: 'Ninja CREAMi', rating: 4.4, reviewCount: 28500, ratingNote: 'approx. count' },
+  B0D2LZYQ2M: { shortName: 'Ninja SLUSHi', rating: 4.5, reviewCount: 2100, ratingNote: 'approx. count' },
 };
 
 export function getAmazonProductMeta(affiliateUrl: string): AmazonProductMeta | null {

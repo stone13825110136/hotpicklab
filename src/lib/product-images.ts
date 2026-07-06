@@ -29,6 +29,8 @@ const LOCAL_ASIN_IMAGES: Record<string, string> = {
   B07GVDXW5D: '/images/products/pickleball-set.svg',
   B088ZN47V8: '/images/products/neck-fan.svg',
   B0BYSKX3BX: '/images/products/neck-fan-pro.svg',
+  B08QXB9BH5: '/images/products/ninja-creami.svg',
+  B0D2LZYQ2M: '/images/products/ninja-slushi.svg',
 };
 
 function isLocalImage(url: string): boolean {
