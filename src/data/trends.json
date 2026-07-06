@@ -335,11 +335,11 @@
     "category": "amazon-trending",
     "trendScore": 96,
     "searchVolume": "spike",
-    "updated": "2026-07-04",
-    "summary": "Prime Day 2026 lands mid-July. We trimmed the hype to staples that usually see real discounts — plus a free calculator to check whether a 'deal' is actually a deal before you checkout.",
-    "whyHot": "Search volume for 'Prime Day 2026 deals' climbs about two weeks before the sale. Right now is list-building season — not cart-filling season.",
+    "updated": "2026-07-06",
+    "summary": "Prime Day 2026 lands mid-July. Sale week is the buy window — we list staples that usually see real discounts, with target prices and a free calculator so you only checkout when the deal is real.",
+    "whyHot": "Search volume for 'Prime Day 2026 deals' climbs about two weeks before the sale. We are in the final prep window — pick your list now, buy when prices hit during the event.",
     "trendDrivers": ["seasonal", "social-proof", "low-regret-price"],
-    "signalNotes": "Radar pick (Jul 4): Prime Day window approaching mid-July 2026. Early deal pages are live — use our calculator and price targets before lightning-deal pressure hits.",
+    "signalNotes": "Updated Jul 6: Prime Day week (~July 14–16) is the conversion window. Check Echo Pop and Instant Pot prices during the sale — use the calculator before lightning-deal pressure hits.",
     "trendVsTruth": {
       "intro": "Prime Day is a real sale window. It is also designed to make everything feel urgent.",
       "rows": [
@@ -362,11 +362,11 @@
       ]
     },
     "verdict": {
-      "action": "wait",
-      "summary": "Wait to buy until Prime Day week — but start now: pick one or two items you already planned (smart speaker, pressure cooker, replace worn gear) and set a target price. Use the savings calculator when early 'deal' banners appear.",
-      "bestFor": "Prime members with a short pre-sale list and a max price in mind before July 14–16-style deal windows.",
-      "skipIf": "You do not have Prime, you are buying purely because of countdown timers, or the 'deal' is only a few dollars off a no-name listing.",
-      "whyFeelGood": "A two-item list — Echo Pop if you wanted Alexa, Instant Pot if you cook — beats scrolling infinite deal walls when the sale actually starts."
+      "action": "buy",
+      "summary": "Buy during Prime Day week (~July 14–16) when the price hits your target — Echo Pop and Instant Pot are our watchlist picks. Use the savings calculator before checkout; skip cart-fillers you did not plan before the sale.",
+      "bestFor": "Prime members with one or two planned items and a max price written down before the sale starts.",
+      "skipIf": "You do not have Prime, the 'deal' is only a few dollars off, or you are buying because of countdown timers — not because you wanted the product.",
+      "whyFeelGood": "You are buying on a real markdown during the sale window — not on a teaser banner a week early."
     },
     "commissionType": "amazon-associates",
     "commissionNote": "Electronics & kitchen ~4-8% on Amazon Associates.",

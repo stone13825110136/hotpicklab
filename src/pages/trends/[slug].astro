@@ -9,7 +9,9 @@ import ToolModal from '../../components/ToolModal.astro';
 import trends from '../../data/trends.json';
 import tools from '../../data/tools.json';
 import { CATEGORIES, formatDate, SITE } from '../../lib/site';
-import { resolveProductImage, PRODUCT_IMAGE_PLACEHOLDER } from '../../lib/product-images';
+import { resolveProductImage, resolveProductImageFallback, PRODUCT_IMAGE_PLACEHOLDER } from '../../lib/product-images';
+import { amazonCtaLabel, getAmazonProductMeta } from '../../lib/amazon-product-meta';
+import ProductSocialProof from '../../components/ProductSocialProof.astro';
 
 export function getStaticPaths() {
   return trends.map((trend) => ({ params: { slug: trend.slug } }));
@@ -96,6 +98,11 @@ const updatedLabel = formatDate(trend.updated);
       {
         trend.products.map((product) => {
           const imageUrl = resolveProductImage(product.affiliateUrl, product.image);
+          const imageFallback = resolveProductImageFallback(product.affiliateUrl, product.image);
+          const amazonMeta = getAmazonProductMeta(product.affiliateUrl);
+          const ctaLabel = amazonMeta
+            ? amazonCtaLabel(amazonMeta.shortName)
+            : 'View pricing →';
           return (
           <div class="product">
             <a
@@ -111,17 +118,18 @@ const updatedLabel = formatDate(trend.updated);
                 decoding="async"
                 width="160"
                 height="160"
-                onerror={`this.onerror=null;this.src='${PRODUCT_IMAGE_PLACEHOLDER}';`}
+                onerror={`this.onerror=null;this.src='${imageFallback === imageUrl ? PRODUCT_IMAGE_PLACEHOLDER : imageFallback}';`}
               />
             </a>
             <div class="product-body">
             <div class="tag">{product.tag}</div>
             <h3>{product.name}</h3>
+            {amazonMeta && <ProductSocialProof meta={amazonMeta} />}
             <p class="muted">Typical price: {product.price}</p>
             <p><strong>Pros:</strong> {product.pros.join(' · ')}</p>
             <p><strong>Cons:</strong> {product.cons.join(' · ')}</p>
             <a class="btn" href={product.affiliateUrl} rel="nofollow sponsored noopener noreferrer" target="_blank">
-              View pricing →
+              {ctaLabel}
             </a>
             </div>
           </div>

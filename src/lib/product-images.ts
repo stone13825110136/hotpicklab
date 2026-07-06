@@ -1,3 +1,5 @@
+import { amazonProductPhotoUrl } from './amazon-product-meta';
+
 /** Extract ASIN from amazon.com/dp/... affiliate URLs */
 export function extractAmazonAsin(url: string): string | null {
   const match = url.match(/\/dp\/([A-Z0-9]{10})/i);
@@ -41,17 +43,30 @@ function isBrokenRemoteImage(url: string): boolean {
   );
 }
 
+/** Local SVG fallback when Amazon CDN image fails to load. */
+export function resolveProductImageFallback(affiliateUrl: string, image?: string): string {
+  const asin = extractAmazonAsin(affiliateUrl);
+  if (asin && LOCAL_ASIN_IMAGES[asin]) {
+    return LOCAL_ASIN_IMAGES[asin];
+  }
+  if (image && isLocalImage(image) && !isBrokenRemoteImage(image)) {
+    return image;
+  }
+  return PRODUCT_IMAGE_PLACEHOLDER;
+}
+
+/** Prefer Amazon product photo for trust; SVG/placeholder as img onerror fallback. */
 export function resolveProductImage(
   affiliateUrl: string,
   image?: string,
 ): string {
-  if (image && isLocalImage(image) && !isBrokenRemoteImage(image)) {
-    return image;
+  const asin = extractAmazonAsin(affiliateUrl);
+  if (asin) {
+    return amazonProductPhotoUrl(asin);
   }
 
-  const asin = extractAmazonAsin(affiliateUrl);
-  if (asin && LOCAL_ASIN_IMAGES[asin]) {
-    return LOCAL_ASIN_IMAGES[asin];
+  if (image && isLocalImage(image) && !isBrokenRemoteImage(image)) {
+    return image;
   }
 
   if (image && !isBrokenRemoteImage(image)) {

@@ -1,0 +1,51 @@
+---
+import { formatReviewCount, type AmazonProductMeta } from '../lib/amazon-product-meta';
+
+interface Props {
+  meta: AmazonProductMeta;
+}
+
+const { meta } = Astro.props;
+const stars = '★'.repeat(Math.round(meta.rating)) + '☆'.repeat(5 - Math.round(meta.rating));
+---
+
+<p class="product-social-proof" aria-label={`${meta.rating} out of 5 stars`}>
+  <span class="stars" aria-hidden="true">{stars}</span>
+  <span class="rating-num">{meta.rating.toFixed(1)}</span>
+  {
+    meta.reviewCount != null && (
+      <span class="review-count">
+        · {formatReviewCount(meta.reviewCount)} Amazon ratings
+        {meta.ratingNote && <span class="rating-note"> ({meta.ratingNote})</span>}
+      </span>
+    )
+  }
+</p>
+
+<style>
+  .product-social-proof {
+    margin: 0.35rem 0 0.5rem;
+    font-size: 0.88rem;
+    color: #fcd34d;
+    line-height: 1.4;
+  }
+
+  .stars {
+    letter-spacing: 0.05em;
+    margin-right: 0.35rem;
+  }
+
+  .rating-num {
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .review-count {
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .rating-note {
+    font-size: 0.8rem;
+  }
+</style>
