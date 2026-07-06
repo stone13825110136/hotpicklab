@@ -6,9 +6,13 @@
 
 | 文件 | 说明 |
 |------|------|
-| `cursor-chat-2026-07-02-deploy-reposition.jsonl` | **今晚会话原始 JSONL**（部署 + 网站改版 + GitHub） |
+| `cursor-chat-2026-07-02-deploy-reposition.jsonl` | 7-02 会话原始 JSONL（部署 + 改版） |
+| `cursor-chat-2026-07-03-session.md` | 7-03 白天会话摘要 |
+| `cursor-chat-2026-07-03-evening-onward.jsonl` | **7-03 晚～7-06 原始 JSONL**（新热点 / 雷达 / 收录 / 国内线） |
+| `cursor-chat-2026-07-03-evening-onward-session.md` | 同上时段可读摘要 |
 | `CONVERSATION_LOG.md` | 全项目关键决策可读摘要 |
-| `../SESSION_HANDOFF_2026-07-02.md` | **明天换电脑先看** — 今晚交接 |
+| `../SESSION_HANDOFF_2026-07-06.md` | **最新交接** — 换电脑先看 |
+| `../SESSION_HANDOFF_2026-07-02.md` | 7-02 交接（历史） |
 
 ## 如何阅读 JSONL
 
