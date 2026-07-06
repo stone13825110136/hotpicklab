@@ -13,7 +13,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const trends = JSON.parse(readFileSync(join(root, 'src/data/trends.json'), 'utf8'));
 const tools = JSON.parse(readFileSync(join(root, 'src/data/tools.json'), 'utf8'));
 
-const staticPaths = ['', '/trends', '/tools', '/about', '/methodology', '/privacy'];
+const staticPaths = ['', '/trends', '/tools', '/about', '/methodology', '/how-we-find-trends', '/spot-a-trend', '/privacy', '/disclosure'];
 const URLS = [
   ...staticPaths.map((p) => `https://${HOST}${p || '/'}`),
   ...trends.map((t) => `https://${HOST}/trends/${t.slug}`),
