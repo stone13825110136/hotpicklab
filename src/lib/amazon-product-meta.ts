@@ -36,6 +36,10 @@ export const AMAZON_PRODUCT_META: Record<string, AmazonProductMeta> = {
   B08FC5R4KV: { shortName: 'PS5 media remote', rating: 4.6, reviewCount: 14000, ratingNote: 'approx. count' },
   B08F7PT9CS: { shortName: 'HyperX Cloud II Wireless', rating: 4.5, reviewCount: 18500, ratingNote: 'approx. count' },
   B086PKZ4KK: { shortName: 'HyperX Cloud Stinger 2', rating: 4.4, reviewCount: 9200, ratingNote: 'approx. count' },
+  B07TFP7JFH: { shortName: 'Game Pass Ultimate 1 mo', rating: 4.6, reviewCount: 89000, ratingNote: 'approx. count' },
+  B07C438TMN: { shortName: 'PS Store card $25', rating: 4.8, reviewCount: 120000, ratingNote: 'approx. count' },
+  B0CZX48H2Z: { shortName: 'Plaud Note', rating: 4.0, reviewCount: 2400, ratingNote: 'approx. count' },
+  B07FTFP4RY: { shortName: 'Sony ICD-UX570', rating: 4.4, reviewCount: 6800, ratingNote: 'approx. count' },
 };
 
 export function getAmazonProductMeta(affiliateUrl: string): AmazonProductMeta | null {

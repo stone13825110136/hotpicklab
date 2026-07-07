@@ -37,6 +37,10 @@ const LOCAL_ASIN_IMAGES: Record<string, string> = {
   B08FC5R4KV: '/images/products/ps5-media-remote.svg',
   B08F7PT9CS: '/images/products/hyperx-cloud-iii.svg',
   B086PKZ4KK: '/images/products/hyperx-stinger-2.svg',
+  B07TFP7JFH: '/images/products/xbox-game-pass.svg',
+  B07C438TMN: '/images/products/ps-store-card.svg',
+  B0CZX48H2Z: '/images/products/plaud-note.svg',
+  B07FTFP4RY: '/images/products/sony-voice-recorder.svg',
 };
 
 function isLocalImage(url: string): boolean {

@@ -4,16 +4,36 @@
 
 ---
 
+## ⏸ 暂缓申请（2026-07-07 决定）
+
+**用户决定：现阶段流量太少，先不申 SaaS 联盟（Topaz / Photoroom / CapCut 等），过一段时间再申。**
+
+**继续做的：** Amazon 直链 brief（`hotpicklab20-20`）、Bing 收录、内容扩充。  
+**暂不做的：** Topaz 等联盟注册表单，避免新站被拒影响后续再申。
+
+**何时再申（满足其一即可）：**
+
+| 信号 | 目标 |
+|------|------|
+| Bing `site:hotpicklab.com` | ≥ 10 条收录 |
+| Bing Webmaster 展示/点击 | 连续 2 周有非品牌词展示 |
+| Amazon Associates 点击 | 稳定 50+/周（且非自点） |
+| 自然 UV（Cloudflare） | 稳定 100+/天 |
+
+到时按下方顺序先申 **Topaz → Photoroom → CapCut**。
+
+---
+
 ## 当前状态速览
 
 | 工具 | 站内 brief | 现在能赚钱吗 | 申请平台 |
 |------|-----------|-------------|----------|
 | Amazon 商品 | 多数 Gaming / Amazon brief | ✅ 已批 `hotpicklab20-20` | [Amazon Associates](https://affiliate-program.amazon.com/) |
-| **Topaz Gigapixel** | `ai-upscaler-game-screenshots-2026` | ❌ 待申请 | Topaz 自营 |
-| **Photoroom** | photo enhancer + upscaler | ❌ 待申请 | Awin 或 Dub |
-| **Canva Pro** | `ai-photo-enhancers-2026` | ❌ 待申请 | Impact |
-| **Runway** | `ai-video-generators-2026` | ❌ 待申请 | Runway 自营 / 第三方评测站 |
-| **CapCut** | `ai-video-generators-2026` | ❌ 待申请 | Impact |
+| **Topaz Gigapixel** | `ai-upscaler-game-screenshots-2026` | ⏸ 暂缓申请 | Topaz 自营 |
+| **Photoroom** | photo enhancer + upscaler | ⏸ 暂缓申请 | Awin 或 Dub |
+| **Canva Pro** | `ai-photo-enhancers-2026` | ⏸ 暂缓申请 | Impact |
+| **Runway** | `ai-video-generators-2026` | ⏸ 暂缓申请 | Runway 自营 / 第三方评测站 |
+| **CapCut** | `ai-video-generators-2026` | ⏸ 暂缓申请 | Impact |
 | **Pika** | `ai-video-generators-2026` | ❌ 无公开联盟 | 暂不申请 |
 | **Remini** | `ai-photo-enhancers-2026` | ❌ 待查 | 官网 / App 合作 |
 | **Upscayl** | `ai-upscaler-game-screenshots-2026` | ❌ 开源免费 | 无佣金，保留作信任内容 |

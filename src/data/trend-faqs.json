@@ -84,6 +84,20 @@
       "answer": "Cloud II Wireless for comfort and wireless freedom on long sessions. Cloud Stinger 2 for budget wired voice chat. Match price to how many hours you voice chat weekly."
     }
   ],
+  "game-pass-ps-plus-gift-card-worth-it-2026": [
+    {
+      "question": "Is Xbox Game Pass Ultimate worth it on Amazon?",
+      "answer": "Worth a 1-month trial if you play on Xbox or PC and want catalog access without buying each title. Skip if you already auto-renew direct from Microsoft or rarely finish games."
+    },
+    {
+      "question": "Can I buy PS Plus on Amazon?",
+      "answer": "Amazon sells PlayStation Store gift cards — not a standalone PS Plus SKU. Redeem wallet credit on your PS5, then buy the Plus tier you want. Pick the card amount that covers your target plan plus tax."
+    },
+    {
+      "question": "Xbox Game Pass code vs PlayStation Store card — what's the difference?",
+      "answer": "They fund different wallets. Game Pass codes are for Microsoft/Xbox/PC. PS Store cards are for PlayStation only. Never buy the wrong platform card as a gift."
+    }
+  ],
   "portable-handheld-fans-amazon-2026": [
     {
       "question": "Is a JISULIFE handheld fan worth it?",
@@ -208,6 +222,20 @@
     {
       "question": "AI upscaler vs photo enhancer — which do I need for screenshots?",
       "answer": "Upscaler when you need more resolution for wallpapers. Photo enhancer when you need background removal or listing-style cleanup — see our AI photo enhancer brief for marketplace work."
+    }
+  ],
+  "ai-voice-recorder-plaud-worth-it-2026": [
+    {
+      "question": "Is the Plaud Note worth buying on Amazon?",
+      "answer": "Worth it if you record meetings, lectures, or calls weekly and want AI transcripts plus summaries. Skip if you rarely record — your phone or a basic Sony recorder is enough."
+    },
+    {
+      "question": "Plaud Note vs phone voice memos — do I need hardware?",
+      "answer": "Phone memos work for quick notes. Plaud wins when you want clip-on capture, call recording modes, and AI summaries in one workflow — if you accept cloud transcription limits."
+    },
+    {
+      "question": "Does Plaud Note require a subscription?",
+      "answer": "Includes starter monthly transcription minutes. Heavy users need paid plans — budget for software, not just the device price on Amazon."
     }
   ]
 }

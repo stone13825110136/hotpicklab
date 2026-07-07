@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Sony voice recorder">
+  <rect width="400" height="400" fill="#f8fafc"/>
+  <rect x="130" y="130" width="140" height="90" rx="10" fill="#334155"/>
+  <rect x="145" y="145" width="110" height="24" rx="4" fill="#94a3b8"/>
+  <circle cx="250" cy="175" r="8" fill="#ef4444"/>
+  <text x="200" y="280" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#0f172a">Sony ICD-UX570</text>
+</svg>

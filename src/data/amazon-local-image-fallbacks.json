@@ -1,4 +1,4 @@
 {
   "_note": "ASINs that may use SVG fallback when Amazon hiRes scrape fails (common on China dev networks). Cloudflare US builds should populate real photos via npm run scrape-images.",
-  "asins": ["B08F7PT9CS", "B086PKZ4KK"]
+  "asins": ["B08F7PT9CS", "B086PKZ4KK", "B07TFP7JFH", "B07FTFP4RY"]
 }

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Xbox Game Pass">
+  <rect width="400" height="400" fill="#f0fdf4"/>
+  <rect x="80" y="120" width="240" height="140" rx="16" fill="#107c10"/>
+  <text x="200" y="195" text-anchor="middle" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#fff">GAME PASS</text>
+  <text x="200" y="320" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#0f172a">Ultimate 1 Month</text>
+</svg>
