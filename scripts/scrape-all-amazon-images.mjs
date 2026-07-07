@@ -8,6 +8,7 @@ import { getTrendAmazonAsins } from './lib/amazon-catalog.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = join(ROOT, 'src/data/amazon-product-images.json');
+const UA = 'Mozilla/5.0 (compatible; HotPickLab-LinkCheck/1.0)';
 
 const existing = JSON.parse(readFileSync(OUT, 'utf8'));
 const asins = getTrendAmazonAsins();
@@ -20,17 +21,25 @@ for (const asin of asins) {
     continue;
   }
 
-  const res = await fetch(`https://www.amazon.com/dp/${asin}`, {
-    headers: { 'User-Agent': 'Mozilla/5.0', 'Accept-Language': 'en-US' },
-  });
-  const html = await res.text();
+  let html = '';
+  let status = 0;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    const res = await fetch(`https://www.amazon.com/dp/${asin}`, {
+      headers: { 'User-Agent': UA, 'Accept-Language': 'en-US' },
+    });
+    status = res.status;
+    html = await res.text();
+    if (html.length > 20_000) break;
+    await new Promise((r) => setTimeout(r, attempt * 2000));
+  }
+
   const url =
     html.match(/"hiRes":"(https:[^"]+)"/)?.[1] ??
     html.match(/"large":"(https:[^"]+)"/)?.[1] ??
     html.match(/property="og:image" content="([^"]+)"/)?.[1];
 
   if (!url) {
-    console.error(`✗ ${asin} — no image found (HTTP ${res.status})`);
+    console.error(`✗ ${asin} — no image found (HTTP ${status})`);
     failed++;
     if (existing[asin]) {
       out[asin] = existing[asin];

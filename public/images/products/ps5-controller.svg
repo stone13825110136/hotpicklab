@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="DualSense controller">
+  <rect width="400" height="400" fill="#f8fafc"/>
+  <ellipse cx="200" cy="200" rx="110" ry="70" fill="#e2e8f0" stroke="#1e293b" stroke-width="3"/>
+  <circle cx="150" cy="200" r="22" fill="#94a3b8"/>
+  <circle cx="250" cy="200" r="22" fill="#94a3b8"/>
+  <text x="200" y="320" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#0f172a">DualSense</text>
+</svg>

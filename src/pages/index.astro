@@ -9,6 +9,11 @@ import { AUDIENCE } from '../lib/audience';
 import { SITE } from '../lib/site';
 
 const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore).slice(0, 6);
+
+const gamingBriefs = trends.filter((t) => t.category === 'gaming');
+const aiBriefs = trends.filter((t) => t.category === 'ai-tools');
+const gamingTools = tools.filter((t) => t.slug === 'gaming-session-timer');
+const aiTools = tools.filter((t) => t.slug === 'video-aspect-ratio-calculator');
 ---
 
 <Layout
@@ -48,6 +53,37 @@ const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore).slice(
     <p class="section-cta hub-cta">
       <a href="/trends">All buying briefs →</a>
     </p>
+  </section>
+
+  <section class="topic-clusters" aria-labelledby="topic-clusters-heading">
+    <h2 id="topic-clusters-heading" class="section-title">Gaming &amp; AI clusters</h2>
+    <p class="section-intro muted">Topic hubs for Bing and shoppers — deep briefs, not category mega-menus.</p>
+    <div class="cluster-grid">
+      <article class="cluster-card">
+        <h3>Gaming</h3>
+        <p class="muted cluster-lead">Console and handheld accessories — worth-it verdicts before Amazon impulse buys.</p>
+        <ul class="cluster-links">
+          {gamingBriefs.map((trend) => (
+            <li><a href={`/trends/${trend.slug}`}>{trend.title.replace(/ — .+$/, '').replace(/ \(2026\)$/, '')}</a></li>
+          ))}
+          {gamingTools.map((tool) => (
+            <li><a href={`/tools/${tool.slug}`}>{tool.title}</a></li>
+          ))}
+        </ul>
+      </article>
+      <article class="cluster-card">
+        <h3>AI tools</h3>
+        <p class="muted cluster-lead">Creator and screenshot workflows — when free tiers beat paid hype.</p>
+        <ul class="cluster-links">
+          {aiBriefs.map((trend) => (
+            <li><a href={`/trends/${trend.slug}`}>{trend.title.replace(/ — .+$/, '').replace(/ \(2026\)$/, '')}</a></li>
+          ))}
+          {aiTools.map((tool) => (
+            <li><a href={`/tools/${tool.slug}`}>{tool.title}</a></li>
+          ))}
+        </ul>
+      </article>
+    </div>
   </section>
 
   <section class="value-props">
@@ -168,5 +204,46 @@ const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore).slice(
 
   .hub-cta {
     margin-top: 1rem;
+  }
+
+  .topic-clusters {
+    margin-top: 2.5rem;
+  }
+
+  .cluster-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    margin-top: 1rem;
+  }
+
+  .cluster-card {
+    padding: 1.15rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  .cluster-card h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.1rem;
+  }
+
+  .cluster-lead {
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .cluster-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .cluster-links a {
+    font-weight: 600;
+    font-size: 0.92rem;
   }
 </style>

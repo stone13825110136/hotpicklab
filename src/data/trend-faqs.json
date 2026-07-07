@@ -70,6 +70,20 @@
       "answer": "Worth it if the PS5 is your main streaming box and you hate navigating apps with a gamepad. Skip if you only play games or already use a universal TV remote you like."
     }
   ],
+  "gaming-headset-worth-it-2026": [
+    {
+      "question": "What is the best gaming headset to buy in 2026?",
+      "answer": "HyperX Cloud II Wireless for a daily wireless pair on PC and console. HyperX Cloud Stinger 2 for a budget wired backup. Skip RGB shells with fake surround marketing."
+    },
+    {
+      "question": "Are gaming headsets worth it over regular headphones?",
+      "answer": "Worth it if you voice chat daily and want one wireless pair for couch and desk. Skip if you already run studio headphones plus a USB mic — that setup often sounds better for the money."
+    },
+    {
+      "question": "HyperX Cloud II Wireless vs Cloud Stinger 2 — which should I pick?",
+      "answer": "Cloud II Wireless for comfort and wireless freedom on long sessions. Cloud Stinger 2 for budget wired voice chat. Match price to how many hours you voice chat weekly."
+    }
+  ],
   "portable-handheld-fans-amazon-2026": [
     {
       "question": "Is a JISULIFE handheld fan worth it?",
@@ -180,6 +194,20 @@
     {
       "question": "AI background remover vs Photoshop — do I need both?",
       "answer": "No for most creators — browser tools handle listing photos and thumbnails. Photoshop still wins for pixel-level control and brand-critical assets."
+    }
+  ],
+  "ai-upscaler-game-screenshots-2026": [
+    {
+      "question": "How do I upscale a game screenshot to 4K?",
+      "answer": "Start with Upscayl locally for retro and emulator shots. Use Topaz Gigapixel AI if you batch wallpapers or need maximum detail. Avoid phone enhance filters for large monitor crops — they crush fine HUD text."
+    },
+    {
+      "question": "Is Upscayl enough for game wallpapers?",
+      "answer": "Often yes for retro PC, emulators, and Steam Deck captures before you pay for Topaz. Skip AI upscale on pixel art unless you pick a model that preserves crisp edges."
+    },
+    {
+      "question": "AI upscaler vs photo enhancer — which do I need for screenshots?",
+      "answer": "Upscaler when you need more resolution for wallpapers. Photo enhancer when you need background removal or listing-style cleanup — see our AI photo enhancer brief for marketplace work."
     }
   ]
 }

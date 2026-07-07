@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="HyperX Cloud III Wireless">
+  <rect width="400" height="400" fill="#fef2f2"/>
+  <path d="M95 210c0-55 45-95 105-95s105 40 105 95v55c0 22-18 40-40 40h-25v-70c0-33-27-60-60-60s-60 27-60 60v70h-25c-22 0-40-18-40-40v-55z" fill="#dc2626"/>
+  <rect x="118" y="228" width="44" height="72" rx="18" fill="#991b1b"/>
+  <rect x="238" y="228" width="44" height="72" rx="18" fill="#991b1b"/>
+  <text x="200" y="350" text-anchor="middle" font-family="system-ui,sans-serif" font-size="14" font-weight="700" fill="#0f172a">HyperX Cloud III</text>
+</svg>
