@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Steam Deck screen protector">
+  <rect width="400" height="400" fill="#eef2ff"/>
+  <rect x="110" y="100" width="180" height="120" rx="12" fill="#c7d2fe" stroke="#4f46e5" stroke-width="3"/>
+  <rect x="130" y="115" width="140" height="90" rx="6" fill="#818cf8" opacity="0.5"/>
+  <text x="200" y="280" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#3730a3">Steam Deck Protector</text>
+</svg>

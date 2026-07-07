@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="DualSense charging station">
+  <rect width="400" height="400" fill="#f8fafc"/>
+  <rect x="120" y="140" width="160" height="100" rx="12" fill="#e2e8f0" stroke="#1e293b" stroke-width="3"/>
+  <rect x="145" y="115" width="30" height="40" rx="8" fill="#cbd5e1"/>
+  <rect x="225" y="115" width="30" height="40" rx="8" fill="#cbd5e1"/>
+  <text x="200" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="15" font-weight="700" fill="#0f172a">PS5 Charge Dock</text>
+</svg>

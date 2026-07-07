@@ -250,6 +250,172 @@
     "status": "hot"
   },
   {
+    "slug": "steam-deck-accessories-worth-it-2026",
+    "title": "Steam Deck Accessories — Worth It in 2026?",
+    "category": "gaming",
+    "trendScore": 88,
+    "searchVolume": "high",
+    "updated": "2026-07-07",
+    "summary": "Steam Deck OLED and LCD owners face long accessory lists on Amazon. We narrowed day-one buys to a screen protector and slim case — plus when to skip glass on anti-glare models.",
+    "whyHot": "Handheld PC gaming keeps 'steam deck accessories' and 'best steam deck case' in Amazon's top gaming accessory searches year-round — not just launch week.",
+    "trendDrivers": ["social-proof", "platform-halo", "demo-moment"],
+    "signalNotes": "Steady search intent for screen protector + case combos; many generic listings — fit for OLED vs LCD and etched anti-glare models is the real decision.",
+    "trendVsTruth": {
+      "intro": "A few accessories genuinely help. Most bundles add bulk you will not use on a handheld.",
+      "rows": [
+        {
+          "trendSays": "Every Steam Deck needs a dozen accessories.",
+          "fullPicture": "Screen protector (if appropriate for your model) and a slim case cover most owners. Docks and grips can wait until you know how you play."
+        },
+        {
+          "trendSays": "Glass screen protectors are always better.",
+          "fullPicture": "512GB/1TB etched anti-glare models lose their matte finish with glass — check your model before buying tempered glass."
+        },
+        {
+          "trendSays": "Any 'Steam Deck' case on Amazon fits.",
+          "fullPicture": "OLED and LCD dimensions differ slightly — buy cases that explicitly list your model year."
+        },
+        {
+          "trendSays": "You need a dock to enjoy Steam Deck.",
+          "fullPicture": "Docked play is optional. Many owners never leave handheld mode — skip docks until you actually plug into a TV."
+        }
+      ]
+    },
+    "verdict": {
+      "action": "buy",
+      "summary": "Buy an amFilm tempered glass kit if you have a glossy OLED or LCD screen. Add a Spigen Thin Fit Pro case if you commute with the Deck. Skip glass on etched anti-glare models and skip dock bundles on day one.",
+      "bestFor": "New Steam Deck owners who travel with the device and want scratch protection without a bulky shell.",
+      "skipIf": "You have the etched anti-glare model and want to keep matte finish, play docked only at a desk, or already own a verified-fit case.",
+      "whyFeelGood": "You are buying two proven-fit accessories — not a random TikTok bundle that blocks vents or lifts screen film."
+    },
+    "commissionType": "amazon-associates",
+    "commissionNote": "Gaming accessories ~4-10%.",
+    "whoItsFor": [
+      "Steam Deck OLED or LCD owners who carry the device in a bag",
+      "Gift shoppers buying practical add-ons for a handheld gamer",
+      "Players who want scratch protection before long RPG sessions"
+    ],
+    "whoShouldSkip": [
+      "You own the etched anti-glare Deck and want to keep matte screen feel",
+      "The Deck never leaves your desk setup",
+      "You already have a case and protector that fit your exact model"
+    ],
+    "buyerPitfalls": [
+      "Tempered glass on anti-glare etched screens turns glossy — read your model first",
+      "Thick cases can block heat vents on long AAA sessions",
+      "Cheap screen kits without alignment frames waste the first sheet",
+      "MicroSD speed matters for installs — do not buy the slowest card if you expand storage"
+    ],
+    "keywords": ["steam deck accessories", "best steam deck case", "steam deck screen protector worth it"],
+    "products": [
+      {
+        "name": "amFilm Steam Deck / OLED Screen Protector (2-pack)",
+        "tag": "Must-have",
+        "price": "~$10–14",
+        "pros": ["OLED + LCD fit", "Alignment frame included", "High review volume"],
+        "cons": ["Not for etched anti-glare models", "Glossy finish with glass"],
+        "affiliateUrl": "https://www.amazon.com/dp/B0BFB1P1JM?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/steam-deck-protector.svg"
+      },
+      {
+        "name": "Spigen Thin Fit Pro Steam Deck Case",
+        "tag": "Best case",
+        "price": "~$25–30",
+        "pros": ["Kickstand for tabletop co-op", "Slim grip", "OLED + LCD compatible"],
+        "cons": ["Adds slight bulk", "Check fit with your dock if you use one"],
+        "affiliateUrl": "https://www.amazon.com/dp/B0BYD5VTNM?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/steam-deck-case.svg"
+      }
+    ],
+    "relatedTool": "gaming-session-timer",
+    "status": "hot"
+  },
+  {
+    "slug": "ps5-accessories-first-buy-2026",
+    "title": "PS5 Accessories — What to Buy First (2026)",
+    "category": "gaming",
+    "trendScore": 86,
+    "searchVolume": "high",
+    "updated": "2026-07-07",
+    "summary": "New PS5 owners face endless accessory lists. For most households the first buys are simple: Sony's charging station if you rotate two controllers, or the official media remote if the PS5 is your streaming box.",
+    "whyHot": "'PS5 accessories' and 'DualSense charging station worth it' stay high on Amazon gaming searches — especially around holidays and game launches.",
+    "trendDrivers": ["launch-cycle", "seasonal", "social-proof"],
+    "signalNotes": "Evergreen console accessory intent; third-party charging docks flood results — official Sony dock vs spare controller is the common fork.",
+    "trendVsTruth": {
+      "intro": "PS5 accessories are a margin game for sellers. Most households need one or two items, not a full setup overhaul.",
+      "rows": [
+        {
+          "trendSays": "You need the full accessory bundle.",
+          "fullPicture": "Extra controller OR charging station covers most pain points. Headsets, camera, and media remotes are optional."
+        },
+        {
+          "trendSays": "Any third-party dock is as safe as Sony's.",
+          "fullPicture": "Official click-in dock is boring but reliable. Cheap docks vary on fit and charge speed — read recent reviews."
+        },
+        {
+          "trendSays": "You must buy a pro headset day one.",
+          "fullPicture": "TV speakers or existing earbuds work for casual play. Headsets matter for online voice — not every solo player."
+        },
+        {
+          "trendSays": "More accessories = better gamer.",
+          "fullPicture": "Skip RGB stands and controller skins until you know your play habits."
+        }
+      ]
+    },
+    "verdict": {
+      "action": "buy",
+      "summary": "Buy Sony's DualSense Charging Station if you already have two controllers and hate USB cable clutter. Buy the PlayStation Media Remote if you use the PS5 for Netflix, Disney+, and YouTube more than games. Skip headset bundles and skin kits on day one.",
+      "bestFor": "Two-controller households, streaming-first setups, and gift buyers adding a practical accessory to a new console.",
+      "skipIf": "You play solo with one controller and charge over USB, or you navigate streaming with the gamepad and voice anyway.",
+      "whyFeelGood": "You are solving a real daily annoyance — not decorating a setup for Instagram."
+    },
+    "commissionType": "amazon-associates",
+    "commissionNote": "Console accessories ~4-8%; controllers are higher ticket than small gadgets.",
+    "whoItsFor": [
+      "Households with two controllers that need a tidy charge spot",
+      "PS5 owners who stream movies and apps from the couch",
+      "Gift buyers adding a practical accessory to a new console"
+    ],
+    "whoShouldSkip": [
+      "Solo players with one controller who charge via USB",
+      "You already own a reliable dual dock you trust",
+      "You navigate streaming fine with the DualSense and never use TV apps"
+    ],
+    "buyerPitfalls": [
+      "Third-party docks may not click in as smoothly as Sony's official station",
+      "Buying a media remote before you use streaming apps wastes ~$30",
+      "Headset bundles often bundle mediocre audio — compare standalone picks",
+      "Vertical stands matter only if you lack shelf space — not required"
+    ],
+    "keywords": ["ps5 accessories", "dualsense charging station worth it", "ps5 media remote worth it"],
+    "products": [
+      {
+        "name": "PlayStation DualSense Charging Station",
+        "tag": "Best dock",
+        "price": "~$25–30",
+        "pros": ["Charges two controllers", "Frees PS5 USB ports", "Click-in official design"],
+        "cons": ["Controllers not included", "Costs more than a USB cable"],
+        "affiliateUrl": "https://www.amazon.com/dp/B08FC6Y4VG?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/ps5-charging-station.svg"
+      },
+      {
+        "name": "PlayStation Media Remote",
+        "tag": "Streaming pick",
+        "price": "~$28–30",
+        "pros": ["Dedicated play/pause and app buttons", "Powers on PS5 from couch", "TV volume via IR on compatible TVs"],
+        "cons": ["Only useful if you stream on PS5", "Not a game controller replacement"],
+        "affiliateUrl": "https://www.amazon.com/dp/B08FC5R4KV?tag=hotpicklab20-20",
+        "affiliateNote": "Amazon Associates — hotpicklab20-20",
+        "image": "/images/products/ps5-media-remote.svg"
+      }
+    ],
+    "relatedTool": "gaming-session-timer",
+    "status": "hot"
+  },
+  {
     "slug": "portable-handheld-fans-amazon-2026",
     "title": "TikTok-Viral Handheld Fans — Actually Worth It? (2026)",
     "category": "amazon-trending",
