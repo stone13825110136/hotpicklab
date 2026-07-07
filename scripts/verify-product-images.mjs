@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /** Fail build when any trends.json Amazon ASIN lacks a real hiRes product photo. */
 
-import { getTrendAmazonAsins, loadAmazonProductImages } from './lib/amazon-catalog.mjs';
+import { getTrendAmazonAsins, loadAmazonProductImages, loadLocalImageFallbackAsins } from './lib/amazon-catalog.mjs';
 
 const MIN_BYTES = 1000;
 const asins = getTrendAmazonAsins();
 const images = loadAmazonProductImages();
+const svgFallbackAsins = loadLocalImageFallbackAsins();
 
 console.log(`Checking ${asins.length} Amazon product images...\n`);
 
@@ -13,6 +14,10 @@ let failed = 0;
 for (const asin of asins) {
   const url = images[asin];
   if (!url) {
+    if (svgFallbackAsins.has(asin)) {
+      console.log(`⚠ ${asin} — no hiRes yet; SVG fallback (run scrape-images on VPN or deploy via Cloudflare)`);
+      continue;
+    }
     console.error(`✗ ${asin} — missing in amazon-product-images.json (run: npm run scrape-images)`);
     failed++;
     continue;

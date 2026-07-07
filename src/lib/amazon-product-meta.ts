@@ -34,6 +34,8 @@ export const AMAZON_PRODUCT_META: Record<string, AmazonProductMeta> = {
   B0BYD5VTNM: { shortName: 'Spigen Steam Deck case', rating: 4.6, reviewCount: 1800, ratingNote: 'approx. count' },
   B08FC6Y4VG: { shortName: 'DualSense charging station', rating: 4.8, reviewCount: 52000, ratingNote: 'approx. count' },
   B08FC5R4KV: { shortName: 'PS5 media remote', rating: 4.6, reviewCount: 14000, ratingNote: 'approx. count' },
+  B08F7PT9CS: { shortName: 'HyperX Cloud II Wireless', rating: 4.5, reviewCount: 18500, ratingNote: 'approx. count' },
+  B086PKZ4KK: { shortName: 'HyperX Cloud Stinger 2', rating: 4.4, reviewCount: 9200, ratingNote: 'approx. count' },
 };
 
 export function getAmazonProductMeta(affiliateUrl: string): AmazonProductMeta | null {

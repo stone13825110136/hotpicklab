@@ -27,3 +27,8 @@ export function loadAmazonProductImages() {
   }
   return images;
 }
+
+export function loadLocalImageFallbackAsins() {
+  const raw = JSON.parse(readFileSync(join(ROOT, 'src/data/amazon-local-image-fallbacks.json'), 'utf8'));
+  return new Set((raw.asins ?? []).map((a) => a.toUpperCase()));
+}

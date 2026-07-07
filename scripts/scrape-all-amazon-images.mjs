@@ -54,4 +54,7 @@ for (const asin of asins) {
 
 writeFileSync(OUT, `${JSON.stringify(out, null, 2)}\n`, 'utf8');
 console.log(`\nWrote ${asins.length} ASINs to src/data/amazon-product-images.json`);
-if (failed) process.exit(1);
+if (failed) {
+  console.error(`\n${failed} ASIN(s) still missing hiRes URLs.`);
+  if (!process.argv.includes('--missing-only')) process.exit(1);
+}

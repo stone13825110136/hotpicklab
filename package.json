@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/scrape-all-amazon-images.mjs --missing-only",
     "build": "node scripts/verify-affiliate-links.mjs && node scripts/verify-product-images.mjs && astro build",
     "preview": "astro preview",
     "radar": "node scripts/daily-radar.mjs",
