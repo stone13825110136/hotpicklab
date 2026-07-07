@@ -13,7 +13,9 @@ import { resolveProductImage, resolveProductImageFallback, PRODUCT_IMAGE_PLACEHO
 import { amazonCtaLabel, getAmazonProductMeta } from '../../lib/amazon-product-meta';
 import ProductSocialProof from '../../components/ProductSocialProof.astro';
 import TrendFaq from '../../components/TrendFaq.astro';
+import RelatedBriefs from '../../components/RelatedBriefs.astro';
 import { getTrendFaqs } from '../../lib/trend-faqs';
+import { getRelatedTrends } from '../../lib/trend-related';
 
 export function getStaticPaths() {
   return trends.map((trend) => ({ params: { slug: trend.slug } }));
@@ -37,21 +39,40 @@ const hasProof = Boolean(
 );
 const updatedLabel = formatDate(trend.updated);
 const faqs = getTrendFaqs(trend.slug);
-const faqJsonLd =
-  faqs.length > 0
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: faqs.map((item) => ({
-          '@type': 'Question',
-          name: item.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: item.answer,
-          },
-        })),
-      }
-    : null;
+const relatedBriefs = getRelatedTrends(trend.slug);
+const pageUrl = new URL(`/trends/${trend.slug}`, SITE.url).href;
+const jsonLdGraph = [
+  {
+    '@type': 'Article',
+    headline: trend.title,
+    description: trend.summary,
+    dateModified: trend.updated,
+    author: { '@type': 'Organization', name: SITE.name },
+    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+    mainEntityOfPage: pageUrl,
+  },
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+      { '@type': 'ListItem', position: 2, name: 'Buying briefs', item: new URL('/trends', SITE.url).href },
+      { '@type': 'ListItem', position: 3, name: trend.title, item: pageUrl },
+    ],
+  },
+  ...(faqs.length > 0
+    ? [
+        {
+          '@type': 'FAQPage',
+          mainEntity: faqs.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: { '@type': 'Answer', text: item.answer },
+          })),
+        },
+      ]
+    : []),
+];
+const pageJsonLd = { '@context': 'https://schema.org', '@graph': jsonLdGraph };
 ---
 
 <Layout
@@ -168,17 +189,15 @@ const faqJsonLd =
 
     <TrendFaq items={faqs} />
 
+    <RelatedBriefs items={relatedBriefs} />
+
     <p class="spot-trend muted">
       See something trending we have not covered?
       <a href="/spot-a-trend">Spot a trend →</a>
     </p>
   </article>
 
-  {
-    faqJsonLd && (
-      <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
-    )
-  }
+  <script type="application/ld+json" set:html={JSON.stringify(pageJsonLd)} />
 
   {modalSlugs.length > 0 && <ToolModal slugs={modalSlugs} />}
 </Layout>

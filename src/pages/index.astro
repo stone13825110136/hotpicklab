@@ -4,10 +4,11 @@ import TrendCard from '../components/TrendCard.astro';
 import AudienceSection from '../components/AudienceSection.astro';
 import trends from '../data/trends.json';
 import tools from '../data/tools.json';
+import searchHubLinks from '../data/search-hub-links.json';
 import { AUDIENCE } from '../lib/audience';
 import { SITE } from '../lib/site';
 
-const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
+const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore).slice(0, 6);
 ---
 
 <Layout
@@ -36,6 +37,19 @@ const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
 
   <AudienceSection />
 
+  <section class="search-hub" aria-labelledby="home-search-hub">
+    <h2 id="home-search-hub" class="section-title">What US shoppers search</h2>
+    <p class="section-intro muted">Worth-it and vs guides — updated when search data shifts.</p>
+    <ul class="hub-links">
+      {searchHubLinks.slice(0, 6).map((link) => (
+        <li><a href={link.href}>{link.label}</a></li>
+      ))}
+    </ul>
+    <p class="section-cta hub-cta">
+      <a href="/trends">All buying briefs →</a>
+    </p>
+  </section>
+
   <section class="value-props">
     <h2 class="section-title">What you get on every brief</h2>
     <div class="value-grid">
@@ -50,7 +64,7 @@ const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
     </div>
   </section>
 
-  <h2 class="section-title">Latest buying briefs</h2>
+  <h2 class="section-title">Top buying briefs</h2>
   <p class="section-intro muted">Trending topics narrowed to a short list — so you can decide in minutes.</p>
   <div class="grid">
     {hotTrends.map((trend) => <TrendCard trend={trend} />)}
@@ -128,5 +142,31 @@ const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore);
   .value-grid h3 {
     margin: 0.2rem 0 0.5rem;
     font-size: 1.05rem;
+  }
+
+  .search-hub {
+    margin-top: 2.5rem;
+    padding: 1.2rem 1.3rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  .hub-links {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.4rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .hub-links a {
+    font-weight: 600;
+    font-size: 0.94rem;
+  }
+
+  .hub-cta {
+    margin-top: 1rem;
   }
 </style>

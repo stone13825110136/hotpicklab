@@ -1,0 +1,72 @@
+---
+import type { TrendSummary } from '../lib/trend-related';
+
+interface Props {
+  items: TrendSummary[];
+}
+
+const { items } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <section class="related-briefs" aria-labelledby="related-heading">
+      <h2 id="related-heading">Related buying briefs</h2>
+      <p class="muted related-intro">More worth-it guides — stay on site, compare before you buy.</p>
+      <ul class="related-list">
+        {items.map((item) => (
+          <li>
+            <a href={`/trends/${item.slug}`}>{item.title}</a>
+            <p class="muted">{item.summary}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+<style>
+  .related-briefs {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .related-intro {
+    margin: -0.25rem 0 1rem;
+    font-size: 0.92rem;
+  }
+
+  .related-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .related-list li {
+    margin: 0;
+    padding: 0.9rem 1rem;
+    background: rgba(20, 27, 47, 0.55);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  .related-list a {
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .related-list a:hover {
+    color: var(--accent-2);
+    text-decoration: underline;
+  }
+
+  .related-list p {
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+</style>
