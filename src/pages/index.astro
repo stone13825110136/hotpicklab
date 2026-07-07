@@ -1,187 +1,57 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import TrendCard from '../components/TrendCard.astro';
-import AudienceSection from '../components/AudienceSection.astro';
 import trends from '../data/trends.json';
-import tools from '../data/tools.json';
 import searchHubLinks from '../data/search-hub-links.json';
-import { AUDIENCE } from '../lib/audience';
-import { SITE } from '../lib/site';
+import { CATEGORIES, SITE } from '../lib/site';
 
-const hotTrends = [...trends].sort((a, b) => b.trendScore - a.trendScore).slice(0, 6);
-
-const gamingBriefs = trends.filter((t) => t.category === 'gaming');
-const aiBriefs = trends.filter((t) => t.category === 'ai-tools');
-const gamingTools = tools.filter((t) => t.slug === 'gaming-session-timer');
-const aiTools = tools.filter((t) => t.slug === 'video-aspect-ratio-calculator');
+const grouped = (['ai-tools', 'amazon-trending', 'gaming', 'seasonal'] as const)
+  .map((id) => ({
+    label: CATEGORIES[id] ?? id,
+    items: trends.filter((t) => t.category === id),
+  }))
+  .filter((g) => g.items.length > 0);
 ---
 
 <Layout
   title={SITE.name}
   description={SITE.description}
-  keywords={[
-    'worth it reviews',
-    'trending products 2026',
-    'buying briefs',
-    'amazon viral products',
-    'ai tools for creators',
-  ]}
+  keywords={['worth it reviews', 'buying briefs', 'trending products 2026', 'amazon viral products']}
 >
   <section class="hero">
-    <span class="badge">US market · Decision-first briefs · Updated weekly</span>
-    <h1>Research-backed buying briefs for products trending now.</h1>
+    <h1>Buying briefs</h1>
     <p class="muted hero-lead">
-      For US shoppers and creators who search <em>worth it</em> before they buy — structured verdicts,
-      skip lists, and free tools. Not hype lists.
-    </p>
-    <p class="hero-cta">
-      <a class="btn" href="/trends">Read buying briefs</a>
-      <a class="btn btn-secondary" href="/methodology">How we research</a>
+      Structured verdicts on viral Amazon products, AI creator tools, gaming gear, and seasonal deals.
     </p>
   </section>
 
-  <AudienceSection />
-
-  <section class="search-hub" aria-labelledby="home-search-hub">
-    <h2 id="home-search-hub" class="section-title">What US shoppers search</h2>
-    <p class="section-intro muted">Worth-it and vs guides — updated when search data shifts.</p>
+  <section class="search-hub">
+    <h2 class="section-title">Popular worth-it searches</h2>
+    <p class="muted">Full brief on each link — verdict, skip list, and picks.</p>
     <ul class="hub-links">
-      {searchHubLinks.slice(0, 6).map((link) => (
+      {searchHubLinks.map((link) => (
         <li><a href={link.href}>{link.label}</a></li>
       ))}
     </ul>
-    <p class="section-cta hub-cta">
-      <a href="/trends">All buying briefs →</a>
-    </p>
   </section>
 
-  <section class="topic-clusters" aria-labelledby="topic-clusters-heading">
-    <h2 id="topic-clusters-heading" class="section-title">Gaming &amp; AI clusters</h2>
-    <p class="section-intro muted">Topic hubs for Bing and shoppers — deep briefs, not category mega-menus.</p>
-    <div class="cluster-grid">
-      <article class="cluster-card">
-        <h3>Gaming</h3>
-        <p class="muted cluster-lead">Console and handheld accessories — worth-it verdicts before Amazon impulse buys.</p>
-        <ul class="cluster-links">
-          {gamingBriefs.map((trend) => (
-            <li><a href={`/trends/${trend.slug}`}>{trend.title.replace(/ — .+$/, '').replace(/ \(2026\)$/, '')}</a></li>
-          ))}
-          {gamingTools.map((tool) => (
-            <li><a href={`/tools/${tool.slug}`}>{tool.title}</a></li>
-          ))}
-        </ul>
-      </article>
-      <article class="cluster-card">
-        <h3>AI tools</h3>
-        <p class="muted cluster-lead">Creator and screenshot workflows — when free tiers beat paid hype.</p>
-        <ul class="cluster-links">
-          {aiBriefs.map((trend) => (
-            <li><a href={`/trends/${trend.slug}`}>{trend.title.replace(/ — .+$/, '').replace(/ \(2026\)$/, '')}</a></li>
-          ))}
-          {aiTools.map((tool) => (
-            <li><a href={`/tools/${tool.slug}`}>{tool.title}</a></li>
-          ))}
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="value-props">
-    <h2 class="section-title">What you get on every brief</h2>
-    <div class="value-grid">
-      {
-        AUDIENCE.valuePillars.map((pillar) => (
-          <article class="card">
-            <h3>{pillar.title}</h3>
-            <p>{pillar.body}</p>
-          </article>
-        ))
-      }
-    </div>
-  </section>
-
-  <h2 class="section-title">Top buying briefs</h2>
-  <p class="section-intro muted">Trending topics narrowed to a short list — so you can decide in minutes.</p>
-  <div class="grid">
-    {hotTrends.map((trend) => <TrendCard trend={trend} />)}
-  </div>
-  <p class="section-cta">
-    <a href="/trends">Browse all briefs →</a>
-  </p>
-
-  <h2 class="section-title">Research tools</h2>
-  <p class="section-intro muted">Bookmark these — use anytime without opening a guide.</p>
-  <div class="grid">
-    {
-      tools.map((tool) => (
-        <article class="card">
-          <h3>
-            <a href={`/tools/${tool.slug}`}>{tool.title}</a>
-          </h3>
-          <p>{tool.description}</p>
-          <a class="btn btn-secondary" href={`/tools/${tool.slug}`}>Open tool →</a>
-        </article>
-      ))
-    }
-  </div>
-
-  <p class="section-cta about-cta">
-    <a href="/about">About HotPick Lab →</a>
-  </p>
+  {
+    grouped.map((group) => (
+      <section class="category-block">
+        <h2 class="section-title">{group.label}</h2>
+        <div class="grid">
+          {group.items.map((trend) => <TrendCard trend={trend} />)}
+        </div>
+      </section>
+    ))
+  }
 </Layout>
 
 <style>
-  .hero-lead {
-    max-width: 42rem;
-    font-size: 1.05rem;
-  }
-
-  .hero-lead em {
-    font-style: normal;
-    color: #c7d2fe;
-  }
-
-  .hero-cta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem;
-    margin: 1.25rem 0 0;
-  }
-
-  .hero-cta .btn {
-    margin-top: 0;
-  }
-
-  .section-intro {
-    margin: -0.25rem 0 0;
-  }
-
-  .section-cta {
-    margin: 1rem 0 0;
-  }
-
-  .about-cta {
-    margin-top: 2.5rem;
-  }
-
-  .value-props {
-    margin-top: 3rem;
-  }
-
-  .value-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    margin-top: 1rem;
-  }
-
-  .value-grid h3 {
-    margin: 0.2rem 0 0.5rem;
-    font-size: 1.05rem;
-  }
+  .hero-lead { max-width: 40rem; }
 
   .search-hub {
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     padding: 1.2rem 1.3rem;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -193,57 +63,11 @@ const aiTools = tools.filter((t) => t.slug === 'video-aspect-ratio-calculator');
     margin: 0.75rem 0 0;
     padding: 0;
     display: grid;
-    gap: 0.4rem;
+    gap: 0.45rem;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
 
-  .hub-links a {
-    font-weight: 600;
-    font-size: 0.94rem;
-  }
+  .hub-links a { font-weight: 600; font-size: 0.94rem; }
 
-  .hub-cta {
-    margin-top: 1rem;
-  }
-
-  .topic-clusters {
-    margin-top: 2.5rem;
-  }
-
-  .cluster-grid {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    margin-top: 1rem;
-  }
-
-  .cluster-card {
-    padding: 1.15rem 1.25rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-  }
-
-  .cluster-card h3 {
-    margin: 0 0 0.35rem;
-    font-size: 1.1rem;
-  }
-
-  .cluster-lead {
-    margin: 0 0 0.75rem;
-    font-size: 0.9rem;
-  }
-
-  .cluster-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.35rem;
-  }
-
-  .cluster-links a {
-    font-weight: 600;
-    font-size: 0.92rem;
-  }
+  .category-block { margin-top: 2.5rem; }
 </style>
