@@ -480,7 +480,7 @@
         "price": "~$90–120",
         "pros": ["Legendary Cloud comfort", "30-hour wireless battery", "PC + PS4/PS5 dongle"],
         "cons": ["Older model vs Cloud III", "7.1 is virtual surround"],
-        "affiliateUrl": "https://www.amazon.com/dp/B08F7PT9CS?tag=hotpicklab20-20",
+        "affiliateUrl": "https://www.amazon.com/dp/B08NTYB4M7?tag=hotpicklab20-20",
         "affiliateNote": "Amazon Associates — hotpicklab20-20",
         "image": "/images/products/hyperx-cloud-iii.svg"
       },
@@ -490,7 +490,7 @@
         "price": "~$35–50",
         "pros": ["Lightweight on-ear fit", "Solid mic for the price", "Simple wired plug-and-play"],
         "cons": ["Wired only", "On-ear seal is weaker than over-ear"],
-        "affiliateUrl": "https://www.amazon.com/dp/B086PKZ4KK?tag=hotpicklab20-20",
+        "affiliateUrl": "https://www.amazon.com/dp/B0B8PGDMWK?tag=hotpicklab20-20",
         "affiliateNote": "Amazon Associates — hotpicklab20-20",
         "image": "/images/products/hyperx-stinger-2.svg"
       }
@@ -663,17 +663,17 @@
   },
   {
     "slug": "amazon-prime-day-deals-worth-it-2026",
-    "title": "Amazon Prime Day 2026 — Deals Actually Worth Buying",
+    "title": "Prime Day 2026: 2 Deals Worth It (Echo Pop, Instant Pot)",
     "category": "amazon-trending",
     "trendScore": 96,
     "searchVolume": "spike",
-    "updated": "2026-07-07",
-    "summary": "Prime Day 2026 ran June 23–26. If you missed it, here is what was actually worth buying — and when to wait for the next real markdown instead of paying full price today.",
-    "whyHot": "Post-sale searches spike for 'did I miss Prime Day' and 'Prime Day vs Black Friday.' Shoppers still want to know whether checkout makes sense after the event ends.",
+    "updated": "2026-07-09",
+    "summary": "Prime Day 2026 runs July 15–16. We cut through the noise: Echo Pop and Instant Pot are worth-it picks — plus what to skip and a free savings calculator before checkout.",
+    "whyHot": "Prime Day week searches spike for 'deals worth it' and 'best prime day buys.' Shoppers want a short honest list, not another 50-item roundup.",
     "trendDrivers": ["seasonal", "social-proof", "low-regret-price"],
-    "signalNotes": "Updated Jul 6 post-event: Prime Day 2026 ended June 26. Echo Pop and Instant Pot were watchlist staples — compare today's price to your target before buying; next big window is typically October Prime Big Deal Days or Black Friday.",
+    "signalNotes": "Updated Jul 9 for Prime Day week (July 15–16). Echo Pop and Instant Pot stay watchlist staples — use the savings calculator and compare 30-day price before checkout.",
     "trendVsTruth": {
-      "intro": "Prime Day was a real sale window. It is also designed to make everything feel urgent — including the week after.",
+      "intro": "Prime Day is a real sale window — and a flood of fake urgency. A short honest list beats scrolling endless deal pages.",
       "rows": [
         {
           "trendSays": "Everything on Prime Day is a must-buy deal.",
@@ -694,11 +694,11 @@
       ]
     },
     "verdict": {
-      "action": "wait",
-      "summary": "Wait unless you need an item today at a price you already researched. Prime Day 2026 ended June 26 — Echo Pop and Instant Pot are worth buying only when the price hits your target again, likely on the next fall sale event.",
-      "bestFor": "Shoppers who wrote down one or two items and a max price before Prime Day — and can still wait for the next markdown.",
-      "skipIf": "You are paying full post-sale price out of FOMO, the 'deal' is only a few dollars off, or you are buying because of countdown timers — not because you wanted the product.",
-      "whyFeelGood": "You are not panic-buying after the sale — you are waiting for a verified price drop on something you already planned to own."
+      "action": "buy",
+      "summary": "Buy during Prime Day week (July 15–16) when Echo Pop or Instant Pot hits your target price — use our savings calculator first. Skip everything else unless you already wanted it before the sale.",
+      "bestFor": "Prime members who planned one or two upgrades and wrote down a max price before the sale starts.",
+      "skipIf": "The deal is only a few dollars off, you are buying from countdown FOMO, or you do not have Prime for member-only pricing.",
+      "whyFeelGood": "You are buying two proven staples at a verified discount — not a cart full of sale hype."
     },
     "commissionType": "amazon-associates",
     "commissionNote": "Electronics & kitchen ~4-8% on Amazon Associates.",
@@ -713,12 +713,12 @@
       "The 'deal' is only a few dollars off a no-name listing"
     ],
     "buyerPitfalls": [
-      "Paying full price the week after Prime Day is often worse than waiting for the next fall sale",
-      "Inflated 'was' prices make post-event 'deals' look bigger than they are",
-      "Lightning deals pressure you — compare the normal 30-day price first",
-      "Open-box and third-party sellers mixed into deal pages — check who ships"
+      "Inflated 'was' prices make Prime Day discounts look bigger than they are — check 30-day history",
+      "Lightning deals pressure you — compare the normal price first",
+      "Open-box and third-party sellers mixed into deal pages — check who ships",
+      "Buying extras you never planned to own just because they are on a Prime Day list"
     ],
-    "keywords": ["amazon prime day 2026", "missed prime day", "prime day worth it", "prime day vs black friday"],
+    "keywords": ["amazon prime day 2026", "prime day deals worth it", "best prime day deals 2026", "prime day worth it", "echo pop prime day"],
     "products": [
       {
         "name": "Echo Pop (Smart Speaker)",
@@ -751,7 +751,7 @@
     "trendScore": 91,
     "searchVolume": "high",
     "updated": "2026-07-07",
-    "summary": "Ninja CREAMi and SLUSHi both blew up on TikTok and sold out during Prime Day 2026. They are not the same machine — one makes scoopable frozen treats, the other makes pourable slushies. Here is who should buy which.",
+    "summary": "Ninja CREAMi and SLUSHi both blow up on TikTok every summer and often sell out during Prime Day. They are not the same machine — one makes scoopable frozen treats, the other makes pourable slushies. Here is who should buy which.",
     "whyHot": "Summer drink content and Prime Day sellout lists keep 'ninja creami vs slushi' and 'is ninja creami worth it' climbing on Amazon. Many shoppers impulse-buy the wrong one.",
     "trendDrivers": ["seasonal", "social-proof", "demo-moment", "platform-halo"],
     "signalNotes": "Prime Day 2026 sellout predictor category; 'ninja creami worth it' and 'ninja slushi machine' searches spike every summer — high ticket ($200–350), so use-case fit matters more than TikTok demos.",
@@ -1409,7 +1409,7 @@
         "price": "~$45–60",
         "pros": ["Simple reliable recording", "No subscription", "USB charge + export"],
         "cons": ["No AI summaries", "Manual transcription", "Less convenient for calls"],
-        "affiliateUrl": "https://www.amazon.com/dp/B07FTFP4RY?tag=hotpicklab20-20",
+        "affiliateUrl": "https://www.amazon.com/dp/B082QL6KLG?tag=hotpicklab20-20",
         "affiliateNote": "Amazon Associates — hotpicklab20-20",
         "image": "/images/products/sony-voice-recorder.svg"
       }

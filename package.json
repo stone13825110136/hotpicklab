@@ -13,6 +13,7 @@
     "indexnow": "node scripts/ping-indexnow.mjs",
     "promote": "node scripts/promote-helper.mjs",
     "verify-links": "node scripts/verify-affiliate-links.mjs",
+    "audit-content": "node scripts/audit-content.mjs",
     "verify-images": "node scripts/verify-product-images.mjs",
     "scrape-images": "node scripts/scrape-all-amazon-images.mjs"
   },

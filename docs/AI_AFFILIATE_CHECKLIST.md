@@ -147,7 +147,7 @@
 ## Gaming 耳机直链说明
 
 - Brief：`/trends/gaming-headset-worth-it-2026`  
-- ASIN：**B08F7PT9CS**（Cloud II Wireless）、**B086PKZ4KK**（Cloud Stinger 2）  
+- ASIN：**B08NTYB4M7**（Cloud II Wireless）、**B0B8PGDMWK**（Cloud Stinger 2）  
 - 国内开发若抓不到 Amazon 实拍图，构建会用 SVG；**Cloudflare 美国节点部署**时会自动跑 `prebuild` 抓取 hiRes  
 - 有 VPN 时在项目根执行：`npm run scrape-images`，再把更新的 `amazon-product-images.json` 提交
 

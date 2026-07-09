@@ -10,6 +10,23 @@ const trends = JSON.parse(readFileSync(join(__dirname, '../src/data/trends.json'
 
 const TIMEOUT_MS = 20_000;
 const UA = 'Mozilla/5.0 (compatible; HotPickLab-LinkCheck/1.0)';
+const AMAZON_TAG = 'hotpicklab20-20';
+
+/** Verify product page only — never fetch tagged URLs (counts as affiliate clicks). */
+function amazonVerifyUrl(affiliateUrl) {
+  const asin = affiliateUrl.match(/\/dp\/([A-Z0-9]{10})/i)?.[1];
+  if (!asin) return null;
+  return `https://www.amazon.com/dp/${asin}`;
+}
+
+function hasAffiliateTag(affiliateUrl) {
+  try {
+    const u = new URL(affiliateUrl);
+    return u.searchParams.get('tag') === AMAZON_TAG;
+  } catch {
+    return affiliateUrl.includes(`tag=${AMAZON_TAG}`);
+  }
+}
 
 async function checkUrl(name, url) {
   const controller = new AbortController();
@@ -36,15 +53,37 @@ async function checkUrl(name, url) {
 }
 
 const jobs = [];
+let tagMissing = 0;
 for (const trend of trends) {
   for (const product of trend.products) {
-    if (product.affiliateUrl?.includes('amazon.com/dp/')) {
-      jobs.push(checkUrl(`${trend.slug} → ${product.name}`, product.affiliateUrl));
+    const affiliateUrl = product.affiliateUrl;
+    if (!affiliateUrl?.includes('amazon.com/dp/')) continue;
+
+    if (!hasAffiliateTag(affiliateUrl)) {
+      tagMissing += 1;
+      console.log(`✗ MISSING TAG  ${trend.slug} → ${product.name}`);
+      console.log(`        ${affiliateUrl}`);
+      continue;
     }
+
+    const verifyUrl = amazonVerifyUrl(affiliateUrl);
+    if (!verifyUrl) {
+      tagMissing += 1;
+      console.log(`✗ BAD ASIN  ${trend.slug} → ${product.name}`);
+      console.log(`        ${affiliateUrl}`);
+      continue;
+    }
+
+    jobs.push(checkUrl(`${trend.slug} → ${product.name}`, verifyUrl));
   }
 }
 
-console.log(`Checking ${jobs.length} Amazon affiliate links...\n`);
+if (tagMissing > 0) {
+  console.error(`\n${tagMissing} Amazon link(s) missing tag=${AMAZON_TAG} or ASIN.`);
+  process.exit(1);
+}
+
+console.log(`Checking ${jobs.length} Amazon product pages (tag stripped — no click tracking)...\n`);
 const results = await Promise.all(jobs);
 
 let failed = 0;
@@ -66,5 +105,6 @@ if (failed > 0) {
   console.error(`${failed} link(s) failed. Fix trends.json before push.`);
   process.exit(1);
 }
-console.log('All Amazon links reachable from this network.');
+console.log('All Amazon product pages reachable from this network.');
+console.log('Note: verified without affiliate tag to avoid inflating Associates clicks.');
 console.log('Note: amazon.com may still be blocked inside China — links target US shoppers.');
