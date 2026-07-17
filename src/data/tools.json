@@ -1,7 +1,7 @@
 [
   {
     "slug": "video-aspect-ratio-calculator",
-    "title": "Video Aspect Ratio Calculator",
+    "title": "Video Aspect Ratio Calculator for TikTok, Shorts & Reels",
     "shortTitle": "Video size calculator",
     "description": "Get the right width and height for TikTok, YouTube Shorts, and Reels — copy dimensions in one tap.",
     "launcherLabel": "Calculate video size",
@@ -16,7 +16,7 @@
   },
   {
     "slug": "gaming-session-timer",
-    "title": "Gaming Session Timer",
+    "title": "Gaming Session Timer — Set Play Limits Online Free",
     "shortTitle": "Session timer",
     "description": "Set a play-time limit and get a clear reminder when your session ends — helpful during long launch-week gaming binges.",
     "launcherLabel": "Set session timer",
@@ -26,7 +26,7 @@
   },
   {
     "slug": "amazon-prime-day-savings-calculator",
-    "title": "Deal Savings Calculator",
+    "title": "Amazon Deal Savings Calculator — Check Real Discounts",
     "shortTitle": "Deal calculator",
     "description": "Enter original and sale price to see exactly how much you save — works for Prime Day, Black Friday, or any listed discount.",
     "launcherLabel": "Check if it's a real deal",
