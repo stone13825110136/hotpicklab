@@ -33,6 +33,8 @@ const LOCAL_ASIN_IMAGES: Record<string, string> = {
   B0D2LZYQ2M: '/images/products/ninja-slushi.svg',
   B0BFB1P1JM: '/images/products/steam-deck-protector.svg',
   B0BYD5VTNM: '/images/products/steam-deck-case.svg',
+  B0B7HVZNMB: '/images/products/jsaux-steam-deck-dock.svg',
+  B0C349WPZG: '/images/products/valve-steam-deck-dock.svg',
   B08FC6Y4VG: '/images/products/ps5-charging-station.svg',
   B08FC5R4KV: '/images/products/ps5-media-remote.svg',
   B08NTYB4M7: '/images/products/hyperx-cloud-iii.svg',

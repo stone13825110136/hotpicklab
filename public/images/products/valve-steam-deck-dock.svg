@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Valve Steam Deck dock">
+  <rect width="400" height="400" fill="#ecfeff"/>
+  <rect x="110" y="145" width="180" height="85" rx="14" fill="#164e63" stroke="#083344" stroke-width="3"/>
+  <rect x="140" y="165" width="40" height="20" rx="3" fill="#67e8f9"/>
+  <rect x="195" y="165" width="30" height="20" rx="3" fill="#22d3ee"/>
+  <rect x="240" y="165" width="30" height="20" rx="3" fill="#06b6d4"/>
+  <rect x="175" y="200" width="50" height="12" rx="4" fill="#a5f3fc"/>
+  <text x="200" y="290" text-anchor="middle" font-family="Georgia,serif" font-size="18" font-weight="700" fill="#083344">Valve Dock</text>
+</svg>

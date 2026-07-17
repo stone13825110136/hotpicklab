@@ -32,6 +32,8 @@ export const AMAZON_PRODUCT_META: Record<string, AmazonProductMeta> = {
   B0D2LZYQ2M: { shortName: 'Ninja SLUSHi', rating: 4.5, reviewCount: 2100, ratingNote: 'approx. count' },
   B0BFB1P1JM: { shortName: 'amFilm Steam Deck protector', rating: 4.5, reviewCount: 4200, ratingNote: 'approx. count' },
   B0BYD5VTNM: { shortName: 'Spigen Steam Deck case', rating: 4.6, reviewCount: 1800, ratingNote: 'approx. count' },
+  B0B7HVZNMB: { shortName: 'JSAUX Steam Deck dock', rating: 4.5, reviewCount: 12000, ratingNote: 'approx. count' },
+  B0C349WPZG: { shortName: 'Valve Steam Deck dock', rating: 4.6, reviewCount: 3500, ratingNote: 'approx. count' },
   B08FC6Y4VG: { shortName: 'DualSense charging station', rating: 4.8, reviewCount: 52000, ratingNote: 'approx. count' },
   B08FC5R4KV: { shortName: 'PS5 media remote', rating: 4.6, reviewCount: 14000, ratingNote: 'approx. count' },
   B08NTYB4M7: { shortName: 'HyperX Cloud II Wireless', rating: 4.3, reviewCount: 18500, ratingNote: 'approx. count' },
