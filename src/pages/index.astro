@@ -1,73 +1,367 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import TrendCard from '../components/TrendCard.astro';
-import trends from '../data/trends.json';
-import searchHubLinks from '../data/search-hub-links.json';
-import { CATEGORIES, SITE } from '../lib/site';
+import { SITE } from '../lib/site';
 
-const grouped = (['ai-tools', 'amazon-trending', 'gaming', 'seasonal'] as const)
-  .map((id) => ({
-    label: CATEGORIES[id] ?? id,
-    items: trends.filter((t) => t.category === id),
-  }))
-  .filter((g) => g.items.length > 0);
+const buyHref = `mailto:${SITE.contactEmail}?subject=${encodeURIComponent(
+  `${SITE.productName} — $${SITE.priceUsd}`,
+)}&body=${encodeURIComponent(
+  [
+    'I want to buy the Pain Point Research Report ($49).',
+    '',
+    'After you confirm payment instructions, I will fill intake:',
+    '1) Target user',
+    '2) Job / problem in their words',
+    '3) Competitors (or none)',
+    '4) Keywords',
+    '5) What I will NOT build',
+    '6) What “good” looks like in 30 days',
+    '7) Next-week test budget',
+    '8) Email for the report',
+  ].join('\n'),
+)}`;
 ---
 
 <Layout
-  title="Viral Amazon & AI Buying Briefs — Worth It Guides"
+  title={SITE.name}
   description={SITE.description}
-  keywords={['worth it reviews', 'buying briefs', 'trending products 2026', 'amazon viral products']}
+  keywords={[
+    'pain point research',
+    'indie hacker validation',
+    'Reddit market research',
+    'Hacker News research',
+    'product idea validation',
+  ]}
 >
   <section class="hero">
-    <h1>Buying briefs</h1>
-    <p class="muted hero-lead">
-      Structured verdicts on viral Amazon products, AI creator tools, gaming gear, and seasonal deals.
-    </p>
-  </section>
-
-  <section class="search-hub">
-    <h2 class="section-title">Popular worth-it searches</h2>
-    <p class="muted">Full brief on each link — verdict, skip list, and picks.</p>
-    <ul class="hub-links">
-      {searchHubLinks.map((link) => (
-        <li><a href={link.href}>{link.label}</a></li>
-      ))}
-    </ul>
-  </section>
-
-  {
-    grouped.map((group) => (
-      <section class="category-block">
-        <h2 class="section-title">{group.label}</h2>
-        <div class="grid">
-          {group.items.map((trend) => <TrendCard trend={trend} />)}
+    <div class="hero-plane" aria-hidden="true">
+      <div class="thread-sheet">
+        <div class="thread-line">
+          <span class="src">r/SaaS</span>
+          <span>built for 6 months, zero paying users</span>
         </div>
-      </section>
-    ))
-  }
+        <div class="thread-line">
+          <span class="src">HN</span>
+          <span>I’m tired of shipping features nobody asked for</span>
+        </div>
+        <div class="thread-line">
+          <span class="src">r/entrepreneur</span>
+          <span>how do I know people will pay before I code?</span>
+        </div>
+        <div class="thread-line dim">
+          <span class="src">filter</span>
+          <span>repeat · intensity · pay smell · counter-evidence</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="shell hero-copy">
+      <p class="brand-mark">{SITE.name}</p>
+      <h1>See who’s in pain before you write more code</h1>
+      <p class="lede">
+        For builders with coding tools who fear shipping blind. Reddit and HN evidence → filter pay
+        signals → email a one-week validation plan.
+      </p>
+      <div class="cta-row">
+        <a class="cta" href={buyHref}>Get the report — ${SITE.priceUsd}</a>
+        <p class="cta-note">7-day money-back. Card checkout next; email purchase works now.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="offer">
+    <div class="shell narrow">
+      <h2>What you get</h2>
+      <p class="section-lede">
+        A research report by email — not a mentoring call, not a “you’ll get rich” forecast.
+      </p>
+      <ul class="plain-list">
+        <li>Pain / opportunity notes with clickable public source URLs</li>
+        <li>Fixed rubric labels: repeat, intensity, pay smell, worth validating</li>
+        <li>Counter-evidence — why it might not sell</li>
+        <li>A cheap next test for this week (talk, landing, or pre-sale — not a full build)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="sources">
+    <div class="shell narrow">
+      <h2>Where evidence comes from</h2>
+      <p class="section-lede">
+        Primary sources are public Reddit threads and Hacker News. If you name competitors, we add
+        review-site signal (e.g. G2). Every claim should map to a URL you can open.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="promise">
+    <div class="shell narrow">
+      <h2>What we don’t promise</h2>
+      <p class="section-lede">
+        We don’t know if your direction is “right.” Markets decide with money. We show who’s
+        complaining in public, whether it smells like pay, and how to test cheaply this week.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="price">
+    <div class="shell narrow">
+      <h2>${SITE.priceUsd} · Pain Point Research Report</h2>
+      <p class="section-lede">
+        After purchase you’ll get a short intake (target user, job-to-be-done, competitors,
+        keywords, won’t-build, success criteria). Missing the basics means we pause and ask —
+        we don’t invent your customer for you.
+      </p>
+      <a class="cta cta-inline" href={buyHref}>Email to buy — ${SITE.priceUsd}</a>
+      <p class="fine">Refund within 7 days if the report doesn’t meet the sourced-research bar.</p>
+    </div>
+  </section>
 </Layout>
 
 <style>
-  .hero-lead { max-width: 40rem; }
-
-  .search-hub {
-    margin-top: 2rem;
-    padding: 1.2rem 1.3rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-  }
-
-  .hub-links {
-    list-style: none;
-    margin: 0.75rem 0 0;
-    padding: 0;
+  .hero {
+    position: relative;
+    min-height: min(92vh, 52rem);
     display: grid;
-    gap: 0.45rem;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    align-items: end;
+    padding: 0 0 3.5rem;
+    overflow: hidden;
   }
 
-  .hub-links a { font-weight: 600; font-size: 0.94rem; }
+  .hero-plane {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(105deg, rgba(244, 247, 250, 0.92) 0%, rgba(244, 247, 250, 0.55) 42%, rgba(20, 24, 31, 0.55) 42%, rgba(20, 24, 31, 0.82) 100%),
+      radial-gradient(800px 500px at 70% 30%, rgba(15, 122, 108, 0.35), transparent 60%);
+  }
 
-  .category-block { margin-top: 2.5rem; }
+  .thread-sheet {
+    position: absolute;
+    top: 12%;
+    right: max(1rem, calc((100% - 72rem) / 2));
+    width: min(28rem, 46vw);
+    padding: 1.25rem 1.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1.55;
+    color: rgba(244, 247, 250, 0.88);
+    border-left: 2px solid rgba(15, 122, 108, 0.75);
+    background: rgba(10, 14, 20, 0.35);
+    backdrop-filter: blur(6px);
+    animation: rise 0.9s ease-out both;
+  }
+
+  .thread-line {
+    display: grid;
+    grid-template-columns: 5.5rem 1fr;
+    gap: 0.65rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid rgba(244, 247, 250, 0.1);
+  }
+
+  .thread-line:last-child {
+    border-bottom: 0;
+  }
+
+  .thread-line.dim {
+    color: rgba(244, 247, 250, 0.55);
+  }
+
+  .src {
+    color: #7dceb8;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+    max-width: 36rem;
+    padding-top: 4.5rem;
+    animation: rise 0.8s ease-out 0.1s both;
+  }
+
+  .brand-mark {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+  }
+
+  .hero h1 {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.45rem, 3.2vw, 2rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--ink-soft);
+    max-width: 18ch;
+  }
+
+  .lede {
+    margin: 0 0 1.75rem;
+    color: var(--ink-soft);
+    max-width: 34rem;
+  }
+
+  .cta-row {
+    display: grid;
+    gap: 0.65rem;
+    justify-items: start;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.25rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    color: #f4f7fa;
+    background: var(--ink);
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .cta:hover {
+    background: var(--signal-deep);
+    border-color: var(--signal-deep);
+    color: #f4f7fa;
+    transform: translateY(-1px);
+  }
+
+  .cta-inline {
+    margin-top: 0.5rem;
+  }
+
+  .cta-note,
+  .fine {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    max-width: 28rem;
+  }
+
+  .section {
+    padding: 4rem 0;
+  }
+
+  .section-alt {
+    background: rgba(255, 255, 255, 0.35);
+    border-block: 1px solid var(--line);
+  }
+
+  .narrow {
+    max-width: 40rem;
+  }
+
+  .section h2 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    letter-spacing: -0.02em;
+  }
+
+  .section-lede {
+    margin: 0;
+    color: var(--ink-soft);
+  }
+
+  .plain-list {
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .plain-list li {
+    padding-left: 1rem;
+    border-left: 2px solid var(--signal);
+    color: var(--ink-soft);
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 860px) {
+    .hero {
+      min-height: auto;
+      padding-bottom: 2.5rem;
+    }
+
+    .hero-plane {
+      background:
+        linear-gradient(180deg, rgba(244, 247, 250, 0.2) 0%, rgba(20, 24, 31, 0.88) 55%),
+        radial-gradient(600px 360px at 50% 20%, rgba(15, 122, 108, 0.4), transparent 65%);
+    }
+
+    .thread-sheet {
+      position: relative;
+      top: auto;
+      right: auto;
+      width: min(100% - 2rem, 72rem);
+      margin: 1.25rem auto 0;
+      animation: rise 0.9s ease-out 0.15s both;
+    }
+
+    .hero-copy {
+      padding-top: 2rem;
+      max-width: none;
+    }
+
+    .hero h1 {
+      max-width: none;
+      color: #e8edf2;
+    }
+
+    .brand-mark {
+      color: #f4f7fa;
+    }
+
+    .lede,
+    .cta-note {
+      color: rgba(232, 237, 242, 0.82);
+    }
+
+    .cta {
+      background: #f4f7fa;
+      color: var(--ink);
+      border-color: #f4f7fa;
+    }
+
+    .cta:hover {
+      background: #fff;
+      color: var(--ink);
+      border-color: #fff;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-copy,
+    .thread-sheet {
+      animation: none;
+    }
+
+    .cta {
+      transition: none;
+    }
+  }
 </style>

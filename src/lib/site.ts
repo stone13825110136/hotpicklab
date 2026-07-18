@@ -1,22 +1,14 @@
 export const SITE = {
   name: 'HotPick Lab',
-  tagline: 'Buying research for trending products.',
+  tagline: 'Pain-point research before you write more code.',
   description:
-    'Independent buying briefs for US shoppers and short-form creators — structured verdicts on viral Amazon products, AI tools, and seasonal deals.',
+    'For builders who can ship with Cursor or AI tools but fear building blind. Public Reddit and Hacker News evidence, filtered for pay signals, with a one-week validation plan — delivered by email. $49. 7-day money-back.',
   url: 'https://hotpicklab.com',
-  author: 'HotPick Lab Editorial',
+  author: 'HotPick Lab',
   contactEmail: 'contact@hotpicklab.com',
   locale: 'en-US',
-};
-
-export const AFFILIATE_DISCLOSURE =
-  'We may earn a commission when you buy through links on this page. This helps keep our tools free.';
-
-export const CATEGORIES: Record<string, string> = {
-  'ai-tools': 'AI Tools',
-  'amazon-trending': 'Amazon Trending',
-  gaming: 'Gaming',
-  seasonal: 'Seasonal',
+  priceUsd: 49,
+  productName: 'Pain Point Research Report',
 };
 
 export function formatDate(iso: string) {

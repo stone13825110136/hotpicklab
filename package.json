@@ -4,9 +4,10 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/scrape-all-amazon-images.mjs --missing-only",
-    "build": "node scripts/verify-affiliate-links.mjs && node scripts/verify-product-images.mjs && astro build",
+    "build": "astro build",
     "preview": "astro preview",
+    "legacy:prebuild-images": "node scripts/scrape-all-amazon-images.mjs --missing-only",
+    "legacy:verify-affiliate": "node scripts/verify-affiliate-links.mjs && node scripts/verify-product-images.mjs",
     "radar": "node scripts/daily-radar.mjs",
     "radar:scan": "node scripts/scan-trends.mjs",
     "radar:test-push": "node scripts/test-pushplus.mjs",

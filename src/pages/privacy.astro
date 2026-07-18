@@ -3,22 +3,27 @@ import Layout from '../layouts/Layout.astro';
 import { SITE } from '../lib/site';
 ---
 
-<Layout title="Privacy Policy — How HotPick Lab Handles Visitor Data" description="Privacy policy for HotPick Lab.">
-  <article class="prose">
+<Layout
+  title="Privacy Policy"
+  description="Privacy policy for HotPick Lab — how we handle visitor and customer information."
+>
+  <article class="legal shell">
     <h1>Privacy Policy</h1>
-    <p>Last updated: July 2, 2026</p>
+    <p class="updated">Last updated: July 18, 2026</p>
     <p>
-      {SITE.name} ("we") operates {SITE.url}. This page explains how we handle information when you visit our site.
+      {SITE.name} ("we") operates {SITE.url}. This page explains how we handle information when you
+      visit the site or buy a research report.
     </p>
-    <h2>Analytics & advertising</h2>
+    <h2>What we collect</h2>
     <p>
-      We may use Google Analytics and Google AdSense. These services use cookies to measure traffic and show ads.
-      You can opt out via Google's ad settings and browser cookie controls.
+      If you email us or purchase a report, we collect the contact details and intake answers you
+      send (such as target user, problem description, keywords, and delivery email). We use that
+      information only to deliver and support the report you ordered.
     </p>
-    <h2>Affiliate links</h2>
+    <h2>Analytics</h2>
     <p>
-      Outbound affiliate links may set third-party cookies when you click them. See our
-      <a href="/disclosure">Affiliate Disclosure</a>.
+      We may use privacy-respecting analytics to understand aggregate traffic. We do not sell your
+      personal information.
     </p>
     <h2>Contact</h2>
     <p>
@@ -26,3 +31,29 @@ import { SITE } from '../lib/site';
     </p>
   </article>
 </Layout>
+
+<style>
+  .legal {
+    padding: 3rem 0 4rem;
+    max-width: 40rem;
+  }
+
+  .legal h1 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    letter-spacing: -0.02em;
+  }
+
+  .updated {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+
+  .legal h2 {
+    margin: 2rem 0 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+  }
+</style>
