@@ -1,23 +1,17 @@
 #!/usr/bin/env node
 /** Ping IndexNow (Bing/Yandex) after new pages go live. */
 
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
-
 const HOST = 'hotpicklab.com';
 const KEY = '8f3a2b1c9d4e5f60718293a4b5c6d7e8';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const trends = JSON.parse(readFileSync(join(root, 'src/data/trends.json'), 'utf8'));
-const tools = JSON.parse(readFileSync(join(root, 'src/data/tools.json'), 'utf8'));
-
-const staticPaths = ['', '/trends', '/tools', '/about', '/methodology', '/how-we-find-trends', '/spot-a-trend', '/privacy', '/disclosure'];
 const URLS = [
-  ...staticPaths.map((p) => `https://${HOST}${p || '/'}`),
-  ...trends.map((t) => `https://${HOST}/trends/${t.slug}`),
-  ...tools.map((t) => `https://${HOST}/tools/${t.slug}`),
+  `https://${HOST}/`,
+  `https://${HOST}/tools/`,
+  `https://${HOST}/tools/pet-name-lab/`,
+  `https://${HOST}/disclosure/`,
+  `https://${HOST}/privacy/`,
+  `https://${HOST}/sitemap.xml`,
 ];
 
 const res = await fetch('https://api.indexnow.org/indexnow', {

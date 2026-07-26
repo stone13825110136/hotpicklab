@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE } from '../lib/site';
+---
+
+<Layout
+  title="Disclosure"
+  description="Advertising and affiliate disclosure for HotPick Lab."
+>
+  <section class="shell disclose">
+    <h1>Disclosure</h1>
+    <p>
+      {SITE.name} is a free naming lab. We may show advertising (for example Google AdSense) near
+      results. Ads never block name generation, Compare, or Fortune Draw.
+    </p>
+    <p>
+      Fortune Draw is entertainment only — Fun reading · Not a prediction. We do not sell paid
+      fortune readings or claim to predict outcomes.
+    </p>
+    <p>
+      In later phases we may include domain affiliate links when suggesting business names. Those
+      will be labeled. We earn a commission if you buy through them, at no extra cost to you.
+    </p>
+    <p>
+      Questions: <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .disclose {
+    padding: 2.5rem 0 3.5rem;
+    max-width: 40rem;
+  }
+
+  .disclose h1 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    margin: 0 0 1rem;
+  }
+
+  .disclose p {
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+</style>

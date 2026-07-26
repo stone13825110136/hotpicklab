@@ -1,0 +1,1016 @@
+[
+  {
+    "id": 0,
+    "name": "The Fool",
+    "arcana": "major",
+    "vibe": "Light, curious, playful — New beginnings, spontaneity, innocence, leap of faith, free spirit",
+    "keywords": [
+      "new beginnings",
+      "spontaneity",
+      "innocence",
+      "leap of faith"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 1,
+    "name": "The Magician",
+    "arcana": "major",
+    "vibe": "Confident, energized — Manifestation, willpower, resourcefulness, skill, focused action",
+    "keywords": [
+      "manifestation",
+      "willpower",
+      "resourcefulness",
+      "skill"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 2,
+    "name": "The High Priestess",
+    "arcana": "major",
+    "vibe": "Quiet, inward, softly mysterious — Intuition, inner wisdom, mystery, the subconscious, stillness",
+    "keywords": [
+      "intuition",
+      "inner wisdom",
+      "mystery",
+      "the subconscious"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 3,
+    "name": "The Empress",
+    "arcana": "major",
+    "vibe": "Warm, sensual, content — Abundance, nurturing, fertility, creativity, sensuality",
+    "keywords": [
+      "abundance",
+      "nurturing",
+      "fertility",
+      "creativity"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 4,
+    "name": "The Emperor",
+    "arcana": "major",
+    "vibe": "Steady, resolute, composed — Structure, authority, stability, leadership, discipline",
+    "keywords": [
+      "structure",
+      "authority",
+      "stability",
+      "leadership"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 5,
+    "name": "The Hierophant",
+    "arcana": "major",
+    "vibe": "Reflective, respectful — Tradition, guidance, shared values, institutions, mentorship",
+    "keywords": [
+      "tradition",
+      "guidance",
+      "shared values",
+      "institutions"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 6,
+    "name": "The Lovers",
+    "arcana": "major",
+    "vibe": "Tender, heart-open — Love, union, alignment, meaningful choice, harmony",
+    "keywords": [
+      "love",
+      "union",
+      "alignment",
+      "meaningful choice"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 7,
+    "name": "The Chariot",
+    "arcana": "major",
+    "vibe": "Driven, determined — Determination, victory, willpower, self-control, momentum",
+    "keywords": [
+      "determination",
+      "victory",
+      "willpower",
+      "self-control"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 8,
+    "name": "Strength",
+    "arcana": "major",
+    "vibe": "Calm courage — Courage, inner strength, patience, compassion, gentle power",
+    "keywords": [
+      "courage",
+      "inner strength",
+      "patience",
+      "compassion"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 9,
+    "name": "The Hermit",
+    "arcana": "major",
+    "vibe": "Solitary, contemplative — Introspection, solitude, inner guidance, wisdom, searching",
+    "keywords": [
+      "introspection",
+      "solitude",
+      "inner guidance",
+      "wisdom"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 10,
+    "name": "Wheel of Fortune",
+    "arcana": "major",
+    "vibe": "Anticipatory, changeable — Change, cycles, destiny, turning point, luck",
+    "keywords": [
+      "change",
+      "cycles",
+      "destiny",
+      "turning point"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 11,
+    "name": "Justice",
+    "arcana": "major",
+    "vibe": "Sober, clear-eyed — Fairness, truth, accountability, cause and effect, clarity",
+    "keywords": [
+      "fairness",
+      "truth",
+      "accountability",
+      "cause and effect"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 12,
+    "name": "The Hanged Man",
+    "arcana": "major",
+    "vibe": "Suspended, strangely peaceful — Surrender, new perspective, pause, letting go, suspension",
+    "keywords": [
+      "surrender",
+      "new perspective",
+      "pause",
+      "letting go"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 13,
+    "name": "Death",
+    "arcana": "major",
+    "vibe": "Heavy yet quietly relieved — Endings, transformation, transition, release, renewal",
+    "keywords": [
+      "endings",
+      "transformation",
+      "transition",
+      "release"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 14,
+    "name": "Temperance",
+    "arcana": "major",
+    "vibe": "Serene, even — Balance, moderation, patience, blending, healing",
+    "keywords": [
+      "balance",
+      "moderation",
+      "patience",
+      "blending"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 15,
+    "name": "The Devil",
+    "arcana": "major",
+    "vibe": "Tense, restless — Attachment, temptation, unhealthy patterns, materialism, feeling trapped",
+    "keywords": [
+      "attachment",
+      "temptation",
+      "unhealthy patterns",
+      "materialism"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 16,
+    "name": "The Tower",
+    "arcana": "major",
+    "vibe": "Shaken, electric — Sudden upheaval, revelation, collapse of the false, disruption, awakening",
+    "keywords": [
+      "sudden upheaval",
+      "revelation",
+      "collapse of the false",
+      "disruption"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 17,
+    "name": "The Star",
+    "arcana": "major",
+    "vibe": "Hopeful, soothed — Hope, renewal, healing, inspiration, faith",
+    "keywords": [
+      "hope",
+      "renewal",
+      "healing",
+      "inspiration"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 18,
+    "name": "The Moon",
+    "arcana": "major",
+    "vibe": "Dreamy, uneasy — Illusion, intuition, uncertainty, the subconscious, dreams",
+    "keywords": [
+      "illusion",
+      "intuition",
+      "uncertainty",
+      "the subconscious"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 19,
+    "name": "The Sun",
+    "arcana": "major",
+    "vibe": "Joyful, radiant — Joy, success, vitality, clarity, confidence",
+    "keywords": [
+      "joy",
+      "success",
+      "vitality",
+      "clarity"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 20,
+    "name": "Judgement",
+    "arcana": "major",
+    "vibe": "Stirred, resolved — Awakening, reckoning, renewal, calling, self-evaluation",
+    "keywords": [
+      "awakening",
+      "reckoning",
+      "renewal",
+      "calling"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 21,
+    "name": "The World",
+    "arcana": "major",
+    "vibe": "Fulfilled, celebratory — Completion, fulfillment, wholeness, achievement, integration",
+    "keywords": [
+      "completion",
+      "fulfillment",
+      "wholeness",
+      "achievement"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 22,
+    "name": "Ace of Wands",
+    "arcana": "minor",
+    "vibe": "Excited, inspired — Inspiration, new opportunity, creative spark, enthusiasm, potential",
+    "keywords": [
+      "inspiration",
+      "new opportunity",
+      "creative spark",
+      "enthusiasm"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 23,
+    "name": "Two of Wands",
+    "arcana": "minor",
+    "vibe": "Restless anticipation — Planning, future vision, decision, expansion, the world in hand",
+    "keywords": [
+      "planning",
+      "future vision",
+      "decision",
+      "expansion"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 24,
+    "name": "Three of Wands",
+    "arcana": "minor",
+    "vibe": "Optimistic, forward-looking — Progress, expansion, foresight, ships coming in, momentum",
+    "keywords": [
+      "progress",
+      "expansion",
+      "foresight",
+      "ships coming in"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 25,
+    "name": "Four of Wands",
+    "arcana": "minor",
+    "vibe": "Celebratory, secure — Celebration, homecoming, milestone, community, stability",
+    "keywords": [
+      "celebration",
+      "homecoming",
+      "milestone",
+      "community"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 26,
+    "name": "Five of Wands",
+    "arcana": "minor",
+    "vibe": "Irritable, competitive — Conflict, competition, friction, clashing egos, scattered effort",
+    "keywords": [
+      "conflict",
+      "competition",
+      "friction",
+      "clashing egos"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 27,
+    "name": "Six of Wands",
+    "arcana": "minor",
+    "vibe": "Proud, uplifted — Victory, recognition, success, confidence, public acclaim",
+    "keywords": [
+      "victory",
+      "recognition",
+      "success",
+      "confidence"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 28,
+    "name": "Seven of Wands",
+    "arcana": "minor",
+    "vibe": "Defensive but resolute — Defense, standing your ground, perseverance, conviction, holding advantage",
+    "keywords": [
+      "defense",
+      "standing your ground",
+      "perseverance",
+      "conviction"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 29,
+    "name": "Eight of Wands",
+    "arcana": "minor",
+    "vibe": "Swift, eager — Swift movement, momentum, news arriving, alignment, rapid progress",
+    "keywords": [
+      "swift movement",
+      "momentum",
+      "news arriving",
+      "alignment"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 30,
+    "name": "Nine of Wands",
+    "arcana": "minor",
+    "vibe": "Weary but determined — Resilience, last stand, persistence, guardedness, nearly there",
+    "keywords": [
+      "resilience",
+      "last stand",
+      "persistence",
+      "guardedness"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 31,
+    "name": "Ten of Wands",
+    "arcana": "minor",
+    "vibe": "Burdened, overloaded — Burden, overload, responsibility, carrying too much, final effort",
+    "keywords": [
+      "burden",
+      "overload",
+      "responsibility",
+      "carrying too much"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 32,
+    "name": "Page of Wands",
+    "arcana": "minor",
+    "vibe": "Curious, enthusiastic — Enthusiasm, exploration, free spirit, exciting news, curiosity",
+    "keywords": [
+      "enthusiasm",
+      "exploration",
+      "free spirit",
+      "exciting news"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 33,
+    "name": "Knight of Wands",
+    "arcana": "minor",
+    "vibe": "Adventurous, impulsive — Action, adventure, passion, bold pursuit, charisma",
+    "keywords": [
+      "action",
+      "adventure",
+      "passion",
+      "bold pursuit"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 34,
+    "name": "Queen of Wands",
+    "arcana": "minor",
+    "vibe": "Confident, magnetic — Confidence, warmth, determination, magnetism, independence",
+    "keywords": [
+      "confidence",
+      "warmth",
+      "determination",
+      "magnetism"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 35,
+    "name": "King of Wands",
+    "arcana": "minor",
+    "vibe": "Bold, visionary — Visionary leadership, boldness, entrepreneurship, mastery of fire, inspiration",
+    "keywords": [
+      "visionary leadership",
+      "boldness",
+      "entrepreneurship",
+      "mastery of fire"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 36,
+    "name": "Ace of Cups",
+    "arcana": "minor",
+    "vibe": "Tender, open-hearted — New love, emotional beginning, compassion, overflowing heart, spiritual opening",
+    "keywords": [
+      "new love",
+      "emotional beginning",
+      "compassion",
+      "overflowing heart"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 37,
+    "name": "Two of Cups",
+    "arcana": "minor",
+    "vibe": "Affectionate, harmonious — Partnership, mutual attraction, connection, harmony, union of equals",
+    "keywords": [
+      "partnership",
+      "mutual attraction",
+      "connection",
+      "harmony"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 38,
+    "name": "Three of Cups",
+    "arcana": "minor",
+    "vibe": "Joyful, sociable — Celebration, friendship, community, joy shared, creative collaboration",
+    "keywords": [
+      "celebration",
+      "friendship",
+      "community",
+      "joy shared"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 39,
+    "name": "Four of Cups",
+    "arcana": "minor",
+    "vibe": "Apathetic, withdrawn — Apathy, contemplation, disconnection, missed offer, reevaluation",
+    "keywords": [
+      "apathy",
+      "contemplation",
+      "disconnection",
+      "missed offer"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 40,
+    "name": "Five of Cups",
+    "arcana": "minor",
+    "vibe": "Sorrowful, regretful — Loss, grief, regret, focusing on what's gone, disappointment",
+    "keywords": [
+      "loss",
+      "grief",
+      "regret",
+      "focusing on what's gone"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 41,
+    "name": "Six of Cups",
+    "arcana": "minor",
+    "vibe": "Nostalgic, sweet — Nostalgia, childhood, innocence, reunion, simple kindness",
+    "keywords": [
+      "nostalgia",
+      "childhood",
+      "innocence",
+      "reunion"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 42,
+    "name": "Seven of Cups",
+    "arcana": "minor",
+    "vibe": "Dreamy, indecisive — Choices, fantasy, illusion, wishful thinking, options",
+    "keywords": [
+      "choices",
+      "fantasy",
+      "illusion",
+      "wishful thinking"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 43,
+    "name": "Eight of Cups",
+    "arcana": "minor",
+    "vibe": "Wistful, restless — Walking away, seeking deeper meaning, leaving behind, disillusionment, quest",
+    "keywords": [
+      "walking away",
+      "seeking deeper meaning",
+      "leaving behind",
+      "disillusionment"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 44,
+    "name": "Nine of Cups",
+    "arcana": "minor",
+    "vibe": "Content, satisfied — Wishes fulfilled, contentment, satisfaction, pleasure, gratitude",
+    "keywords": [
+      "wishes fulfilled",
+      "contentment",
+      "satisfaction",
+      "pleasure"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 45,
+    "name": "Ten of Cups",
+    "arcana": "minor",
+    "vibe": "Loving, fulfilled — Lasting happiness, family harmony, emotional fulfillment, love realized, belonging",
+    "keywords": [
+      "lasting happiness",
+      "family harmony",
+      "emotional fulfillment",
+      "love realized"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 46,
+    "name": "Page of Cups",
+    "arcana": "minor",
+    "vibe": "Playful, sensitive — Emotional openness, creative message, intuition budding, sensitivity, sweet surprise",
+    "keywords": [
+      "emotional openness",
+      "creative message",
+      "intuition budding",
+      "sensitivity"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 47,
+    "name": "Knight of Cups",
+    "arcana": "minor",
+    "vibe": "Romantic, idealistic — Romance, charm, invitation, following the heart, idealism",
+    "keywords": [
+      "romance",
+      "charm",
+      "invitation",
+      "following the heart"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 48,
+    "name": "Queen of Cups",
+    "arcana": "minor",
+    "vibe": "Empathic, calm — Compassion, emotional depth, intuition, nurturing presence, empathy",
+    "keywords": [
+      "compassion",
+      "emotional depth",
+      "intuition",
+      "nurturing presence"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 49,
+    "name": "King of Cups",
+    "arcana": "minor",
+    "vibe": "Steady, gracious — Emotional mastery, calm authority, diplomacy, balance of heart and head, wise counsel",
+    "keywords": [
+      "emotional mastery",
+      "calm authority",
+      "diplomacy",
+      "balance of heart and head"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 50,
+    "name": "Ace of Swords",
+    "arcana": "minor",
+    "vibe": "Sharp, alert — Clarity, breakthrough, truth, new idea, mental sharpness",
+    "keywords": [
+      "clarity",
+      "breakthrough",
+      "truth",
+      "new idea"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 51,
+    "name": "Two of Swords",
+    "arcana": "minor",
+    "vibe": "Torn, guarded — Stalemate, difficult choice, avoidance, blocked feelings, truce",
+    "keywords": [
+      "stalemate",
+      "difficult choice",
+      "avoidance",
+      "blocked feelings"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 52,
+    "name": "Three of Swords",
+    "arcana": "minor",
+    "vibe": "Hurt, raw — Heartbreak, painful truth, grief, sorrow, separation",
+    "keywords": [
+      "heartbreak",
+      "painful truth",
+      "grief",
+      "sorrow"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 53,
+    "name": "Four of Swords",
+    "arcana": "minor",
+    "vibe": "Quiet, tired — Rest, recovery, retreat, stillness, recharging",
+    "keywords": [
+      "rest",
+      "recovery",
+      "retreat",
+      "stillness"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 54,
+    "name": "Five of Swords",
+    "arcana": "minor",
+    "vibe": "Bitter, conflicted — Hollow victory, conflict, winning at all costs, discord, self-interest",
+    "keywords": [
+      "hollow victory",
+      "conflict",
+      "winning at all costs",
+      "discord"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 55,
+    "name": "Six of Swords",
+    "arcana": "minor",
+    "vibe": "Subdued but relieved — Transition, moving on, calmer waters, passage, gradual healing",
+    "keywords": [
+      "transition",
+      "moving on",
+      "calmer waters",
+      "passage"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 56,
+    "name": "Seven of Swords",
+    "arcana": "minor",
+    "vibe": "Wary, calculating — Deception, strategy, acting alone, getting away with it, cunning",
+    "keywords": [
+      "deception",
+      "strategy",
+      "acting alone",
+      "getting away with it"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 57,
+    "name": "Eight of Swords",
+    "arcana": "minor",
+    "vibe": "Anxious, stuck — Feeling trapped, self-restriction, victim mindset, mental prison, paralysis",
+    "keywords": [
+      "feeling trapped",
+      "self-restriction",
+      "victim mindset",
+      "mental prison"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 58,
+    "name": "Nine of Swords",
+    "arcana": "minor",
+    "vibe": "Distressed, sleepless — Anxiety, sleepless nights, worry, dread, mental anguish",
+    "keywords": [
+      "anxiety",
+      "sleepless nights",
+      "worry",
+      "dread"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 59,
+    "name": "Ten of Swords",
+    "arcana": "minor",
+    "vibe": "Defeated, drained — Painful ending, rock bottom, betrayal, collapse, the worst is over",
+    "keywords": [
+      "painful ending",
+      "rock bottom",
+      "betrayal",
+      "collapse"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 60,
+    "name": "Page of Swords",
+    "arcana": "minor",
+    "vibe": "Inquisitive, alert — Curiosity, vigilance, new ideas, mental energy, truth-seeking",
+    "keywords": [
+      "curiosity",
+      "vigilance",
+      "new ideas",
+      "mental energy"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 61,
+    "name": "Knight of Swords",
+    "arcana": "minor",
+    "vibe": "Intense, hasty — Decisive action, ambition, directness, charging ahead, intellectual drive",
+    "keywords": [
+      "decisive action",
+      "ambition",
+      "directness",
+      "charging ahead"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 62,
+    "name": "Queen of Swords",
+    "arcana": "minor",
+    "vibe": "Clear, composed — Clear judgment, independence, honest communication, boundaries, experienced wisdom",
+    "keywords": [
+      "clear judgment",
+      "independence",
+      "honest communication",
+      "boundaries"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 63,
+    "name": "King of Swords",
+    "arcana": "minor",
+    "vibe": "Rational, authoritative — Intellectual authority, truth, impartial judgment, strategy, ethical clarity",
+    "keywords": [
+      "intellectual authority",
+      "truth",
+      "impartial judgment",
+      "strategy"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 64,
+    "name": "Ace of Pentacles",
+    "arcana": "minor",
+    "vibe": "Hopeful, grounded — New opportunity, prosperity, manifestation, solid start, material gift",
+    "keywords": [
+      "new opportunity",
+      "prosperity",
+      "manifestation",
+      "solid start"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 65,
+    "name": "Two of Pentacles",
+    "arcana": "minor",
+    "vibe": "Busy, adaptable — Juggling priorities, adaptability, balance in motion, flexibility, managing change",
+    "keywords": [
+      "juggling priorities",
+      "adaptability",
+      "balance in motion",
+      "flexibility"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 66,
+    "name": "Three of Pentacles",
+    "arcana": "minor",
+    "vibe": "Cooperative, engaged — Teamwork, craftsmanship, skill recognized, collaboration, building together",
+    "keywords": [
+      "teamwork",
+      "craftsmanship",
+      "skill recognized",
+      "collaboration"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 67,
+    "name": "Four of Pentacles",
+    "arcana": "minor",
+    "vibe": "Cautious, guarded — Security, holding on, control, saving, possessiveness",
+    "keywords": [
+      "security",
+      "holding on",
+      "control",
+      "saving"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 68,
+    "name": "Five of Pentacles",
+    "arcana": "minor",
+    "vibe": "Discouraged, cold — Hardship, scarcity, feeling left out in the cold, financial loss, isolation",
+    "keywords": [
+      "hardship",
+      "scarcity",
+      "feeling left out in the cold",
+      "financial loss"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 69,
+    "name": "Six of Pentacles",
+    "arcana": "minor",
+    "vibe": "Generous, balanced — Generosity, giving and receiving, support, fairness, charity",
+    "keywords": [
+      "generosity",
+      "giving and receiving",
+      "support",
+      "fairness"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 70,
+    "name": "Seven of Pentacles",
+    "arcana": "minor",
+    "vibe": "Patient, evaluative — Patience, assessment, long-term view, slow growth, waiting for harvest",
+    "keywords": [
+      "patience",
+      "assessment",
+      "long-term view",
+      "slow growth"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 71,
+    "name": "Eight of Pentacles",
+    "arcana": "minor",
+    "vibe": "Diligent, absorbed — Diligence, skill-building, craftsmanship, dedication, mastery through repetition",
+    "keywords": [
+      "diligence",
+      "skill-building",
+      "craftsmanship",
+      "dedication"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 72,
+    "name": "Nine of Pentacles",
+    "arcana": "minor",
+    "vibe": "Self-assured, serene — Self-sufficiency, earned luxury, independence, refinement, enjoying success",
+    "keywords": [
+      "self-sufficiency",
+      "earned luxury",
+      "independence",
+      "refinement"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 73,
+    "name": "Ten of Pentacles",
+    "arcana": "minor",
+    "vibe": "Secure, proud — Legacy, lasting wealth, family security, inheritance, long-term foundations",
+    "keywords": [
+      "legacy",
+      "lasting wealth",
+      "family security",
+      "inheritance"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 74,
+    "name": "Page of Pentacles",
+    "arcana": "minor",
+    "vibe": "Studious, motivated — Studiousness, new practical skill, opportunity to learn, grounded ambition, diligent beginnings",
+    "keywords": [
+      "studiousness",
+      "new practical skill",
+      "opportunity to learn",
+      "grounded ambition"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 75,
+    "name": "Knight of Pentacles",
+    "arcana": "minor",
+    "vibe": "Methodical, steady — Reliability, methodical progress, hard work, patience, commitment to routine",
+    "keywords": [
+      "reliability",
+      "methodical progress",
+      "hard work",
+      "patience"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 76,
+    "name": "Queen of Pentacles",
+    "arcana": "minor",
+    "vibe": "Nurturing, practical — Nurturing practicality, resourcefulness, warmth and security, working provider, down-to-earth care",
+    "keywords": [
+      "nurturing practicality",
+      "resourcefulness",
+      "warmth and security",
+      "working provider"
+    ],
+    "source": "tarotoo-tarot"
+  },
+  {
+    "id": 77,
+    "name": "King of Pentacles",
+    "arcana": "minor",
+    "vibe": "Assured, generous — Material mastery, abundance, steady leadership, business acumen, reliable provider",
+    "keywords": [
+      "material mastery",
+      "abundance",
+      "steady leadership",
+      "business acumen"
+    ],
+    "source": "tarotoo-tarot"
+  }
+]

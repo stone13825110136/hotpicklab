@@ -1,0 +1,364 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+---
+
+<ToolLayout
+  title="Pet Name Generator for Dogs & Cats — Compare & Hot Pick"
+  description="Free pet name lab for dogs and cats. Filter by gender and vibe, compare 2–5 names with practical scores, and get one Hot Pick. Optional fun vibe cards are entertainment only."
+  keywords={['pet name generator', 'dog names', 'cat names', 'pet name picker', 'best dog names', 'hot pick']}
+  backHref="/tools"
+  backLabel="All labs"
+>
+  <div id="pet-name-lab" class="pnl">
+    <header class="pnl-hero">
+      <p class="pnl-kicker">Free naming lab</p>
+      <h1>Pet Name Lab</h1>
+      <p class="pnl-lede">
+        Shortlist dog or cat names, compare your favorites, and get one
+        <strong>Hot Pick</strong> based on practical score — not a hundred random names.
+      </p>
+    </header>
+
+    <section class="pnl-controls" aria-label="Filters">
+      <label>
+        Species
+        <select id="pnl-species">
+          <option value="dog" selected>Dog</option>
+          <option value="cat">Cat</option>
+        </select>
+      </label>
+      <label>
+        Gender
+        <select id="pnl-gender">
+          <option value="boy">Boy</option>
+          <option value="girl">Girl</option>
+          <option value="neutral" selected>Neutral</option>
+        </select>
+      </label>
+      <label>
+        Vibe
+        <select id="pnl-vibe">
+          <option value="cute" selected>Cute</option>
+          <option value="strong">Strong</option>
+          <option value="unique">Unique</option>
+          <option value="classic">Classic</option>
+        </select>
+      </label>
+      <button type="button" class="btn" id="pnl-generate">Generate names</button>
+    </section>
+
+    <section id="pnl-output" class="pnl-output" hidden>
+      <p class="pnl-score-hint muted">
+        Score /100 = how easy to call + popularity + vibe fit. Higher usually means easier everyday
+        use. Pick 2–5 names, then compare.
+      </p>
+
+      <div class="pnl-tray pnl-tray-top">
+        <div class="pnl-tray-head">
+          <h2>Top scores</h2>
+          <p id="pnl-count-top" class="muted"></p>
+        </div>
+        <div id="pnl-candidates-top" class="pnl-grid" role="group" aria-label="Top scored names"></div>
+      </div>
+
+      <div class="pnl-tray pnl-tray-mid">
+        <div class="pnl-tray-head">
+          <h2>More matches</h2>
+          <p id="pnl-count-mid" class="muted"></p>
+        </div>
+        <div id="pnl-candidates-mid" class="pnl-grid" role="group" aria-label="More name matches"></div>
+      </div>
+
+      <details class="pnl-tray pnl-tray-low">
+        <summary>Unique / lower scores</summary>
+        <div id="pnl-candidates-low" class="pnl-grid" role="group" aria-label="Unique or lower scored names"></div>
+      </details>
+
+      <div id="pnl-compare-bar" class="pnl-compare-bar" hidden>
+        <p><span class="muted">Selected:</span> <span id="pnl-selected"></span></p>
+        <button type="button" class="btn" id="pnl-compare-btn" disabled>Compare &amp; Hot Pick</button>
+      </div>
+    </section>
+
+    <section id="pnl-results" class="pnl-results" hidden>
+      <div class="pnl-hot">
+        <p class="pnl-hot-label">Hot Pick</p>
+        <h2 id="pnl-hot-name"></h2>
+        <p id="pnl-hot-reason" class="pnl-hot-reason"></p>
+      </div>
+      <div id="pnl-compare-cards" class="pnl-cards"></div>
+      <aside class="pnl-ad" aria-label="Sponsored">
+        <p class="muted">Sponsored placement</p>
+      </aside>
+    </section>
+
+    <p class="pnl-disclaimer muted">
+      Optional vibe cards are entertainment only — Fun reading · Not a prediction. Name lists build
+      on open
+      <a href="https://github.com/sindresorhus/dog-names" rel="noopener">dog-names</a>
+      and
+      <a href="https://github.com/sindresorhus/cat-names" rel="noopener">cat-names</a>
+      (MIT). Card text from the
+      <a href="https://tarotoo.com/open-data" rel="noopener">Tarotoo open dataset</a>
+      (MIT). See <a href="/disclosure">Disclosure</a>.
+    </p>
+  </div>
+</ToolLayout>
+
+<script>
+  import '../../scripts/pet-name-lab';
+</script>
+
+<style>
+  .pnl {
+    width: min(100%, 920px);
+    margin: 0 auto;
+  }
+
+  .pnl-hero {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .pnl-kicker {
+    color: var(--accent-2);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 0.4rem;
+  }
+
+  .pnl-hero h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+  }
+
+  .pnl-lede {
+    margin: 0 auto;
+    max-width: 36rem;
+    color: var(--muted);
+  }
+
+  .pnl-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+    align-items: end;
+    padding: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.25rem;
+  }
+
+  .pnl-controls label {
+    display: grid;
+    gap: 0.35rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  .pnl-controls select {
+    padding: 0.55rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #0b1020;
+    color: var(--text);
+    font: inherit;
+  }
+
+  .pnl-score-hint {
+    margin: 0 0 1rem;
+    font-size: 0.85rem;
+  }
+
+  .pnl-tray {
+    margin-bottom: 1rem;
+    padding: 0.85rem 1rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+
+  .pnl-tray-top {
+    border-color: rgba(255, 107, 53, 0.45);
+  }
+
+  .pnl-tray-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .pnl-tray-head h2 {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .pnl-tray-low {
+    cursor: pointer;
+  }
+
+  .pnl-tray-low summary {
+    font-weight: 650;
+    color: var(--muted);
+    margin-bottom: 0.65rem;
+  }
+
+  .pnl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.55rem;
+  }
+
+  .pnl-chip {
+    display: grid;
+    gap: 0.15rem;
+    text-align: left;
+    padding: 0.65rem 0.7rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: #0b1020;
+    color: var(--text);
+    cursor: pointer;
+    font: inherit;
+  }
+
+  .pnl-chip:hover {
+    border-color: var(--accent-2);
+  }
+
+  .pnl-chip.is-on {
+    border-color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--accent);
+  }
+
+  .pnl-chip-name {
+    font-weight: 700;
+  }
+
+  .pnl-chip-meta {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .pnl-compare-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius);
+    border: 1px dashed var(--border);
+    background: rgba(255, 107, 53, 0.06);
+  }
+
+  .pnl-results {
+    margin-top: 1.75rem;
+  }
+
+  .pnl-hot {
+    padding: 1.1rem 1.2rem;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.18), rgba(34, 211, 238, 0.1));
+    border: 1px solid var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .pnl-hot-label {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .pnl-hot h2 {
+    margin: 0.2rem 0 0.4rem;
+    font-size: 1.8rem;
+  }
+
+  .pnl-hot-reason {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .pnl-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .pnl-card {
+    padding: 0.9rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .pnl-card.is-hot {
+    border-color: var(--accent);
+  }
+
+  .pnl-card h3 {
+    margin: 0;
+  }
+
+  .pnl-score {
+    margin: 0.2rem 0 0.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .pnl-fun-details {
+    margin-top: 0.35rem;
+    font-size: 0.85rem;
+  }
+
+  .pnl-fun-details summary {
+    color: var(--accent-2);
+    cursor: pointer;
+  }
+
+  .pnl-tarot-name {
+    margin: 0.35rem 0 0.15rem;
+    font-weight: 700;
+  }
+
+  .pnl-tarot-vibe {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .pnl-fun {
+    margin: 0.45rem 0 0;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .pnl-ad {
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+  }
+
+  .pnl-disclaimer {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    text-align: center;
+  }
+
+  @media (max-width: 640px) {
+    .pnl-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

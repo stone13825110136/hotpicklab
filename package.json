@@ -16,9 +16,13 @@
     "verify-links": "node scripts/verify-affiliate-links.mjs",
     "audit-content": "node scripts/audit-content.mjs",
     "verify-images": "node scripts/verify-product-images.mjs",
-    "scrape-images": "node scripts/scrape-all-amazon-images.mjs"
+    "scrape-images": "node scripts/scrape-all-amazon-images.mjs",
+    "build-naming-data": "node scripts/build-naming-data.mjs"
   },
   "dependencies": {
-    "astro": "^5.7.10"
+    "astro": "^5.7.10",
+    "cat-names": "^4.0.0",
+    "dog-names": "^3.0.1",
+    "tarotoo-tarot": "^2.0.0"
   }
 }

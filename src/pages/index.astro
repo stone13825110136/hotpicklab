@@ -1,308 +1,229 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { SITE } from '../lib/site';
-
-const buyHref = `mailto:${SITE.contactEmail}?subject=${encodeURIComponent(
-  `${SITE.productName} — $${SITE.priceUsd}`,
-)}&body=${encodeURIComponent(
-  [
-    'I want to buy the Pain Point Research Report ($49).',
-    '',
-    'After you confirm payment instructions, I will fill intake:',
-    '1) Target user',
-    '2) Job / problem in their words',
-    '3) Competitors (or none)',
-    '4) Keywords',
-    '5) What I will NOT build',
-    '6) What “good” looks like in 30 days',
-    '7) Next-week test budget',
-    '8) Email for the report',
-  ].join('\n'),
-)}`;
 ---
 
 <Layout
-  title={SITE.name}
+  title="Dog & Cat Name Lab — Compare Names & Get a Hot Pick"
   description={SITE.description}
   keywords={[
-    'pain point research',
-    'indie hacker validation',
-    'Reddit market research',
-    'Hacker News research',
-    'product idea validation',
+    'pet name generator',
+    'dog names',
+    'cat names',
+    'pet name picker',
+    'best dog names',
+    'hot pick',
   ]}
 >
   <section class="hero">
     <div class="shell hero-grid">
       <div class="hero-copy">
         <p class="brand-mark" translate="no">{SITE.name}</p>
-        <h1>See who’s in pain before you write more code</h1>
+        <h1>Pick a pet name you’ll actually use</h1>
         <p class="lede">
-          For builders with coding tools who fear shipping blind. Reddit and HN evidence → filter pay
-          signals → email a one-week validation plan.
+          Shortlist dog or cat names, compare a few favorites, and land on one
+          <strong>Hot Pick</strong> — not a wall of random suggestions.
         </p>
         <div class="cta-row">
-          <a class="cta" href={buyHref}>Get the report — ${SITE.priceUsd}</a>
-          <p class="cta-note">7-day money-back. Card checkout next; email purchase works now.</p>
+          <a class="cta" href="/tools/pet-name-lab">Open Pet Name Lab</a>
+          <a class="cta cta-secondary" href="/tools">All naming labs</a>
+          <p class="cta-note">Free · No sign-up · Optional fun vibe cards (entertainment only)</p>
         </div>
       </div>
 
-      <aside class="thread-sheet" aria-label="Example public complaints">
-        <div class="thread-line">
-          <span class="src">r/SaaS</span>
-          <span>built for 6 months, zero paying users</span>
-        </div>
-        <div class="thread-line">
-          <span class="src">HN</span>
-          <span>tired of shipping features nobody asked for</span>
-        </div>
-        <div class="thread-line">
-          <span class="src">r/entrepreneur</span>
-          <span>how do I know people will pay before I code?</span>
-        </div>
-        <div class="thread-line dim">
-          <span class="src">filter</span>
-          <span>repeat · intensity · pay smell · counter-evidence</span>
-        </div>
+      <aside class="flow-sheet" aria-label="How it works">
+        <ol>
+          <li><span>1</span> Choose dog or cat, gender, and vibe</li>
+          <li><span>2</span> Shortlist practical-scored names</li>
+          <li><span>3</span> Compare 2–5 favorites</li>
+          <li><span>4</span> Get one Hot Pick</li>
+        </ol>
       </aside>
     </div>
   </section>
 
-  <section class="section" id="offer">
-    <div class="shell narrow">
-      <h2>What you get</h2>
-      <p class="section-lede">
-        A research report by email — not a mentoring call, not a “you’ll get rich” forecast.
-      </p>
-      <ul class="plain-list">
-        <li>Pain / opportunity notes with clickable public source URLs</li>
-        <li>Fixed rubric labels: repeat, intensity, pay smell, worth validating</li>
-        <li>Counter-evidence — why it might not sell</li>
-        <li>A cheap next test for this week (talk, landing, or pre-sale — not a full build)</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="section section-alt" id="sources">
-    <div class="shell narrow">
-      <h2>Where evidence comes from</h2>
-      <p class="section-lede">
-        Primary sources are public Reddit threads and Hacker News. If you name competitors, we add
-        review-site signal (e.g. G2). Every claim should map to a URL you can open.
-      </p>
-    </div>
-  </section>
-
-  <section class="section" id="promise">
-    <div class="shell narrow">
-      <h2>What we don’t promise</h2>
-      <p class="section-lede">
-        We don’t know if your direction is “right.” Markets decide with money. We show who’s
-        complaining in public, whether it smells like pay, and how to test cheaply this week.
-      </p>
-    </div>
-  </section>
-
-  <section class="section section-alt" id="price">
-    <div class="shell narrow">
-      <h2>${SITE.priceUsd} · Pain Point Research Report</h2>
-      <p class="section-lede">
-        After purchase you’ll get a short intake (target user, job-to-be-done, competitors,
-        keywords, won’t-build, success criteria). Missing the basics means we pause and ask —
-        we don’t invent your customer for you.
-      </p>
-      <a class="cta cta-inline" href={buyHref}>Email to buy — ${SITE.priceUsd}</a>
-      <p class="fine">Refund within 7 days if the report doesn’t meet the sourced-research bar.</p>
+  <section class="shell path" id="labs">
+    <h2>Naming labs</h2>
+    <div class="path-grid">
+      <article>
+        <p class="tag">Available now</p>
+        <h3>Pet Name Lab</h3>
+        <p>Dog and cat names with scores, compare, and one Hot Pick.</p>
+        <a href="/tools/pet-name-lab">Try it →</a>
+      </article>
+      <article>
+        <p class="tag">Coming soon</p>
+        <h3>People Name Lab</h3>
+        <p>English baby and first names on the same compare flow.</p>
+      </article>
+      <article>
+        <p class="tag">Coming soon</p>
+        <h3>Business Name Lab</h3>
+        <p>Brandable names with stronger practical scoring.</p>
+      </article>
     </div>
   </section>
 </Layout>
 
 <style>
   .hero {
-    background: var(--paper);
-    border-bottom: 1px solid var(--line);
-    padding: 3.5rem 0 4rem;
+    padding: 2.75rem 0 2rem;
   }
 
   .hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: 2.5rem;
+    gap: 1.75rem;
     align-items: center;
   }
 
-  .brand-mark {
-    margin: 0 0 0.85rem;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(2rem, 4.5vw, 2.75rem);
-    line-height: 1.05;
-    letter-spacing: -0.04em;
-    color: var(--ink);
-    white-space: nowrap;
+  @media (min-width: 860px) {
+    .hero-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+    }
   }
 
-  .hero h1 {
-    margin: 0 0 1rem;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(1.35rem, 2.6vw, 1.75rem);
-    line-height: 1.25;
+  .brand-mark {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.45rem, 3vw, 1.85rem);
+    margin: 0 0 0.85rem;
+    color: var(--signal);
+  }
+
+  h1 {
+    margin: 0 0 0.75rem;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: clamp(1.85rem, 4.5vw, 2.75rem);
+    line-height: 1.12;
     letter-spacing: -0.02em;
-    color: var(--ink-soft);
-    max-width: 22ch;
   }
 
   .lede {
-    margin: 0 0 1.75rem;
+    margin: 0 0 1.25rem;
     color: var(--ink-soft);
     font-size: 1.05rem;
-    font-weight: 400;
     max-width: 34rem;
   }
 
   .cta-row {
-    display: grid;
-    gap: 0.7rem;
-    justify-items: start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
   }
 
   .cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.85rem 1.2rem;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: -0.01em;
+    display: inline-block;
+    padding: 0.7rem 1.05rem;
+    border-radius: 999px;
+    background: var(--signal);
     color: #fff;
-    background: var(--ink);
+    font-weight: 650;
     text-decoration: none;
-    border: 1px solid var(--ink);
   }
 
   .cta:hover {
-    background: var(--signal);
-    border-color: var(--signal);
-    color: #fff;
+    background: var(--signal-bright);
+    text-decoration: none;
   }
 
-  .cta-inline {
-    margin-top: 1rem;
-  }
-
-  .cta-note,
-  .fine {
-    margin: 0;
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--muted);
-    max-width: 28rem;
-  }
-
-  .thread-sheet {
-    background: var(--panel-dark);
-    color: #e8ecf2;
-    padding: 1.35rem 1.4rem;
-    border-left: 3px solid var(--signal-bright);
-  }
-
-  .thread-line {
-    display: grid;
-    grid-template-columns: 7.5rem 1fr;
-    gap: 0.75rem;
-    padding: 0.7rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    line-height: 1.45;
-  }
-
-  .thread-line:first-child {
-    padding-top: 0;
-  }
-
-  .thread-line:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .thread-line.dim {
-    color: #a8b2c2;
-  }
-
-  .src {
-    color: var(--signal-bright);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    font-weight: 500;
-  }
-
-  .section {
-    padding: 3.5rem 0;
-    background: var(--panel);
-  }
-
-  .section-alt {
-    background: var(--paper);
-    border-block: 1px solid var(--line);
-  }
-
-  .narrow {
-    max-width: 40rem;
-  }
-
-  .section h2 {
-    margin: 0 0 0.65rem;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(1.35rem, 2.4vw, 1.7rem);
-    letter-spacing: -0.02em;
+  .cta-secondary {
+    background: transparent;
     color: var(--ink);
+    border: 1px solid var(--line);
   }
 
-  .section-lede {
+  .cta-secondary:hover {
+    border-color: var(--signal);
+    background: transparent;
+  }
+
+  .cta-note {
+    flex-basis: 100%;
+    margin: 0.25rem 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .flow-sheet {
+    background: var(--panel-dark);
+    color: #e8eef8;
+    border-radius: 16px;
+    padding: 1.25rem 1.35rem;
+  }
+
+  .flow-sheet ol {
+    list-style: none;
     margin: 0;
-    color: var(--ink-soft);
+    padding: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .flow-sheet li {
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+
+  .flow-sheet span {
+    display: inline-grid;
+    place-items: center;
+    width: 1.55rem;
+    height: 1.55rem;
+    border-radius: 999px;
+    background: var(--signal);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .path {
+    padding: 0.5rem 0 3.5rem;
+  }
+
+  .path h2 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    margin: 0 0 1rem;
+  }
+
+  .path-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .path-grid article {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 1.05rem 1.1rem;
+  }
+
+  .tag {
+    margin: 0 0 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--signal);
+  }
+
+  .path-grid h3 {
+    margin: 0 0 0.4rem;
     font-size: 1.05rem;
   }
 
-  .plain-list {
-    margin: 1.25rem 0 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 0.85rem;
+  .path-grid p {
+    margin: 0 0 0.7rem;
+    color: var(--muted);
+    font-size: 0.92rem;
   }
 
-  .plain-list li {
-    padding-left: 0.9rem;
-    border-left: 2px solid var(--signal);
-    color: var(--ink-soft);
-  }
-
-  @media (max-width: 860px) {
-    .hero {
-      padding: 2.25rem 0 2.5rem;
-    }
-
-    .hero-grid {
-      grid-template-columns: 1fr;
-      gap: 1.75rem;
-    }
-
-    .brand-mark {
-      white-space: normal;
-    }
-
-    .hero h1 {
-      max-width: none;
-    }
-
-    .thread-line {
-      grid-template-columns: 1fr;
-      gap: 0.25rem;
-    }
+  .path-grid a {
+    font-weight: 650;
+    color: var(--signal);
   }
 </style>

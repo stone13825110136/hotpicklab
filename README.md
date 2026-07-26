@@ -2,7 +2,15 @@
 
 Domain: **hotpicklab.com** · Repo: **stone13825110136/hotpicklab**
 
-Pain-point research for builders who can ship code but don’t want to ship blind. Thin landing + email-delivered report ($49). Old Amazon / “worth it” briefs are retired; legacy URLs redirect home.
+**Current product direction:** Naming selection lab (pet → people → business names) with entertainment Fortune Draw and Hot Pick. See:
+
+- [docs/NAMING-LAB-PLAN.md](./docs/NAMING-LAB-PLAN.md) — product plan  
+- [docs/DATA-SOURCES.md](./docs/DATA-SOURCES.md) — open data sources  
+- [docs/OPERATING-RULES.md](./docs/OPERATING-RULES.md) — SEO / QA / what may go on-site  
+
+Seller/creator utilities (compress, HEIC, marketplace image prep) live on **minitoolhq.com** only — not this repo.
+
+Legacy: pain-point research landing / email report may still exist in code history; naming lab is the active roadmap.
 
 ## Local
 

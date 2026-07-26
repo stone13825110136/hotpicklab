@@ -7,9 +7,12 @@ export const prerender = true;
 type SitemapEntry = { path: string; lastmod?: string };
 
 export const GET: APIRoute = () => {
-  const today = '2026-07-18';
+  const today = '2026-07-26';
   const entries: SitemapEntry[] = [
     { path: '', lastmod: today },
+    { path: '/tools', lastmod: today },
+    { path: '/tools/pet-name-lab', lastmod: today },
+    { path: '/disclosure', lastmod: today },
     { path: '/privacy', lastmod: today },
   ];
 
