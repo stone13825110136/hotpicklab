@@ -33,8 +33,13 @@ export function filterNames(
   vibe: Vibe,
   count = 18,
 ): ScoredName[] {
+  const genderOk = (n: NameEntry) => {
+    if (gender === 'neutral') return true; // Neutral = any / unisex-friendly mix
+    return n.gender.includes(gender) || n.gender.includes('neutral');
+  };
+
   const matched = pool
-    .filter((n) => n.gender.includes(gender) || (gender === 'neutral' && n.gender.includes('neutral')))
+    .filter(genderOk)
     .map((n) => {
       const practical = practicalScore(n, vibe);
       const tags = [...n.vibes];
@@ -53,10 +58,9 @@ export function filterNames(
   const rest = matched.filter((n) => !n.vibes.includes(vibe));
   const picked = [...vibeFirst, ...rest].slice(0, count);
 
-  // If too few for strict gender, widen to neutral-inclusive
-  if (picked.length < 12) {
+  // If still thin, fill from full pool by practical score
+  if (picked.length < count) {
     const wider = pool
-      .filter((n) => n.gender.includes(gender) || n.gender.includes('neutral'))
       .map((n) => ({
         ...n,
         practical: practicalScore(n, vibe),

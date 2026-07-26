@@ -35,8 +35,12 @@ function practicalScore(entry, vibe) {
   return Math.round(entry.popularity * 0.35 + lengthScore(entry.name) * 0.25 + callScore(entry.name) * 0.2 + vibeHit * 0.2);
 }
 function filterNames(pool, gender, vibe, count = 18) {
+  const genderOk = (n) => {
+    if (gender === 'neutral') return true;
+    return n.gender.includes(gender) || n.gender.includes('neutral');
+  };
   const matched = pool
-    .filter((n) => n.gender.includes(gender) || (gender === 'neutral' && n.gender.includes('neutral')))
+    .filter(genderOk)
     .map((n) => {
       const practical = practicalScore(n, vibe);
       const tags = [...n.vibes];
@@ -52,9 +56,8 @@ function filterNames(pool, gender, vibe, count = 18) {
   const vibeFirst = matched.filter((n) => n.vibes.includes(vibe));
   const rest = matched.filter((n) => !n.vibes.includes(vibe));
   const picked = [...vibeFirst, ...rest].slice(0, count);
-  if (picked.length < 12) {
+  if (picked.length < count) {
     const wider = pool
-      .filter((n) => n.gender.includes(gender) || n.gender.includes('neutral'))
       .map((n) => ({
         ...n,
         practical: practicalScore(n, vibe),
