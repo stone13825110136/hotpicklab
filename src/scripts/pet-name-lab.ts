@@ -29,19 +29,17 @@ function readFilters(): { species: Species; gender: Gender; vibe: Vibe } {
 let candidates: ScoredName[] = [];
 const selected = new Set<string>();
 
-function splitTrays(list: ScoredName[]) {
-  const sorted = [...list].sort((a, b) => b.practical - a.practical);
-  const top = sorted.filter((n) => n.practical >= 90).slice(0, 6);
-  const topNames = new Set(top.map((n) => n.name));
-  const low = sorted.filter((n) => n.tags.includes('unique') || n.practical < 70);
-  const lowNames = new Set(low.map((n) => n.name));
-  const mid = sorted.filter((n) => !topNames.has(n.name) && !lowNames.has(n.name));
-  // Ensure mid has remainder if filters overlap oddly
-  const used = new Set([...topNames, ...mid.map((n) => n.name), ...lowNames]);
-  for (const n of sorted) {
-    if (!used.has(n.name)) mid.push(n);
-  }
-  return { top, mid, low: low.filter((n) => !topNames.has(n.name)) };
+/** Always put highest scores in visible trays — never hide the whole shortlist in a closed fold. */
+export function splitTrays(list: ScoredName[]) {
+  const sorted = [...list].sort((a, b) => b.practical - a.practical || a.name.localeCompare(b.name));
+  if (!sorted.length) return { top: [] as ScoredName[], mid: [] as ScoredName[], low: [] as ScoredName[] };
+
+  const topCount = Math.min(6, sorted.length);
+  const midCount = Math.min(8, Math.max(0, sorted.length - topCount));
+  const top = sorted.slice(0, topCount);
+  const mid = sorted.slice(topCount, topCount + midCount);
+  const low = sorted.slice(topCount + midCount);
+  return { top, mid, low };
 }
 
 function mountChip(n: ScoredName, grid: HTMLElement) {
@@ -67,6 +65,7 @@ function renderCandidates() {
   const topGrid = el<HTMLElement>('pnl-candidates-top');
   const midGrid = el<HTMLElement>('pnl-candidates-mid');
   const lowGrid = el<HTMLElement>('pnl-candidates-low');
+  const lowTray = el<HTMLDetailsElement>('pnl-tray-low');
   topGrid.innerHTML = '';
   midGrid.innerHTML = '';
   lowGrid.innerHTML = '';
@@ -75,6 +74,12 @@ function renderCandidates() {
   for (const n of low) mountChip(n, lowGrid);
   el<HTMLElement>('pnl-count-top').textContent = `${top.length} names`;
   el<HTMLElement>('pnl-count-mid').textContent = `${mid.length} names`;
+  el<HTMLElement>('pnl-count-low').textContent = `${low.length} names`;
+  lowTray.hidden = low.length === 0;
+  lowTray.open = false;
+
+  const empty = el<HTMLElement>('pnl-empty');
+  empty.hidden = candidates.length > 0;
 }
 
 function renderCompareBar() {
@@ -120,16 +125,21 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
   panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+function generate() {
+  const { species, gender, vibe } = readFilters();
+  selected.clear();
+  candidates = filterNames(pools[species], gender, vibe, 18);
+  el<HTMLElement>('pnl-results').hidden = true;
+  renderCandidates();
+  renderCompareBar();
+  el<HTMLElement>('pnl-output').hidden = false;
+}
+
 export function initPetNameLab() {
-  el<HTMLButtonElement>('pnl-generate').addEventListener('click', () => {
-    const { species, gender, vibe } = readFilters();
-    selected.clear();
-    candidates = filterNames(pools[species], gender, vibe, 18);
-    el<HTMLElement>('pnl-results').hidden = true;
-    renderCandidates();
-    renderCompareBar();
-    el<HTMLElement>('pnl-output').hidden = false;
-  });
+  el<HTMLButtonElement>('pnl-generate').addEventListener('click', generate);
+  for (const id of ['pnl-species', 'pnl-gender', 'pnl-vibe'] as const) {
+    el<HTMLSelectElement>(id).addEventListener('change', generate);
+  }
 
   el<HTMLButtonElement>('pnl-compare-btn').addEventListener('click', () => {
     const picked = candidates.filter((n) => selected.has(n.name));
@@ -140,7 +150,7 @@ export function initPetNameLab() {
     renderResults(withFortune, hot);
   });
 
-  el<HTMLButtonElement>('pnl-generate').click();
+  generate();
 }
 
 if (typeof document !== 'undefined') {

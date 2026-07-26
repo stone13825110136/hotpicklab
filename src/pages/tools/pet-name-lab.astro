@@ -53,6 +53,10 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
         use. Pick 2–5 names, then compare.
       </p>
 
+      <p id="pnl-empty" class="pnl-empty muted" hidden>
+        No names matched. Try another gender or vibe, then tap Generate names.
+      </p>
+
       <div class="pnl-tray pnl-tray-top">
         <div class="pnl-tray-head">
           <h2>Top scores</h2>
@@ -69,9 +73,9 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
         <div id="pnl-candidates-mid" class="pnl-grid" role="group" aria-label="More name matches"></div>
       </div>
 
-      <details class="pnl-tray pnl-tray-low">
-        <summary>Unique / lower scores</summary>
-        <div id="pnl-candidates-low" class="pnl-grid" role="group" aria-label="Unique or lower scored names"></div>
+      <details id="pnl-tray-low" class="pnl-tray pnl-tray-low">
+        <summary>More names <span id="pnl-count-low" class="muted"></span></summary>
+        <div id="pnl-candidates-low" class="pnl-grid" role="group" aria-label="Additional names"></div>
       </details>
 
       <div id="pnl-compare-bar" class="pnl-compare-bar" hidden>
@@ -171,6 +175,13 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
   .pnl-score-hint {
     margin: 0 0 1rem;
     font-size: 0.85rem;
+  }
+
+  .pnl-empty {
+    margin: 0 0 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
   }
 
   .pnl-tray {
