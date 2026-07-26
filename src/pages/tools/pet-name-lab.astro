@@ -316,19 +316,50 @@ import ToolLayout from '../../layouts/ToolLayout.astro';
     font-size: 0.85rem;
   }
 
-  .pnl-fun-details {
+  .pnl-fun-wrap {
     margin-top: 0.35rem;
+  }
+
+  .pnl-fun-teaser {
+    margin: 0 0 0.25rem;
+    font-size: 0.88rem;
+    color: var(--text);
+  }
+
+  .pnl-fun-label {
+    display: inline-block;
+    margin-right: 0.35rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 999px;
+    background: rgba(34, 211, 238, 0.15);
+    color: var(--accent-2);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .pnl-fun-details {
+    margin-top: 0.15rem;
     font-size: 0.85rem;
   }
 
   .pnl-fun-details summary {
     color: var(--accent-2);
     cursor: pointer;
+    list-style: none;
   }
 
-  .pnl-tarot-name {
-    margin: 0.35rem 0 0.15rem;
-    font-weight: 700;
+  .pnl-fun-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .pnl-fun-details summary::before {
+    content: '▸ ';
+  }
+
+  .pnl-fun-details[open] summary::before {
+    content: '▾ ';
   }
 
   .pnl-tarot-vibe {

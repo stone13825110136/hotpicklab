@@ -95,12 +95,14 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
     const card = document.createElement('article');
     card.className = 'pnl-card' + (n.name === hot.name ? ' is-hot' : '');
     const tarotBlock = n.tarot
-      ? `<details class="pnl-fun-details">
-          <summary>Optional fun vibe card</summary>
-          <p class="pnl-tarot-name">${n.tarot.name}</p>
-          <p class="pnl-tarot-vibe">${n.tarot.vibe}</p>
-          <p class="pnl-fun">Fun reading · Not a prediction · Does not change Hot Pick</p>
-        </details>`
+      ? `<div class="pnl-fun-wrap">
+          <p class="pnl-fun-teaser"><span class="pnl-fun-label">Fun vibe</span> ${n.tarot.name}</p>
+          <details class="pnl-fun-details">
+            <summary>Tap to read the short fun card (optional)</summary>
+            <p class="pnl-tarot-vibe">${n.tarot.vibe}</p>
+            <p class="pnl-fun">Fun reading · Not a prediction · Does not change Hot Pick</p>
+          </details>
+        </div>`
       : '';
     card.innerHTML = `
       <header>
