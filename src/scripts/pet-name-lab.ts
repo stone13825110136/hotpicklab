@@ -4,9 +4,11 @@ import tarotDeck from '../data/naming/tarot-meanings.json';
 import {
   attachFortune,
   chooseHotPick,
-  filterNames,
+  rankNames,
 } from '../lib/naming/generate';
 import type { Gender, NameEntry, ScoredName, Species, Vibe } from '../lib/naming/types';
+
+const BATCH_SIZE = 18;
 
 const pools: Record<Species, NameEntry[]> = {
   dog: dogNames as NameEntry[],
@@ -26,8 +28,14 @@ function readFilters(): { species: Species; gender: Gender; vibe: Vibe } {
   return { species, gender, vibe };
 }
 
+/** Full ranked pool for current filters (stable score order). */
+let rankedPool: ScoredName[] = [];
+/** Offset into rankedPool for the visible page. */
+let batchOffset = 0;
+/** Names on the current page (for tray render). */
 let candidates: ScoredName[] = [];
-const selected = new Set<string>();
+/** Selections persist across batches so Compare still works. */
+const selected = new Map<string, ScoredName>();
 
 /** Always put highest scores in visible trays — never hide the whole shortlist in a closed fold. */
 export function splitTrays(list: ScoredName[]) {
@@ -52,12 +60,35 @@ function mountChip(n: ScoredName, grid: HTMLElement) {
     if (selected.has(n.name)) selected.delete(n.name);
     else {
       if (selected.size >= 5) return;
-      selected.add(n.name);
+      selected.set(n.name, n);
     }
     renderCandidates();
     renderCompareBar();
   });
   grid.appendChild(btn);
+}
+
+function renderBatchMeta() {
+  const moreBtn = el<HTMLButtonElement>('pnl-more');
+  const meta = el<HTMLElement>('pnl-batch-meta');
+  const total = rankedPool.length;
+  if (!total) {
+    moreBtn.hidden = true;
+    meta.hidden = true;
+    return;
+  }
+
+  const start = batchOffset + 1;
+  const end = Math.min(batchOffset + candidates.length, total);
+  meta.hidden = false;
+  meta.textContent = `Showing ${start}–${end} of ${total} (highest scores first)`;
+
+  moreBtn.hidden = total <= BATCH_SIZE;
+  if (batchOffset + BATCH_SIZE >= total) {
+    moreBtn.textContent = 'Back to top scores';
+  } else {
+    moreBtn.textContent = 'Show more names';
+  }
 }
 
 function renderCandidates() {
@@ -80,12 +111,13 @@ function renderCandidates() {
 
   const empty = el<HTMLElement>('pnl-empty');
   empty.hidden = candidates.length > 0;
+  renderBatchMeta();
 }
 
 function renderCompareBar() {
   const bar = el<HTMLElement>('pnl-compare-bar');
   const list = el<HTMLElement>('pnl-selected');
-  list.textContent = [...selected].join(', ') || 'None selected';
+  list.textContent = [...selected.keys()].join(', ') || 'None selected';
   const go = el<HTMLButtonElement>('pnl-compare-btn');
   go.disabled = selected.size < 2;
   bar.hidden = selected.size === 0;
@@ -125,14 +157,36 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
   panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-function generate() {
-  const { species, gender, vibe } = readFilters();
-  selected.clear();
-  candidates = filterNames(pools[species], gender, vibe, 18);
+function showBatch(reset: boolean) {
+  if (reset) {
+    batchOffset = 0;
+    selected.clear();
+  }
+  candidates = rankedPool.slice(batchOffset, batchOffset + BATCH_SIZE);
   el<HTMLElement>('pnl-results').hidden = true;
   renderCandidates();
   renderCompareBar();
   el<HTMLElement>('pnl-output').hidden = false;
+}
+
+function generate() {
+  const { species, gender, vibe } = readFilters();
+  rankedPool = rankNames(pools[species], gender, vibe);
+  showBatch(true);
+}
+
+function showMore() {
+  if (!rankedPool.length) return;
+  if (batchOffset + BATCH_SIZE >= rankedPool.length) {
+    batchOffset = 0;
+  } else {
+    batchOffset += BATCH_SIZE;
+  }
+  // Keep selections; only advance the visible page
+  candidates = rankedPool.slice(batchOffset, batchOffset + BATCH_SIZE);
+  el<HTMLElement>('pnl-results').hidden = true;
+  renderCandidates();
+  renderCompareBar();
 }
 
 function applyPrefillFromRoot() {
@@ -158,12 +212,13 @@ export function initPetNameLab() {
   applyPrefillFromRoot();
 
   el<HTMLButtonElement>('pnl-generate').addEventListener('click', generate);
+  el<HTMLButtonElement>('pnl-more').addEventListener('click', showMore);
   for (const id of ['pnl-species', 'pnl-gender', 'pnl-vibe'] as const) {
     el<HTMLSelectElement>(id).addEventListener('change', generate);
   }
 
   el<HTMLButtonElement>('pnl-compare-btn').addEventListener('click', () => {
-    const picked = candidates.filter((n) => selected.has(n.name));
+    const picked = [...selected.values()];
     if (picked.length < 2) return;
     const withFortune = attachFortune(picked, tarotDeck as { id: number; name: string; vibe: string }[]);
     const hot = chooseHotPick(withFortune);

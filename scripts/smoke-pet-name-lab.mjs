@@ -1,17 +1,14 @@
 #!/usr/bin/env node
 /**
- * Smoke test: every species × gender × vibe returns a usable shortlist
- * and tray split keeps names visible (R2).
+ * Smoke test: every species × gender × vibe returns a usable shortlist,
+ * tray split keeps names visible, and "more names" pages advance in score order (R2).
  */
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createRequire } from 'node:module';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const require = createRequire(import.meta.url);
 
-// Inline minimal copies of filter/split for Node without TS loader
 const dogNames = JSON.parse(readFileSync(join(root, 'src/data/naming/dog-names.json'), 'utf8'));
 const catNames = JSON.parse(readFileSync(join(root, 'src/data/naming/cat-names.json'), 'utf8'));
 
@@ -32,9 +29,14 @@ function callScore(name) {
 }
 function practicalScore(entry, vibe) {
   const vibeHit = entry.vibes.includes(vibe) ? 100 : entry.vibes.length ? 60 : 50;
-  return Math.round(entry.popularity * 0.35 + lengthScore(entry.name) * 0.25 + callScore(entry.name) * 0.2 + vibeHit * 0.2);
+  return Math.round(
+    entry.popularity * 0.35 +
+      lengthScore(entry.name) * 0.25 +
+      callScore(entry.name) * 0.2 +
+      vibeHit * 0.2,
+  );
 }
-function filterNames(pool, gender, vibe, count = 18) {
+function rankNames(pool, gender, vibe) {
   const genderOk = (n) => {
     if (gender === 'neutral') return true;
     return n.gender.includes(gender) || n.gender.includes('neutral');
@@ -51,28 +53,27 @@ function filterNames(pool, gender, vibe, count = 18) {
       const aV = a.vibes.includes(vibe) ? 1 : 0;
       const bV = b.vibes.includes(vibe) ? 1 : 0;
       if (bV !== aV) return bV - aV;
-      return b.practical - a.practical;
+      return b.practical - a.practical || a.name.localeCompare(b.name);
     });
   const vibeFirst = matched.filter((n) => n.vibes.includes(vibe));
   const rest = matched.filter((n) => !n.vibes.includes(vibe));
-  const picked = [...vibeFirst, ...rest].slice(0, count);
-  if (picked.length < count) {
+  const ranked = [...vibeFirst, ...rest];
+  if (ranked.length < 18) {
     const wider = pool
       .map((n) => ({
         ...n,
         practical: practicalScore(n, vibe),
         tags: [...new Set([...n.vibes, ...(n.popularity >= 88 ? ['popular'] : [])])],
       }))
-      .sort((a, b) => b.practical - a.practical);
-    const names = new Set(picked.map((p) => p.name));
+      .sort((a, b) => b.practical - a.practical || a.name.localeCompare(b.name));
+    const names = new Set(ranked.map((p) => p.name));
     for (const w of wider) {
       if (names.has(w.name)) continue;
-      picked.push(w);
+      ranked.push(w);
       names.add(w.name);
-      if (picked.length >= count) break;
     }
   }
-  return picked.slice(0, count);
+  return ranked;
 }
 function splitTrays(list) {
   const sorted = [...list].sort((a, b) => b.practical - a.practical || a.name.localeCompare(b.name));
@@ -86,6 +87,7 @@ function splitTrays(list) {
   };
 }
 
+const BATCH = 18;
 const speciesList = [
   ['dog', dogNames],
   ['cat', catNames],
@@ -97,15 +99,42 @@ let failed = 0;
 for (const [species, pool] of speciesList) {
   for (const gender of genders) {
     for (const vibe of vibes) {
-      const list = filterNames(pool, gender, vibe, 18);
-      const trays = splitTrays(list);
+      const ranked = rankNames(pool, gender, vibe);
+      const page0 = ranked.slice(0, BATCH);
+      const page1 = ranked.slice(BATCH, BATCH * 2);
+      const trays = splitTrays(page0);
       const visible = trays.top.length + trays.mid.length;
-      const ok = list.length >= 12 && visible >= 6;
+      const overlap = page1.filter((n) => page0.some((p) => p.name === n.name));
+      const ok =
+        ranked.length >= 12 &&
+        page0.length >= 12 &&
+        visible >= 6 &&
+        overlap.length === 0 &&
+        (page1.length === 0 || page0[0].practical >= page1[0].practical);
+
       if (!ok) {
         failed++;
-        console.error('FAIL', { species, gender, vibe, total: list.length, visible, trays: { top: trays.top.length, mid: trays.mid.length, low: trays.low.length } });
+        console.error('FAIL', {
+          species,
+          gender,
+          vibe,
+          total: ranked.length,
+          page0: page0.length,
+          page1: page1.length,
+          visible,
+          overlap: overlap.length,
+        });
       } else {
-        console.log('OK', species, gender, vibe, `n=${list.length}`, `visible=${visible}`);
+        console.log(
+          'OK',
+          species,
+          gender,
+          vibe,
+          `n=${ranked.length}`,
+          `p0=${page0.length}`,
+          `p1=${page1.length}`,
+          `visible=${visible}`,
+        );
       }
     }
   }
@@ -115,4 +144,4 @@ if (failed) {
   console.error(`\n${failed} combo(s) failed`);
   process.exit(1);
 }
-console.log('\nAll filter × tray combos OK');
+console.log('\nAll filter × tray × batch combos OK');

@@ -27,12 +27,8 @@ export function practicalScore(entry: NameEntry, vibe: Vibe): number {
   return Math.round(pop * 0.35 + len * 0.25 + call * 0.2 + vibeHit * 0.2);
 }
 
-export function filterNames(
-  pool: NameEntry[],
-  gender: Gender,
-  vibe: Vibe,
-  count = 18,
-): ScoredName[] {
+/** Full ranked pool: vibe matches first, then by practical score. Stable order (not shuffled). */
+export function rankNames(pool: NameEntry[], gender: Gender, vibe: Vibe): ScoredName[] {
   const genderOk = (n: NameEntry) => {
     if (gender === 'neutral') return true; // Neutral = any / unisex-friendly mix
     return n.gender.includes(gender) || n.gender.includes('neutral');
@@ -50,33 +46,43 @@ export function filterNames(
       const aV = a.vibes.includes(vibe) ? 1 : 0;
       const bV = b.vibes.includes(vibe) ? 1 : 0;
       if (bV !== aV) return bV - aV;
-      return b.practical - a.practical;
+      return b.practical - a.practical || a.name.localeCompare(b.name);
     });
 
-  // Prefer vibe matches first, then fill
+  // Prefer vibe matches first, then the rest of the gender-filtered pool
   const vibeFirst = matched.filter((n) => n.vibes.includes(vibe));
   const rest = matched.filter((n) => !n.vibes.includes(vibe));
-  const picked = [...vibeFirst, ...rest].slice(0, count);
+  const ranked = [...vibeFirst, ...rest];
 
-  // If still thin, fill from full pool by practical score
-  if (picked.length < count) {
+  // If gender filter left the list thin, append remaining pool by score (deduped)
+  if (ranked.length < 18) {
     const wider = pool
       .map((n) => ({
         ...n,
         practical: practicalScore(n, vibe),
         tags: [...new Set([...n.vibes, ...(n.popularity >= 88 ? ['popular'] : [])])],
       }))
-      .sort((a, b) => b.practical - a.practical);
-    const names = new Set(picked.map((p) => p.name));
+      .sort((a, b) => b.practical - a.practical || a.name.localeCompare(b.name));
+    const names = new Set(ranked.map((p) => p.name));
     for (const w of wider) {
       if (names.has(w.name)) continue;
-      picked.push(w);
+      ranked.push(w);
       names.add(w.name);
-      if (picked.length >= count) break;
     }
   }
 
-  return picked.slice(0, count);
+  return ranked;
+}
+
+/** One page from the ranked pool. offset=0 is the top-score shortlist. */
+export function filterNames(
+  pool: NameEntry[],
+  gender: Gender,
+  vibe: Vibe,
+  count = 18,
+  offset = 0,
+): ScoredName[] {
+  return rankNames(pool, gender, vibe).slice(offset, offset + count);
 }
 
 export function attachFortune(names: ScoredName[], deck: TarotCard[]): ScoredName[] {
