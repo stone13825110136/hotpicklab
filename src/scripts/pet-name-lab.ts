@@ -50,12 +50,39 @@ export function splitTrays(list: ScoredName[]) {
   return { top, mid, low };
 }
 
+async function copyText(text: string, button: HTMLButtonElement) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+  }
+  const prev = button.textContent;
+  button.textContent = 'Copied';
+  button.classList.add('is-done');
+  window.setTimeout(() => {
+    button.textContent = prev;
+    button.classList.remove('is-done');
+  }, 1200);
+}
+
 function mountChip(n: ScoredName, grid: HTMLElement) {
+  const wrap = document.createElement('div');
+  wrap.className = 'pnl-chip-wrap';
+
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'pnl-chip' + (selected.has(n.name) ? ' is-on' : '');
   btn.setAttribute('aria-pressed', selected.has(n.name) ? 'true' : 'false');
-  btn.innerHTML = `<span class="pnl-chip-name">${n.name}</span><span class="pnl-chip-meta">Score ${n.practical}/100 · ${n.tags.slice(0, 2).join(' · ')}</span>`;
+  btn.title = 'Tap to select for Compare';
+  btn.innerHTML = `<span class="pnl-chip-name">${n.name}</span><span class="pnl-chip-meta">Score ${n.practical}/100 · ${n.tags.slice(0, 2).join(' · ')} · tap to select</span>`;
   btn.addEventListener('click', () => {
     if (selected.has(n.name)) selected.delete(n.name);
     else {
@@ -65,7 +92,20 @@ function mountChip(n: ScoredName, grid: HTMLElement) {
     renderCandidates();
     renderCompareBar();
   });
-  grid.appendChild(btn);
+
+  const copyBtn = document.createElement('button');
+  copyBtn.type = 'button';
+  copyBtn.className = 'pnl-copy';
+  copyBtn.textContent = 'Copy';
+  copyBtn.setAttribute('aria-label', `Copy ${n.name}`);
+  copyBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    void copyText(n.name, copyBtn);
+  });
+
+  wrap.appendChild(btn);
+  wrap.appendChild(copyBtn);
+  grid.appendChild(wrap);
 }
 
 function renderBatchMeta() {
@@ -85,9 +125,9 @@ function renderBatchMeta() {
 
   moreBtn.hidden = total <= BATCH_SIZE;
   if (batchOffset + BATCH_SIZE >= total) {
-    moreBtn.textContent = 'Back to top scores';
+    moreBtn.textContent = '← Back to top scores';
   } else {
-    moreBtn.textContent = 'Show more names';
+    moreBtn.textContent = 'Show more names →';
   }
 }
 
@@ -148,12 +188,33 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
       </header>
       ${tarotBlock}
     `;
+    const copyBtn = document.createElement('button');
+    copyBtn.type = 'button';
+    copyBtn.className = 'pnl-copy';
+    copyBtn.textContent = 'Copy';
+    copyBtn.addEventListener('click', () => {
+      void copyText(n.name, copyBtn);
+    });
+    card.appendChild(copyBtn);
     cards.appendChild(card);
   }
 
   el<HTMLElement>('pnl-hot-name').textContent = hot.name;
   el<HTMLElement>('pnl-hot-reason').textContent =
     hot.reason ?? `Highest practical score (${hot.practical}/100) in your shortlist.`;
+
+  let hotCopy = panel.querySelector<HTMLButtonElement>('.pnl-hot-copy');
+  if (!hotCopy) {
+    hotCopy = document.createElement('button');
+    hotCopy.type = 'button';
+    hotCopy.className = 'pnl-copy pnl-hot-copy';
+    el<HTMLElement>('pnl-hot-reason').after(hotCopy);
+  }
+  hotCopy.textContent = 'Copy Hot Pick';
+  hotCopy.onclick = () => {
+    void copyText(hot.name, hotCopy!);
+  };
+
   panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 

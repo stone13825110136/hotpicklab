@@ -35,6 +35,11 @@ const {
           Shortlist dog or cat names, compare your favorites, and get one
           <strong>Hot Pick</strong> based on practical score — not a hundred random names.
         </p>
+        <p class="pnl-steps">
+          <strong>How to use:</strong> Tap a name to select it → pick 2–5 →
+          <strong>Compare &amp; Hot Pick</strong>. Use <strong>Show more names</strong> for the next
+          scored batch.
+        </p>
       </header>
     )
   }
@@ -45,7 +50,8 @@ const {
         <p class="pnl-kicker">Try the lab</p>
         <h2 class="pnl-embed-title">Compare names &amp; get a Hot Pick</h2>
         <p class="pnl-lede">
-          Filters are pre-set for this page. Change them anytime, pick 2–5 names, then compare.
+          Filters are pre-set for this page. Tap a name to select it, pick 2–5, then
+          <strong>Compare &amp; Hot Pick</strong>.
         </p>
       </header>
     )
@@ -80,9 +86,14 @@ const {
   </section>
 
   <section id="pnl-output" class="pnl-output" hidden>
+    <p class="pnl-how">
+      <strong>Tap a name card to select it</strong> (2–5 names). Then hit
+      <strong>Compare &amp; Hot Pick</strong> below. Need more ideas?
+      <strong>Show more names</strong> loads the next batch by score — not a random shuffle.
+    </p>
     <p class="pnl-score-hint muted">
       Score /100 = how easy to call + popularity + vibe fit. Higher usually means easier everyday
-      use. Pick 2–5 names, then compare.
+      use.
     </p>
 
     <p id="pnl-empty" class="pnl-empty muted" hidden>
@@ -111,8 +122,8 @@ const {
     </details>
 
     <div class="pnl-more-row">
-      <button type="button" class="btn pnl-btn pnl-btn-secondary" id="pnl-more" hidden>
-        Show more names
+      <button type="button" class="btn pnl-btn pnl-btn-more" id="pnl-more" hidden>
+        Show more names →
       </button>
       <p id="pnl-batch-meta" class="pnl-batch-meta muted" hidden></p>
     </div>
@@ -201,27 +212,58 @@ const {
     cursor: not-allowed;
   }
 
-  .pnl-btn-secondary {
-    background: transparent;
-    color: var(--pnl-text);
-    border: 1px solid var(--pnl-border);
+  .pnl-btn-more {
+    width: 100%;
+    max-width: 28rem;
+    padding: 0.75rem 1.1rem;
+    font-size: 1rem;
+    background: var(--pnl-accent-2);
+    color: #0b1020;
+    box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.25);
   }
 
-  .pnl-btn-secondary:hover {
-    border-color: var(--pnl-accent-2);
+  .pnl-btn-more:hover {
+    filter: brightness(1.05);
   }
 
   .pnl-more-row {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem;
-    margin: 0.75rem 0 0.25rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.45rem;
+    margin: 1rem 0 0.5rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(34, 211, 238, 0.45);
+    border-radius: var(--pnl-radius);
+    background: rgba(34, 211, 238, 0.08);
   }
 
   .pnl-batch-meta {
     margin: 0;
     font-size: 0.82rem;
+  }
+
+  .pnl-steps {
+    margin: 0.85rem auto 0;
+    max-width: 36rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 8px;
+    background: rgba(255, 107, 53, 0.1);
+    border: 1px solid rgba(255, 107, 53, 0.35);
+    color: var(--pnl-text);
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .pnl-how {
+    margin: 0 0 0.75rem;
+    padding: 0.7rem 0.85rem;
+    border-radius: 8px;
+    background: rgba(255, 107, 53, 0.12);
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    color: var(--pnl-text);
+    font-size: 0.92rem;
+    line-height: 1.45;
   }
 
   .pnl-hero {
@@ -334,6 +376,13 @@ const {
     gap: 0.55rem;
   }
 
+  .pnl-chip-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.35rem;
+    align-items: stretch;
+  }
+
   .pnl-chip {
     display: grid;
     gap: 0.15rem;
@@ -345,6 +394,7 @@ const {
     color: var(--pnl-text);
     cursor: pointer;
     font: inherit;
+    min-width: 0;
   }
 
   .pnl-chip:hover {
@@ -365,17 +415,43 @@ const {
     color: var(--pnl-muted);
   }
 
+  .pnl-copy {
+    padding: 0.35rem 0.55rem;
+    border-radius: 8px;
+    border: 1px solid var(--pnl-border);
+    background: var(--pnl-surface);
+    color: var(--pnl-accent-2);
+    font: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    align-self: center;
+  }
+
+  .pnl-copy:hover {
+    border-color: var(--pnl-accent-2);
+  }
+
+  .pnl-copy.is-done {
+    color: #86efac;
+    border-color: rgba(134, 239, 172, 0.5);
+  }
+
   .pnl-compare-bar {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
     align-items: center;
     justify-content: space-between;
-    margin-top: 0.5rem;
-    padding: 0.85rem 1rem;
+    margin-top: 0.75rem;
+    padding: 0.95rem 1rem;
     border-radius: var(--pnl-radius);
-    border: 1px dashed var(--pnl-border);
-    background: rgba(255, 107, 53, 0.06);
+    border: 1px solid rgba(255, 107, 53, 0.55);
+    background: rgba(255, 107, 53, 0.12);
+  }
+
+  .pnl-hot-copy {
+    margin-top: 0.65rem;
   }
 
   .pnl-results {
