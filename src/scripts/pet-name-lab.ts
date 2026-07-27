@@ -269,25 +269,44 @@ function applyPrefillFromRoot() {
   }
 }
 
-export function initPetNameLab() {
-  applyPrefillFromRoot();
-
-  el<HTMLButtonElement>('pnl-generate').addEventListener('click', generate);
-  el<HTMLButtonElement>('pnl-more').addEventListener('click', showMore);
-  for (const id of ['pnl-species', 'pnl-gender', 'pnl-vibe'] as const) {
-    el<HTMLSelectElement>(id).addEventListener('change', generate);
+declare global {
+  interface Window {
+    __pnlReady?: boolean;
+    __pnlGenerate?: () => void;
   }
+}
 
-  el<HTMLButtonElement>('pnl-compare-btn').addEventListener('click', () => {
-    const picked = [...selected.values()];
-    if (picked.length < 2) return;
-    const withFortune = attachFortune(picked, tarotDeck as { id: number; name: string; vibe: string }[]);
-    const hot = chooseHotPick(withFortune);
-    if (!hot) return;
-    renderResults(withFortune, hot);
-  });
+export function initPetNameLab() {
+  try {
+    applyPrefillFromRoot();
 
-  generate();
+    // Prefer the shared onclick hook so Generate works even if addEventListener is delayed.
+    window.__pnlGenerate = generate;
+
+    el<HTMLButtonElement>('pnl-more').addEventListener('click', showMore);
+    for (const id of ['pnl-species', 'pnl-gender', 'pnl-vibe'] as const) {
+      el<HTMLSelectElement>(id).addEventListener('change', generate);
+    }
+
+    el<HTMLButtonElement>('pnl-compare-btn').addEventListener('click', () => {
+      const picked = [...selected.values()];
+      if (picked.length < 2) return;
+      const withFortune = attachFortune(picked, tarotDeck as { id: number; name: string; vibe: string }[]);
+      const hot = chooseHotPick(withFortune);
+      if (!hot) return;
+      renderResults(withFortune, hot);
+    });
+
+    generate();
+    window.__pnlReady = true;
+    const fail = document.getElementById('pnl-script-fail');
+    if (fail) fail.hidden = true;
+  } catch (err) {
+    console.error('Pet Name Lab failed to start', err);
+    window.__pnlReady = false;
+    const fail = document.getElementById('pnl-script-fail');
+    if (fail) fail.hidden = false;
+  }
 }
 
 if (typeof document !== 'undefined') {

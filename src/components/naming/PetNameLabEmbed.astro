@@ -1,5 +1,8 @@
 ---
-import type { Gender, Species, Vibe } from '../../lib/naming/types';
+import dogNames from '../../data/naming/dog-names.json';
+import catNames from '../../data/naming/cat-names.json';
+import { rankNames } from '../../lib/naming/generate';
+import type { Gender, NameEntry, Species, Vibe } from '../../lib/naming/types';
 
 interface Props {
   species?: Species;
@@ -17,6 +20,13 @@ const {
   showHero = false,
   compact = false,
 } = Astro.props;
+
+const pool = (species === 'dog' ? dogNames : catNames) as NameEntry[];
+const ranked = rankNames(pool, gender, vibe);
+const initial = ranked.slice(0, 18);
+const ssrTop = initial.slice(0, 6);
+const ssrMid = initial.slice(6, 14);
+const ssrLow = initial.slice(14);
 ---
 
 <div
@@ -82,10 +92,22 @@ const {
         <option value="classic" selected={vibe === 'classic'}>Classic</option>
       </select>
     </label>
-    <button type="button" class="btn pnl-btn" id="pnl-generate">Generate names</button>
+    <button
+      type="button"
+      class="btn pnl-btn"
+      id="pnl-generate"
+      onclick="window.__pnlGenerate && window.__pnlGenerate()"
+    >
+      Generate names
+    </button>
   </section>
 
-  <section id="pnl-output" class="pnl-output" hidden>
+  <p id="pnl-script-fail" class="pnl-script-fail" hidden>
+    Interactive controls did not load (ad blocker, translate, or slow network). Names below still
+    work as a list — disable blockers, turn off page translate, then hard-refresh (Ctrl+F5).
+  </p>
+
+  <section id="pnl-output" class="pnl-output">
     <p class="pnl-how">
       <strong>Tap a name card to select it</strong> (2–5 names). Then hit
       <strong>Compare &amp; Hot Pick</strong> below. Need more ideas?
@@ -103,29 +125,70 @@ const {
     <div class="pnl-tray pnl-tray-top">
       <div class="pnl-tray-head">
         <h2>Top scores</h2>
-        <p id="pnl-count-top" class="muted"></p>
+        <p id="pnl-count-top" class="muted">{ssrTop.length} names</p>
       </div>
-      <div id="pnl-candidates-top" class="pnl-grid" role="group" aria-label="Top scored names"></div>
+      <div id="pnl-candidates-top" class="pnl-grid" role="group" aria-label="Top scored names">
+        {
+          ssrTop.map((n) => (
+            <div class="pnl-chip-wrap">
+              <div class="pnl-chip pnl-chip-static">
+                <span class="pnl-chip-name">{n.name}</span>
+                <span class="pnl-chip-meta">
+                  Score {n.practical}/100 · {n.tags.slice(0, 2).join(' · ')}
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
 
     <div class="pnl-tray pnl-tray-mid">
       <div class="pnl-tray-head">
         <h2>More matches</h2>
-        <p id="pnl-count-mid" class="muted"></p>
+        <p id="pnl-count-mid" class="muted">{ssrMid.length} names</p>
       </div>
-      <div id="pnl-candidates-mid" class="pnl-grid" role="group" aria-label="More name matches"></div>
+      <div id="pnl-candidates-mid" class="pnl-grid" role="group" aria-label="More name matches">
+        {
+          ssrMid.map((n) => (
+            <div class="pnl-chip-wrap">
+              <div class="pnl-chip pnl-chip-static">
+                <span class="pnl-chip-name">{n.name}</span>
+                <span class="pnl-chip-meta">
+                  Score {n.practical}/100 · {n.tags.slice(0, 2).join(' · ')}
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
 
-    <details id="pnl-tray-low" class="pnl-tray pnl-tray-low">
-      <summary>More names <span id="pnl-count-low" class="muted"></span></summary>
-      <div id="pnl-candidates-low" class="pnl-grid" role="group" aria-label="Additional names"></div>
+    <details id="pnl-tray-low" class="pnl-tray pnl-tray-low" hidden={ssrLow.length === 0}>
+      <summary>More names <span id="pnl-count-low" class="muted">{ssrLow.length} names</span></summary>
+      <div id="pnl-candidates-low" class="pnl-grid" role="group" aria-label="Additional names">
+        {
+          ssrLow.map((n) => (
+            <div class="pnl-chip-wrap">
+              <div class="pnl-chip pnl-chip-static">
+                <span class="pnl-chip-name">{n.name}</span>
+                <span class="pnl-chip-meta">
+                  Score {n.practical}/100 · {n.tags.slice(0, 2).join(' · ')}
+                </span>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </details>
 
     <div class="pnl-more-row">
-      <button type="button" class="btn pnl-btn pnl-btn-more" id="pnl-more" hidden>
+      <button type="button" class="btn pnl-btn pnl-btn-more" id="pnl-more" hidden={ranked.length <= 18}>
         Show more names →
       </button>
-      <p id="pnl-batch-meta" class="pnl-batch-meta muted" hidden></p>
+      <p id="pnl-batch-meta" class="pnl-batch-meta muted">
+        Showing 1–{initial.length} of {ranked.length} (highest scores first)
+      </p>
     </div>
 
     <div id="pnl-compare-bar" class="pnl-compare-bar" hidden>
@@ -160,6 +223,19 @@ const {
   </p>
 </div>
 
+<script is:inline>
+  window.__pnlReady = false;
+  window.__pnlGenerate = function () {
+    var fail = document.getElementById('pnl-script-fail');
+    if (fail && !window.__pnlReady) fail.hidden = false;
+  };
+  setTimeout(function () {
+    if (!window.__pnlReady) {
+      var fail = document.getElementById('pnl-script-fail');
+      if (fail) fail.hidden = false;
+    }
+  }, 2500);
+</script>
 <script>
   import '../../scripts/pet-name-lab';
 </script>
@@ -264,6 +340,25 @@ const {
     color: var(--pnl-text);
     font-size: 0.92rem;
     line-height: 1.45;
+  }
+
+  .pnl-script-fail {
+    margin: 0 0 1rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 8px;
+    background: rgba(248, 113, 113, 0.15);
+    border: 1px solid rgba(248, 113, 113, 0.55);
+    color: #fecaca;
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .pnl-chip-static {
+    cursor: default;
+  }
+
+  .pnl-chip-static:hover {
+    border-color: var(--pnl-border);
   }
 
   .pnl-hero {
