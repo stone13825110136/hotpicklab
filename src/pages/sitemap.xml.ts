@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { SITE } from '../lib/site';
+import { allNamingSeoPaths } from '../lib/naming/seo-pages';
 
 /** Static file at build time — Bing/Google must not hit a failing server route. */
 export const prerender = true;
@@ -7,20 +8,25 @@ export const prerender = true;
 type SitemapEntry = { path: string; lastmod?: string };
 
 export const GET: APIRoute = () => {
-  const today = '2026-07-26';
-  const entries: SitemapEntry[] = [
+  const today = '2026-07-27';
+  const core: SitemapEntry[] = [
     { path: '', lastmod: today },
     { path: '/tools', lastmod: today },
     { path: '/tools/pet-name-lab', lastmod: today },
     { path: '/disclosure', lastmod: today },
     { path: '/privacy', lastmod: today },
   ];
+  const naming: SitemapEntry[] = allNamingSeoPaths().map((path) => ({
+    path,
+    lastmod: today,
+  }));
+  const entries = [...core, ...naming];
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${entries
   .map((entry) => {
-    const loc = new URL(entry.path, SITE.url).href;
+    const loc = new URL(entry.path || '/', SITE.url).href;
     const lastmod = entry.lastmod ? `\n    <lastmod>${entry.lastmod}</lastmod>` : '';
     return `  <url>\n    <loc>${loc}</loc>${lastmod}\n  </url>`;
   })

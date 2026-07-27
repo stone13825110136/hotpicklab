@@ -46,8 +46,9 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
         <a class="logo" href="/" translate="no">{SITE.name}</a>
         <nav aria-label="Primary">
           <a href="/tools/pet-name-lab">Pet Name Lab</a>
+          <a href="/dog-names">Dog names</a>
+          <a href="/cat-names">Cat names</a>
           <a href="/tools">Labs</a>
-          <a href="/disclosure">Disclosure</a>
         </nav>
       </div>
     </header>
@@ -60,6 +61,8 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
         <p class="footer-note">{SITE.tagline}</p>
         <p class="footer-links">
           <a href="/tools">Labs</a>
+          <a href="/dog-names">Dog names</a>
+          <a href="/cat-names">Cat names</a>
           <a href="/disclosure">Disclosure</a>
           <a href="/privacy">Privacy</a>
           <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>

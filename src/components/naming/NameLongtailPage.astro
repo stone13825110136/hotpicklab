@@ -1,0 +1,279 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PetNameLabEmbed from './PetNameLabEmbed.astro';
+import { filterNames } from '../../lib/naming/generate';
+import type { NamingSeoPage } from '../../lib/naming/seo-pages';
+import { getSeoPages, hubPath, seoPath } from '../../lib/naming/seo-pages';
+import type { NameEntry } from '../../lib/naming/types';
+import dogNames from '../../data/naming/dog-names.json';
+import catNames from '../../data/naming/cat-names.json';
+
+interface Props {
+  page: NamingSeoPage;
+}
+
+const { page } = Astro.props;
+const pool = (page.species === 'dog' ? dogNames : catNames) as NameEntry[];
+const samples = filterNames(pool, page.gender, page.vibe, 18);
+const related = getSeoPages(page.species)
+  .filter((p) => p.slug !== page.slug)
+  .slice(0, 8);
+const otherSpecies = page.species === 'dog' ? 'cat' : 'dog';
+const otherHub = hubPath(otherSpecies as 'dog' | 'cat');
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: page.faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+};
+
+const listJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: page.h1,
+  itemListElement: samples.map((n, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: n.name,
+  })),
+};
+---
+
+<Layout title={page.title} description={page.description} keywords={page.keywords} type="article">
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(listJsonLd)} />
+
+  <article class="seo-page shell">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href={hubPath(page.species)}>{page.species === 'dog' ? 'Dog names' : 'Cat names'}</a>
+      <span aria-hidden="true">/</span>
+      <span>{page.h1}</span>
+    </nav>
+
+    <header class="seo-hero">
+      <h1>{page.h1}</h1>
+      <p class="intro">{page.intro}</p>
+    </header>
+
+    <section class="sample" aria-labelledby="sample-heading">
+      <h2 id="sample-heading">Top scored picks</h2>
+      <p class="muted">
+        Practical scores for {page.keyword} — easy to call, popularity fit, and {page.vibe} vibe
+        match. Tap the lab below to compare favorites.
+      </p>
+      <ol class="sample-list">
+        {
+          samples.map((n) => (
+            <li>
+              <span class="sample-name">{n.name}</span>
+              <span class="sample-meta">
+                Score {n.practical}/100 · {n.tags.slice(0, 2).join(' · ')}
+              </span>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="tip">{page.tip}</p>
+    </section>
+
+    <section class="lab-wrap" aria-label="Pet Name Lab">
+      <PetNameLabEmbed
+        species={page.species}
+        gender={page.gender}
+        vibe={page.vibe}
+        compact
+      />
+    </section>
+
+    <aside class="seo-ad" aria-label="Sponsored">
+      <p class="muted">Sponsored placement</p>
+    </aside>
+
+    <section class="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Common questions</h2>
+      <dl>
+        {
+          page.faqs.map((f) => (
+            <div class="faq-item">
+              <dt>{f.question}</dt>
+              <dd>{f.answer}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <section class="related" aria-labelledby="related-heading">
+      <h2 id="related-heading">Related name lists</h2>
+      <ul>
+        {
+          related.map((p) => (
+            <li>
+              <a href={seoPath(p)}>{p.h1}</a>
+            </li>
+          ))
+        }
+        <li><a href={otherHub}>{otherSpecies === 'dog' ? 'Dog' : 'Cat'} name lists</a></li>
+        <li><a href="/tools/pet-name-lab">Open full Pet Name Lab</a></li>
+      </ul>
+    </section>
+  </article>
+</Layout>
+
+<style>
+  .seo-page {
+    padding: 1.5rem 0 3rem;
+  }
+
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .crumbs a {
+    color: var(--signal);
+    text-decoration: none;
+  }
+
+  .seo-hero h1 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 2.4rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .intro {
+    margin: 0;
+    max-width: 42rem;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+
+  .sample,
+  .faq,
+  .related {
+    margin-top: 2rem;
+  }
+
+  .sample h2,
+  .faq h2,
+  .related h2 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+  }
+
+  .sample .muted {
+    margin: 0 0 1rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .sample-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.55rem;
+  }
+
+  .sample-list li {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.7rem 0.8rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+  }
+
+  .sample-name {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .sample-meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .tip {
+    margin: 1rem 0 0;
+    padding: 0.85rem 1rem;
+    background: rgba(13, 110, 98, 0.08);
+    border-left: 3px solid var(--signal);
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  .lab-wrap {
+    margin-top: 2rem;
+  }
+
+  .seo-ad {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    text-align: center;
+    background: var(--panel);
+  }
+
+  .faq dl {
+    margin: 0;
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .faq-item {
+    margin: 0;
+    padding: 1rem 1.1rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+  }
+
+  .faq-item dt {
+    margin: 0 0 0.4rem;
+    font-weight: 700;
+  }
+
+  .faq-item dd {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .related ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.5rem 1rem;
+  }
+
+  .related a {
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .related a:hover {
+    text-decoration: underline;
+  }
+</style>

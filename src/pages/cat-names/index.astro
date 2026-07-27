@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { CAT_SEO_PAGES, seoPath } from '../../lib/naming/seo-pages';
+---
+
+<Layout
+  title="Cat Names by Style — Cute, Strong, Unique & Classic"
+  description="Browse cat name lists by vibe and gender. Open any list to compare scored names and get one Hot Pick in Pet Name Lab — free, no sign-up."
+  keywords={[
+    'cat names',
+    'cute cat names',
+    'boy cat names',
+    'girl cat names',
+    'unique cat names',
+    'pet name generator',
+  ]}
+>
+  <section class="hub shell">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <span>Cat names</span>
+    </nav>
+
+    <header>
+      <h1>Cat Names</h1>
+      <p class="lede">
+        Pick a list that matches the vibe you want. Each page includes scored sample names plus the
+        same Pet Name Lab so you can compare favorites and land on one Hot Pick.
+      </p>
+      <p class="cta-row">
+        <a class="cta" href="/tools/pet-name-lab">Open Pet Name Lab</a>
+        <a class="cta-secondary" href="/dog-names">Browse dog names</a>
+      </p>
+    </header>
+
+    <ul class="hub-grid">
+      {
+        CAT_SEO_PAGES.map((p) => (
+          <li>
+            <a href={seoPath(p)}>
+              <strong>{p.h1}</strong>
+              <span>{p.description}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  .hub {
+    padding: 1.5rem 0 3rem;
+  }
+
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .crumbs a {
+    color: var(--signal);
+    text-decoration: none;
+  }
+
+  h1 {
+    margin: 0 0 0.65rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.85rem, 4vw, 2.5rem);
+    letter-spacing: -0.02em;
+  }
+
+  .lede {
+    margin: 0 0 1.1rem;
+    max-width: 40rem;
+    color: var(--ink-soft);
+  }
+
+  .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin: 0 0 1.75rem;
+  }
+
+  .cta,
+  .cta-secondary {
+    display: inline-block;
+    padding: 0.65rem 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+
+  .cta {
+    background: var(--signal);
+    color: #fff;
+  }
+
+  .cta-secondary {
+    border: 1px solid var(--line);
+    color: var(--ink);
+    background: var(--panel);
+  }
+
+  .hub-grid {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .hub-grid a {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1rem 1.1rem;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    min-height: 100%;
+  }
+
+  .hub-grid a:hover {
+    border-color: var(--signal);
+  }
+
+  .hub-grid strong {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+
+  .hub-grid span {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+</style>

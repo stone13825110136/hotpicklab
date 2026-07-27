@@ -1,0 +1,15 @@
+---
+import NameLongtailPage from '../../components/naming/NameLongtailPage.astro';
+import { DOG_SEO_PAGES } from '../../lib/naming/seo-pages';
+
+export function getStaticPaths() {
+  return DOG_SEO_PAGES.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+---
+
+<NameLongtailPage page={page} />

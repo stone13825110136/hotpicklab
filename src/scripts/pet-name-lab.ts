@@ -135,7 +135,28 @@ function generate() {
   el<HTMLElement>('pnl-output').hidden = false;
 }
 
+function applyPrefillFromRoot() {
+  const root = document.getElementById('pet-name-lab');
+  if (!root) return;
+
+  const species = root.dataset.species as Species | undefined;
+  const gender = root.dataset.gender as Gender | undefined;
+  const vibe = root.dataset.vibe as Vibe | undefined;
+
+  if (species === 'dog' || species === 'cat') {
+    el<HTMLSelectElement>('pnl-species').value = species;
+  }
+  if (gender === 'boy' || gender === 'girl' || gender === 'neutral') {
+    el<HTMLSelectElement>('pnl-gender').value = gender;
+  }
+  if (vibe === 'cute' || vibe === 'strong' || vibe === 'unique' || vibe === 'classic') {
+    el<HTMLSelectElement>('pnl-vibe').value = vibe;
+  }
+}
+
 export function initPetNameLab() {
+  applyPrefillFromRoot();
+
   el<HTMLButtonElement>('pnl-generate').addEventListener('click', generate);
   for (const id of ['pnl-species', 'pnl-gender', 'pnl-vibe'] as const) {
     el<HTMLSelectElement>(id).addEventListener('change', generate);
