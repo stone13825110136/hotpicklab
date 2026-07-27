@@ -176,6 +176,29 @@ for (const [species, pool] of [
   }
 }
 
+// Styles must feel different: Unique top tray should not mirror Classic
+{
+  const classicTop = new Set(
+    rankNames(dogNames, 'neutral', 'classic')
+      .slice(0, 18)
+      .map((n) => n.name.toLowerCase()),
+  );
+  const uniqueTop = rankNames(dogNames, 'neutral', 'unique').slice(0, 18);
+  const overlap = uniqueTop.filter((n) => classicTop.has(n.name.toLowerCase())).length;
+  const uniquePure = uniqueTop.filter((n) => n.vibes.includes('unique')).length;
+  if (overlap > 8 || uniquePure < 12) {
+    failed++;
+    console.error('FAIL style differentiation', { overlap, uniquePure, sample: uniqueTop.slice(0, 6).map((n) => n.name) });
+  } else {
+    console.log('OK style differentiation', {
+      overlap,
+      uniquePure,
+      uniqueSample: uniqueTop.slice(0, 6).map((n) => n.name),
+      classicSample: [...classicTop].slice(0, 6),
+    });
+  }
+}
+
 // Pool size target
 {
   if (dogNames.length < 900 || catNames.length < 900) {

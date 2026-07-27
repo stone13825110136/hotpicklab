@@ -16,6 +16,7 @@ import { fileURLToPath } from 'node:url';
 import { createRequire } from 'node:module';
 import { cards as tarotooCards } from 'tarotoo-tarot';
 import { HEURISTIC_BREED_TOPS, POOL_SUPPLEMENT } from './naming-pool-supplement.mjs';
+import { STYLE_BANKS } from './style-name-banks.mjs';
 
 const require = createRequire(import.meta.url);
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -75,22 +76,130 @@ function cleanName(raw) {
   return name;
 }
 
-function vibeGuess(name, popularity) {
-  const vibes = new Set();
+/**
+ * Assign at most 2 vibes; prefer ONE clear primary so filters feel different.
+ * Style-bank overrides win later via applyStyleBanks().
+ */
+function vibeGuess(name, popularity, sourceHint = '') {
   const lower = name.toLowerCase();
-  if (popularity >= 70) vibes.add('classic');
-  if (popularity <= 50) vibes.add('unique');
-  if (/[yie]$/i.test(name) || /(ie|ey|y|ie)$/i.test(lower)) vibes.add('cute');
-  if (name.length <= 4) vibes.add('strong');
-  if (/(max|rex|thor|zeus|duke|bear|tiger|blaze|rocky|axe|knox|jett|zeus|wolf|storm)/i.test(lower)) {
-    vibes.add('strong');
+  const hits = [];
+
+  const strongHit =
+    name.length <= 4 ||
+    /^(max|rex|thor|zeus|duke|bear|tiger|blaze|rocky|axe|knox|jett|wolf|storm|tank|spike|bolt|fang|titan|diesel|gunner|hawk|king|ace|jax|rock)$/i.test(
+      lower,
+    ) ||
+    /(blaze|storm|thunder|shadow|ghost|steel|iron|blade)/i.test(lower);
+  const cuteHit =
+    /(ie|ey|y)$/i.test(lower) ||
+    /^(mochi|biscuit|pumpkin|cupcake|waffles|pickles|noodle|bean|pip|cookie|muffin|honey|sugar|bubbles|coco|kiwi|peanut|teddy|lulu|kiki|gigi|ore|oreo|nugget|loaf)$/i.test(
+      lower,
+    ) ||
+    /(luna|bella|daisy|willow|maple|pepper|olive|poppy|peach)/i.test(lower);
+  const uniqueHit =
+    popularity <= 48 ||
+    sourceHint.includes('synthesize') ||
+    /^(ziggy|jinx|nova|pixel|echo|cosmo|onyx|quill|nyx|vesper|rune|neon|glyph|quark|umbra|zenith|prism|orbit|hex|vex|wisp|lumen)$/i.test(
+      lower,
+    ) ||
+    /(pixel|cipher|glyph|quark|neon|glitch|zenith|solstice|vortex)/i.test(lower);
+  const classicHit =
+    popularity >= 72 ||
+    /^(charlie|bailey|cooper|buddy|lucy|molly|oliver|jack|toby|maggie|sophie|chloe|milo|leo|oscar|felix|ruby|stella|sadie|lola|penny|george|henry|arthur|winston|grace|alice|sam|alex)$/i.test(
+      lower,
+    );
+
+  // Score candidates; pick best primary, optional secondary if clearly dual
+  const scores = {
+    strong: strongHit ? 3 : 0,
+    cute: cuteHit ? 3 : 0,
+    unique: uniqueHit ? 3 : 0,
+    classic: classicHit ? 3 : 0,
+  };
+  if (popularity >= 70 && !classicHit) scores.classic += 1;
+  if (popularity <= 45 && !uniqueHit) scores.unique += 1;
+  if (name.length <= 4 && !strongHit) scores.strong += 1;
+  if (/(ie|y)$/i.test(lower) && !cuteHit) scores.cute += 1;
+
+  const ranked = Object.entries(scores)
+    .filter(([, s]) => s > 0)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+  if (!ranked.length) {
+    return [popularity >= 60 ? 'classic' : 'unique'];
   }
-  if (/(luna|bella|daisy|coco|mochi|pepper|olive|willow|maple)/i.test(lower)) vibes.add('cute');
-  if (/(ziggy|jinx|nova|pixel|echo|cosmo|onyx|quill)/i.test(lower)) vibes.add('unique');
-  if (vibes.size === 0) vibes.add(popularity >= 60 ? 'classic' : 'unique');
-  // Ensure at least one vibe; often two for better filter association
-  if (vibes.size === 1 && popularity >= 55 && popularity <= 80) vibes.add('classic');
-  return [...vibes];
+
+  hits.push(ranked[0][0]);
+  // Only add second vibe when nearly as strong AND not flooding classic+cute on everything
+  if (ranked[1] && ranked[1][1] >= 3 && ranked[1][1] >= ranked[0][1] - 0) {
+    const pair = [ranked[0][0], ranked[1][0]].sort().join('+');
+    // Allow strong+unique, cute+unique, classic+cute — block classic+unique unless both strong
+    if (pair !== 'classic+unique' || (classicHit && uniqueHit && ranked[1][1] >= 3)) {
+      hits.push(ranked[1][0]);
+    }
+  }
+
+  return [...new Set(hits)].slice(0, 2);
+}
+
+/** Force style-bank vibes onto matching names; insert missing bank names. */
+function applyStyleBanks(entries, species) {
+  const byName = new Map(entries.map((e) => [e.name.toLowerCase(), e]));
+  let updated = 0;
+  let inserted = 0;
+
+  for (const row of STYLE_BANKS) {
+    const name = cleanName(row.name);
+    if (!name) continue;
+    const key = name.toLowerCase();
+    const vibes = [...new Set((row.vibes || []).slice(0, 2))];
+    if (!vibes.length) continue;
+    const gender = row.gender || genderHeuristic(name, ['neutral']);
+    const existing = byName.get(key);
+    if (existing) {
+      existing.vibes = vibes;
+      existing.gender = [...new Set([...(existing.gender || []), ...gender])];
+      existing.sources = [...new Set([...(existing.sources || []), 'style-bank'])];
+      // Slight popularity nudge so styled names surface in their vibe tray
+      if (vibes.includes('unique')) existing.popularity = Math.min(existing.popularity, 55);
+      if (vibes.includes('classic') && !vibes.includes('unique')) {
+        existing.popularity = Math.max(existing.popularity, 70);
+      }
+      updated++;
+    } else if (byName.size < TARGET + 120) {
+      const popularity = vibes.includes('classic') ? 78 : vibes.includes('unique') ? 42 : 58;
+      const entry = {
+        name,
+        gender,
+        vibes,
+        popularity,
+        sources: ['style-bank'],
+      };
+      byName.set(key, entry);
+      inserted++;
+    }
+  }
+
+  console.log(`${species}: style-bank updated`, updated, 'inserted', inserted);
+  return [...byName.values()];
+}
+
+/** Drop muddy triple tags; keep primary (+ optional second). */
+function sharpenVibes(entries) {
+  for (const e of entries) {
+    if (!e.vibes?.length) {
+      e.vibes = vibeGuess(e.name, e.popularity, (e.sources || []).join(','));
+      continue;
+    }
+    if (e.vibes.length > 2) {
+      e.vibes = e.vibes.slice(0, 2);
+    }
+    // Synthesized letter fillers should read as unique, not classic
+    if ((e.sources || []).includes('pool-synthesize') && !e.vibes.includes('unique')) {
+      e.vibes = ['unique'];
+    }
+  }
+  return entries;
 }
 
 function popularityFromListIndex(index, total) {
@@ -340,7 +449,7 @@ function padToTarget(entries, species) {
       entries.push({
         name,
         gender: genderHeuristic(name, ['neutral']),
-        vibes: vibeGuess(name, popularity),
+        vibes: vibeGuess(name, popularity, 'pool-synthesize'),
         popularity,
         sources: ['pool-synthesize'],
       });
@@ -462,26 +571,27 @@ function ensureLetterCoverage(entries, species) {
 }
 
 function ensureVibeGenderSpread(entries) {
-  // Soft: if a vibe is thin, add secondary vibe tags on suitable names (association, not fake rows)
+  // Do NOT slap extra vibes onto every name — that made all styles look the same.
+  // Only top up a vibe if the whole pool is critically thin (<12% of names).
   const vibeCounts = { cute: 0, strong: 0, unique: 0, classic: 0 };
   for (const e of entries) {
     for (const v of e.vibes) if (vibeCounts[v] != null) vibeCounts[v]++;
   }
-  for (const e of entries) {
-    if (e.vibes.length >= 2) continue;
-    const lower = e.name.toLowerCase();
-    if (vibeCounts.cute < entries.length * 0.35 && /(y|ie|ey|i)$/.test(lower)) {
-      e.vibes = [...new Set([...e.vibes, 'cute'])];
-      vibeCounts.cute++;
-    } else if (vibeCounts.strong < entries.length * 0.25 && e.name.length <= 4) {
-      e.vibes = [...new Set([...e.vibes, 'strong'])];
-      vibeCounts.strong++;
-    } else if (vibeCounts.unique < entries.length * 0.3 && e.popularity < 55) {
-      e.vibes = [...new Set([...e.vibes, 'unique'])];
-      vibeCounts.unique++;
-    } else if (vibeCounts.classic < entries.length * 0.35 && e.popularity >= 60) {
-      e.vibes = [...new Set([...e.vibes, 'classic'])];
-      vibeCounts.classic++;
+  const minNeed = Math.max(80, Math.floor(entries.length * 0.12));
+  for (const vibe of ['cute', 'strong', 'unique', 'classic']) {
+    if (vibeCounts[vibe] >= minNeed) continue;
+    for (const e of entries) {
+      if (vibeCounts[vibe] >= minNeed) break;
+      if (e.vibes.includes(vibe) || e.vibes.length >= 2) continue;
+      const lower = e.name.toLowerCase();
+      const ok =
+        (vibe === 'cute' && /(y|ie|ey)$/.test(lower)) ||
+        (vibe === 'strong' && e.name.length <= 4) ||
+        (vibe === 'unique' && e.popularity < 50) ||
+        (vibe === 'classic' && e.popularity >= 70);
+      if (!ok) continue;
+      e.vibes = [...e.vibes, vibe];
+      vibeCounts[vibe]++;
     }
   }
   return entries;
@@ -552,6 +662,8 @@ function buildDogEntries() {
   let entries = [...byName.values()];
   entries = padToTarget(entries, 'dog');
   entries = ensureLetterCoverage(entries, 'dog');
+  entries = applyStyleBanks(entries, 'dog');
+  entries = sharpenVibes(entries);
   entries = ensureGenderLetterSpread(entries);
   entries = ensureVibeGenderSpread(entries);
   // Cap slightly over target after letter fill, keep highest popularity first
@@ -639,6 +751,8 @@ function buildCatEntries() {
   let entries = [...byName.values()];
   entries = padToTarget(entries, 'cat');
   entries = ensureLetterCoverage(entries, 'cat');
+  entries = applyStyleBanks(entries, 'cat');
+  entries = sharpenVibes(entries);
   entries = ensureGenderLetterSpread(entries);
   entries = ensureVibeGenderSpread(entries);
   entries.sort((a, b) => b.popularity - a.popularity || a.name.localeCompare(b.name));

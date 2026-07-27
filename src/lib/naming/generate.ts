@@ -26,7 +26,13 @@ export function practicalScore(entry: NameEntry, vibe: Vibe): number {
   const pop = entry.popularity;
   const len = lengthScore(entry.name);
   const call = callScore(entry.name);
-  const vibeHit = entry.vibes.includes(vibe) ? 100 : entry.vibes.length ? 60 : 50;
+  const vibeHit = entry.vibes.includes(vibe)
+    ? entry.vibes.length === 1
+      ? 100
+      : 82
+    : entry.vibes.length
+      ? 55
+      : 50;
   return Math.round(pop * 0.35 + len * 0.25 + call * 0.2 + vibeHit * 0.2);
 }
 
