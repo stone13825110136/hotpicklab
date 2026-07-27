@@ -12,9 +12,10 @@
 
 | 来源 | 类型 | 许可/性质 | 用法 |
 |------|------|-----------|------|
-| [NYC Dog Licensing Dataset](https://data.cityofnewyork.us/Health/NYC-Dog-Licensing-Dataset/nu7n-tubp) | 市政开放数据（名/性别/品种） | 政府开放数据 | **主库**：频率 → popularity / gender / breed |
+| [NYC Dog Licensing Dataset](https://data.cityofnewyork.us/Health/NYC-Dog-Licensing-Dataset/nu7n-tubp) | 市政开放数据（名/性别/品种） | 政府开放数据 | **主库**：频率 → popularity / gender；**品种×名字** → `breed-name-affinity.json`（软排序） |
 | [sindresorhus/dog-names](https://github.com/sindresorhus/dog-names) | Top 流行狗名 JSON | MIT | 种子 + 流行对照 |
 | [sindresorhus/cat-names](https://github.com/sindresorhus/cat-names) | 流行猫名 JSON | MIT | 猫名 v1 主种子（市政猫数据少） |
+| `cat-names-extra.json` | 补充常见英文猫名 | 站内 curated supplement | 字母覆盖 / 结果过少时的填充；页脚不冒充第三方库 |
 | [jgolbeck/petnames](https://github.com/jgolbeck/petnames) | 众包脏数据 | 研究可用（保留原 README） | 补充怪名，不当主源 |
 | AKC / Rover 年度 Top | 新闻稿级榜单 | **非完整开源库** | 少量「trending」标签；**禁止整站扒库** |
 

@@ -1,0 +1,956 @@
+{
+  "generatedAt": "2026-07-27",
+  "source": "Heuristic breed anchors (NYC unavailable); prior NYC tops preserved when present",
+  "note": "Every topName exists in dog-names.json or cat-names.json so breed × letter × vibe stay linked.",
+  "breeds": {
+    "labrador": {
+      "query": "heuristic:labrador",
+      "topNames": [
+        {
+          "name": "Buddy",
+          "count": 100
+        },
+        {
+          "name": "Bailey",
+          "count": 99
+        },
+        {
+          "name": "Max",
+          "count": 98
+        },
+        {
+          "name": "Charlie",
+          "count": 97
+        },
+        {
+          "name": "Cooper",
+          "count": 96
+        },
+        {
+          "name": "Daisy",
+          "count": 95
+        },
+        {
+          "name": "Bella",
+          "count": 94
+        },
+        {
+          "name": "Lucy",
+          "count": 93
+        },
+        {
+          "name": "Molly",
+          "count": 92
+        },
+        {
+          "name": "Duke",
+          "count": 91
+        },
+        {
+          "name": "Maggie",
+          "count": 90
+        },
+        {
+          "name": "Toby",
+          "count": 89
+        }
+      ]
+    },
+    "golden-retriever": {
+      "query": "heuristic:golden-retriever",
+      "topNames": [
+        {
+          "name": "Bailey",
+          "count": 100
+        },
+        {
+          "name": "Charlie",
+          "count": 99
+        },
+        {
+          "name": "Buddy",
+          "count": 98
+        },
+        {
+          "name": "Daisy",
+          "count": 97
+        },
+        {
+          "name": "Molly",
+          "count": 96
+        },
+        {
+          "name": "Scout",
+          "count": 95
+        },
+        {
+          "name": "Maggie",
+          "count": 94
+        },
+        {
+          "name": "Cooper",
+          "count": 93
+        },
+        {
+          "name": "Golden",
+          "count": 92
+        },
+        {
+          "name": "Sunny",
+          "count": 91
+        }
+      ]
+    },
+    "french-bulldog": {
+      "query": "heuristic:french-bulldog",
+      "topNames": [
+        {
+          "name": "Winston",
+          "count": 100
+        },
+        {
+          "name": "Lola",
+          "count": 99
+        },
+        {
+          "name": "Milo",
+          "count": 98
+        },
+        {
+          "name": "Mochi",
+          "count": 97
+        },
+        {
+          "name": "Gus",
+          "count": 96
+        },
+        {
+          "name": "Bruno",
+          "count": 95
+        },
+        {
+          "name": "Ollie",
+          "count": 94
+        },
+        {
+          "name": "Frenchie",
+          "count": 93
+        },
+        {
+          "name": "Porkchop",
+          "count": 92
+        },
+        {
+          "name": "Biscuit",
+          "count": 91
+        }
+      ]
+    },
+    "german-shepherd": {
+      "query": "heuristic:german-shepherd",
+      "topNames": [
+        {
+          "name": "Rex",
+          "count": 100
+        },
+        {
+          "name": "Duke",
+          "count": 99
+        },
+        {
+          "name": "Shadow",
+          "count": 98
+        },
+        {
+          "name": "Zeus",
+          "count": 97
+        },
+        {
+          "name": "Bear",
+          "count": 96
+        },
+        {
+          "name": "Rocky",
+          "count": 95
+        },
+        {
+          "name": "Max",
+          "count": 94
+        },
+        {
+          "name": "Luna",
+          "count": 93
+        },
+        {
+          "name": "Gunner",
+          "count": 92
+        },
+        {
+          "name": "Athena",
+          "count": 91
+        }
+      ]
+    },
+    "poodle": {
+      "query": "heuristic:poodle",
+      "topNames": [
+        {
+          "name": "Coco",
+          "count": 100
+        },
+        {
+          "name": "Teddy",
+          "count": 99
+        },
+        {
+          "name": "Toby",
+          "count": 98
+        },
+        {
+          "name": "Milo",
+          "count": 97
+        },
+        {
+          "name": "Bella",
+          "count": 96
+        },
+        {
+          "name": "Charlie",
+          "count": 95
+        },
+        {
+          "name": "Ruby",
+          "count": 94
+        },
+        {
+          "name": "Daisy",
+          "count": 93
+        },
+        {
+          "name": "Piper",
+          "count": 92
+        },
+        {
+          "name": "Gigi",
+          "count": 91
+        }
+      ]
+    },
+    "beagle": {
+      "query": "heuristic:beagle",
+      "topNames": [
+        {
+          "name": "Snoopy",
+          "count": 100
+        },
+        {
+          "name": "Bailey",
+          "count": 99
+        },
+        {
+          "name": "Buddy",
+          "count": 98
+        },
+        {
+          "name": "Daisy",
+          "count": 97
+        },
+        {
+          "name": "Penny",
+          "count": 96
+        },
+        {
+          "name": "Milo",
+          "count": 95
+        },
+        {
+          "name": "Charlie",
+          "count": 94
+        },
+        {
+          "name": "Molly",
+          "count": 93
+        },
+        {
+          "name": "Beau",
+          "count": 92
+        },
+        {
+          "name": "Scout",
+          "count": 91
+        }
+      ]
+    },
+    "bulldog": {
+      "query": "heuristic:bulldog",
+      "topNames": [
+        {
+          "name": "Tank",
+          "count": 100
+        },
+        {
+          "name": "Bruno",
+          "count": 99
+        },
+        {
+          "name": "Diesel",
+          "count": 98
+        },
+        {
+          "name": "Rocky",
+          "count": 97
+        },
+        {
+          "name": "Gus",
+          "count": 96
+        },
+        {
+          "name": "Rosie",
+          "count": 95
+        },
+        {
+          "name": "Max",
+          "count": 94
+        },
+        {
+          "name": "Rocco",
+          "count": 93
+        },
+        {
+          "name": "Butch",
+          "count": 92
+        },
+        {
+          "name": "Spike",
+          "count": 91
+        }
+      ]
+    },
+    "yorkshire-terrier": {
+      "query": "heuristic:yorkshire-terrier",
+      "topNames": [
+        {
+          "name": "Bella",
+          "count": 100
+        },
+        {
+          "name": "Coco",
+          "count": 99
+        },
+        {
+          "name": "Teddy",
+          "count": 98
+        },
+        {
+          "name": "Princess",
+          "count": 97
+        },
+        {
+          "name": "Milo",
+          "count": 96
+        },
+        {
+          "name": "Chloe",
+          "count": 95
+        },
+        {
+          "name": "Max",
+          "count": 94
+        },
+        {
+          "name": "Benji",
+          "count": 93
+        },
+        {
+          "name": "Gigi",
+          "count": 92
+        },
+        {
+          "name": "Ruby",
+          "count": 91
+        }
+      ]
+    },
+    "husky": {
+      "query": "heuristic:husky",
+      "topNames": [
+        {
+          "name": "Luna",
+          "count": 100
+        },
+        {
+          "name": "Blue",
+          "count": 99
+        },
+        {
+          "name": "Shadow",
+          "count": 98
+        },
+        {
+          "name": "Ghost",
+          "count": 97
+        },
+        {
+          "name": "Zeus",
+          "count": 96
+        },
+        {
+          "name": "Loki",
+          "count": 95
+        },
+        {
+          "name": "Storm",
+          "count": 94
+        },
+        {
+          "name": "Sky",
+          "count": 93
+        },
+        {
+          "name": "Blaze",
+          "count": 92
+        },
+        {
+          "name": "Arctic",
+          "count": 91
+        }
+      ]
+    },
+    "corgi": {
+      "query": "heuristic:corgi",
+      "topNames": [
+        {
+          "name": "Winston",
+          "count": 100
+        },
+        {
+          "name": "Archie",
+          "count": 99
+        },
+        {
+          "name": "Pepper",
+          "count": 98
+        },
+        {
+          "name": "Oliver",
+          "count": 97
+        },
+        {
+          "name": "Millie",
+          "count": 96
+        },
+        {
+          "name": "Charlie",
+          "count": 95
+        },
+        {
+          "name": "Gizmo",
+          "count": 94
+        },
+        {
+          "name": "Watson",
+          "count": 93
+        },
+        {
+          "name": "Loaf",
+          "count": 92
+        },
+        {
+          "name": "Biscuit",
+          "count": 91
+        }
+      ]
+    },
+    "shih-tzu": {
+      "query": "heuristic:shih-tzu",
+      "topNames": [
+        {
+          "name": "Bella",
+          "count": 100
+        },
+        {
+          "name": "Oreo",
+          "count": 99
+        },
+        {
+          "name": "Coco",
+          "count": 98
+        },
+        {
+          "name": "Teddy",
+          "count": 97
+        },
+        {
+          "name": "Gizmo",
+          "count": 96
+        },
+        {
+          "name": "Princess",
+          "count": 95
+        },
+        {
+          "name": "Cookie",
+          "count": 94
+        },
+        {
+          "name": "Milo",
+          "count": 93
+        },
+        {
+          "name": "Fluffy",
+          "count": 92
+        },
+        {
+          "name": "Pearl",
+          "count": 91
+        }
+      ]
+    },
+    "dachshund": {
+      "query": "heuristic:dachshund",
+      "topNames": [
+        {
+          "name": "Lucy",
+          "count": 100
+        },
+        {
+          "name": "Frankie",
+          "count": 99
+        },
+        {
+          "name": "Oscar",
+          "count": 98
+        },
+        {
+          "name": "Penny",
+          "count": 97
+        },
+        {
+          "name": "Otto",
+          "count": 96
+        },
+        {
+          "name": "Milo",
+          "count": 95
+        },
+        {
+          "name": "Daisy",
+          "count": 94
+        },
+        {
+          "name": "Wiener",
+          "count": 93
+        },
+        {
+          "name": "Hotdog",
+          "count": 92
+        },
+        {
+          "name": "Bean",
+          "count": 91
+        }
+      ]
+    },
+    "pomeranian": {
+      "query": "heuristic:pomeranian",
+      "topNames": [
+        {
+          "name": "Coco",
+          "count": 100
+        },
+        {
+          "name": "Teddy",
+          "count": 99
+        },
+        {
+          "name": "Foxy",
+          "count": 98
+        },
+        {
+          "name": "Mochi",
+          "count": 97
+        },
+        {
+          "name": "Princess",
+          "count": 96
+        },
+        {
+          "name": "Leo",
+          "count": 95
+        },
+        {
+          "name": "Simba",
+          "count": 94
+        },
+        {
+          "name": "Buddy",
+          "count": 93
+        },
+        {
+          "name": "Pom",
+          "count": 92
+        },
+        {
+          "name": "Tiny",
+          "count": 91
+        }
+      ]
+    },
+    "persian": {
+      "query": "heuristic:persian",
+      "topNames": [
+        {
+          "name": "Princess",
+          "count": 100
+        },
+        {
+          "name": "Fluffy",
+          "count": 99
+        },
+        {
+          "name": "Coco",
+          "count": 98
+        },
+        {
+          "name": "Pearl",
+          "count": 97
+        },
+        {
+          "name": "Misty",
+          "count": 96
+        },
+        {
+          "name": "Simba",
+          "count": 95
+        },
+        {
+          "name": "Chloe",
+          "count": 94
+        },
+        {
+          "name": "Luna",
+          "count": 93
+        },
+        {
+          "name": "Oliver",
+          "count": 92
+        },
+        {
+          "name": "Bella",
+          "count": 91
+        }
+      ]
+    },
+    "siamese": {
+      "query": "heuristic:siamese",
+      "topNames": [
+        {
+          "name": "Ming",
+          "count": 100
+        },
+        {
+          "name": "Lotus",
+          "count": 99
+        },
+        {
+          "name": "Jade",
+          "count": 98
+        },
+        {
+          "name": "Shadow",
+          "count": 97
+        },
+        {
+          "name": "Cleo",
+          "count": 96
+        },
+        {
+          "name": "Oscar",
+          "count": 95
+        },
+        {
+          "name": "Luna",
+          "count": 94
+        },
+        {
+          "name": "Milo",
+          "count": 93
+        },
+        {
+          "name": "Nala",
+          "count": 92
+        },
+        {
+          "name": "Simba",
+          "count": 91
+        }
+      ]
+    },
+    "maine-coon": {
+      "query": "heuristic:maine-coon",
+      "topNames": [
+        {
+          "name": "Thor",
+          "count": 100
+        },
+        {
+          "name": "Odin",
+          "count": 99
+        },
+        {
+          "name": "Maple",
+          "count": 98
+        },
+        {
+          "name": "Forest",
+          "count": 97
+        },
+        {
+          "name": "Bear",
+          "count": 96
+        },
+        {
+          "name": "Luna",
+          "count": 95
+        },
+        {
+          "name": "Athena",
+          "count": 94
+        },
+        {
+          "name": "Simba",
+          "count": 93
+        },
+        {
+          "name": "Oliver",
+          "count": 92
+        },
+        {
+          "name": "Shadow",
+          "count": 91
+        }
+      ]
+    },
+    "ragdoll": {
+      "query": "heuristic:ragdoll",
+      "topNames": [
+        {
+          "name": "Cotton",
+          "count": 100
+        },
+        {
+          "name": "Angel",
+          "count": 99
+        },
+        {
+          "name": "Mochi",
+          "count": 98
+        },
+        {
+          "name": "Luna",
+          "count": 97
+        },
+        {
+          "name": "Milo",
+          "count": 96
+        },
+        {
+          "name": "Bella",
+          "count": 95
+        },
+        {
+          "name": "Coco",
+          "count": 94
+        },
+        {
+          "name": "Pearl",
+          "count": 93
+        },
+        {
+          "name": "Oliver",
+          "count": 92
+        }
+      ]
+    },
+    "british-shorthair": {
+      "query": "heuristic:british-shorthair",
+      "topNames": [
+        {
+          "name": "Winston",
+          "count": 100
+        },
+        {
+          "name": "Arthur",
+          "count": 99
+        },
+        {
+          "name": "Blue",
+          "count": 98
+        },
+        {
+          "name": "Smokey",
+          "count": 97
+        },
+        {
+          "name": "Oliver",
+          "count": 96
+        },
+        {
+          "name": "Bella",
+          "count": 95
+        },
+        {
+          "name": "Charlie",
+          "count": 94
+        },
+        {
+          "name": "Lucy",
+          "count": 93
+        },
+        {
+          "name": "Max",
+          "count": 92
+        },
+        {
+          "name": "Queenie",
+          "count": 91
+        }
+      ]
+    },
+    "bengal": {
+      "query": "heuristic:bengal",
+      "topNames": [
+        {
+          "name": "Tiger",
+          "count": 100
+        },
+        {
+          "name": "Leo",
+          "count": 99
+        },
+        {
+          "name": "Zara",
+          "count": 98
+        },
+        {
+          "name": "Blitz",
+          "count": 97
+        },
+        {
+          "name": "Nala",
+          "count": 96
+        },
+        {
+          "name": "Simba",
+          "count": 95
+        },
+        {
+          "name": "Shadow",
+          "count": 94
+        },
+        {
+          "name": "Jinx",
+          "count": 93
+        },
+        {
+          "name": "Karma",
+          "count": 92
+        },
+        {
+          "name": "Nova",
+          "count": 91
+        }
+      ]
+    },
+    "scottish-fold": {
+      "query": "heuristic:scottish-fold",
+      "topNames": [
+        {
+          "name": "Bean",
+          "count": 100
+        },
+        {
+          "name": "Button",
+          "count": 99
+        },
+        {
+          "name": "Pip",
+          "count": 98
+        },
+        {
+          "name": "Olive",
+          "count": 97
+        },
+        {
+          "name": "Milo",
+          "count": 96
+        },
+        {
+          "name": "Luna",
+          "count": 95
+        },
+        {
+          "name": "Mochi",
+          "count": 94
+        },
+        {
+          "name": "Coco",
+          "count": 93
+        },
+        {
+          "name": "Teddy",
+          "count": 92
+        },
+        {
+          "name": "Biscuit",
+          "count": 91
+        }
+      ]
+    },
+    "sphynx": {
+      "query": "heuristic:sphynx",
+      "topNames": [
+        {
+          "name": "Ziggy",
+          "count": 100
+        },
+        {
+          "name": "Jinx",
+          "count": 99
+        },
+        {
+          "name": "Nova",
+          "count": 98
+        },
+        {
+          "name": "Echo",
+          "count": 97
+        },
+        {
+          "name": "Pixel",
+          "count": 96
+        },
+        {
+          "name": "Cosmo",
+          "count": 95
+        },
+        {
+          "name": "Velvet",
+          "count": 94
+        },
+        {
+          "name": "Luna",
+          "count": 93
+        },
+        {
+          "name": "Milo",
+          "count": 92
+        },
+        {
+          "name": "Onyx",
+          "count": 91
+        }
+      ]
+    }
+  }
+}

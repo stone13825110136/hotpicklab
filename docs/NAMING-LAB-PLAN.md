@@ -102,7 +102,9 @@
 - Species：Dog / Cat  
 - Gender：Boy / Girl / Neutral  
 - Vibe：Cute / Strong / Unique / Classic  
-- （可选后期）Breed → SEO 深链  
+- **Starts with**：Any / A–Z（硬过滤）  
+- **Breed**：热门品种（软亲和；狗优先 NYC 开放数据名×品种；见 `docs/COMPETITOR-PARITY-PET-LAB.md`）  
+- （后续）Breed 长尾 SEO 深链 `/dog-names/labrador` 等（R1b 一次定稿后再建）  
 
 **输出**
 

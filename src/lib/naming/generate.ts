@@ -1,6 +1,9 @@
-import type { Gender, NameEntry, ScoredName, Vibe } from './types';
+import type { Gender, NameEntry, RankFilters, RankResultMeta, ScoredName, Vibe } from './types';
+import { breedAffinityScore, getBreedProfile, matchesLetter } from './breeds';
 import { pickTarot } from './hash';
 import type { TarotCard } from './types';
+
+const LETTER_SOFT_MIN = 12;
 
 function lengthScore(name: string): number {
   const n = name.length;
@@ -27,51 +30,108 @@ export function practicalScore(entry: NameEntry, vibe: Vibe): number {
   return Math.round(pop * 0.35 + len * 0.25 + call * 0.2 + vibeHit * 0.2);
 }
 
-/** Full ranked pool: vibe matches first, then by practical score. Stable order (not shuffled). */
-export function rankNames(pool: NameEntry[], gender: Gender, vibe: Vibe): ScoredName[] {
+function scoreEntry(n: NameEntry, vibe: Vibe, filters?: RankFilters, letterMatch = false): ScoredName {
+  const practical = practicalScore(n, vibe);
+  const profile = getBreedProfile(filters?.breedId);
+  const { score: breedAffinity, fit: breedFit } = breedAffinityScore(n.name, n.vibes, profile);
+  const tags = [...n.vibes];
+  if (n.popularity >= 88) tags.push('popular');
+  if (breedFit) tags.push('breed fit');
+  if (letterMatch) tags.push('letter match');
+  return {
+    ...n,
+    practical,
+    breedFit,
+    breedAffinity,
+    letterMatch,
+    tags: [...new Set(tags)],
+  };
+}
+
+function sortScored(a: ScoredName, b: ScoredName, vibe: Vibe): number {
+  const aL = a.letterMatch ? 1 : 0;
+  const bL = b.letterMatch ? 1 : 0;
+  if (bL !== aL) return bL - aL;
+  const aV = a.vibes.includes(vibe) ? 1 : 0;
+  const bV = b.vibes.includes(vibe) ? 1 : 0;
+  if (bV !== aV) return bV - aV;
+  const aB = a.breedAffinity ?? 0;
+  const bB = b.breedAffinity ?? 0;
+  if (bB !== aB) return bB - aB;
+  return b.practical - a.practical || a.name.localeCompare(b.name);
+}
+
+export type RankNamesResult = {
+  names: ScoredName[];
+  meta: RankResultMeta;
+};
+
+/** Ranked pool with letter preference + optional soft-fill when too few exact letter hits. */
+export function rankNamesDetailed(
+  pool: NameEntry[],
+  gender: Gender,
+  vibe: Vibe,
+  filters: RankFilters = {},
+): RankNamesResult {
+  const letter = filters.letter?.trim() || '';
   const genderOk = (n: NameEntry) => {
-    if (gender === 'neutral') return true; // Neutral = any / unisex-friendly mix
+    if (gender === 'neutral') return true;
     return n.gender.includes(gender) || n.gender.includes('neutral');
   };
 
-  const matched = pool
-    .filter(genderOk)
-    .map((n) => {
-      const practical = practicalScore(n, vibe);
-      const tags = [...n.vibes];
-      if (n.popularity >= 88) tags.push('popular');
-      return { ...n, practical, tags: [...new Set(tags)] };
-    })
-    .sort((a, b) => {
-      const aV = a.vibes.includes(vibe) ? 1 : 0;
-      const bV = b.vibes.includes(vibe) ? 1 : 0;
-      if (bV !== aV) return bV - aV;
-      return b.practical - a.practical || a.name.localeCompare(b.name);
-    });
+  const genderPool = pool.filter(genderOk);
+  const letterExact = letter
+    ? genderPool.filter((n) => matchesLetter(n.name, letter))
+    : genderPool;
 
-  // Prefer vibe matches first, then the rest of the gender-filtered pool
+  const letterExactCount = letter ? letterExact.length : genderPool.length;
+
+  let working = letterExact;
+  let letterSoftened = false;
+
+  // Too few exact letter hits → keep letter matches first, then fill from gender pool
+  if (letter && letterExact.length < LETTER_SOFT_MIN) {
+    letterSoftened = true;
+    const exactNames = new Set(letterExact.map((n) => n.name));
+    working = [...letterExact, ...genderPool.filter((n) => !exactNames.has(n.name))];
+  }
+
+  const matched = working
+    .map((n) => scoreEntry(n, vibe, filters, letter ? matchesLetter(n.name, letter) : false))
+    .sort((a, b) => sortScored(a, b, vibe));
+
   const vibeFirst = matched.filter((n) => n.vibes.includes(vibe));
   const rest = matched.filter((n) => !n.vibes.includes(vibe));
-  const ranked = [...vibeFirst, ...rest];
+  let ranked = [...vibeFirst, ...rest];
 
-  // If gender filter left the list thin, append remaining pool by score (deduped)
+  // Still thin (no letter / tiny gender slice) → append rest of pool
   if (ranked.length < 18) {
     const wider = pool
-      .map((n) => ({
-        ...n,
-        practical: practicalScore(n, vibe),
-        tags: [...new Set([...n.vibes, ...(n.popularity >= 88 ? ['popular'] : [])])],
-      }))
-      .sort((a, b) => b.practical - a.practical || a.name.localeCompare(b.name));
+      .map((n) => scoreEntry(n, vibe, filters, letter ? matchesLetter(n.name, letter) : false))
+      .sort((a, b) => sortScored(a, b, vibe));
     const names = new Set(ranked.map((p) => p.name));
     for (const w of wider) {
       if (names.has(w.name)) continue;
       ranked.push(w);
       names.add(w.name);
     }
+    if (letter && letterExactCount < LETTER_SOFT_MIN) letterSoftened = true;
   }
 
-  return ranked;
+  return {
+    names: ranked,
+    meta: { letterExactCount: letter ? letterExactCount : ranked.length, letterSoftened },
+  };
+}
+
+/** Full ranked pool (compat). */
+export function rankNames(
+  pool: NameEntry[],
+  gender: Gender,
+  vibe: Vibe,
+  filters: RankFilters = {},
+): ScoredName[] {
+  return rankNamesDetailed(pool, gender, vibe, filters).names;
 }
 
 /** One page from the ranked pool. offset=0 is the top-score shortlist. */
@@ -81,25 +141,27 @@ export function filterNames(
   vibe: Vibe,
   count = 18,
   offset = 0,
+  filters: RankFilters = {},
 ): ScoredName[] {
-  return rankNames(pool, gender, vibe).slice(offset, offset + count);
+  return rankNames(pool, gender, vibe, filters).slice(offset, offset + count);
 }
 
 export function attachFortune(names: ScoredName[], deck: TarotCard[]): ScoredName[] {
   return names.map((n) => ({
     ...n,
     tarot: pickTarot(n.name, deck),
-    // Keep reason for Hot Pick as practical — tarot is fun flavor only
     reason: practicalReason(n),
   }));
 }
 
 function practicalReason(n: ScoredName): string {
-  const tags = n.tags.filter((t) => t !== 'popular').slice(0, 2).join(' · ') || 'balanced';
+  const tags =
+    n.tags.filter((t) => t !== 'popular' && t !== 'breed fit' && t !== 'letter match').slice(0, 2).join(' · ') ||
+    'balanced';
   return `Highest practical score in your shortlist (${n.practical}/100) — easy to call with a strong ${tags} fit.`;
 }
 
-/** Hot Pick = highest practical score among compared names. Tarot does not decide the winner. */
+/** Hot Pick = highest practical score among compared names. */
 export function chooseHotPick(compared: ScoredName[]): ScoredName | null {
   if (!compared.length) return null;
   const ranked = [...compared].sort((a, b) => b.practical - a.practical || a.name.localeCompare(b.name));

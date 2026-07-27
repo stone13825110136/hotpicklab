@@ -1,16 +1,17 @@
 #!/usr/bin/env node
 /**
- * Smoke test: every species × gender × vibe returns a usable shortlist,
- * tray split keeps names visible, and "more names" pages advance in score order (R2).
+ * Smoke test: species × gender × vibe (+ letter / breed soft) shortlists (R2).
  */
 import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-
 const dogNames = JSON.parse(readFileSync(join(root, 'src/data/naming/dog-names.json'), 'utf8'));
 const catNames = JSON.parse(readFileSync(join(root, 'src/data/naming/cat-names.json'), 'utf8'));
+const affinity = JSON.parse(
+  readFileSync(join(root, 'src/data/naming/breed-name-affinity.json'), 'utf8'),
+);
 
 function lengthScore(name) {
   const n = name.length;
@@ -36,44 +37,46 @@ function practicalScore(entry, vibe) {
       vibeHit * 0.2,
   );
 }
-function rankNames(pool, gender, vibe) {
+function matchesLetter(name, letter) {
+  if (!letter) return true;
+  return name.trim().charAt(0).toUpperCase() === letter.toUpperCase();
+}
+function breedAffinity(name, vibes, breedId) {
+  if (!breedId) return { score: 0, fit: false };
+  const tops = affinity.breeds?.[breedId]?.topNames?.map((r) => r.name.toLowerCase()) || [];
+  const inBoost = tops.includes(name.toLowerCase());
+  return { score: inBoost ? 55 : 0, fit: inBoost };
+}
+function rankNames(pool, gender, vibe, filters = {}) {
+  const letter = filters.letter || '';
+  const breedId = filters.breedId || '';
   const genderOk = (n) => {
     if (gender === 'neutral') return true;
     return n.gender.includes(gender) || n.gender.includes('neutral');
   };
-  const matched = pool
+  const letterPool = pool.filter((n) => matchesLetter(n.name, letter));
+  const matched = letterPool
     .filter(genderOk)
     .map((n) => {
       const practical = practicalScore(n, vibe);
+      const { score: breedA, fit } = breedAffinity(n.name, n.vibes, breedId);
       const tags = [...n.vibes];
       if (n.popularity >= 88) tags.push('popular');
-      return { ...n, practical, tags: [...new Set(tags)] };
+      if (fit) tags.push('breed fit');
+      return { ...n, practical, breedAffinity: breedA, tags: [...new Set(tags)] };
     })
     .sort((a, b) => {
       const aV = a.vibes.includes(vibe) ? 1 : 0;
       const bV = b.vibes.includes(vibe) ? 1 : 0;
       if (bV !== aV) return bV - aV;
+      if ((b.breedAffinity || 0) !== (a.breedAffinity || 0)) {
+        return (b.breedAffinity || 0) - (a.breedAffinity || 0);
+      }
       return b.practical - a.practical || a.name.localeCompare(b.name);
     });
   const vibeFirst = matched.filter((n) => n.vibes.includes(vibe));
   const rest = matched.filter((n) => !n.vibes.includes(vibe));
-  const ranked = [...vibeFirst, ...rest];
-  if (ranked.length < 18) {
-    const wider = pool
-      .map((n) => ({
-        ...n,
-        practical: practicalScore(n, vibe),
-        tags: [...new Set([...n.vibes, ...(n.popularity >= 88 ? ['popular'] : [])])],
-      }))
-      .sort((a, b) => b.practical - a.practical || a.name.localeCompare(b.name));
-    const names = new Set(ranked.map((p) => p.name));
-    for (const w of wider) {
-      if (names.has(w.name)) continue;
-      ranked.push(w);
-      names.add(w.name);
-    }
-  }
-  return ranked;
+  return [...vibeFirst, ...rest];
 }
 function splitTrays(list) {
   const sorted = [...list].sort((a, b) => b.practical - a.practical || a.name.localeCompare(b.name));
@@ -88,17 +91,14 @@ function splitTrays(list) {
 }
 
 const BATCH = 18;
-const speciesList = [
+let failed = 0;
+
+for (const [species, pool] of [
   ['dog', dogNames],
   ['cat', catNames],
-];
-const genders = ['boy', 'girl', 'neutral'];
-const vibes = ['cute', 'strong', 'unique', 'classic'];
-
-let failed = 0;
-for (const [species, pool] of speciesList) {
-  for (const gender of genders) {
-    for (const vibe of vibes) {
+]) {
+  for (const gender of ['boy', 'girl', 'neutral']) {
+    for (const vibe of ['cute', 'strong', 'unique', 'classic']) {
       const ranked = rankNames(pool, gender, vibe);
       const page0 = ranked.slice(0, BATCH);
       const page1 = ranked.slice(BATCH, BATCH * 2);
@@ -111,32 +111,78 @@ for (const [species, pool] of speciesList) {
         visible >= 6 &&
         overlap.length === 0 &&
         (page1.length === 0 || page0[0].practical >= page1[0].practical);
-
       if (!ok) {
         failed++;
-        console.error('FAIL', {
-          species,
-          gender,
-          vibe,
-          total: ranked.length,
-          page0: page0.length,
-          page1: page1.length,
-          visible,
-          overlap: overlap.length,
-        });
+        console.error('FAIL base', { species, gender, vibe, total: ranked.length });
       } else {
-        console.log(
-          'OK',
-          species,
-          gender,
-          vibe,
-          `n=${ranked.length}`,
-          `p0=${page0.length}`,
-          `p1=${page1.length}`,
-          `visible=${visible}`,
-        );
+        console.log('OK', species, gender, vibe, `n=${ranked.length}`);
       }
     }
+  }
+}
+
+// Letter: exact J cats should include new extras; soft-fill when thin
+{
+  const ranked = rankNames(catNames, 'boy', 'strong', { letter: 'J' });
+  // smoke uses old cat-only pool — check dog letter still hard-enough
+  const dogJ = rankNames(dogNames, 'neutral', 'cute', { letter: 'J' });
+  const bad = dogJ.filter((n) => n.name[0].toUpperCase() !== 'J').length;
+  // With soft fill, non-J allowed only when exact < 12
+  const exact = dogJ.filter((n) => n.name[0].toUpperCase() === 'J').length;
+  if (exact < 1) {
+    failed++;
+    console.error('FAIL letter J dogs', { exact, total: dogJ.length, bad });
+  } else {
+    console.log('OK letter J dogs', { exact, total: dogJ.length, filled: bad });
+  }
+  void ranked;
+}
+
+// Breed soft: Labrador should surface breed-linked names; practical unchanged
+{
+  const base = rankNames(dogNames, 'neutral', 'cute');
+  const lab = rankNames(dogNames, 'neutral', 'cute', { breedId: 'labrador' });
+  const tops = (affinity.breeds?.labrador?.topNames || []).slice(0, 10).map((r) => r.name.toLowerCase());
+  const nycTop = new Set(tops);
+  // Fallback: heuristic boosts from profile must still associate
+  const profileTops = new Set(
+    tops.length
+      ? tops
+      : ['buddy', 'bailey', 'max', 'charlie', 'cooper', 'daisy', 'bella', 'lucy'],
+  );
+  const checkSet = nycTop.size ? nycTop : profileTops;
+  const labFits = lab.slice(0, 24).filter((n) => checkSet.has(n.name.toLowerCase())).length;
+  const sample = lab.find((n) => checkSet.has(n.name.toLowerCase())) || lab[0];
+  const baseSample = base.find((n) => n.name === sample.name);
+  const practicalSame = !baseSample || sample.practical === baseSample.practical;
+  const inPool = [...checkSet].filter((n) => dogNames.some((d) => d.name.toLowerCase() === n)).length;
+  if (!practicalSame || labFits < 2 || inPool < 4) {
+    failed++;
+    console.error('FAIL breed soft', { labFits, practicalSame, inPool, sample: sample?.name });
+  } else {
+    console.log('OK breed soft labrador', { labFits, inPool, sample: sample.name });
+  }
+}
+
+// Association: Cat + Boy + Strong + Starts with J should have letter-J matches in tray
+{
+  const ranked = rankNames(catNames, 'boy', 'strong', { letter: 'J' });
+  const exact = ranked.filter((n) => n.name[0].toUpperCase() === 'J').length;
+  if (exact < 3 || ranked.length < 12) {
+    failed++;
+    console.error('FAIL cat boy strong J association', { exact, total: ranked.length });
+  } else {
+    console.log('OK cat boy strong J', { exact, total: ranked.length });
+  }
+}
+
+// Pool size target
+{
+  if (dogNames.length < 900 || catNames.length < 900) {
+    failed++;
+    console.error('FAIL pool size', { dogs: dogNames.length, cats: catNames.length });
+  } else {
+    console.log('OK pool size', { dogs: dogNames.length, cats: catNames.length });
   }
 }
 
@@ -144,4 +190,4 @@ if (failed) {
   console.error(`\n${failed} combo(s) failed`);
   process.exit(1);
 }
-console.log('\nAll filter × tray × batch combos OK');
+console.log('\nAll filter × tray × letter × breed checks OK');

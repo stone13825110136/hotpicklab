@@ -1,13 +1,19 @@
 ---
 import dogNames from '../../data/naming/dog-names.json';
 import catNames from '../../data/naming/cat-names.json';
-import { rankNames } from '../../lib/naming/generate';
+import catNamesExtra from '../../data/naming/cat-names-extra.json';
+import { breedsForSpecies } from '../../lib/naming/breeds';
+import { rankNamesDetailed } from '../../lib/naming/generate';
 import type { Gender, NameEntry, Species, Vibe } from '../../lib/naming/types';
 
 interface Props {
   species?: Species;
   gender?: Gender;
   vibe?: Vibe;
+  /** A–Z or empty for any */
+  letter?: string;
+  /** Popular breed id (soft affinity) or empty */
+  breedId?: string;
   /** Show the full hero heading inside the lab (tool page). SEO pages usually hide this. */
   showHero?: boolean;
   compact?: boolean;
@@ -17,16 +23,45 @@ const {
   species = 'dog',
   gender = 'neutral',
   vibe = 'cute',
+  letter = '',
+  breedId = '',
   showHero = false,
   compact = false,
 } = Astro.props;
 
-const pool = (species === 'dog' ? dogNames : catNames) as NameEntry[];
-const ranked = rankNames(pool, gender, vibe);
+const letterNorm = /^[A-Za-z]$/.test(letter) ? letter.toUpperCase() : '';
+const dogBreeds = breedsForSpecies('dog');
+const catBreeds = breedsForSpecies('cat');
+const breedOk =
+  breedId &&
+  [...dogBreeds, ...catBreeds].some((b) => b.id === breedId && b.species === species)
+    ? breedId
+    : '';
+
+function mergePool(base: NameEntry[], extra: NameEntry[]): NameEntry[] {
+  const map = new Map<string, NameEntry>();
+  for (const n of base) map.set(n.name.toLowerCase(), n);
+  for (const n of extra) {
+    const key = n.name.toLowerCase();
+    if (!map.has(key)) map.set(key, n);
+  }
+  return [...map.values()];
+}
+
+const pool =
+  species === 'dog'
+    ? (dogNames as NameEntry[])
+    : mergePool(catNames as NameEntry[], catNamesExtra as NameEntry[]);
+const rankedDetail = rankNamesDetailed(pool, gender, vibe, {
+  letter: letterNorm,
+  breedId: breedOk,
+});
+const ranked = rankedDetail.names;
 const initial = ranked.slice(0, 18);
 const ssrTop = initial.slice(0, 6);
 const ssrMid = initial.slice(6, 14);
 const ssrLow = initial.slice(14);
+const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 ---
 
 <div
@@ -35,6 +70,8 @@ const ssrLow = initial.slice(14);
   data-species={species}
   data-gender={gender}
   data-vibe={vibe}
+  data-letter={letterNorm}
+  data-breed={breedOk}
 >
   {
     showHero && (
@@ -92,6 +129,43 @@ const ssrLow = initial.slice(14);
         <option value="classic" selected={vibe === 'classic'}>Classic</option>
       </select>
     </label>
+    <label>
+      Starts with
+      <select id="pnl-letter">
+        <option value="" selected={!letterNorm}>Any letter</option>
+        {
+          letters.map((L) => (
+            <option value={L} selected={letterNorm === L}>
+              {L}
+            </option>
+          ))
+        }
+      </select>
+    </label>
+    <label>
+      Breed
+      <select id="pnl-breed">
+        <option value="">Any popular breed</option>
+        <optgroup id="pnl-breed-dog" label="Popular dogs" hidden={species !== 'dog'}>
+          {
+            dogBreeds.map((b) => (
+              <option value={b.id} selected={breedOk === b.id}>
+                {b.label}
+              </option>
+            ))
+          }
+        </optgroup>
+        <optgroup id="pnl-breed-cat" label="Popular cats" hidden={species !== 'cat'}>
+          {
+            catBreeds.map((b) => (
+              <option value={b.id} selected={breedOk === b.id}>
+                {b.label}
+              </option>
+            ))
+          }
+        </optgroup>
+      </select>
+    </label>
     <button
       type="button"
       class="btn pnl-btn"
@@ -114,12 +188,25 @@ const ssrLow = initial.slice(14);
       <strong>Show more names</strong> loads the next batch by score — not a random shuffle.
     </p>
     <p class="pnl-score-hint muted">
-      Score /100 = how easy to call + popularity + vibe fit. Higher usually means easier everyday
-      use.
+      Score /100 = how easy to call + popularity + vibe fit. Starts-with prefers that letter; if too
+      few matches, we keep those on top and fill with more names. Breed is a soft preference (does
+      not change the score or Hot Pick rule).
+    </p>
+
+    <p
+      id="pnl-letter-note"
+      class="pnl-letter-note"
+      hidden={!rankedDetail.meta.letterSoftened}
+    >
+      {
+        rankedDetail.meta.letterSoftened
+          ? `Only ${rankedDetail.meta.letterExactCount} name${rankedDetail.meta.letterExactCount === 1 ? '' : 's'} start with ${letterNorm || 'that letter'} in this filter set — those stay on top; more names are filled below.`
+          : ''
+      }
     </p>
 
     <p id="pnl-empty" class="pnl-empty muted" hidden>
-      No names matched. Try another gender or vibe, then tap Generate names.
+      No names matched. Try another letter, breed, gender, or vibe, then tap Generate names.
     </p>
 
     <div class="pnl-tray pnl-tray-top">
@@ -130,13 +217,11 @@ const ssrLow = initial.slice(14);
       <div id="pnl-candidates-top" class="pnl-grid" role="group" aria-label="Top scored names">
         {
           ssrTop.map((n) => (
-            <div class="pnl-chip-wrap">
-              <div class="pnl-chip pnl-chip-static">
-                <span class="pnl-chip-name">{n.name}</span>
-                <span class="pnl-chip-meta">
-                  Score {n.practical}/100 · {n.tags.slice(0, 2).join(' · ')}
-                </span>
-              </div>
+            <div class="pnl-chip pnl-chip-static">
+              <span class="pnl-chip-name">{n.name}</span>
+              <span class="pnl-chip-meta">
+                Score {n.practical}/100 · {n.tags.slice(0, 2).join(' · ')}
+              </span>
             </div>
           ))
         }
@@ -151,13 +236,11 @@ const ssrLow = initial.slice(14);
       <div id="pnl-candidates-mid" class="pnl-grid" role="group" aria-label="More name matches">
         {
           ssrMid.map((n) => (
-            <div class="pnl-chip-wrap">
-              <div class="pnl-chip pnl-chip-static">
-                <span class="pnl-chip-name">{n.name}</span>
-                <span class="pnl-chip-meta">
-                  Score {n.practical}/100 · {n.tags.slice(0, 2).join(' · ')}
-                </span>
-              </div>
+            <div class="pnl-chip pnl-chip-static">
+              <span class="pnl-chip-name">{n.name}</span>
+              <span class="pnl-chip-meta">
+                Score {n.practical}/100 · {n.tags.slice(0, 2).join(' · ')}
+              </span>
             </div>
           ))
         }
@@ -169,13 +252,11 @@ const ssrLow = initial.slice(14);
       <div id="pnl-candidates-low" class="pnl-grid" role="group" aria-label="Additional names">
         {
           ssrLow.map((n) => (
-            <div class="pnl-chip-wrap">
-              <div class="pnl-chip pnl-chip-static">
-                <span class="pnl-chip-name">{n.name}</span>
-                <span class="pnl-chip-meta">
-                  Score {n.practical}/100 · {n.tags.slice(0, 2).join(' · ')}
-                </span>
-              </div>
+            <div class="pnl-chip pnl-chip-static">
+              <span class="pnl-chip-name">{n.name}</span>
+              <span class="pnl-chip-meta">
+                Score {n.practical}/100 · {n.tags.slice(0, 2).join(' · ')}
+              </span>
             </div>
           ))
         }
@@ -217,7 +298,11 @@ const ssrLow = initial.slice(14);
     <a href="https://github.com/sindresorhus/dog-names" rel="noopener">dog-names</a>
     and
     <a href="https://github.com/sindresorhus/cat-names" rel="noopener">cat-names</a>
-    (MIT). Card text from the
+    (MIT). Dog breed popularity uses the
+    <a href="https://data.cityofnewyork.us/Health/NYC-Dog-Licensing-Dataset/nu7n-tubp" rel="noopener"
+      >NYC Dog Licensing</a
+    >
+    open dataset (soft preference only). Card text from the
     <a href="https://tarotoo.com/open-data" rel="noopener">Tarotoo open dataset</a>
     (MIT). See <a href="/disclosure">Disclosure</a>.
   </p>
@@ -394,7 +479,7 @@ const ssrLow = initial.slice(14);
 
   .pnl-controls {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 0.75rem;
     align-items: end;
     padding: 1rem;
@@ -418,6 +503,17 @@ const ssrLow = initial.slice(14);
     background: #0b1020;
     color: var(--pnl-text);
     font: inherit;
+  }
+
+  .pnl-letter-note {
+    margin: 0 0 1rem;
+    padding: 0.7rem 0.85rem;
+    border-radius: 8px;
+    background: rgba(34, 211, 238, 0.1);
+    border: 1px solid rgba(34, 211, 238, 0.4);
+    color: var(--pnl-text);
+    font-size: 0.88rem;
+    line-height: 1.45;
   }
 
   .pnl-score-hint {
@@ -471,13 +567,6 @@ const ssrLow = initial.slice(14);
     gap: 0.55rem;
   }
 
-  .pnl-chip-wrap {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.35rem;
-    align-items: stretch;
-  }
-
   .pnl-chip {
     display: grid;
     gap: 0.15rem;
@@ -510,28 +599,6 @@ const ssrLow = initial.slice(14);
     color: var(--pnl-muted);
   }
 
-  .pnl-copy {
-    padding: 0.35rem 0.55rem;
-    border-radius: 8px;
-    border: 1px solid var(--pnl-border);
-    background: var(--pnl-surface);
-    color: var(--pnl-accent-2);
-    font: inherit;
-    font-size: 0.75rem;
-    font-weight: 700;
-    cursor: pointer;
-    align-self: center;
-  }
-
-  .pnl-copy:hover {
-    border-color: var(--pnl-accent-2);
-  }
-
-  .pnl-copy.is-done {
-    color: #86efac;
-    border-color: rgba(134, 239, 172, 0.5);
-  }
-
   .pnl-compare-bar {
     display: flex;
     flex-wrap: wrap;
@@ -543,10 +610,6 @@ const ssrLow = initial.slice(14);
     border-radius: var(--pnl-radius);
     border: 1px solid rgba(255, 107, 53, 0.55);
     background: rgba(255, 107, 53, 0.12);
-  }
-
-  .pnl-hot-copy {
-    margin-top: 0.65rem;
   }
 
   .pnl-results {

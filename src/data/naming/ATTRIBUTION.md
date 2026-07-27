@@ -8,9 +8,9 @@ Built by `npm run build-naming-data` from open sources listed in `docs/DATA-SOUR
 |-------------------|---------|------|
 | [sindresorhus/dog-names](https://github.com/sindresorhus/dog-names) (`dog-names` npm) | MIT | Dog name seed (male/female lists) |
 | [sindresorhus/cat-names](https://github.com/sindresorhus/cat-names) (`cat-names` npm) | MIT | Cat name seed |
-| [NYC Dog Licensing Dataset](https://data.cityofnewyork.us/Health/NYC-Dog-Licensing-Dataset/nu7n-tubp) | NYC Open Data | Frequency / gender enrichment when fetch succeeds |
-
-License files copied under `licenses/`.
+| [NYC Dog Licensing Dataset](https://data.cityofnewyork.us/Health/NYC-Dog-Licensing-Dataset/nu7n-tubp) | NYC Open Data | Frequency / gender; expand to ~1000; breed×name affinity (in-pool only) |
+| Letter coverage + pool supplement | Curated in build scripts | Ensure ~1000 names and A–Z / breed filters always associate |
+| Breed affinity (heuristic, NYC when available) | Open / curated | Only names that exist in the species pool |
 
 ## Fortune Draw
 

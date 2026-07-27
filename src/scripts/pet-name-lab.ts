@@ -1,18 +1,29 @@
 import dogNames from '../data/naming/dog-names.json';
 import catNames from '../data/naming/cat-names.json';
+import catNamesExtra from '../data/naming/cat-names-extra.json';
 import tarotDeck from '../data/naming/tarot-meanings.json';
 import {
   attachFortune,
   chooseHotPick,
-  rankNames,
+  rankNamesDetailed,
 } from '../lib/naming/generate';
 import type { Gender, NameEntry, ScoredName, Species, Vibe } from '../lib/naming/types';
 
 const BATCH_SIZE = 18;
 
+function mergePool(base: NameEntry[], extra: NameEntry[]): NameEntry[] {
+  const map = new Map<string, NameEntry>();
+  for (const n of base) map.set(n.name.toLowerCase(), n);
+  for (const n of extra) {
+    const key = n.name.toLowerCase();
+    if (!map.has(key)) map.set(key, n);
+  }
+  return [...map.values()];
+}
+
 const pools: Record<Species, NameEntry[]> = {
   dog: dogNames as NameEntry[],
-  cat: catNames as NameEntry[],
+  cat: mergePool(catNames as NameEntry[], catNamesExtra as NameEntry[]),
 };
 
 function el<T extends HTMLElement>(id: string): T {
@@ -21,11 +32,39 @@ function el<T extends HTMLElement>(id: string): T {
   return node as T;
 }
 
-function readFilters(): { species: Species; gender: Gender; vibe: Vibe } {
+function readFilters(): {
+  species: Species;
+  gender: Gender;
+  vibe: Vibe;
+  letter: string;
+  breedId: string;
+} {
   const species = (el<HTMLSelectElement>('pnl-species').value || 'dog') as Species;
   const gender = (el<HTMLSelectElement>('pnl-gender').value || 'neutral') as Gender;
   const vibe = (el<HTMLSelectElement>('pnl-vibe').value || 'cute') as Vibe;
-  return { species, gender, vibe };
+  const letterRaw = el<HTMLSelectElement>('pnl-letter').value || '';
+  const letter = /^[A-Za-z]$/.test(letterRaw) ? letterRaw.toUpperCase() : '';
+  const breedId = el<HTMLSelectElement>('pnl-breed').value || '';
+  return { species, gender, vibe, letter, breedId };
+}
+
+function syncBreedOptgroups(species: Species) {
+  const dogGroup = document.getElementById('pnl-breed-dog');
+  const catGroup = document.getElementById('pnl-breed-cat');
+  if (dogGroup) dogGroup.hidden = species !== 'dog';
+  if (catGroup) catGroup.hidden = species !== 'cat';
+
+  const breedSelect = el<HTMLSelectElement>('pnl-breed');
+  const selected = breedSelect.selectedOptions[0];
+  const selectedGroup = selected?.parentElement;
+  if (
+    selected &&
+    selected.value &&
+    ((species === 'dog' && selectedGroup?.id === 'pnl-breed-cat') ||
+      (species === 'cat' && selectedGroup?.id === 'pnl-breed-dog'))
+  ) {
+    breedSelect.value = '';
+  }
 }
 
 /** Full ranked pool for current filters (stable score order). */
@@ -50,33 +89,7 @@ export function splitTrays(list: ScoredName[]) {
   return { top, mid, low };
 }
 
-async function copyText(text: string, button: HTMLButtonElement) {
-  try {
-    await navigator.clipboard.writeText(text);
-  } catch {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.left = '-9999px';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-  }
-  const prev = button.textContent;
-  button.textContent = 'Copied';
-  button.classList.add('is-done');
-  window.setTimeout(() => {
-    button.textContent = prev;
-    button.classList.remove('is-done');
-  }, 1200);
-}
-
 function mountChip(n: ScoredName, grid: HTMLElement) {
-  const wrap = document.createElement('div');
-  wrap.className = 'pnl-chip-wrap';
-
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.className = 'pnl-chip' + (selected.has(n.name) ? ' is-on' : '');
@@ -92,20 +105,7 @@ function mountChip(n: ScoredName, grid: HTMLElement) {
     renderCandidates();
     renderCompareBar();
   });
-
-  const copyBtn = document.createElement('button');
-  copyBtn.type = 'button';
-  copyBtn.className = 'pnl-copy';
-  copyBtn.textContent = 'Copy';
-  copyBtn.setAttribute('aria-label', `Copy ${n.name}`);
-  copyBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    void copyText(n.name, copyBtn);
-  });
-
-  wrap.appendChild(btn);
-  wrap.appendChild(copyBtn);
-  grid.appendChild(wrap);
+  grid.appendChild(btn);
 }
 
 function renderBatchMeta() {
@@ -188,32 +188,12 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
       </header>
       ${tarotBlock}
     `;
-    const copyBtn = document.createElement('button');
-    copyBtn.type = 'button';
-    copyBtn.className = 'pnl-copy';
-    copyBtn.textContent = 'Copy';
-    copyBtn.addEventListener('click', () => {
-      void copyText(n.name, copyBtn);
-    });
-    card.appendChild(copyBtn);
     cards.appendChild(card);
   }
 
   el<HTMLElement>('pnl-hot-name').textContent = hot.name;
   el<HTMLElement>('pnl-hot-reason').textContent =
     hot.reason ?? `Highest practical score (${hot.practical}/100) in your shortlist.`;
-
-  let hotCopy = panel.querySelector<HTMLButtonElement>('.pnl-hot-copy');
-  if (!hotCopy) {
-    hotCopy = document.createElement('button');
-    hotCopy.type = 'button';
-    hotCopy.className = 'pnl-copy pnl-hot-copy';
-    el<HTMLElement>('pnl-hot-reason').after(hotCopy);
-  }
-  hotCopy.textContent = 'Copy Hot Pick';
-  hotCopy.onclick = () => {
-    void copyText(hot.name, hotCopy!);
-  };
 
   panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -230,9 +210,27 @@ function showBatch(reset: boolean) {
   el<HTMLElement>('pnl-output').hidden = false;
 }
 
+function renderLetterNote(letter: string, exactCount: number, softened: boolean) {
+  const note = document.getElementById('pnl-letter-note');
+  if (!note) return;
+  if (!softened || !letter) {
+    note.hidden = true;
+    note.textContent = '';
+    return;
+  }
+  note.hidden = false;
+  note.textContent = `Only ${exactCount} name${exactCount === 1 ? '' : 's'} start with ${letter} in this filter set — those stay on top; more names are filled below.`;
+}
+
 function generate() {
-  const { species, gender, vibe } = readFilters();
-  rankedPool = rankNames(pools[species], gender, vibe);
+  const { species, gender, vibe, letter, breedId } = readFilters();
+  syncBreedOptgroups(species);
+  const detail = rankNamesDetailed(pools[species], gender, vibe, {
+    letter,
+    breedId: breedId || undefined,
+  });
+  rankedPool = detail.names;
+  renderLetterNote(letter, detail.meta.letterExactCount, detail.meta.letterSoftened);
   showBatch(true);
 }
 
@@ -257,6 +255,8 @@ function applyPrefillFromRoot() {
   const species = root.dataset.species as Species | undefined;
   const gender = root.dataset.gender as Gender | undefined;
   const vibe = root.dataset.vibe as Vibe | undefined;
+  const letter = root.dataset.letter || '';
+  const breed = root.dataset.breed || '';
 
   if (species === 'dog' || species === 'cat') {
     el<HTMLSelectElement>('pnl-species').value = species;
@@ -267,6 +267,13 @@ function applyPrefillFromRoot() {
   if (vibe === 'cute' || vibe === 'strong' || vibe === 'unique' || vibe === 'classic') {
     el<HTMLSelectElement>('pnl-vibe').value = vibe;
   }
+  if (/^[A-Z]$/.test(letter)) {
+    el<HTMLSelectElement>('pnl-letter').value = letter;
+  }
+  if (breed) {
+    el<HTMLSelectElement>('pnl-breed').value = breed;
+  }
+  syncBreedOptgroups((el<HTMLSelectElement>('pnl-species').value || 'dog') as Species);
 }
 
 declare global {
@@ -284,7 +291,7 @@ export function initPetNameLab() {
     window.__pnlGenerate = generate;
 
     el<HTMLButtonElement>('pnl-more').addEventListener('click', showMore);
-    for (const id of ['pnl-species', 'pnl-gender', 'pnl-vibe'] as const) {
+    for (const id of ['pnl-species', 'pnl-gender', 'pnl-vibe', 'pnl-letter', 'pnl-breed'] as const) {
       el<HTMLSelectElement>(id).addEventListener('change', generate);
     }
 
