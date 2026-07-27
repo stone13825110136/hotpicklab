@@ -29,7 +29,13 @@ function callScore(name) {
   return 55;
 }
 function practicalScore(entry, vibe) {
-  const vibeHit = entry.vibes.includes(vibe) ? 100 : entry.vibes.length ? 60 : 50;
+  const vibeHit = entry.vibes.includes(vibe)
+    ? entry.vibes.length === 1
+      ? 100
+      : 82
+    : entry.vibes.length
+      ? 55
+      : 50;
   return Math.round(
     entry.popularity * 0.35 +
       lengthScore(entry.name) * 0.25 +
@@ -60,15 +66,24 @@ function rankNames(pool, gender, vibe, filters = {}) {
     .map((n) => {
       const practical = practicalScore(n, vibe);
       const { score: breedA, fit } = breedAffinity(n.name, n.vibes, breedId);
-      const tags = [...n.vibes];
-      if (n.popularity >= 88) tags.push('popular');
+      const primary = n.vibes.includes(vibe) ? vibe : n.vibes[0];
+      const tags = primary ? [primary] : [];
       if (fit) tags.push('breed fit');
-      return { ...n, practical, breedAffinity: breedA, tags: [...new Set(tags)] };
+      return { ...n, practical, breedAffinity: breedA, letterMatch: !!letter, tags };
     })
     .sort((a, b) => {
       const aV = a.vibes.includes(vibe) ? 1 : 0;
       const bV = b.vibes.includes(vibe) ? 1 : 0;
       if (bV !== aV) return bV - aV;
+      const aEx = a.vibes.length === 1 && a.vibes[0] === vibe ? 1 : 0;
+      const bEx = b.vibes.length === 1 && b.vibes[0] === vibe ? 1 : 0;
+      if (bEx !== aEx) return bEx - aEx;
+      const aF = (a.sources || []).includes('style-flagship') ? 1 : 0;
+      const bF = (b.sources || []).includes('style-flagship') ? 1 : 0;
+      if (bF !== aF) return bF - aF;
+      const aS = (a.sources || []).includes('pool-synthesize') ? 0 : 1;
+      const bS = (b.sources || []).includes('pool-synthesize') ? 0 : 1;
+      if (bS !== aS) return bS - aS;
       if ((b.breedAffinity || 0) !== (a.breedAffinity || 0)) {
         return (b.breedAffinity || 0) - (a.breedAffinity || 0);
       }
@@ -138,13 +153,12 @@ for (const [species, pool] of [
   void ranked;
 }
 
-// Breed soft: Labrador should surface breed-linked names; practical unchanged
+// Breed soft: Labrador should surface breed-linked names under Classic; practical unchanged
 {
-  const base = rankNames(dogNames, 'neutral', 'cute');
-  const lab = rankNames(dogNames, 'neutral', 'cute', { breedId: 'labrador' });
+  const base = rankNames(dogNames, 'neutral', 'classic');
+  const lab = rankNames(dogNames, 'neutral', 'classic', { breedId: 'labrador' });
   const tops = (affinity.breeds?.labrador?.topNames || []).slice(0, 10).map((r) => r.name.toLowerCase());
   const nycTop = new Set(tops);
-  // Fallback: heuristic boosts from profile must still associate
   const profileTops = new Set(
     tops.length
       ? tops
@@ -196,6 +210,23 @@ for (const [species, pool] of [
       uniqueSample: uniqueTop.slice(0, 6).map((n) => n.name),
       classicSample: [...classicTop].slice(0, 6),
     });
+  }
+}
+
+// Quality: top 18 per vibe — flagships up front, no letter-synth junk
+{
+  const vibes = ['cute', 'strong', 'unique', 'classic'];
+  for (const vibe of vibes) {
+    const top = rankNames(dogNames, 'neutral', vibe).slice(0, 18);
+    const synth = top.filter((n) => (n.sources || []).includes('pool-synthesize')).length;
+    const flag = top.filter((n) => (n.sources || []).includes('style-flagship')).length;
+    const exclusive = top.filter((n) => n.vibes.length === 1 && n.vibes[0] === vibe).length;
+    if (synth > 0 || flag < 10 || exclusive < 10) {
+      failed++;
+      console.error('FAIL vibe quality', { vibe, synth, flag, exclusive, sample: top.slice(0, 8).map((n) => n.name) });
+    } else {
+      console.log('OK vibe quality', { vibe, flag, exclusive, sample: top.slice(0, 6).map((n) => n.name) });
+    }
   }
 }
 

@@ -36,21 +36,50 @@ export function practicalScore(entry: NameEntry, vibe: Vibe): number {
   return Math.round(pop * 0.35 + len * 0.25 + call * 0.2 + vibeHit * 0.2);
 }
 
+function isSynth(n: NameEntry): boolean {
+  return (n.sources || []).includes('pool-synthesize');
+}
+
+function isFlagship(n: NameEntry): boolean {
+  return (n.sources || []).includes('style-flagship');
+}
+
+function exclusiveVibe(n: NameEntry, vibe: Vibe): boolean {
+  return n.vibes.length === 1 && n.vibes[0] === vibe;
+}
+
+/** Customer-facing tags: selected vibe first (single), plus optional fit flags. */
+export function displayTags(n: ScoredName, vibe: Vibe): string[] {
+  const primary = n.vibes.includes(vibe) ? vibe : n.vibes[0];
+  const out: string[] = [];
+  if (primary) out.push(primary);
+  if (n.breedFit) out.push('breed fit');
+  if (n.letterMatch) out.push('letter match');
+  return out;
+}
+
 function scoreEntry(n: NameEntry, vibe: Vibe, filters?: RankFilters, letterMatch = false): ScoredName {
   const practical = practicalScore(n, vibe);
   const profile = getBreedProfile(filters?.breedId);
   const { score: breedAffinity, fit: breedFit } = breedAffinityScore(n.name, n.vibes, profile);
-  const tags = [...n.vibes];
-  if (n.popularity >= 88) tags.push('popular');
-  if (breedFit) tags.push('breed fit');
-  if (letterMatch) tags.push('letter match');
+  const tags = displayTags(
+    {
+      ...n,
+      practical,
+      breedFit,
+      breedAffinity,
+      letterMatch,
+      tags: [],
+    },
+    vibe,
+  );
   return {
     ...n,
     practical,
     breedFit,
     breedAffinity,
     letterMatch,
-    tags: [...new Set(tags)],
+    tags,
   };
 }
 
@@ -58,9 +87,25 @@ function sortScored(a: ScoredName, b: ScoredName, vibe: Vibe): number {
   const aL = a.letterMatch ? 1 : 0;
   const bL = b.letterMatch ? 1 : 0;
   if (bL !== aL) return bL - aL;
+
   const aV = a.vibes.includes(vibe) ? 1 : 0;
   const bV = b.vibes.includes(vibe) ? 1 : 0;
   if (bV !== aV) return bV - aV;
+
+  // Exclusive flagship / single-vibe before muddy dual tags
+  const aEx = exclusiveVibe(a, vibe) ? 1 : 0;
+  const bEx = exclusiveVibe(b, vibe) ? 1 : 0;
+  if (bEx !== aEx) return bEx - aEx;
+
+  const aF = isFlagship(a) ? 1 : 0;
+  const bF = isFlagship(b) ? 1 : 0;
+  if (bF !== aF) return bF - aF;
+
+  // Letter-synth fillers sink (especially Unique trays)
+  const aS = isSynth(a) ? 0 : 1;
+  const bS = isSynth(b) ? 0 : 1;
+  if (bS !== aS) return bS - aS;
+
   const aB = a.breedAffinity ?? 0;
   const bB = b.breedAffinity ?? 0;
   if (bB !== aB) return bB - aB;

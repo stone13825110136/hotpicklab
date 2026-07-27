@@ -17,6 +17,7 @@ import { createRequire } from 'node:module';
 import { cards as tarotooCards } from 'tarotoo-tarot';
 import { HEURISTIC_BREED_TOPS, POOL_SUPPLEMENT } from './naming-pool-supplement.mjs';
 import { STYLE_BANKS } from './style-name-banks.mjs';
+import { FLAGSHIP_GENDER, STYLE_FLAGSHIPS } from './style-flagships.mjs';
 
 const require = createRequire(import.meta.url);
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -160,13 +161,12 @@ function applyStyleBanks(entries, species) {
       existing.vibes = vibes;
       existing.gender = [...new Set([...(existing.gender || []), ...gender])];
       existing.sources = [...new Set([...(existing.sources || []), 'style-bank'])];
-      // Slight popularity nudge so styled names surface in their vibe tray
       if (vibes.includes('unique')) existing.popularity = Math.min(existing.popularity, 55);
       if (vibes.includes('classic') && !vibes.includes('unique')) {
         existing.popularity = Math.max(existing.popularity, 70);
       }
       updated++;
-    } else if (byName.size < TARGET + 120) {
+    } else if (byName.size < TARGET + 160) {
       const popularity = vibes.includes('classic') ? 78 : vibes.includes('unique') ? 42 : 58;
       const entry = {
         name,
@@ -184,19 +184,76 @@ function applyStyleBanks(entries, species) {
   return [...byName.values()];
 }
 
-/** Drop muddy triple tags; keep primary (+ optional second). */
+/**
+ * Exclusive flagships: exactly one vibe, style-flagship source, ranking-friendly popularity.
+ * Wins over style-bank / heuristics so front trays stay distinct.
+ */
+function applyFlagships(entries, species) {
+  const byName = new Map(entries.map((e) => [e.name.toLowerCase(), e]));
+  let updated = 0;
+  let inserted = 0;
+
+  const popFor = {
+    cute: 62,
+    strong: 64,
+    unique: 54,
+    classic: 88,
+  };
+
+  for (const [vibe, names] of Object.entries(STYLE_FLAGSHIPS)) {
+    for (const raw of names) {
+      const name = cleanName(raw);
+      if (!name) continue;
+      const key = name.toLowerCase();
+      const gender =
+        FLAGSHIP_GENDER[name] || genderHeuristic(name, ['neutral']);
+      const existing = byName.get(key);
+      if (existing) {
+        existing.vibes = [vibe];
+        existing.gender = [...new Set([...(existing.gender || []), ...gender])];
+        existing.sources = [
+          ...new Set([
+            ...(existing.sources || []).filter((s) => s !== 'pool-synthesize'),
+            'style-flagship',
+            'style-bank',
+          ]),
+        ];
+        existing.popularity = popFor[vibe] ?? 60;
+        updated++;
+      } else {
+        byName.set(key, {
+          name,
+          gender,
+          vibes: [vibe],
+          popularity: popFor[vibe] ?? 60,
+          sources: ['style-flagship', 'style-bank'],
+        });
+        inserted++;
+      }
+    }
+  }
+
+  console.log(`${species}: flagships updated`, updated, 'inserted', inserted);
+  return [...byName.values()];
+}
+
+/** Drop muddy tags; sink letter-synth names so they never own Unique front trays. */
 function sharpenVibes(entries) {
   for (const e of entries) {
-    if (!e.vibes?.length) {
-      e.vibes = vibeGuess(e.name, e.popularity, (e.sources || []).join(','));
+    const sources = e.sources || [];
+    if (sources.includes('style-flagship')) {
+      // already exclusive
       continue;
     }
-    if (e.vibes.length > 2) {
-      e.vibes = e.vibes.slice(0, 2);
+    if (!e.vibes?.length) {
+      e.vibes = vibeGuess(e.name, e.popularity, sources.join(','));
     }
-    // Synthesized letter fillers should read as unique, not classic
-    if ((e.sources || []).includes('pool-synthesize') && !e.vibes.includes('unique')) {
+    if (e.vibes.length > 2) e.vibes = e.vibes.slice(0, 2);
+
+    if (sources.includes('pool-synthesize')) {
+      // Keep for letter coverage only — bury in ranked Unique trays
       e.vibes = ['unique'];
+      e.popularity = Math.min(e.popularity, 22);
     }
   }
   return entries;
@@ -663,6 +720,7 @@ function buildDogEntries() {
   entries = padToTarget(entries, 'dog');
   entries = ensureLetterCoverage(entries, 'dog');
   entries = applyStyleBanks(entries, 'dog');
+  entries = applyFlagships(entries, 'dog');
   entries = sharpenVibes(entries);
   entries = ensureGenderLetterSpread(entries);
   entries = ensureVibeGenderSpread(entries);
@@ -752,6 +810,7 @@ function buildCatEntries() {
   entries = padToTarget(entries, 'cat');
   entries = ensureLetterCoverage(entries, 'cat');
   entries = applyStyleBanks(entries, 'cat');
+  entries = applyFlagships(entries, 'cat');
   entries = sharpenVibes(entries);
   entries = ensureGenderLetterSpread(entries);
   entries = ensureVibeGenderSpread(entries);

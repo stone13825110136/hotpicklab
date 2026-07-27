@@ -123,10 +123,10 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     <label>
       Vibe
       <select id="pnl-vibe">
-        <option value="cute" selected={vibe === 'cute'}>Cute</option>
-        <option value="strong" selected={vibe === 'strong'}>Strong</option>
-        <option value="unique" selected={vibe === 'unique'}>Unique</option>
-        <option value="classic" selected={vibe === 'classic'}>Classic</option>
+        <option value="cute" selected={vibe === 'cute'}>Cute — soft &amp; sweet</option>
+        <option value="strong" selected={vibe === 'strong'}>Strong — short &amp; bold</option>
+        <option value="unique" selected={vibe === 'unique'}>Unique — rare &amp; literary</option>
+        <option value="classic" selected={vibe === 'classic'}>Classic — familiar favorites</option>
       </select>
     </label>
     <label>
@@ -188,10 +188,9 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       <strong>Show more names</strong> loads the next batch by score — not a random shuffle.
     </p>
     <p class="pnl-score-hint muted">
-      Score /100 = how easy to call + popularity + vibe fit. Cute / Strong / Unique / Classic pull
-      different name styles. Starts-with prefers that letter; if too few matches, we keep those on
-      top and fill with more names. Breed is a soft preference (does not change the score or Hot
-      Pick rule).
+      Score /100 = how easy to call + popularity + vibe fit. Each vibe leads with different
+      flagship names (Cute soft, Strong bold, Unique rare, Classic familiar). Starts-with prefers
+      that letter; breed is a soft preference only (does not change Hot Pick).
     </p>
 
     <p

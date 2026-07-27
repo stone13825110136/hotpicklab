@@ -27,21 +27,6 @@
     ]
   },
   {
-    "name": "Annie",
-    "gender": [
-      "neutral",
-      "girl"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 98,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Baby",
     "gender": [
       "neutral"
@@ -53,66 +38,6 @@
     "popularity": 98,
     "sources": [
       "cat-names"
-    ]
-  },
-  {
-    "name": "Bailey",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 97,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Bandit",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 96,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Bear",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 95,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Bella",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic",
-      "cute"
-    ],
-    "popularity": 94,
-    "sources": [
-      "cat-names",
-      "style-bank"
     ]
   },
   {
@@ -171,21 +96,6 @@
     ]
   },
   {
-    "name": "Buddy",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 90,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Buster",
     "gender": [
       "boy",
@@ -214,6 +124,144 @@
     ]
   },
   {
+    "name": "Alex",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Alice",
+    "gender": [
+      "neutral",
+      "girl"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Anna",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Annie",
+    "gender": [
+      "neutral",
+      "girl"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Arthur",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Bailey",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Bella",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Benjamin",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Buddy",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
     "name": "Callie",
     "gender": [
       "neutral"
@@ -225,6 +273,613 @@
     "popularity": 88,
     "sources": [
       "cat-names"
+    ]
+  },
+  {
+    "name": "Charlie",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Chloe",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Claire",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Cooper",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Daniel",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Emily",
+    "gender": [
+      "neutral",
+      "girl"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Emma",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Felix",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "George",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Grace",
+    "gender": [
+      "neutral",
+      "girl"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Henry",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Jack",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "James",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Jane",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Kate",
+    "gender": [
+      "neutral",
+      "girl"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Leo",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Lola",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Lucy",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Maggie",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Mary",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Max",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Milo",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Molly",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Oliver",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Oscar",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Penny",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Riley",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Ruby",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Sadie",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Sam",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Samuel",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Sarah",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Sophie",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Stella",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Thomas",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Toby",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "William",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Winston",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Zoe",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
@@ -241,21 +896,6 @@
     ]
   },
   {
-    "name": "Charlie",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 86,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Chester",
     "gender": [
       "neutral"
@@ -269,21 +909,6 @@
     ]
   },
   {
-    "name": "Chloe",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 85,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Coco",
     "gender": [
       "neutral"
@@ -293,20 +918,6 @@
       "cute"
     ],
     "popularity": 83,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Cookie",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 82,
     "sources": [
       "cat-names",
       "style-bank"
@@ -353,21 +964,6 @@
     "popularity": 80,
     "sources": [
       "cat-names"
-    ]
-  },
-  {
-    "name": "Felix",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 79,
-    "sources": [
-      "cat-names",
-      "style-bank"
     ]
   },
   {
@@ -455,20 +1051,6 @@
     ]
   },
   {
-    "name": "Alex",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 78,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Alfie",
     "gender": [
       "neutral"
@@ -480,21 +1062,6 @@
     "popularity": 78,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Alice",
-    "gender": [
-      "neutral",
-      "girl"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 78,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -535,21 +1102,6 @@
     "popularity": 78,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Atticus",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "unique",
-      "classic"
-    ],
-    "popularity": 78,
-    "sources": [
-      "style-bank"
     ]
   },
   {
@@ -736,21 +1288,6 @@
     ]
   },
   {
-    "name": "Arthur",
-    "gender": [
-      "neutral",
-      "boy"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 77,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Garfield",
     "gender": [
       "neutral"
@@ -761,21 +1298,6 @@
     "popularity": 77,
     "sources": [
       "cat-names"
-    ]
-  },
-  {
-    "name": "George",
-    "gender": [
-      "neutral",
-      "boy"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 77,
-    "sources": [
-      "cat-names",
-      "style-bank"
     ]
   },
   {
@@ -815,21 +1337,6 @@
     "popularity": 76,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Atlas",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 76,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -1031,20 +1538,6 @@
     ]
   },
   {
-    "name": "Bean",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 75,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Beau",
     "gender": [
       "neutral"
@@ -1237,20 +1730,6 @@
     ]
   },
   {
-    "name": "Biscuit",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 74,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Gracie",
     "gender": [
       "neutral"
@@ -1329,21 +1808,6 @@
     "popularity": 73,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Bolt",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 73,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -1445,21 +1909,6 @@
     ]
   },
   {
-    "name": "Jack",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 73,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Violet",
     "gender": [
       "girl",
@@ -1553,20 +2002,6 @@
     "vibes": [
       "strong",
       "classic"
-    ],
-    "popularity": 72,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Bubbles",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
     ],
     "popularity": 72,
     "sources": [
@@ -1988,54 +2423,9 @@
     ]
   },
   {
-    "name": "Cooper",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Duke",
     "gender": [
       "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Emily",
-    "gender": [
-      "neutral",
-      "girl"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Emma",
-    "gender": [
-      "girl",
       "neutral"
     ],
     "vibes": [
@@ -2077,69 +2467,9 @@
     ]
   },
   {
-    "name": "Grace",
-    "gender": [
-      "neutral",
-      "girl"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Henry",
-    "gender": [
-      "neutral",
-      "boy"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "James",
-    "gender": [
-      "neutral",
-      "boy"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Jamie",
     "gender": [
       "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Kate",
-    "gender": [
-      "neutral",
-      "girl"
     ],
     "vibes": [
       "classic"
@@ -2166,37 +2496,7 @@
     ]
   },
   {
-    "name": "Leo",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Lily",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Lola",
     "gender": [
       "girl",
       "neutral"
@@ -2241,21 +2541,6 @@
     ]
   },
   {
-    "name": "Lucy",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Luna",
     "gender": [
       "girl",
@@ -2264,36 +2549,6 @@
     "vibes": [
       "classic",
       "cute"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Maggie",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Max",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
     ],
     "popularity": 70,
     "sources": [
@@ -2314,36 +2569,6 @@
     "popularity": 70,
     "sources": [
       "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Milo",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Molly",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
       "style-bank"
     ]
   },
@@ -2379,51 +2604,6 @@
     ]
   },
   {
-    "name": "Oliver",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Oscar",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Penny",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Ralph",
     "gender": [
       "neutral",
@@ -2446,21 +2626,6 @@
     ],
     "vibes": [
       "strong"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Riley",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
     ],
     "popularity": 70,
     "sources": [
@@ -2514,50 +2679,6 @@
     ]
   },
   {
-    "name": "Ruby",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Sadie",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Sam",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Scout",
     "gender": [
       "boy",
@@ -2589,36 +2710,6 @@
     ]
   },
   {
-    "name": "Sophie",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Stella",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Teddy",
     "gender": [
       "boy",
@@ -2631,21 +2722,6 @@
     "popularity": 70,
     "sources": [
       "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Toby",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
       "style-bank"
     ]
   },
@@ -2672,36 +2748,6 @@
     ],
     "vibes": [
       "cute",
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Winston",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Zoe",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
       "classic"
     ],
     "popularity": 70,
@@ -2764,20 +2810,6 @@
     ]
   },
   {
-    "name": "Cricket",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 69,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Cruz",
     "gender": [
       "neutral"
@@ -2801,20 +2833,6 @@
     "popularity": 69,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Cupcake",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 69,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -3042,21 +3060,6 @@
     ]
   },
   {
-    "name": "Diesel",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 67,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Dillon",
     "gender": [
       "neutral"
@@ -3135,20 +3138,6 @@
     ]
   },
   {
-    "name": "Donut",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 67,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Doodle",
     "gender": [
       "neutral"
@@ -3186,21 +3175,6 @@
     "popularity": 67,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Blaze",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 66,
-    "sources": [
-      "curated-supplement",
-      "style-bank"
     ]
   },
   {
@@ -3257,21 +3231,6 @@
     "popularity": 66,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Drake",
-    "gender": [
-      "neutral",
-      "boy"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 66,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -3529,45 +3488,170 @@
     ]
   },
   {
-    "name": "Aira",
+    "name": "Anvil",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "strong"
     ],
     "popularity": 64,
     "sources": [
-      "pool-synthesize"
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Bula",
+    "name": "Atlas",
     "gender": [
+      "boy",
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "strong"
     ],
     "popularity": 64,
     "sources": [
-      "pool-synthesize"
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Ceen",
+    "name": "Bandit",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Bear",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Beast",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "strong"
     ],
     "popularity": 64,
     "sources": [
-      "pool-synthesize"
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Blade",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Blaze",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Bolt",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Brutus",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Cannon",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Chief",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
@@ -3586,17 +3670,78 @@
     ]
   },
   {
-    "name": "Eiko",
+    "name": "Cobra",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "strong"
     ],
     "popularity": 64,
     "sources": [
-      "pool-synthesize"
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Diesel",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Draco",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Drake",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Eagle",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
@@ -3732,16 +3877,151 @@
     ]
   },
   {
-    "name": "Fony",
+    "name": "Falcon",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "unique"
+      "strong"
     ],
     "popularity": 64,
     "sources": [
-      "pool-synthesize"
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Fang",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Forge",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Granite",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Gunner",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Hawk",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Hercules",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Hulk",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Iron",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Jax",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
@@ -3760,7 +4040,37 @@
     ]
   },
   {
-    "name": "Storm",
+    "name": "Mace",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Major",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Nitro",
     "gender": [
       "neutral"
     ],
@@ -3769,50 +4079,295 @@
     ],
     "popularity": 64,
     "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Ragnar",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Rex",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Riot",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Sarge",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Slash",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Spear",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Spike",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Steel",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Storm",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
       "curated-supplement",
-      "style-bank"
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Aeno",
+    "name": "Tank",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Thor",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Thunder",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "strong"
     ],
-    "popularity": 63,
+    "popularity": 64,
     "sources": [
-      "pool-synthesize"
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Baxi",
+    "name": "Titan",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Turbo",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "strong"
     ],
-    "popularity": 63,
+    "popularity": 64,
     "sources": [
-      "pool-synthesize"
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Cove",
+    "name": "Tyson",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Viper",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "strong"
     ],
-    "popularity": 63,
+    "popularity": 64,
     "sources": [
-      "pool-synthesize"
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Volt",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Wolf",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Zeus",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 64,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
@@ -3828,20 +4383,6 @@
     "popularity": 63,
     "sources": [
       "curated-supplement"
-    ]
-  },
-  {
-    "name": "Eora",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 63,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -3991,20 +4532,6 @@
     ]
   },
   {
-    "name": "Felo",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 63,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Maple",
     "gender": [
       "girl",
@@ -4020,31 +4547,32 @@
     ]
   },
   {
-    "name": "Aara",
+    "name": "Bao",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "cute"
     ],
     "popularity": 62,
     "sources": [
-      "pool-synthesize"
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Beon",
+    "name": "Bean",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "cute"
     ],
     "popularity": 62,
     "sources": [
-      "pool-synthesize"
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
@@ -4063,45 +4591,177 @@
     ]
   },
   {
-    "name": "Cell",
+    "name": "Biscuit",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "cute"
     ],
     "popularity": 62,
     "sources": [
-      "pool-synthesize"
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Eumi",
+    "name": "Bitty",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "cute"
     ],
     "popularity": 62,
     "sources": [
-      "pool-synthesize"
+      "style-flagship",
+      "style-bank"
     ]
   },
   {
-    "name": "Favi",
+    "name": "Bubbles",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "cute"
     ],
     "popularity": 62,
     "sources": [
-      "pool-synthesize"
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Cashew",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Chibi",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Churro",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Cookie",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Cricket",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Cupcake",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Donut",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Duckie",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Dumpling",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
@@ -4249,6 +4909,36 @@
     ]
   },
   {
+    "name": "Gummy",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Honey",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
     "name": "Jules",
     "gender": [
       "neutral"
@@ -4263,58 +4953,360 @@
     ]
   },
   {
-    "name": "Aora",
+    "name": "Kiwi",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "cute"
     ],
-    "popularity": 61,
+    "popularity": 62,
     "sources": [
-      "pool-synthesize"
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Bony",
+    "name": "Latte",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "unique"
+      "cute"
     ],
-    "popularity": 61,
+    "popularity": 62,
     "sources": [
-      "pool-synthesize"
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Cune",
+    "name": "Loaf",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "cute"
     ],
-    "popularity": 61,
+    "popularity": 62,
     "sources": [
-      "pool-synthesize"
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Fira",
+    "name": "Mittens",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "cute"
     ],
-    "popularity": 61,
+    "popularity": 62,
     "sources": [
-      "pool-synthesize"
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Mocha",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Mochi",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Muffin",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Noodle",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Nugget",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Oreo",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Peaches",
+    "gender": [
+      "neutral",
+      "girl"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Peanut",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Pebble",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Pickles",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Pip",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Poco",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Pudding",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Pumpkin",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Socks",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Sprinkles",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Taffy",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Truffle",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Twix",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Waffles",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 62,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
@@ -4436,75 +5428,6 @@
     "popularity": 61,
     "sources": [
       "curated-supplement"
-    ]
-  },
-  {
-    "name": "Aumi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 60,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Belo",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 60,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Ciby",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 60,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Dyne",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 60,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Feno",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 60,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -4669,62 +5592,6 @@
     ]
   },
   {
-    "name": "Bavi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 59,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Corn",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 59,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Dolt",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 59,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Fara",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 59,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Frost",
     "gender": [
       "neutral"
@@ -4805,21 +5672,6 @@
     ]
   },
   {
-    "name": "Gunner",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 59,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Gus",
     "gender": [
       "neutral"
@@ -4887,6 +5739,19 @@
     ]
   },
   {
+    "name": "Almond",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 58,
+    "sources": [
+      "style-bank"
+    ]
+  },
+  {
     "name": "Astra",
     "gender": [
       "girl",
@@ -4916,27 +5781,26 @@
     ]
   },
   {
-    "name": "Bira",
+    "name": "Bebe",
     "gender": [
+      "girl",
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
+      "cute"
     ],
     "popularity": 58,
     "sources": [
-      "pool-synthesize"
+      "style-bank"
     ]
   },
   {
-    "name": "Blade",
+    "name": "Billie",
     "gender": [
-      "boy",
       "neutral"
     ],
     "vibes": [
-      "strong"
+      "cute"
     ],
     "popularity": 58,
     "sources": [
@@ -4970,9 +5834,21 @@
     ]
   },
   {
-    "name": "Brutus",
+    "name": "Brownie",
     "gender": [
-      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 58,
+    "sources": [
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Bullet",
+    "gender": [
       "neutral"
     ],
     "vibes": [
@@ -4984,27 +5860,13 @@
     ]
   },
   {
-    "name": "Cade",
+    "name": "Bunny",
     "gender": [
+      "girl",
       "neutral"
     ],
     "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 58,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Chief",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
+      "cute"
     ],
     "popularity": 58,
     "sources": [
@@ -5012,12 +5874,38 @@
     ]
   },
   {
-    "name": "Cobra",
+    "name": "Buttons",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong"
+      "cute"
+    ],
+    "popularity": 58,
+    "sources": [
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Cheer",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 58,
+    "sources": [
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Cocoa",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
     ],
     "popularity": 58,
     "sources": [
@@ -5035,73 +5923,6 @@
     "popularity": 58,
     "sources": [
       "style-bank"
-    ]
-  },
-  {
-    "name": "Disk",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 58,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eagle",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Falcon",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Fang",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Fiko",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 58,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -5141,21 +5962,6 @@
     "popularity": 58,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Hawk",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -5224,20 +6030,6 @@
     ]
   },
   {
-    "name": "Hercules",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
     "name": "Hero",
     "gender": [
       "boy",
@@ -5265,33 +6057,6 @@
     ]
   },
   {
-    "name": "Hulk",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Iron",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
     "name": "Jaguar",
     "gender": [
       "neutral"
@@ -5305,7 +6070,7 @@
     ]
   },
   {
-    "name": "Mace",
+    "name": "Kingston",
     "gender": [
       "boy",
       "neutral"
@@ -5319,13 +6084,25 @@
     ]
   },
   {
-    "name": "Major",
+    "name": "Marshmallow",
     "gender": [
-      "boy",
       "neutral"
     ],
     "vibes": [
-      "strong"
+      "cute"
+    ],
+    "popularity": 58,
+    "sources": [
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Merry",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
     ],
     "popularity": 58,
     "sources": [
@@ -5344,6 +6121,20 @@
     "popularity": 58,
     "sources": [
       "cat-names",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Nana",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 58,
+    "sources": [
       "style-bank"
     ]
   },
@@ -5374,34 +6165,33 @@
     ]
   },
   {
+    "name": "Paws",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 58,
+    "sources": [
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Pistachio",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 58,
+    "sources": [
+      "style-bank"
+    ]
+  },
+  {
     "name": "Rage",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Ragnar",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Riot",
     "gender": [
       "neutral"
     ],
@@ -5428,7 +6218,7 @@
     ]
   },
   {
-    "name": "Slash",
+    "name": "Shield",
     "gender": [
       "neutral"
     ],
@@ -5454,66 +6244,25 @@
     ]
   },
   {
-    "name": "Steel",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Titan",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Tyson",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Viper",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 58,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
     "name": "Warrior",
     "gender": [
       "neutral"
     ],
     "vibes": [
       "strong"
+    ],
+    "popularity": 58,
+    "sources": [
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Wicket",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
     ],
     "popularity": 58,
     "sources": [
@@ -5533,62 +6282,6 @@
     "popularity": 58,
     "sources": [
       "curated-supplement"
-    ]
-  },
-  {
-    "name": "Beno",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 57,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Coss",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 57,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Dowl",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 57,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Fora",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 57,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -5616,21 +6309,6 @@
     "popularity": 57,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Honey",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 57,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -5778,62 +6456,6 @@
     "popularity": 57,
     "sources": [
       "curated-supplement"
-    ]
-  },
-  {
-    "name": "Bara",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 56,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Cinx",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 56,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Diff",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 56,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Fumi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 56,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -6128,20 +6750,6 @@
     ]
   },
   {
-    "name": "Biko",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Bluebell",
     "gender": [
       "girl",
@@ -6157,34 +6765,6 @@
     ]
   },
   {
-    "name": "Bowie",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Briar",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Cedar",
     "gender": [
       "neutral"
@@ -6196,20 +6776,6 @@
     "sources": [
       "curated-supplement",
       "style-bank"
-    ]
-  },
-  {
-    "name": "Ceva",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -6243,49 +6809,6 @@
     ]
   },
   {
-    "name": "Cosmo",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "curated-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Darcy",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Deen",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Echo",
     "gender": [
       "neutral",
@@ -6297,20 +6820,6 @@
     "popularity": 55,
     "sources": [
       "curated-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Eclipse",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "pool-supplement",
       "style-bank"
     ]
   },
@@ -6327,20 +6836,6 @@
     "popularity": 55,
     "sources": [
       "curated-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Fable",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "pool-supplement",
       "style-bank"
     ]
   },
@@ -6369,36 +6864,6 @@
     "popularity": 55,
     "sources": [
       "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Freya",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Gatsby",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "curated-supplement",
       "style-bank"
     ]
   },
@@ -6444,35 +6909,6 @@
     "popularity": 55,
     "sources": [
       "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Haiku",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Indigo",
-    "gender": [
-      "neutral",
-      "boy"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "curated-supplement",
       "style-bank"
     ]
   },
@@ -6599,21 +7035,6 @@
     ]
   },
   {
-    "name": "Jax",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 55,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Jett",
     "gender": [
       "boy",
@@ -6622,35 +7043,6 @@
     "vibes": [
       "unique",
       "strong"
-    ],
-    "popularity": 55,
-    "sources": [
-      "curated-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Jinx",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "curated-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Juniper",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
     ],
     "popularity": 55,
     "sources": [
@@ -6705,21 +7097,6 @@
     ]
   },
   {
-    "name": "Loki",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Lynx",
     "gender": [
       "neutral"
@@ -6750,20 +7127,6 @@
     ]
   },
   {
-    "name": "Mittens",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 55,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Nova",
     "gender": [
       "girl",
@@ -6779,53 +7142,9 @@
     ]
   },
   {
-    "name": "Nyx",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "curated-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Onyx",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "curated-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Pax",
     "gender": [
       "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 55,
-    "sources": [
-      "curated-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Pixel",
-    "gender": [
       "neutral"
     ],
     "vibes": [
@@ -6928,74 +7247,213 @@
     ]
   },
   {
-    "name": "Ziggy",
+    "name": "Andromeda",
     "gender": [
-      "neutral",
-      "boy"
+      "girl",
+      "neutral"
     ],
     "vibes": [
       "unique"
     ],
-    "popularity": 55,
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Artemis",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Atticus",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Bowie",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Briar",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Byron",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Cardamom",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Cipher",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
     "sources": [
       "curated-supplement",
-      "style-bank"
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Bora",
+    "name": "Cordelia",
     "gender": [
+      "girl",
       "neutral"
     ],
     "vibes": [
-      "strong",
       "unique"
     ],
     "popularity": 54,
     "sources": [
-      "pool-synthesize"
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Cula",
+    "name": "Cosmo",
     "gender": [
+      "boy",
       "neutral"
     ],
     "vibes": [
-      "strong",
       "unique"
     ],
     "popularity": 54,
     "sources": [
-      "pool-synthesize"
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Dell",
+    "name": "Darcy",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
       "unique"
     ],
     "popularity": 54,
     "sources": [
-      "pool-synthesize"
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Eyne",
+    "name": "Eclipse",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
       "unique"
     ],
     "popularity": 54,
     "sources": [
-      "pool-synthesize"
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Elowen",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Fable",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
@@ -7011,6 +7469,84 @@
     "sources": [
       "curated-supplement",
       "style-bank"
+    ]
+  },
+  {
+    "name": "Freya",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Gatsby",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Haiku",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Hendrix",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Indigo",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
@@ -7122,6 +7658,21 @@
     ]
   },
   {
+    "name": "Jinx",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
     "name": "Joan",
     "gender": [
       "neutral"
@@ -7175,6 +7726,410 @@
     ]
   },
   {
+    "name": "Juniper",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Kimchi",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Loki",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "cat-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Matcha",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Matisse",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Merlin",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Monet",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Morgana",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Nyx",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Oberon",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Onyx",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Ophelia",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Orion",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Persimmon",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Pixel",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Poe",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Prism",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Quill",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Quorra",
+    "gender": [
+      "neutral",
+      "girl"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Rune",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Saffron",
+    "gender": [
+      "neutral",
+      "girl"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Sirius",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Sonnet",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Soren",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Thistle",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Titania",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Umbra",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
     "name": "Vesper",
     "gender": [
       "girl",
@@ -7186,62 +8141,127 @@
     "popularity": 54,
     "sources": [
       "curated-supplement",
-      "style-bank"
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Bumi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 53,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Caxi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 53,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Diby",
+    "name": "Vinyl",
     "gender": [
       "neutral"
     ],
     "vibes": [
       "unique"
     ],
-    "popularity": 53,
+    "popularity": 54,
     "sources": [
-      "pool-synthesize"
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
-    "name": "Eolt",
+    "name": "Wasabi",
     "gender": [
       "neutral"
     ],
     "vibes": [
-      "strong",
       "unique"
     ],
-    "popularity": 53,
+    "popularity": 54,
     "sources": [
-      "pool-synthesize"
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Wilde",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Xyla",
+    "gender": [
+      "neutral",
+      "girl"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Yuzu",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Zenith",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Zephyr",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Ziggy",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 54,
+    "sources": [
+      "curated-supplement",
+      "style-bank",
+      "style-flagship"
     ]
   },
   {
@@ -7405,20 +8425,6 @@
     ]
   },
   {
-    "name": "Muffin",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 53,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Yara",
     "gender": [
       "girl",
@@ -7435,20 +8441,6 @@
     ]
   },
   {
-    "name": "Ceon",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 52,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Dashi",
     "gender": [
       "neutral"
@@ -7460,34 +8452,6 @@
     "popularity": 52,
     "sources": [
       "curated-supplement"
-    ]
-  },
-  {
-    "name": "Dorn",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 52,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eisk",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 52,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -7596,20 +8560,6 @@
     ]
   },
   {
-    "name": "Kimchi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 52,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "King",
     "gender": [
       "boy",
@@ -7668,61 +8618,6 @@
     ]
   },
   {
-    "name": "Ayne",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 51,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Cony",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 51,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Dade",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 51,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eowl",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 51,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Kit",
     "gender": [
       "neutral"
@@ -7746,20 +8641,6 @@
     "popularity": 51,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Kiwi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 51,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -7893,93 +8774,6 @@
     "sources": [
       "curated-supplement",
       "style-bank"
-    ]
-  },
-  {
-    "name": "Oreo",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 51,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Yuzu",
-    "gender": [
-      "neutral",
-      "boy"
-    ],
-    "vibes": [
-      "unique",
-      "cute"
-    ],
-    "popularity": 51,
-    "sources": [
-      "curated-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Aolt",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 50,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Celo",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 50,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Doss",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 50,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eiff",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 50,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -8173,62 +8967,6 @@
     ]
   },
   {
-    "name": "Aisk",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 49,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Cavi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 49,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Dinx",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 49,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eeen",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 49,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Ink",
     "gender": [
       "neutral",
@@ -8407,76 +9145,6 @@
     ]
   },
   {
-    "name": "Aowl",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 48,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Cipher",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 48,
-    "sources": [
-      "curated-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Cira",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 48,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Deva",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 48,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eove",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 48,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Maisie",
     "gender": [
       "neutral"
@@ -8642,76 +9310,6 @@
     ]
   },
   {
-    "name": "Peanut",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 48,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Aiff",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 47,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Ceno",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 47,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Dula",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 47,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eash",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 47,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Mel",
     "gender": [
       "neutral"
@@ -8823,34 +9421,6 @@
     ]
   },
   {
-    "name": "Mocha",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 47,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Mochi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 47,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Moe",
     "gender": [
       "neutral"
@@ -8889,76 +9459,6 @@
     "popularity": 47,
     "sources": [
       "cat-names"
-    ]
-  },
-  {
-    "name": "Quill",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 47,
-    "sources": [
-      "curated-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Aeen",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 46,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Ciko",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 46,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Daxi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 46,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eell",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 46,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -9156,62 +9656,6 @@
     ]
   },
   {
-    "name": "Aove",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 45,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Cumi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 45,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Deon",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 45,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eune",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 45,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Nash",
     "gender": [
       "boy",
@@ -9365,60 +9809,6 @@
     "popularity": 45,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Pumpkin",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 45,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Aash",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 44,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Dony",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 44,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eiby",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 44,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -9577,20 +9967,6 @@
     ]
   },
   {
-    "name": "Nugget",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 44,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Rascal",
     "gender": [
       "neutral"
@@ -9601,62 +9977,6 @@
     "popularity": 44,
     "sources": [
       "cat-names"
-    ]
-  },
-  {
-    "name": "Aell",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 43,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Byne",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 43,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Delo",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 43,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eorn",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 43,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -9868,20 +10188,6 @@
     ]
   },
   {
-    "name": "Andromeda",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
     "name": "Anise",
     "gender": [
       "neutral"
@@ -9907,34 +10213,6 @@
     "popularity": 42,
     "sources": [
       "style-bank"
-    ]
-  },
-  {
-    "name": "Artemis",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Aune",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -9979,20 +10257,6 @@
     ]
   },
   {
-    "name": "Bisk",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Blues",
     "gender": [
       "neutral"
@@ -10023,33 +10287,6 @@
     "name": "Briarose",
     "gender": [
       "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Byron",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Cardamom",
-    "gender": [
       "neutral"
     ],
     "vibes": [
@@ -10128,20 +10365,6 @@
     ]
   },
   {
-    "name": "Cordelia",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
     "name": "Crow",
     "gender": [
       "neutral"
@@ -10182,68 +10405,25 @@
     ]
   },
   {
-    "name": "Davi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Draco",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Eade",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Elowen",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
     "name": "Glitch",
     "gender": [
       "neutral"
     ],
     "vibes": [
+      "unique"
+    ],
+    "popularity": 42,
+    "sources": [
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Gyoza",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute",
       "unique"
     ],
     "popularity": 42,
@@ -10269,20 +10449,6 @@
   {
     "name": "Harlow",
     "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Hendrix",
-    "gender": [
-      "boy",
       "neutral"
     ],
     "vibes": [
@@ -10403,46 +10569,6 @@
     ]
   },
   {
-    "name": "Matcha",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Matisse",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Merlin",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
     "name": "Meteor",
     "gender": [
       "neutral"
@@ -10450,33 +10576,6 @@
     "vibes": [
       "unique",
       "strong"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Monet",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Morgana",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
     ],
     "popularity": 42,
     "sources": [
@@ -10510,26 +10609,12 @@
     ]
   },
   {
-    "name": "Oberon",
+    "name": "Obsidian",
     "gender": [
-      "boy",
       "neutral"
     ],
     "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Ophelia",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
+      "strong",
       "unique"
     ],
     "popularity": 42,
@@ -10548,21 +10633,6 @@
     "popularity": 42,
     "sources": [
       "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Orion",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "unique",
-      "strong"
-    ],
-    "popularity": 42,
-    "sources": [
       "style-bank"
     ]
   },
@@ -10680,8 +10750,7 @@
   {
     "name": "Pace",
     "gender": [
-      "neutral",
-      "boy"
+      "neutral"
     ],
     "vibes": [
       "strong",
@@ -10747,37 +10816,9 @@
     ]
   },
   {
-    "name": "Peaches",
-    "gender": [
-      "neutral",
-      "girl"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 42,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Percival",
     "gender": [
       "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Persimmon",
-    "gender": [
       "neutral"
     ],
     "vibes": [
@@ -10817,19 +10858,6 @@
   },
   {
     "name": "Presley",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Prism",
     "gender": [
       "neutral"
     ],
@@ -10896,6 +10924,20 @@
     ]
   },
   {
+    "name": "Rogue",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong",
+      "unique"
+    ],
+    "popularity": 42,
+    "sources": [
+      "style-bank"
+    ]
+  },
+  {
     "name": "Row",
     "gender": [
       "neutral"
@@ -10936,20 +10978,6 @@
     ]
   },
   {
-    "name": "Saffron",
-    "gender": [
-      "neutral",
-      "girl"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
     "name": "Saga",
     "gender": [
       "neutral"
@@ -10976,36 +11004,8 @@
     ]
   },
   {
-    "name": "Sirius",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
     "name": "Solstice",
     "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Sonnet",
-    "gender": [
-      "girl",
       "neutral"
     ],
     "vibes": [
@@ -11030,9 +11030,8 @@
     ]
   },
   {
-    "name": "Soren",
+    "name": "Sorrel",
     "gender": [
-      "boy",
       "neutral"
     ],
     "vibes": [
@@ -11044,11 +11043,12 @@
     ]
   },
   {
-    "name": "Sorrel",
+    "name": "Specter",
     "gender": [
       "neutral"
     ],
     "vibes": [
+      "strong",
       "unique"
     ],
     "popularity": 42,
@@ -11071,19 +11071,6 @@
   },
   {
     "name": "Stoat",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Thistle",
     "gender": [
       "neutral"
     ],
@@ -11123,34 +11110,7 @@
     ]
   },
   {
-    "name": "Titania",
-    "gender": [
-      "girl",
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
     "name": "Vex",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Vinyl",
     "gender": [
       "neutral"
     ],
@@ -11170,19 +11130,6 @@
     "vibes": [
       "unique",
       "strong"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Wasabi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
     ],
     "popularity": 42,
     "sources": [
@@ -11216,19 +11163,6 @@
     ]
   },
   {
-    "name": "Wilde",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
     "name": "Yuki",
     "gender": [
       "neutral"
@@ -11239,74 +11173,6 @@
     "popularity": 42,
     "sources": [
       "style-bank"
-    ]
-  },
-  {
-    "name": "Zenith",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 42,
-    "sources": [
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Aiby",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 41,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Bowl",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 41,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Dira",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 41,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eoss",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 41,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -11321,20 +11187,6 @@
     "popularity": 41,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Pebble",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 41,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -11435,20 +11287,6 @@
     ]
   },
   {
-    "name": "Pickles",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 41,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Pilot",
     "gender": [
       "neutral"
@@ -11459,62 +11297,6 @@
     "popularity": 41,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Aorn",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 40,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Biff",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 40,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Deno",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 40,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Einx",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 40,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -11543,20 +11325,6 @@
     "popularity": 40,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Pip",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 40,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -11595,20 +11363,6 @@
     "vibes": [
       "unique",
       "cute"
-    ],
-    "popularity": 40,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Poe",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
     ],
     "popularity": 40,
     "sources": [
@@ -11696,76 +11450,6 @@
     "popularity": 40,
     "sources": [
       "cat-names"
-    ]
-  },
-  {
-    "name": "Aade",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 39,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Been",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 39,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Dara",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 39,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eeva",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 39,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Pudding",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 39,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -11948,62 +11632,6 @@
     ]
   },
   {
-    "name": "Aoss",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 38,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Bove",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 38,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Diko",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 38,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eula",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 38,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Qubit",
     "gender": [
       "neutral"
@@ -12115,21 +11743,6 @@
     ]
   },
   {
-    "name": "Quorra",
-    "gender": [
-      "neutral",
-      "girl"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 38,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Rags",
     "gender": [
       "neutral"
@@ -12182,62 +11795,6 @@
     "popularity": 38,
     "sources": [
       "cat-names"
-    ]
-  },
-  {
-    "name": "Ainx",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 37,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Bash",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 37,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Dora",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 37,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eaxi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 37,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -12323,21 +11880,6 @@
     ]
   },
   {
-    "name": "Rex",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 37,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Rhett",
     "gender": [
       "neutral"
@@ -12388,62 +11930,6 @@
     "popularity": 37,
     "sources": [
       "cat-names"
-    ]
-  },
-  {
-    "name": "Aeva",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 36,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Bell",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 36,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Dumi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 36,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eeon",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 36,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -12616,47 +12102,6 @@
     ]
   },
   {
-    "name": "Aula",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 35,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Bune",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 35,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eony",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 35,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Rover",
     "gender": [
       "neutral"
@@ -12708,20 +12153,6 @@
     "popularity": 35,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Rune",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 35,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -12803,76 +12234,6 @@
     "popularity": 35,
     "sources": [
       "cat-names"
-    ]
-  },
-  {
-    "name": "Aaxi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 34,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Biby",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 34,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Cyne",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 34,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eelo",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 34,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Sarge",
-    "gender": [
-      "neutral",
-      "boy"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 34,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -13025,76 +12386,6 @@
     ]
   },
   {
-    "name": "Aeon",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 33,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Born",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 33,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Colt",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 33,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eavi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 33,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Feva",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 33,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Smokey",
     "gender": [
       "neutral"
@@ -13160,21 +12451,6 @@
     "popularity": 33,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Spike",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 33,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -13257,75 +12533,6 @@
     "sources": [
       "pool-supplement",
       "style-bank"
-    ]
-  },
-  {
-    "name": "Aony",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 32,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Bade",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 32,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Cisk",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 32,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eira",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 32,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Fula",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 32,
-    "sources": [
-      "pool-synthesize"
     ]
   },
   {
@@ -13416,20 +12623,6 @@
     ]
   },
   {
-    "name": "Taffy",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 32,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Tango",
     "gender": [
       "neutral"
@@ -13440,21 +12633,6 @@
     "popularity": 32,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Tank",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 32,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -13499,76 +12677,6 @@
     ]
   },
   {
-    "name": "Aelo",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 31,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Boss",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 31,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Cowl",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 31,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eeno",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 31,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Faxi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 31,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
     "name": "Snowball",
     "gender": [
       "neutral"
@@ -13607,35 +12715,6 @@
     "popularity": 31,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Thor",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 31,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Thunder",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 31,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -13753,96 +12832,108 @@
     ]
   },
   {
-    "name": "Aavi",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 30,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Beva",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 30,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Ciff",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 30,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Eara",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 30,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Feon",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "strong",
-      "unique"
-    ],
-    "popularity": 30,
-    "sources": [
-      "pool-synthesize"
-    ]
-  },
-  {
-    "name": "Socks",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 30,
-    "sources": [
-      "cat-names",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Torch",
     "gender": [
       "neutral"
     ],
     "vibes": [
       "unique"
+    ],
+    "popularity": 30,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Trek",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong",
+      "unique"
+    ],
+    "popularity": 30,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Trinket",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 30,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Tripp",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 30,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Trooper",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 30,
+    "sources": [
+      "pool-supplement",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Tucker",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 30,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Tux",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong",
+      "unique"
+    ],
+    "popularity": 30,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Ty",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute",
+      "strong"
     ],
     "popularity": 30,
     "sources": [
@@ -13931,20 +13022,6 @@
     "popularity": 29,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Umbra",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 29,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -14055,6 +13132,185 @@
     "popularity": 29,
     "sources": [
       "pool-supplement"
+    ]
+  },
+  {
+    "name": "Archie",
+    "gender": [
+      "boy",
+      "neutral"
+    ],
+    "vibes": [
+      "cute",
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Arctic",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Blitz",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Butch",
+    "gender": [
+      "neutral",
+      "boy"
+    ],
+    "vibes": [
+      "strong"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Doxie",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute",
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Frenchie",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute",
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Golden",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Hotdog",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Ming",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong",
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Pom",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong",
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Porkchop",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Spooky",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute",
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "cat-names"
+    ]
+  },
+  {
+    "name": "Tiny",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement",
+      "style-bank"
     ]
   },
   {
@@ -14281,6 +13537,32 @@
     ]
   },
   {
+    "name": "Vixen",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Voyage",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
     "name": "Wade",
     "gender": [
       "neutral"
@@ -14292,20 +13574,6 @@
     "popularity": 28,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Waffles",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "cute"
-    ],
-    "popularity": 28,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -14448,6 +13716,90 @@
       "neutral"
     ],
     "vibes": [
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Willa",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Windy",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute",
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Winks",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Winnie",
+    "gender": [
+      "girl",
+      "neutral"
+    ],
+    "vibes": [
+      "cute",
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Wolfie",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "cute",
+      "unique"
+    ],
+    "popularity": 28,
+    "sources": [
+      "pool-supplement"
+    ]
+  },
+  {
+    "name": "Wynn",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "strong",
       "unique"
     ],
     "popularity": 28,
@@ -14609,21 +13961,6 @@
     "popularity": 28,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Xyla",
-    "gender": [
-      "neutral",
-      "girl"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 28,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
@@ -14841,20 +14178,6 @@
     ]
   },
   {
-    "name": "Zephyr",
-    "gender": [
-      "neutral"
-    ],
-    "vibes": [
-      "unique"
-    ],
-    "popularity": 28,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
-    ]
-  },
-  {
     "name": "Zesty",
     "gender": [
       "neutral"
@@ -14866,21 +14189,6 @@
     "popularity": 28,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Zeus",
-    "gender": [
-      "boy",
-      "neutral"
-    ],
-    "vibes": [
-      "strong"
-    ],
-    "popularity": 28,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {
