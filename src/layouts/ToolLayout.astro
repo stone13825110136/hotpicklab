@@ -22,10 +22,11 @@ const fullTitle = `${title} | ${SITE.name}`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" translate="no">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google" content="notranslate" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
@@ -37,7 +38,7 @@ const fullTitle = `${title} | ${SITE.name}`;
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="robots" content="index, follow" />
   </head>
-  <body class="tool-page-body">
+  <body class="tool-page-body notranslate">
     <header class="tool-page-header">
       <div class="container tool-page-header-inner">
         <a class="logo" href="/">{SITE.name}</a>
