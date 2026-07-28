@@ -53,25 +53,60 @@ function breedAffinity(name, vibes, breedId) {
   const inBoost = tops.includes(name.toLowerCase());
   return { score: inBoost ? 55 : 0, fit: inBoost };
 }
+function hardGenderMatch(n, gender) {
+  if (gender === 'neutral') return true;
+  return n.gender.includes(gender);
+}
+function softUnisexMatch(n, gender) {
+  if (gender === 'neutral') return true;
+  if (n.gender.includes(gender)) return false;
+  const opposite = gender === 'boy' ? 'girl' : 'boy';
+  return n.gender.includes('neutral') && !n.gender.includes(opposite);
+}
 function rankNames(pool, gender, vibe, filters = {}) {
   const letter = filters.letter || '';
   const breedId = filters.breedId || '';
-  const genderOk = (n) => {
-    if (gender === 'neutral') return true;
-    return n.gender.includes(gender) || n.gender.includes('neutral');
-  };
-  const letterPool = pool.filter((n) => matchesLetter(n.name, letter));
-  const matched = letterPool
-    .filter(genderOk)
+  const GENDER_SOFT_MIN = 18;
+  const hard = gender === 'neutral' ? pool : pool.filter((n) => hardGenderMatch(n, gender));
+  const soft =
+    gender === 'neutral' ? [] : pool.filter((n) => softUnisexMatch(n, gender));
+  let genderPool = hard;
+  if (gender !== 'neutral' && hard.length < GENDER_SOFT_MIN) {
+    const hardNames = new Set(hard.map((n) => n.name));
+    genderPool = [...hard, ...soft.filter((n) => !hardNames.has(n.name))];
+  }
+  const letterPool = letter
+    ? genderPool.filter((n) => matchesLetter(n.name, letter))
+    : genderPool;
+  let working = letterPool;
+  if (letter && letterPool.length < 12) {
+    const exact = new Set(letterPool.map((n) => n.name));
+    working = [...letterPool, ...genderPool.filter((n) => !exact.has(n.name))];
+  }
+  const matched = working
     .map((n) => {
       const practical = practicalScore(n, vibe);
       const { score: breedA, fit } = breedAffinity(n.name, n.vibes, breedId);
+      const genderMatch = hardGenderMatch(n, gender);
       const primary = n.vibes.includes(vibe) ? vibe : n.vibes[0];
       const tags = primary ? [primary] : [];
       if (fit) tags.push('breed fit');
-      return { ...n, practical, breedAffinity: breedA, letterMatch: !!letter, tags };
+      return {
+        ...n,
+        practical,
+        breedAffinity: breedA,
+        letterMatch: letter ? matchesLetter(n.name, letter) : false,
+        genderMatch,
+        tags,
+      };
     })
     .sort((a, b) => {
+      const aL = a.letterMatch ? 1 : 0;
+      const bL = b.letterMatch ? 1 : 0;
+      if (bL !== aL) return bL - aL;
+      const aG = a.genderMatch ? 1 : 0;
+      const bG = b.genderMatch ? 1 : 0;
+      if (bG !== aG) return bG - aG;
       const aV = a.vibes.includes(vibe) ? 1 : 0;
       const bV = b.vibes.includes(vibe) ? 1 : 0;
       if (bV !== aV) return bV - aV;
@@ -124,8 +159,7 @@ for (const [species, pool] of [
         ranked.length >= 12 &&
         page0.length >= 12 &&
         visible >= 6 &&
-        overlap.length === 0 &&
-        (page1.length === 0 || page0[0].practical >= page1[0].practical);
+        overlap.length === 0;
       if (!ok) {
         failed++;
         console.error('FAIL base', { species, gender, vibe, total: ranked.length });
@@ -226,6 +260,42 @@ for (const [species, pool] of [
       console.error('FAIL vibe quality', { vibe, synth, flag, exclusive, sample: top.slice(0, 8).map((n) => n.name) });
     } else {
       console.log('OK vibe quality', { vibe, flag, exclusive, sample: top.slice(0, 6).map((n) => n.name) });
+    }
+  }
+}
+
+// Boy vs Girl must change the front tray (strict gender — the bug user hit)
+{
+  for (const vibe of ['cute', 'classic', 'unique']) {
+    const boyTop = rankNames(dogNames, 'boy', vibe).slice(0, 12);
+    const girlTop = rankNames(dogNames, 'girl', vibe).slice(0, 12);
+    const boySet = new Set(boyTop.map((n) => n.name.toLowerCase()));
+    const overlap = girlTop.filter((n) => boySet.has(n.name.toLowerCase())).length;
+    const boyHard = boyTop.filter((n) => n.gender.includes('boy')).length;
+    const girlHard = girlTop.filter((n) => n.gender.includes('girl')).length;
+    const girlHasBoyOnly = girlTop.filter(
+      (n) => n.gender.includes('boy') && !n.gender.includes('girl') && !n.gender.includes('neutral'),
+    ).length;
+    if (overlap > 4 || boyHard < 8 || girlHard < 8 || girlHasBoyOnly > 0) {
+      failed++;
+      console.error('FAIL boy≠girl', {
+        vibe,
+        overlap,
+        boyHard,
+        girlHard,
+        girlHasBoyOnly,
+        boySample: boyTop.slice(0, 6).map((n) => n.name),
+        girlSample: girlTop.slice(0, 6).map((n) => n.name),
+      });
+    } else {
+      console.log('OK boy≠girl', {
+        vibe,
+        overlap,
+        boyHard,
+        girlHard,
+        boySample: boyTop.slice(0, 6).map((n) => n.name),
+        girlSample: girlTop.slice(0, 6).map((n) => n.name),
+      });
     }
   }
 }

@@ -210,6 +210,15 @@ function showBatch(reset: boolean) {
   el<HTMLElement>('pnl-output').hidden = false;
 }
 
+function flashOutput() {
+  const output = el<HTMLElement>('pnl-output');
+  output.classList.remove('pnl-output-flash');
+  // restart animation
+  void output.offsetWidth;
+  output.classList.add('pnl-output-flash');
+  window.setTimeout(() => output.classList.remove('pnl-output-flash'), 700);
+}
+
 function renderLetterNote(letter: string, exactCount: number, softened: boolean) {
   const note = document.getElementById('pnl-letter-note');
   if (!note) return;
@@ -222,7 +231,8 @@ function renderLetterNote(letter: string, exactCount: number, softened: boolean)
   note.textContent = `Only ${exactCount} name${exactCount === 1 ? '' : 's'} start with ${letter} in this filter set — those stay on top; more names are filled below.`;
 }
 
-function generate() {
+function generate(opts: { scroll?: boolean; flash?: boolean } = {}) {
+  const { scroll = true, flash = true } = opts;
   const { species, gender, vibe, letter, breedId } = readFilters();
   syncBreedOptgroups(species);
   const detail = rankNamesDetailed(pools[species], gender, vibe, {
@@ -232,6 +242,10 @@ function generate() {
   rankedPool = detail.names;
   renderLetterNote(letter, detail.meta.letterExactCount, detail.meta.letterSoftened);
   showBatch(true);
+  if (flash) flashOutput();
+  if (scroll) {
+    el<HTMLElement>('pnl-output').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 function showMore() {
@@ -241,11 +255,11 @@ function showMore() {
   } else {
     batchOffset += BATCH_SIZE;
   }
-  // Keep selections; only advance the visible page
   candidates = rankedPool.slice(batchOffset, batchOffset + BATCH_SIZE);
   el<HTMLElement>('pnl-results').hidden = true;
   renderCandidates();
   renderCompareBar();
+  flashOutput();
 }
 
 function applyPrefillFromRoot() {
@@ -276,6 +290,11 @@ function applyPrefillFromRoot() {
   syncBreedOptgroups((el<HTMLSelectElement>('pnl-species').value || 'dog') as Species);
 }
 
+function wantsStartEmpty(): boolean {
+  const root = document.getElementById('pet-name-lab');
+  return root?.dataset.startEmpty === '1';
+}
+
 declare global {
   interface Window {
     __pnlReady?: boolean;
@@ -287,12 +306,17 @@ export function initPetNameLab() {
   try {
     applyPrefillFromRoot();
 
-    // Prefer the shared onclick hook so Generate works even if addEventListener is delayed.
-    window.__pnlGenerate = generate;
+    const runGenerate = () => generate({ scroll: true, flash: true });
+    window.__pnlGenerate = runGenerate;
 
+    el<HTMLButtonElement>('pnl-generate').addEventListener('click', runGenerate);
     el<HTMLButtonElement>('pnl-more').addEventListener('click', showMore);
+
+    // Changing filters alone does not refresh — user must tap Generate (clear feedback).
     for (const id of ['pnl-species', 'pnl-gender', 'pnl-vibe', 'pnl-letter', 'pnl-breed'] as const) {
-      el<HTMLSelectElement>(id).addEventListener('change', generate);
+      el<HTMLSelectElement>(id).addEventListener('change', () => {
+        syncBreedOptgroups((el<HTMLSelectElement>('pnl-species').value || 'dog') as Species);
+      });
     }
 
     el<HTMLButtonElement>('pnl-compare-btn').addEventListener('click', () => {
@@ -304,7 +328,17 @@ export function initPetNameLab() {
       renderResults(withFortune, hot);
     });
 
-    generate();
+    if (wantsStartEmpty()) {
+      // Tool page: wait for Generate — no results until the user asks.
+      rankedPool = [];
+      candidates = [];
+      el<HTMLElement>('pnl-output').hidden = true;
+      el<HTMLElement>('pnl-results').hidden = true;
+    } else {
+      // SEO embed: hydrate SSR shortlist into interactive chips (no jump/flash).
+      generate({ scroll: false, flash: false });
+    }
+
     window.__pnlReady = true;
     const fail = document.getElementById('pnl-script-fail');
     if (fail) fail.hidden = true;

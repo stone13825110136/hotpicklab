@@ -31,6 +31,10 @@ export type RankResultMeta = {
   letterExactCount: number;
   /** True when we filled beyond exact letter matches */
   letterSoftened: boolean;
+  /** True when Boy/Girl used unisex soft-fill */
+  genderSoftened?: boolean;
+  /** Names with a hard boy/girl tag for the selected gender */
+  genderHardCount?: number;
 };
 
 export type ScoredName = NameEntry & {
@@ -41,6 +45,8 @@ export type ScoredName = NameEntry & {
   breedAffinity?: number;
   /** Name matched the starts-with letter */
   letterMatch?: boolean;
+  /** Hard Boy/Girl match (not unisex soft-fill) */
+  genderMatch?: boolean;
   tarot?: TarotCard;
   reason?: string;
 };

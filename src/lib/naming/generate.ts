@@ -4,6 +4,7 @@ import { pickTarot } from './hash';
 import type { TarotCard } from './types';
 
 const LETTER_SOFT_MIN = 12;
+const GENDER_SOFT_MIN = 18;
 
 function lengthScore(name: string): number {
   const n = name.length;
@@ -48,39 +49,53 @@ function exclusiveVibe(n: NameEntry, vibe: Vibe): boolean {
   return n.vibes.length === 1 && n.vibes[0] === vibe;
 }
 
+/** Hard Boy/Girl tag (not merely unisex neutral). */
+export function hardGenderMatch(n: NameEntry, gender: Gender): boolean {
+  if (gender === 'neutral') return true;
+  return n.gender.includes(gender);
+}
+
+/** Unisex filler: neutral present, opposite gender absent. */
+export function softUnisexMatch(n: NameEntry, gender: Gender): boolean {
+  if (gender === 'neutral') return true;
+  if (n.gender.includes(gender)) return false;
+  const opposite = gender === 'boy' ? 'girl' : 'boy';
+  return n.gender.includes('neutral') && !n.gender.includes(opposite);
+}
+
 /** Customer-facing tags: selected vibe first (single), plus optional fit flags. */
 export function displayTags(n: ScoredName, vibe: Vibe): string[] {
   const primary = n.vibes.includes(vibe) ? vibe : n.vibes[0];
   const out: string[] = [];
   if (primary) out.push(primary);
+  if (n.genderMatch) out.push(n.gender.includes('boy') && !n.gender.includes('girl') ? 'boy' : n.gender.includes('girl') && !n.gender.includes('boy') ? 'girl' : 'unisex');
   if (n.breedFit) out.push('breed fit');
   if (n.letterMatch) out.push('letter match');
-  return out;
+  return out.slice(0, 3);
 }
 
-function scoreEntry(n: NameEntry, vibe: Vibe, filters?: RankFilters, letterMatch = false): ScoredName {
+function scoreEntry(
+  n: NameEntry,
+  vibe: Vibe,
+  gender: Gender,
+  filters?: RankFilters,
+  letterMatch = false,
+): ScoredName {
   const practical = practicalScore(n, vibe);
   const profile = getBreedProfile(filters?.breedId);
   const { score: breedAffinity, fit: breedFit } = breedAffinityScore(n.name, n.vibes, profile);
-  const tags = displayTags(
-    {
-      ...n,
-      practical,
-      breedFit,
-      breedAffinity,
-      letterMatch,
-      tags: [],
-    },
-    vibe,
-  );
-  return {
+  const genderMatch = hardGenderMatch(n, gender);
+  const scored: ScoredName = {
     ...n,
     practical,
     breedFit,
     breedAffinity,
     letterMatch,
-    tags,
+    genderMatch,
+    tags: [],
   };
+  scored.tags = displayTags(scored, vibe);
+  return scored;
 }
 
 function sortScored(a: ScoredName, b: ScoredName, vibe: Vibe): number {
@@ -88,11 +103,15 @@ function sortScored(a: ScoredName, b: ScoredName, vibe: Vibe): number {
   const bL = b.letterMatch ? 1 : 0;
   if (bL !== aL) return bL - aL;
 
+  // Hard gender before unisex soft-fill
+  const aG = a.genderMatch ? 1 : 0;
+  const bG = b.genderMatch ? 1 : 0;
+  if (bG !== aG) return bG - aG;
+
   const aV = a.vibes.includes(vibe) ? 1 : 0;
   const bV = b.vibes.includes(vibe) ? 1 : 0;
   if (bV !== aV) return bV - aV;
 
-  // Exclusive flagship / single-vibe before muddy dual tags
   const aEx = exclusiveVibe(a, vibe) ? 1 : 0;
   const bEx = exclusiveVibe(b, vibe) ? 1 : 0;
   if (bEx !== aEx) return bEx - aEx;
@@ -101,7 +120,6 @@ function sortScored(a: ScoredName, b: ScoredName, vibe: Vibe): number {
   const bF = isFlagship(b) ? 1 : 0;
   if (bF !== aF) return bF - aF;
 
-  // Letter-synth fillers sink (especially Unique trays)
   const aS = isSynth(a) ? 0 : 1;
   const bS = isSynth(b) ? 0 : 1;
   if (bS !== aS) return bS - aS;
@@ -117,7 +135,7 @@ export type RankNamesResult = {
   meta: RankResultMeta;
 };
 
-/** Ranked pool with letter preference + optional soft-fill when too few exact letter hits. */
+/** Ranked pool with strict Boy/Girl + letter preference. */
 export function rankNamesDetailed(
   pool: NameEntry[],
   gender: Gender,
@@ -125,12 +143,22 @@ export function rankNamesDetailed(
   filters: RankFilters = {},
 ): RankNamesResult {
   const letter = filters.letter?.trim() || '';
-  const genderOk = (n: NameEntry) => {
-    if (gender === 'neutral') return true;
-    return n.gender.includes(gender) || n.gender.includes('neutral');
-  };
 
-  const genderPool = pool.filter(genderOk);
+  const hardGender =
+    gender === 'neutral' ? pool : pool.filter((n) => hardGenderMatch(n, gender));
+  const softUnisex =
+    gender === 'neutral'
+      ? []
+      : pool.filter((n) => softUnisexMatch(n, gender));
+
+  let genderPool = hardGender;
+  let genderSoftened = false;
+  if (gender !== 'neutral' && hardGender.length < GENDER_SOFT_MIN) {
+    genderSoftened = true;
+    const hardNames = new Set(hardGender.map((n) => n.name));
+    genderPool = [...hardGender, ...softUnisex.filter((n) => !hardNames.has(n.name))];
+  }
+
   const letterExact = letter
     ? genderPool.filter((n) => matchesLetter(n.name, letter))
     : genderPool;
@@ -140,7 +168,6 @@ export function rankNamesDetailed(
   let working = letterExact;
   let letterSoftened = false;
 
-  // Too few exact letter hits → keep letter matches first, then fill from gender pool
   if (letter && letterExact.length < LETTER_SOFT_MIN) {
     letterSoftened = true;
     const exactNames = new Set(letterExact.map((n) => n.name));
@@ -148,17 +175,25 @@ export function rankNamesDetailed(
   }
 
   const matched = working
-    .map((n) => scoreEntry(n, vibe, filters, letter ? matchesLetter(n.name, letter) : false))
+    .map((n) =>
+      scoreEntry(n, vibe, gender, filters, letter ? matchesLetter(n.name, letter) : false),
+    )
     .sort((a, b) => sortScored(a, b, vibe));
 
   const vibeFirst = matched.filter((n) => n.vibes.includes(vibe));
   const rest = matched.filter((n) => !n.vibes.includes(vibe));
   let ranked = [...vibeFirst, ...rest];
 
-  // Still thin (no letter / tiny gender slice) → append rest of pool
+  // Still thin → carefully widen (still prefer hard gender in sort)
   if (ranked.length < 18) {
-    const wider = pool
-      .map((n) => scoreEntry(n, vibe, filters, letter ? matchesLetter(n.name, letter) : false))
+    const widerPool =
+      gender === 'neutral'
+        ? pool
+        : [...hardGender, ...softUnisex.filter((n) => !hardGender.some((h) => h.name === n.name))];
+    const wider = widerPool
+      .map((n) =>
+        scoreEntry(n, vibe, gender, filters, letter ? matchesLetter(n.name, letter) : false),
+      )
       .sort((a, b) => sortScored(a, b, vibe));
     const names = new Set(ranked.map((p) => p.name));
     for (const w of wider) {
@@ -167,11 +202,17 @@ export function rankNamesDetailed(
       names.add(w.name);
     }
     if (letter && letterExactCount < LETTER_SOFT_MIN) letterSoftened = true;
+    if (gender !== 'neutral' && hardGender.length < GENDER_SOFT_MIN) genderSoftened = true;
   }
 
   return {
     names: ranked,
-    meta: { letterExactCount: letter ? letterExactCount : ranked.length, letterSoftened },
+    meta: {
+      letterExactCount: letter ? letterExactCount : ranked.length,
+      letterSoftened,
+      genderSoftened,
+      genderHardCount: hardGender.length,
+    },
   };
 }
 

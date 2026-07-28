@@ -29,6 +29,9 @@ const {
   compact = false,
 } = Astro.props;
 
+/** Tool page: wait for Generate. SEO embeds: SSR shortlist for crawl + hydrate. */
+const startEmpty = showHero;
+
 const letterNorm = /^[A-Za-z]$/.test(letter) ? letter.toUpperCase() : '';
 const dogBreeds = breedsForSpecies('dog');
 const catBreeds = breedsForSpecies('cat');
@@ -56,7 +59,7 @@ const rankedDetail = rankNamesDetailed(pool, gender, vibe, {
   letter: letterNorm,
   breedId: breedOk,
 });
-const ranked = rankedDetail.names;
+const ranked = startEmpty ? [] : rankedDetail.names;
 const initial = ranked.slice(0, 18);
 const ssrTop = initial.slice(0, 6);
 const ssrMid = initial.slice(6, 14);
@@ -72,6 +75,7 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   data-vibe={vibe}
   data-letter={letterNorm}
   data-breed={breedOk}
+  data-start-empty={startEmpty ? '1' : '0'}
 >
   {
     showHero && (
@@ -83,9 +87,9 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
           <strong>Hot Pick</strong> based on practical score — not a hundred random names.
         </p>
         <p class="pnl-steps">
-          <strong>How to use:</strong> Tap a name to select it → pick 2–5 →
-          <strong>Compare &amp; Hot Pick</strong>. Use <strong>Show more names</strong> for the next
-          scored batch.
+          <strong>How to use:</strong> Set filters → <strong>Generate names</strong> → tap 2–5
+          names → <strong>Compare &amp; Hot Pick</strong>. Use <strong>Show more names</strong> for
+          the next scored batch.
         </p>
       </header>
     )
@@ -175,31 +179,38 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       Generate names
     </button>
   </section>
+  {
+    startEmpty && (
+      <p class="pnl-idle-hint muted">
+        Set your filters, then tap <strong>Generate names</strong> to see scored results.
+      </p>
+    )
+  }
 
   <p id="pnl-script-fail" class="pnl-script-fail" hidden>
     Interactive controls did not load (ad blocker, translate, or slow network). Names below still
     work as a list — disable blockers, turn off page translate, then hard-refresh (Ctrl+F5).
   </p>
 
-  <section id="pnl-output" class="pnl-output">
+  <section id="pnl-output" class="pnl-output" hidden={startEmpty}>
     <p class="pnl-how">
       <strong>Tap a name card to select it</strong> (2–5 names). Then hit
       <strong>Compare &amp; Hot Pick</strong> below. Need more ideas?
       <strong>Show more names</strong> loads the next batch by score — not a random shuffle.
     </p>
     <p class="pnl-score-hint muted">
-      Score /100 = how easy to call + popularity + vibe fit. Each vibe leads with different
-      flagship names (Cute soft, Strong bold, Unique rare, Classic familiar). Starts-with prefers
-      that letter; breed is a soft preference only (does not change Hot Pick).
+      Score /100 = how easy to call + popularity + vibe fit. Boy / Girl prefer names tagged for
+      that gender (unisex only fills if too few). Each vibe leads with different flagship names.
+      Starts-with prefers that letter; breed is a soft preference only (does not change Hot Pick).
     </p>
 
     <p
       id="pnl-letter-note"
       class="pnl-letter-note"
-      hidden={!rankedDetail.meta.letterSoftened}
+      hidden={startEmpty || !rankedDetail.meta.letterSoftened}
     >
       {
-        rankedDetail.meta.letterSoftened
+        !startEmpty && rankedDetail.meta.letterSoftened
           ? `Only ${rankedDetail.meta.letterExactCount} name${rankedDetail.meta.letterExactCount === 1 ? '' : 's'} start with ${letterNorm || 'that letter'} in this filter set — those stay on top; more names are filled below.`
           : ''
       }
@@ -267,8 +278,12 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       <button type="button" class="btn pnl-btn pnl-btn-more" id="pnl-more" hidden={ranked.length <= 18}>
         Show more names →
       </button>
-      <p id="pnl-batch-meta" class="pnl-batch-meta muted">
-        Showing 1–{initial.length} of {ranked.length} (highest scores first)
+      <p id="pnl-batch-meta" class="pnl-batch-meta muted" hidden={startEmpty || ranked.length === 0}>
+        {
+          startEmpty || ranked.length === 0
+            ? ''
+            : `Showing 1–${initial.length} of ${ranked.length} (highest scores first)`
+        }
       </p>
     </div>
 
@@ -487,6 +502,28 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     border: 1px solid var(--pnl-border);
     border-radius: var(--pnl-radius);
     margin-bottom: 1.25rem;
+  }
+
+  .pnl-idle-hint {
+    margin: -0.5rem 0 1.1rem;
+    font-size: 0.92rem;
+  }
+
+  .pnl-output.pnl-output-flash {
+    animation: pnl-flash 0.65s ease;
+    border-radius: var(--pnl-radius);
+  }
+
+  @keyframes pnl-flash {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.55);
+    }
+    40% {
+      box-shadow: 0 0 0 6px rgba(255, 107, 53, 0.22);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 107, 53, 0);
+    }
   }
 
   .pnl-controls label {
@@ -711,11 +748,19 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   }
 
   .pnl-fun-details summary::before {
-    content: '▸ ';
+    content: '▸';
+    display: inline-block;
+    margin-right: 0.35rem;
+    color: var(--pnl-accent);
+    font-weight: 800;
+    font-size: 1.05em;
+    line-height: 1;
+    vertical-align: -0.05em;
   }
 
   .pnl-fun-details[open] summary::before {
-    content: '▾ ';
+    content: '▾';
+    color: var(--pnl-accent);
   }
 
   .pnl-tarot-vibe {

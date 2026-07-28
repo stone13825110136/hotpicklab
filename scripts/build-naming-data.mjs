@@ -205,12 +205,12 @@ function applyFlagships(entries, species) {
       const name = cleanName(raw);
       if (!name) continue;
       const key = name.toLowerCase();
-      const gender =
-        FLAGSHIP_GENDER[name] || genderHeuristic(name, ['neutral']);
+      // Strict gender — overwrite, do not merge with muddy heuristics
+      const gender = FLAGSHIP_GENDER[name] || ['neutral'];
       const existing = byName.get(key);
       if (existing) {
         existing.vibes = [vibe];
-        existing.gender = [...new Set([...(existing.gender || []), ...gender])];
+        existing.gender = [...gender];
         existing.sources = [
           ...new Set([
             ...(existing.sources || []).filter((s) => s !== 'pool-synthesize'),
@@ -223,7 +223,7 @@ function applyFlagships(entries, species) {
       } else {
         byName.set(key, {
           name,
-          gender,
+          gender: [...gender],
           vibes: [vibe],
           popularity: popFor[vibe] ?? 60,
           sources: ['style-flagship', 'style-bank'],
@@ -524,6 +524,8 @@ function padToTarget(entries, species) {
 function ensureGenderLetterSpread(entries) {
   const byLetter = new Map();
   for (const e of entries) {
+    // Never muddy exclusive flagship genders
+    if ((e.sources || []).includes('style-flagship')) continue;
     const L = e.name[0].toUpperCase();
     if (!byLetter.has(L)) byLetter.set(L, []);
     byLetter.get(L).push(e);
@@ -720,10 +722,11 @@ function buildDogEntries() {
   entries = padToTarget(entries, 'dog');
   entries = ensureLetterCoverage(entries, 'dog');
   entries = applyStyleBanks(entries, 'dog');
-  entries = applyFlagships(entries, 'dog');
   entries = sharpenVibes(entries);
   entries = ensureGenderLetterSpread(entries);
   entries = ensureVibeGenderSpread(entries);
+  // Flagships last so strict genders/vibes win
+  entries = applyFlagships(entries, 'dog');
   // Cap slightly over target after letter fill, keep highest popularity first
   entries.sort((a, b) => b.popularity - a.popularity || a.name.localeCompare(b.name));
   if (entries.length > TARGET + 80) {
@@ -810,10 +813,10 @@ function buildCatEntries() {
   entries = padToTarget(entries, 'cat');
   entries = ensureLetterCoverage(entries, 'cat');
   entries = applyStyleBanks(entries, 'cat');
-  entries = applyFlagships(entries, 'cat');
   entries = sharpenVibes(entries);
   entries = ensureGenderLetterSpread(entries);
   entries = ensureVibeGenderSpread(entries);
+  entries = applyFlagships(entries, 'cat');
   entries.sort((a, b) => b.popularity - a.popularity || a.name.localeCompare(b.name));
 
   if (entries.length > TARGET + 80) {

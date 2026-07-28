@@ -182,7 +182,6 @@
   {
     "name": "Alice",
     "gender": [
-      "neutral",
       "girl"
     ],
     "vibes": [
@@ -198,7 +197,7 @@
   {
     "name": "Anna",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -212,8 +211,7 @@
   {
     "name": "Annie",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -228,7 +226,6 @@
   {
     "name": "Arthur",
     "gender": [
-      "neutral",
       "boy"
     ],
     "vibes": [
@@ -244,8 +241,6 @@
   {
     "name": "Bailey",
     "gender": [
-      "boy",
-      "girl",
       "neutral"
     ],
     "vibes": [
@@ -261,8 +256,7 @@
   {
     "name": "Bella",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -277,7 +271,7 @@
   {
     "name": "Benjamin",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -305,8 +299,7 @@
   {
     "name": "Buddy",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -321,8 +314,6 @@
   {
     "name": "Charlie",
     "gender": [
-      "boy",
-      "girl",
       "neutral"
     ],
     "vibes": [
@@ -338,8 +329,7 @@
   {
     "name": "Chloe",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -354,7 +344,7 @@
   {
     "name": "Claire",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -368,8 +358,7 @@
   {
     "name": "Cooper",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -384,7 +373,7 @@
   {
     "name": "Daniel",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -398,7 +387,6 @@
   {
     "name": "Emily",
     "gender": [
-      "neutral",
       "girl"
     ],
     "vibes": [
@@ -414,8 +402,7 @@
   {
     "name": "Emma",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -430,8 +417,7 @@
   {
     "name": "Felix",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -446,8 +432,7 @@
   {
     "name": "George",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -462,8 +447,7 @@
   {
     "name": "Grace",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -478,8 +462,7 @@
   {
     "name": "Henry",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -494,8 +477,7 @@
   {
     "name": "Jack",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -510,7 +492,6 @@
   {
     "name": "James",
     "gender": [
-      "neutral",
       "boy"
     ],
     "vibes": [
@@ -526,7 +507,7 @@
   {
     "name": "Jane",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -540,7 +521,6 @@
   {
     "name": "Kate",
     "gender": [
-      "neutral",
       "girl"
     ],
     "vibes": [
@@ -556,8 +536,7 @@
   {
     "name": "Leo",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -572,8 +551,7 @@
   {
     "name": "Lola",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -588,8 +566,7 @@
   {
     "name": "Lucy",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -604,8 +581,7 @@
   {
     "name": "Maggie",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -620,7 +596,7 @@
   {
     "name": "Mary",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -634,8 +610,7 @@
   {
     "name": "Max",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -650,8 +625,7 @@
   {
     "name": "Milo",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -666,8 +640,7 @@
   {
     "name": "Molly",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -682,8 +655,7 @@
   {
     "name": "Oliver",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -698,8 +670,7 @@
   {
     "name": "Oscar",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -714,8 +685,7 @@
   {
     "name": "Penny",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -730,8 +700,6 @@
   {
     "name": "Riley",
     "gender": [
-      "boy",
-      "girl",
       "neutral"
     ],
     "vibes": [
@@ -747,8 +715,7 @@
   {
     "name": "Ruby",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -763,8 +730,7 @@
   {
     "name": "Sadie",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -779,7 +745,6 @@
   {
     "name": "Sam",
     "gender": [
-      "boy",
       "neutral"
     ],
     "vibes": [
@@ -795,7 +760,7 @@
   {
     "name": "Samuel",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -809,7 +774,7 @@
   {
     "name": "Sarah",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -823,8 +788,7 @@
   {
     "name": "Sophie",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -839,8 +803,7 @@
   {
     "name": "Stella",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -855,7 +818,7 @@
   {
     "name": "Thomas",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -869,8 +832,7 @@
   {
     "name": "Toby",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -885,7 +847,7 @@
   {
     "name": "William",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -899,8 +861,7 @@
   {
     "name": "Winston",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "classic"
@@ -915,8 +876,7 @@
   {
     "name": "Zoe",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "classic"
@@ -3651,8 +3611,7 @@
   {
     "name": "Atlas",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -3667,8 +3626,7 @@
   {
     "name": "Bandit",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -3683,8 +3641,7 @@
   {
     "name": "Bear",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -3726,8 +3683,7 @@
   {
     "name": "Blade",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -3741,8 +3697,7 @@
   {
     "name": "Blaze",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -3757,8 +3712,7 @@
   {
     "name": "Bolt",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -3773,8 +3727,7 @@
   {
     "name": "Brutus",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -3803,8 +3756,7 @@
   {
     "name": "Chief",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -3832,8 +3784,7 @@
   {
     "name": "Diesel",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -3848,8 +3799,7 @@
   {
     "name": "Draco",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -3863,7 +3813,6 @@
   {
     "name": "Drake",
     "gender": [
-      "neutral",
       "boy"
     ],
     "vibes": [
@@ -3999,7 +3948,7 @@
   {
     "name": "Fang",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4069,8 +4018,7 @@
   {
     "name": "Gunner",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4098,8 +4046,7 @@
   {
     "name": "Hawk",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4114,8 +4061,7 @@
   {
     "name": "Hercules",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4129,8 +4075,7 @@
   {
     "name": "Hulk",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4158,8 +4103,7 @@
   {
     "name": "Jax",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4174,8 +4118,7 @@
   {
     "name": "Mace",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4189,8 +4132,7 @@
   {
     "name": "Major",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4231,8 +4173,7 @@
   {
     "name": "Ragnar",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4246,8 +4187,7 @@
   {
     "name": "Rex",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4276,7 +4216,6 @@
   {
     "name": "Sarge",
     "gender": [
-      "neutral",
       "boy"
     ],
     "vibes": [
@@ -4320,8 +4259,7 @@
   {
     "name": "Spike",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4350,7 +4288,6 @@
   {
     "name": "Storm",
     "gender": [
-      "boy",
       "neutral"
     ],
     "vibes": [
@@ -4366,8 +4303,7 @@
   {
     "name": "Tank",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4382,8 +4318,7 @@
   {
     "name": "Thor",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4413,8 +4348,7 @@
   {
     "name": "Titan",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4442,8 +4376,7 @@
   {
     "name": "Tyson",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4487,8 +4420,7 @@
   {
     "name": "Wolf",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4503,8 +4435,7 @@
   {
     "name": "Zeus",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "strong"
@@ -4676,7 +4607,7 @@
   {
     "name": "Bao",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "cute"
@@ -4705,7 +4636,7 @@
   {
     "name": "Biscuit",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "cute"
@@ -4720,7 +4651,7 @@
   {
     "name": "Bitty",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "cute"
@@ -4734,7 +4665,7 @@
   {
     "name": "Bubbles",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "cute"
@@ -4749,7 +4680,7 @@
   {
     "name": "Cashew",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "cute"
@@ -4777,7 +4708,7 @@
   {
     "name": "Churro",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "cute"
@@ -4791,8 +4722,7 @@
   {
     "name": "Cookie",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "cute"
@@ -4807,7 +4737,7 @@
   {
     "name": "Cricket",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "cute"
@@ -4822,7 +4752,7 @@
   {
     "name": "Cupcake",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "cute"
@@ -4837,7 +4767,7 @@
   {
     "name": "Donut",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "cute"
@@ -4852,7 +4782,7 @@
   {
     "name": "Duckie",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "cute"
@@ -5013,8 +4943,7 @@
   {
     "name": "Honey",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "cute"
@@ -5072,7 +5001,7 @@
   {
     "name": "Loaf",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "cute"
@@ -5100,7 +5029,7 @@
   {
     "name": "Mittens",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "cute"
@@ -5114,7 +5043,6 @@
   {
     "name": "Mocha",
     "gender": [
-      "girl",
       "neutral"
     ],
     "vibes": [
@@ -5145,7 +5073,7 @@
   {
     "name": "Muffin",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "cute"
@@ -5174,7 +5102,7 @@
   {
     "name": "Nugget",
     "gender": [
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "cute"
@@ -5189,8 +5117,7 @@
   {
     "name": "Oreo",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "cute"
@@ -5205,7 +5132,6 @@
   {
     "name": "Peaches",
     "gender": [
-      "neutral",
       "girl"
     ],
     "vibes": [
@@ -5221,9 +5147,7 @@
   {
     "name": "Peanut",
     "gender": [
-      "boy",
-      "girl",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "cute"
@@ -5297,7 +5221,7 @@
   {
     "name": "Pudding",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "cute"
@@ -5342,7 +5266,7 @@
   {
     "name": "Sprinkles",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "cute"
@@ -5356,7 +5280,7 @@
   {
     "name": "Taffy",
     "gender": [
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "cute"
@@ -7169,8 +7093,7 @@
   {
     "name": "Andromeda",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "unique"
@@ -7184,8 +7107,7 @@
   {
     "name": "Artemis",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "unique"
@@ -7199,8 +7121,7 @@
   {
     "name": "Atticus",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "unique"
@@ -7244,8 +7165,7 @@
   {
     "name": "Byron",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "unique"
@@ -7288,8 +7208,7 @@
   {
     "name": "Cordelia",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "unique"
@@ -7303,8 +7222,7 @@
   {
     "name": "Cosmo",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "unique"
@@ -7362,8 +7280,7 @@
   {
     "name": "Elowen",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "unique"
@@ -7392,8 +7309,7 @@
   {
     "name": "Freya",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "unique"
@@ -7408,7 +7324,6 @@
   {
     "name": "Gatsby",
     "gender": [
-      "neutral",
       "boy"
     ],
     "vibes": [
@@ -7439,8 +7354,7 @@
   {
     "name": "Hendrix",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "unique"
@@ -7537,7 +7451,6 @@
   {
     "name": "Juniper",
     "gender": [
-      "neutral",
       "girl"
     ],
     "vibes": [
@@ -7651,8 +7564,7 @@
   {
     "name": "Loki",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "unique"
@@ -7695,8 +7607,7 @@
   {
     "name": "Merlin",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "unique"
@@ -7724,8 +7635,7 @@
   {
     "name": "Morgana",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "unique"
@@ -7739,7 +7649,6 @@
   {
     "name": "Nyx",
     "gender": [
-      "neutral",
       "girl"
     ],
     "vibes": [
@@ -7755,8 +7664,7 @@
   {
     "name": "Oberon",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "unique"
@@ -7785,8 +7693,7 @@
   {
     "name": "Ophelia",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "unique"
@@ -7800,8 +7707,7 @@
   {
     "name": "Orion",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "unique"
@@ -7829,7 +7735,6 @@
   {
     "name": "Pixel",
     "gender": [
-      "boy",
       "neutral"
     ],
     "vibes": [
@@ -7889,7 +7794,6 @@
   {
     "name": "Quorra",
     "gender": [
-      "neutral",
       "girl"
     ],
     "vibes": [
@@ -7920,7 +7824,6 @@
   {
     "name": "Saffron",
     "gender": [
-      "neutral",
       "girl"
     ],
     "vibes": [
@@ -7935,8 +7838,7 @@
   {
     "name": "Sirius",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "unique"
@@ -7950,8 +7852,7 @@
   {
     "name": "Sonnet",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "unique"
@@ -7965,8 +7866,7 @@
   {
     "name": "Soren",
     "gender": [
-      "boy",
-      "neutral"
+      "boy"
     ],
     "vibes": [
       "unique"
@@ -7994,8 +7894,7 @@
   {
     "name": "Titania",
     "gender": [
-      "girl",
-      "neutral"
+      "girl"
     ],
     "vibes": [
       "unique"
@@ -8081,7 +7980,6 @@
   {
     "name": "Xyla",
     "gender": [
-      "neutral",
       "girl"
     ],
     "vibes": [
@@ -8141,7 +8039,6 @@
   {
     "name": "Ziggy",
     "gender": [
-      "boy",
       "neutral"
     ],
     "vibes": [
