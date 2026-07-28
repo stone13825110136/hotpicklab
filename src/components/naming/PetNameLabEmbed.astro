@@ -681,94 +681,99 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     color: var(--pnl-muted);
   }
 
-  .pnl-cards {
+  /* Compare result cards are JS-injected — must be :global or styles never apply */
+  :global(.pnl-cards) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 0.75rem;
   }
 
-  .pnl-card {
+  :global(.pnl-card) {
     padding: 0.9rem 1rem;
     border-radius: var(--pnl-radius);
     border: 1px solid var(--pnl-border);
     background: var(--pnl-surface);
   }
 
-  .pnl-card.is-hot {
-    border-color: var(--pnl-accent);
+  :global(.pnl-card.is-hot) {
+    border-color: #ff6b35;
   }
 
-  .pnl-card h3 {
+  :global(.pnl-card h3) {
     margin: 0;
     color: var(--pnl-text);
   }
 
-  .pnl-score {
+  :global(.pnl-score) {
     margin: 0.2rem 0 0.5rem;
     color: var(--pnl-muted);
     font-size: 0.85rem;
   }
 
-  .pnl-fun-wrap {
+  :global(.pnl-fun-wrap) {
     margin-top: 0.35rem;
   }
 
-  .pnl-fun-teaser {
+  :global(.pnl-fun-teaser) {
     margin: 0 0 0.25rem;
     font-size: 0.88rem;
     color: var(--pnl-text);
   }
 
-  .pnl-fun-label {
+  :global(.pnl-fun-label) {
     display: inline-block;
     margin-right: 0.35rem;
     padding: 0.1rem 0.4rem;
     border-radius: 999px;
     background: rgba(34, 211, 238, 0.15);
-    color: var(--pnl-accent-2);
+    color: #22d3ee;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
   }
 
-  .pnl-fun-details {
+  :global(.pnl-fun-details) {
     margin-top: 0.15rem;
     font-size: 0.85rem;
   }
 
-  .pnl-fun-details summary {
-    color: var(--pnl-accent-2);
+  :global(.pnl-fun-details summary) {
+    color: #22d3ee;
     cursor: pointer;
     list-style: none;
   }
 
-  .pnl-fun-details summary::-webkit-details-marker {
+  :global(.pnl-fun-details summary::-webkit-details-marker),
+  :global(.pnl-fun-details summary::marker) {
     display: none;
+    content: '';
+    font-size: 0;
+    color: transparent;
   }
 
-  .pnl-fun-details summary::before {
+  :global(.pnl-fun-details summary::before) {
     content: '▸';
     display: inline-block;
-    margin-right: 0.35rem;
-    color: var(--pnl-accent);
-    font-weight: 800;
-    font-size: 1.05em;
+    margin-right: 0.4rem;
+    color: #ff6b35 !important;
+    font-weight: 900;
+    font-size: 1.2em;
     line-height: 1;
     vertical-align: -0.05em;
   }
 
-  .pnl-fun-details[open] summary::before {
+  :global(.pnl-fun-details[open] summary::before) {
     content: '▾';
-    color: var(--pnl-accent);
+    color: #ff6b35 !important;
   }
 
-  .pnl-tarot-vibe {
+  :global(.pnl-tarot-vibe) {
     margin: 0;
     color: var(--pnl-muted);
   }
 
-  .pnl-fun {
+  :global(.pnl-fun) {
     margin: 0.45rem 0 0;
     font-size: 0.75rem;
     color: var(--pnl-muted);
