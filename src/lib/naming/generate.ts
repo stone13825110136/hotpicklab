@@ -180,9 +180,19 @@ export function rankNamesDetailed(
     )
     .sort((a, b) => sortScored(a, b, vibe));
 
-  const vibeFirst = matched.filter((n) => n.vibes.includes(vibe));
-  const rest = matched.filter((n) => !n.vibes.includes(vibe));
-  let ranked = [...vibeFirst, ...rest];
+  // Preserve Starts-with priority: never let vibe-first wipe letter matches.
+  const byVibe = (arr: ScoredName[]) => [
+    ...arr.filter((n) => n.vibes.includes(vibe)),
+    ...arr.filter((n) => !n.vibes.includes(vibe)),
+  ];
+  let ranked: ScoredName[];
+  if (letter) {
+    const letterHits = matched.filter((n) => n.letterMatch);
+    const letterMiss = matched.filter((n) => !n.letterMatch);
+    ranked = [...byVibe(letterHits), ...byVibe(letterMiss)];
+  } else {
+    ranked = byVibe(matched);
+  }
 
   // Still thin → carefully widen (still prefer hard gender in sort)
   if (ranked.length < 18) {

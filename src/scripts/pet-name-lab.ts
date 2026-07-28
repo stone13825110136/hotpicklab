@@ -76,16 +76,15 @@ let candidates: ScoredName[] = [];
 /** Selections persist across batches so Compare still works. */
 const selected = new Map<string, ScoredName>();
 
-/** Always put highest scores in visible trays — never hide the whole shortlist in a closed fold. */
+/** Keep rank order from generate() — do NOT re-sort by score (that breaks Starts-with). */
 export function splitTrays(list: ScoredName[]) {
-  const sorted = [...list].sort((a, b) => b.practical - a.practical || a.name.localeCompare(b.name));
-  if (!sorted.length) return { top: [] as ScoredName[], mid: [] as ScoredName[], low: [] as ScoredName[] };
+  if (!list.length) return { top: [] as ScoredName[], mid: [] as ScoredName[], low: [] as ScoredName[] };
 
-  const topCount = Math.min(6, sorted.length);
-  const midCount = Math.min(8, Math.max(0, sorted.length - topCount));
-  const top = sorted.slice(0, topCount);
-  const mid = sorted.slice(topCount, topCount + midCount);
-  const low = sorted.slice(topCount + midCount);
+  const topCount = Math.min(6, list.length);
+  const midCount = Math.min(8, Math.max(0, list.length - topCount));
+  const top = list.slice(0, topCount);
+  const mid = list.slice(topCount, topCount + midCount);
+  const low = list.slice(topCount + midCount);
   return { top, mid, low };
 }
 
@@ -228,7 +227,7 @@ function renderLetterNote(letter: string, exactCount: number, softened: boolean)
     return;
   }
   note.hidden = false;
-  note.textContent = `Only ${exactCount} name${exactCount === 1 ? '' : 's'} start with ${letter} in this filter set — those stay on top; more names are filled below.`;
+  note.textContent = `${exactCount} name${exactCount === 1 ? '' : 's'} start with ${letter} for these filters — shown first. Extra names below are fill-ins because that letter set is thin.`;
 }
 
 function generate(opts: { scroll?: boolean; flash?: boolean } = {}) {

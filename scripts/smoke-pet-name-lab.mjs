@@ -126,17 +126,25 @@ function rankNames(pool, gender, vibe, filters = {}) {
     });
   const vibeFirst = matched.filter((n) => n.vibes.includes(vibe));
   const rest = matched.filter((n) => !n.vibes.includes(vibe));
+  if (letter) {
+    const letterHits = matched.filter((n) => n.letterMatch);
+    const letterMiss = matched.filter((n) => !n.letterMatch);
+    const byVibe = (arr) => [
+      ...arr.filter((n) => n.vibes.includes(vibe)),
+      ...arr.filter((n) => !n.vibes.includes(vibe)),
+    ];
+    return [...byVibe(letterHits), ...byVibe(letterMiss)];
+  }
   return [...vibeFirst, ...rest];
 }
 function splitTrays(list) {
-  const sorted = [...list].sort((a, b) => b.practical - a.practical || a.name.localeCompare(b.name));
-  if (!sorted.length) return { top: [], mid: [], low: [] };
-  const topCount = Math.min(6, sorted.length);
-  const midCount = Math.min(8, Math.max(0, sorted.length - topCount));
+  if (!list.length) return { top: [], mid: [], low: [] };
+  const topCount = Math.min(6, list.length);
+  const midCount = Math.min(8, Math.max(0, list.length - topCount));
   return {
-    top: sorted.slice(0, topCount),
-    mid: sorted.slice(topCount, topCount + midCount),
-    low: sorted.slice(topCount + midCount),
+    top: list.slice(0, topCount),
+    mid: list.slice(topCount, topCount + midCount),
+    low: list.slice(topCount + midCount),
   };
 }
 
@@ -261,6 +269,32 @@ for (const [species, pool] of [
     } else {
       console.log('OK vibe quality', { vibe, flag, exclusive, sample: top.slice(0, 6).map((n) => n.name) });
     }
+  }
+}
+
+// Letter soft-fill: exact letter matches must lead the first batch / top tray
+{
+  const ranked = rankNames(dogNames, 'boy', 'classic', { letter: 'F' });
+  const exactAll = ranked.filter((n) => n.name[0].toUpperCase() === 'F');
+  const page0 = ranked.slice(0, 18);
+  const trays = splitTrays(page0);
+  const lead = ranked.slice(0, Math.max(exactAll.length, 1));
+  const leadBad = lead.filter((n) => n.name[0].toUpperCase() !== 'F').length;
+  const topExact = trays.top.filter((n) => n.name[0].toUpperCase() === 'F').length;
+  if (exactAll.length < 1 || leadBad > 0 || topExact < Math.min(6, exactAll.length)) {
+    failed++;
+    console.error('FAIL letter F order', {
+      exact: exactAll.length,
+      leadBad,
+      topExact,
+      topSample: trays.top.map((n) => n.name),
+    });
+  } else {
+    console.log('OK letter F order', {
+      exact: exactAll.length,
+      topExact,
+      topSample: trays.top.map((n) => n.name),
+    });
   }
 }
 

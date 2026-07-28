@@ -430,6 +430,50 @@
     ]
   },
   {
+    "name": "Frank",
+    "gender": [
+      "boy"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "style-flagship",
+      "style-bank"
+    ]
+  },
+  {
+    "name": "Frankie",
+    "gender": [
+      "neutral"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "dog-names",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
+    "name": "Fred",
+    "gender": [
+      "boy"
+    ],
+    "vibes": [
+      "classic"
+    ],
+    "popularity": 88,
+    "sources": [
+      "pool-supplement",
+      "style-bank",
+      "style-flagship"
+    ]
+  },
+  {
     "name": "George",
     "gender": [
       "boy"
@@ -2500,37 +2544,6 @@
     "popularity": 70,
     "sources": [
       "pool-supplement"
-    ]
-  },
-  {
-    "name": "Frankie",
-    "gender": [
-      "boy",
-      "neutral",
-      "girl"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "dog-names",
-      "style-bank"
-    ]
-  },
-  {
-    "name": "Fred",
-    "gender": [
-      "neutral",
-      "boy"
-    ],
-    "vibes": [
-      "classic"
-    ],
-    "popularity": 70,
-    "sources": [
-      "pool-supplement",
-      "style-bank"
     ]
   },
   {

@@ -32,8 +32,9 @@ export const STYLE_FLAGSHIPS = {
     'Buddy', 'Jack', 'Toby', 'Maggie', 'Sophie', 'Chloe', 'Milo', 'Leo',
     'Oscar', 'Felix', 'Ruby', 'Stella', 'Sadie', 'Lola', 'Penny', 'Zoe',
     'George', 'Henry', 'Arthur', 'Winston', 'Grace', 'Alice', 'Annie', 'Emma',
-    'Samuel', 'Benjamin', 'Daniel', 'Thomas', 'William', 'James', 'Mary', 'Jane',
-    'Kate', 'Claire', 'Emily', 'Sarah', 'Anna', 'Sam', 'Alex', 'Riley',
+  'Samuel', 'Benjamin', 'Daniel', 'Thomas', 'William', 'James', 'Mary', 'Jane',
+  'Kate', 'Claire', 'Emily', 'Sarah', 'Anna', 'Sam', 'Alex', 'Riley',
+  'Frank', 'Fred', 'Frankie',
   ],
 };
 
@@ -243,4 +244,7 @@ export const FLAGSHIP_GENDER = {
   Sam: ['neutral'],
   Alex: ['neutral'],
   Riley: ['neutral'],
+  Frank: ['boy'],
+  Fred: ['boy'],
+  Frankie: ['neutral'],
 };
