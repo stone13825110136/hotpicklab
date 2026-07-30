@@ -68,6 +68,8 @@ assert(card.includes('noindex'), 'name card stays noindex');
 const css = findCss();
 assert(css.includes('f3faf8') || css.includes('#f3faf8'), 'Lab light mint shell color in CSS');
 assert(!/#0b1020/.test(css) || !css.includes('--pnl-bg:#0b1020'), 'Lab not using old navy --pnl-bg');
+assert(/max-width:\s*42rem/.test(css) || css.includes('42rem'), 'Lab tool card has max-width 42rem (not full-bleed sparse)');
+assert(css.includes('appearance:none') || css.includes('appearance: none'), 'custom select styling (no raw native look)');
 // Tool layout light — check ToolLayout source (CSS may be hashed/minified)
 const toolLayout = readFileSync(join(root, 'src/layouts/ToolLayout.astro'), 'utf8');
 assert(toolLayout.includes('--bg: #f6f7f9'), 'ToolLayout uses light page background');

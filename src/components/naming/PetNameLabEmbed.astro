@@ -374,19 +374,21 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     --pnl-border: #c5d8d3;
     --pnl-radius: 16px;
 
+    /* Tool page: centered card. SEO compact embed overrides to full width. */
     width: 100%;
-    max-width: none;
-    margin: 0;
+    max-width: 42rem;
+    margin-inline: auto;
     color: var(--pnl-text);
     background: var(--pnl-bg);
     border: 1px solid var(--pnl-border);
     border-radius: calc(var(--pnl-radius) + 2px);
-    padding: 1.35rem 1.15rem 1.6rem;
+    padding: 1.5rem 1.25rem 1.75rem;
     box-shadow: 0 10px 28px rgba(13, 110, 98, 0.06);
   }
 
   .pnl-compact {
-    margin-top: 0;
+    max-width: none;
+    margin-inline: 0;
   }
 
   .pnl a {
@@ -400,7 +402,7 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   .pnl-btn,
   .pnl .btn {
     display: inline-block;
-    padding: 0.7rem 1.15rem;
+    padding: 0.75rem 1.15rem;
     border-radius: 10px;
     border: none;
     background: var(--pnl-accent);
@@ -418,12 +420,14 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   }
 
   .pnl-generate-row {
-    margin: -0.35rem 0 1.15rem;
+    margin: 0 0 1.15rem;
   }
 
   .pnl-generate-row .pnl-btn {
+    display: block;
     width: 100%;
-    max-width: 20rem;
+    max-width: none;
+    text-align: center;
     box-shadow: 0 10px 24px rgba(255, 107, 53, 0.22);
   }
 
@@ -501,8 +505,8 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   }
 
   .pnl-hero {
-    text-align: center;
-    margin-bottom: 1.5rem;
+    text-align: left;
+    margin-bottom: 1.35rem;
   }
 
   .pnl-hero-embed {
@@ -511,29 +515,32 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   .pnl-kicker {
     color: var(--pnl-accent-2);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     margin: 0 0 0.4rem;
   }
 
   .pnl-hero h1,
   .pnl-embed-title {
-    margin: 0 0 0.5rem;
-    font-size: clamp(1.35rem, 3.5vw, 1.85rem);
+    margin: 0 0 0.55rem;
+    font-family: 'Space Grotesk', var(--font-display, system-ui), sans-serif;
+    font-size: clamp(1.45rem, 3.5vw, 1.95rem);
+    letter-spacing: -0.02em;
     color: var(--pnl-text);
   }
 
   .pnl-lede {
-    margin: 0 auto;
+    margin: 0;
     max-width: 36rem;
     color: var(--pnl-muted);
+    font-size: 0.98rem;
   }
 
   .pnl-controls {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: 1fr;
     gap: 0.75rem;
     align-items: end;
     padding: 1rem;
@@ -543,8 +550,20 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     margin-bottom: 0.85rem;
   }
 
+  @media (min-width: 520px) {
+    .pnl-controls {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 720px) {
+    .pnl-controls {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
   .pnl-idle-hint {
-    margin: -0.5rem 0 1.1rem;
+    margin: -0.35rem 0 1.1rem;
     font-size: 0.92rem;
   }
 
@@ -568,17 +587,33 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   .pnl-controls label {
     display: grid;
     gap: 0.35rem;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 600;
     color: var(--pnl-muted);
+    min-width: 0;
   }
 
   .pnl-controls select {
-    padding: 0.55rem 0.6rem;
-    border-radius: 8px;
+    width: 100%;
+    min-width: 0;
+    min-height: 2.55rem;
+    padding: 0.55rem 2rem 0.55rem 0.7rem;
+    border-radius: 10px;
     border: 1px solid var(--pnl-border);
-    background: var(--pnl-input);
+    background-color: var(--pnl-input);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234a5568' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
     color: var(--pnl-text);
     font: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  .pnl-controls select:focus {
+    outline: 2px solid rgba(13, 110, 98, 0.35);
+    outline-offset: 1px;
+    border-color: var(--pnl-accent-2);
   }
 
   .pnl-letter-note {
