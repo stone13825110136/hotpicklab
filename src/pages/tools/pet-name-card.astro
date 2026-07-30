@@ -59,13 +59,19 @@ const payload = {
     <script id="pnc-data" type="application/json" set:html={JSON.stringify(payload)} />
     <p class="pnc-badge">LOCAL TEST · free · photo stays on your device · noindex</p>
     <h1 class="pnc-h1">Make a name card</h1>
-    <p class="pnc-lead">
-      Pick the name you chose → optionally add a pet photo → download a Stories-ready card. Nothing is
-      uploaded. No payment.
+    <p class="pnc-lead" id="pnc-lead">
+      Optionally add a pet photo, then download a Stories-ready card. Nothing is uploaded. No payment.
     </p>
 
-    <section class="pnc-panel">
-      <h2 class="pnc-h2">1. Pick a name</h2>
+    <section class="pnc-panel" id="pnc-locked" hidden>
+      <h2 class="pnc-h2">Your pick</h2>
+      <p class="pnc-locked-name" id="pnc-locked-name">—</p>
+      <p class="pnc-note">Brought from Pet Name Lab — no need to pick again.</p>
+      <button type="button" class="pnc-btn-ghost" id="pnc-change-name">Change name</button>
+    </section>
+
+    <section class="pnc-panel" id="pnc-picker">
+      <h2 class="pnc-h2" id="pnc-pick-title">1. Pick a name</h2>
       <div class="pnc-row">
         <label class="pnc-field">
           <span>Species</span>
@@ -95,14 +101,14 @@ const payload = {
     </section>
 
     <section class="pnc-panel">
-      <h2 class="pnc-h2">2. Photo (optional)</h2>
+      <h2 class="pnc-h2" id="pnc-photo-title">2. Photo (optional)</h2>
       <p class="pnc-note">Stays in this browser only. Clear anytime.</p>
       <input id="pnc-photo" type="file" accept="image/*" />
       <button type="button" class="pnc-btn-ghost" id="pnc-clear-photo" hidden>Remove photo</button>
     </section>
 
     <section class="pnc-panel">
-      <h2 class="pnc-h2">3. Preview &amp; download</h2>
+      <h2 class="pnc-h2" id="pnc-preview-title">3. Preview &amp; download</h2>
       <div class="pnc-preview-wrap">
         <canvas id="pnc-canvas" width="1080" height="1350" aria-label="Name identity card preview"></canvas>
       </div>
@@ -229,6 +235,36 @@ const payload = {
       downloadCanvasPng(canvas, `hotpicklab-${safe}-name-card.png`);
     });
 
+    const lockedEl = document.getElementById('pnc-locked')!;
+    const pickerEl = document.getElementById('pnc-picker')!;
+    const lockedNameEl = document.getElementById('pnc-locked-name')!;
+    const changeNameBtn = document.getElementById('pnc-change-name')!;
+    const photoTitle = document.getElementById('pnc-photo-title')!;
+    const previewTitle = document.getElementById('pnc-preview-title')!;
+    const leadEl = document.getElementById('pnc-lead')!;
+
+    function setLockedMode(on: boolean) {
+      lockedEl.hidden = !on;
+      pickerEl.hidden = on;
+      if (on) {
+        photoTitle.textContent = '1. Photo (optional)';
+        previewTitle.textContent = '2. Preview & download';
+        leadEl.textContent =
+          'Your pick is locked in. Add an optional photo, then download. Nothing is uploaded. No payment.';
+      } else {
+        photoTitle.textContent = '2. Photo (optional)';
+        previewTitle.textContent = '3. Preview & download';
+        leadEl.textContent =
+          'Pick a name → optionally add a pet photo → download a Stories-ready card. Nothing is uploaded. No payment.';
+      }
+    }
+
+    changeNameBtn.addEventListener('click', () => {
+      setLockedMode(false);
+      customEl.value = selectedName;
+      customEl.focus();
+    });
+
     // Prefill from Pet Name Lab "Your pick" → Make name card
     const params = new URLSearchParams(window.location.search);
     const qName = (params.get('name') || '').trim();
@@ -243,7 +279,10 @@ const payload = {
         qMeta ||
         `${capitalize(listEl.value)} · ${speciesEl.value === 'dog' ? 'Dog' : 'Cat'}`;
       selectName(qName, meta);
-      customEl.value = qName;
+      lockedNameEl.textContent = qName;
+      setLockedMode(true);
+    } else {
+      setLockedMode(false);
     }
   </script>
 </ToolLayout>
@@ -282,6 +321,15 @@ const payload = {
 
   .pnc-selected strong {
     color: var(--text);
+  }
+
+  .pnc-locked-name {
+    margin: 0 0 0.45rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2rem, 8vw, 2.6rem);
+    font-weight: 700;
+    color: #ff6b35;
+    line-height: 1.1;
   }
 
   .pnc-panel {
