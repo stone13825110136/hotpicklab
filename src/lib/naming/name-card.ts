@@ -151,8 +151,9 @@ export async function drawNameIdentityCard(
 
   const name = (opts.name || 'Name').trim() || 'Name';
   const hasPhoto = Boolean(opts.photoUrl);
-  const photoRadius = 210;
-  const photoCy = 360;
+  // With photo: brand → circle → Meet → name (Meet must sit below the circle, not over fur)
+  const photoRadius = 200;
+  const photoCy = 330;
 
   if (hasPhoto && opts.photoUrl) {
     try {
@@ -167,15 +168,16 @@ export async function drawNameIdentityCard(
   ctx.font = '700 28px "IBM Plex Sans", system-ui, sans-serif';
   ctx.textAlign = 'center';
   ctx.letterSpacing = '6px';
-  ctx.fillText('HOTPICK LAB', w / 2, hasPhoto ? 120 : 180);
+  ctx.fillText('HOTPICK LAB', w / 2, hasPhoto ? 100 : 180);
 
   ctx.fillStyle = '#4a5f5a';
-  ctx.font = '500 30px "IBM Plex Sans", system-ui, sans-serif';
+  ctx.font = '500 32px "IBM Plex Sans", system-ui, sans-serif';
   ctx.letterSpacing = '0';
-  // Announce voice for sharing — not product marketing
-  ctx.fillText('Meet', w / 2, hasPhoto ? 170 : 250);
+  // No-photo: Meet above the name. With-photo: Meet under the circle.
+  const meetY = hasPhoto ? photoCy + photoRadius + 52 : 250;
+  ctx.fillText('Meet', w / 2, meetY);
 
-  const nameY = hasPhoto ? 680 : 560;
+  const nameY = hasPhoto ? meetY + 90 : 560;
   const nameSize = fitNameFont(ctx, name, w - 140);
   ctx.fillStyle = '#1f6f63';
   ctx.font = `700 ${nameSize}px Georgia, "Times New Roman", serif`;

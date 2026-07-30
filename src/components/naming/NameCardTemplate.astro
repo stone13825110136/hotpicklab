@@ -1,7 +1,7 @@
 ---
 /**
  * Visual template of the downloadable name Identity Card (HTML/CSS).
- * Matches canvas card voice: Meet → photo? → big name → why → species → URL.
+ * Matches canvas card voice: brand → photo? → Meet → big name → why → species → URL.
  * Display only — downloads still use src/lib/naming/name-card.ts.
  */
 interface Props {
@@ -27,7 +27,6 @@ const hasPhoto = Boolean(photoSrc);
 
 <figure class:list={['nct', hasPhoto && 'nct--photo', className]} aria-label={`Sample name card for ${name}`}>
   <p class="nct-brand">{brand}</p>
-  <p class="nct-meet">Meet</p>
   {
     hasPhoto && photoSrc ? (
       <div class="nct-photo-wrap">
@@ -35,6 +34,7 @@ const hasPhoto = Boolean(photoSrc);
       </div>
     ) : null
   }
+  <p class="nct-meet">Meet</p>
   <p class="nct-name">{name}</p>
   <p class="nct-blurb">{blurb}</p>
   <div class="nct-rule" aria-hidden="true"></div>
@@ -83,8 +83,12 @@ const hasPhoto = Boolean(photoSrc);
     color: var(--nct-soft);
   }
 
+  .nct--photo .nct-meet {
+    margin-top: 0.7rem;
+  }
+
   .nct-photo-wrap {
-    margin-top: 0.85rem;
+    margin-top: 0.75rem;
     width: min(46%, 148px);
     aspect-ratio: 1;
     border-radius: 50%;
