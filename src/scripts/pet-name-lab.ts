@@ -75,6 +75,10 @@ let batchOffset = 0;
 let candidates: ScoredName[] = [];
 /** Selections persist across batches so Compare still works. */
 const selected = new Map<string, ScoredName>();
+/** Final user choice after compare — may differ from Hot Pick. */
+let yourPick: ScoredName | null = null;
+let lastCompared: ScoredName[] = [];
+let lastHot: ScoredName | null = null;
 
 /** Keep rank order from generate() — do NOT re-sort by score (that breaks Starts-with). */
 export function splitTrays(list: ScoredName[]) {
@@ -162,7 +166,36 @@ function renderCompareBar() {
   bar.hidden = selected.size === 0;
 }
 
+function setYourPick(n: ScoredName) {
+  yourPick = n;
+  const nameEl = document.getElementById('pnl-your-name');
+  const cardLink = document.getElementById('pnl-make-card') as HTMLAnchorElement | null;
+  if (nameEl) nameEl.textContent = n.name;
+  if (cardLink) {
+    const species = (el<HTMLSelectElement>('pnl-species').value || 'dog') as Species;
+    const vibe = (el<HTMLSelectElement>('pnl-vibe').value || 'cute') as Vibe;
+    const params = new URLSearchParams({
+      name: n.name,
+      species,
+      vibe,
+      meta: `${vibe} · ${species === 'dog' ? 'Dog' : 'Cat'}`,
+    });
+    cardLink.href = `/tools/pet-name-card?${params.toString()}`;
+    cardLink.hidden = false;
+  }
+  // Refresh pick highlight on cards
+  document.querySelectorAll('#pnl-compare-cards .pnl-card').forEach((node) => {
+    const article = node as HTMLElement;
+    const isPick = article.dataset.name === n.name;
+    article.classList.toggle('is-pick', isPick);
+    const btn = article.querySelector('.pnl-card-pick');
+    if (btn) btn.textContent = isPick ? 'Your pick' : 'Use as Your pick';
+  });
+}
+
 function renderResults(compared: ScoredName[], hot: ScoredName) {
+  lastCompared = compared;
+  lastHot = hot;
   const panel = el<HTMLElement>('pnl-results');
   panel.hidden = false;
   const cards = el<HTMLElement>('pnl-compare-cards');
@@ -170,6 +203,7 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
   for (const n of compared) {
     const card = document.createElement('article');
     card.className = 'pnl-card' + (n.name === hot.name ? ' is-hot' : '');
+    card.dataset.name = n.name;
     const tarotBlock = n.tarot
       ? `<div class="pnl-fun-wrap">
           <p class="pnl-fun-teaser"><span class="pnl-fun-label">Fun vibe</span> ${n.tarot.name}</p>
@@ -180,19 +214,27 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
           </details>
         </div>`
       : '';
+    const suggested =
+      n.name === hot.name ? `<p class="pnl-score">Suggested Hot Pick · score ${n.practical}/100</p>` : `<p class="pnl-score">Practical score ${n.practical}/100</p>`;
     card.innerHTML = `
       <header>
         <h3>${n.name}</h3>
-        <p class="pnl-score">Practical score ${n.practical}/100</p>
+        ${suggested}
       </header>
       ${tarotBlock}
+      <button type="button" class="pnl-card-pick">Use as Your pick</button>
     `;
+    const pickBtn = card.querySelector('.pnl-card-pick') as HTMLButtonElement;
+    pickBtn.addEventListener('click', () => setYourPick(n));
     cards.appendChild(card);
   }
 
   el<HTMLElement>('pnl-hot-name').textContent = hot.name;
   el<HTMLElement>('pnl-hot-reason').textContent =
     hot.reason ?? `Highest practical score (${hot.practical}/100) in your shortlist.`;
+
+  // Default Your pick to Hot Pick — user can change.
+  setYourPick(hot);
 
   panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -201,9 +243,16 @@ function showBatch(reset: boolean) {
   if (reset) {
     batchOffset = 0;
     selected.clear();
+    yourPick = null;
+    lastCompared = [];
+    lastHot = null;
   }
   candidates = rankedPool.slice(batchOffset, batchOffset + BATCH_SIZE);
   el<HTMLElement>('pnl-results').hidden = true;
+  const cardLink = document.getElementById('pnl-make-card') as HTMLAnchorElement | null;
+  if (cardLink) cardLink.hidden = true;
+  const yourName = document.getElementById('pnl-your-name');
+  if (yourName) yourName.textContent = '—';
   renderCandidates();
   renderCompareBar();
   el<HTMLElement>('pnl-output').hidden = false;

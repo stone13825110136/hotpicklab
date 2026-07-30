@@ -1,0 +1,391 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import dogNames from '../../data/naming/dog-names.json';
+import catNames from '../../data/naming/cat-names.json';
+import catNamesExtra from '../../data/naming/cat-names-extra.json';
+import { rankNames } from '../../lib/naming/generate';
+import type { Gender, NameEntry, Species, Vibe } from '../../lib/naming/types';
+
+function mergePool(base: NameEntry[], extra: NameEntry[]): NameEntry[] {
+  const map = new Map<string, NameEntry>();
+  for (const n of base) map.set(n.name.toLowerCase(), n);
+  for (const n of extra) {
+    const key = n.name.toLowerCase();
+    if (!map.has(key)) map.set(key, n);
+  }
+  return [...map.values()];
+}
+
+const dogPool = dogNames as NameEntry[];
+const catPool = mergePool(catNames as NameEntry[], catNamesExtra as NameEntry[]);
+
+function topNames(pool: NameEntry[], gender: Gender, vibe: Vibe, n = 48) {
+  return rankNames(pool, gender, vibe).slice(0, n).map((x) => ({
+    name: x.name,
+    vibe: x.vibes[0] || vibe,
+  }));
+}
+
+const payload = {
+  lists: {
+    dog: {
+      cute: topNames(dogPool, 'neutral', 'cute'),
+      strong: topNames(dogPool, 'neutral', 'strong'),
+      unique: topNames(dogPool, 'neutral', 'unique'),
+      classic: topNames(dogPool, 'neutral', 'classic'),
+      boy: topNames(dogPool, 'boy', 'classic'),
+      girl: topNames(dogPool, 'girl', 'classic'),
+    },
+    cat: {
+      cute: topNames(catPool, 'neutral', 'cute'),
+      strong: topNames(catPool, 'neutral', 'strong'),
+      unique: topNames(catPool, 'neutral', 'unique'),
+      classic: topNames(catPool, 'neutral', 'classic'),
+      boy: topNames(catPool, 'boy', 'classic'),
+      girl: topNames(catPool, 'girl', 'classic'),
+    },
+  },
+};
+---
+
+<ToolLayout
+  title="Pet Name Card (local test)"
+  description="Local draft: pick a name, optional pet photo, download a free Identity Card. Browser-only — no upload, no payment."
+  backHref="/tools/pet-name-lab"
+  backLabel="Pet Name Lab"
+  noindex={true}
+>
+  <div id="pnc" class="pnc">
+    <script id="pnc-data" type="application/json" set:html={JSON.stringify(payload)} />
+    <p class="pnc-badge">LOCAL TEST · free · photo stays on your device · noindex</p>
+    <h1 class="pnc-h1">Make a name card</h1>
+    <p class="pnc-lead">
+      Pick the name you chose → optionally add a pet photo → download a Stories-ready card. Nothing is
+      uploaded. No payment.
+    </p>
+
+    <section class="pnc-panel">
+      <h2 class="pnc-h2">1. Pick a name</h2>
+      <div class="pnc-row">
+        <label class="pnc-field">
+          <span>Species</span>
+          <select id="pnc-species">
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+          </select>
+        </label>
+        <label class="pnc-field">
+          <span>List</span>
+          <select id="pnc-list">
+            <option value="cute">Cute</option>
+            <option value="strong">Strong</option>
+            <option value="unique">Unique</option>
+            <option value="classic">Classic</option>
+            <option value="boy">Boy</option>
+            <option value="girl">Girl</option>
+          </select>
+        </label>
+      </div>
+      <label class="pnc-field">
+        <span>Or type your own</span>
+        <input id="pnc-custom" type="text" maxlength="24" placeholder="e.g. Daisy" autocomplete="off" />
+      </label>
+      <div class="pnc-names" id="pnc-names" role="listbox" aria-label="Name shortlist"></div>
+      <p class="pnc-selected">Selected: <strong id="pnc-selected-label">—</strong></p>
+    </section>
+
+    <section class="pnc-panel">
+      <h2 class="pnc-h2">2. Photo (optional)</h2>
+      <p class="pnc-note">Stays in this browser only. Clear anytime.</p>
+      <input id="pnc-photo" type="file" accept="image/*" />
+      <button type="button" class="pnc-btn-ghost" id="pnc-clear-photo" hidden>Remove photo</button>
+    </section>
+
+    <section class="pnc-panel">
+      <h2 class="pnc-h2">3. Preview &amp; download</h2>
+      <div class="pnc-preview-wrap">
+        <canvas id="pnc-canvas" width="1080" height="1350" aria-label="Name identity card preview"></canvas>
+      </div>
+      <button type="button" class="btn pnc-btn" id="pnc-download" disabled>Download PNG</button>
+      <p class="pnc-note">Tip: on phone, save the PNG and add it to Instagram Stories.</p>
+    </section>
+  </div>
+
+  <script>
+    import { drawNameIdentityCard, downloadCanvasPng } from '../../lib/naming/name-card';
+    import type { Species } from '../../lib/naming/types';
+
+    type ListKey = 'cute' | 'strong' | 'unique' | 'classic' | 'boy' | 'girl';
+    type NameHit = { name: string; vibe: string };
+
+    const dataEl = document.getElementById('pnc-data');
+    if (!dataEl?.textContent) throw new Error('pnc data missing');
+    const payload = JSON.parse(dataEl.textContent) as {
+      lists: Record<Species, Record<ListKey, NameHit[]>>;
+    };
+
+    const speciesEl = document.getElementById('pnc-species') as HTMLSelectElement;
+    const listEl = document.getElementById('pnc-list') as HTMLSelectElement;
+    const customEl = document.getElementById('pnc-custom') as HTMLInputElement;
+    const namesEl = document.getElementById('pnc-names')!;
+    const selectedLabel = document.getElementById('pnc-selected-label')!;
+    const photoEl = document.getElementById('pnc-photo') as HTMLInputElement;
+    const clearPhotoBtn = document.getElementById('pnc-clear-photo') as HTMLButtonElement;
+    const canvas = document.getElementById('pnc-canvas') as HTMLCanvasElement;
+    const downloadBtn = document.getElementById('pnc-download') as HTMLButtonElement;
+
+    let selectedName = '';
+    let selectedMeta = '';
+    let photoUrl: string | null = null;
+    let renderToken = 0;
+
+    function currentList(): NameHit[] {
+      const species = speciesEl.value as Species;
+      const key = listEl.value as ListKey;
+      return payload.lists[species]?.[key] || [];
+    }
+
+    function renderNameButtons() {
+      const items = currentList();
+      namesEl.innerHTML = '';
+      for (const item of items) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'pnc-name' + (item.name === selectedName ? ' is-on' : '');
+        btn.textContent = item.name;
+        btn.setAttribute('role', 'option');
+        btn.addEventListener('click', () => {
+          customEl.value = '';
+          selectName(item.name, `${capitalize(listEl.value)} · ${speciesEl.value === 'dog' ? 'Dog' : 'Cat'}`);
+        });
+        namesEl.appendChild(btn);
+      }
+    }
+
+    function capitalize(s: string) {
+      return s.charAt(0).toUpperCase() + s.slice(1);
+    }
+
+    function selectName(name: string, meta: string) {
+      selectedName = name.trim();
+      selectedMeta = meta;
+      selectedLabel.textContent = selectedName || '—';
+      downloadBtn.disabled = !selectedName;
+      renderNameButtons();
+      void redraw();
+    }
+
+    async function redraw() {
+      if (!selectedName) return;
+      const token = ++renderToken;
+      await drawNameIdentityCard(canvas, {
+        name: selectedName,
+        photoUrl,
+        blurb: 'A name you’ll actually use.',
+        meta: selectedMeta,
+      });
+      if (token !== renderToken) return;
+    }
+
+    speciesEl.addEventListener('change', () => {
+      selectedName = '';
+      selectedLabel.textContent = '—';
+      downloadBtn.disabled = true;
+      renderNameButtons();
+    });
+    listEl.addEventListener('change', () => {
+      selectedName = '';
+      selectedLabel.textContent = '—';
+      downloadBtn.disabled = true;
+      renderNameButtons();
+    });
+
+    customEl.addEventListener('input', () => {
+      const v = customEl.value.trim();
+      if (!v) return;
+      selectName(v, `Custom · ${speciesEl.value === 'dog' ? 'Dog' : 'Cat'}`);
+    });
+
+    photoEl.addEventListener('change', () => {
+      const file = photoEl.files?.[0];
+      if (photoUrl) URL.revokeObjectURL(photoUrl);
+      photoUrl = file ? URL.createObjectURL(file) : null;
+      clearPhotoBtn.hidden = !photoUrl;
+      void redraw();
+    });
+
+    clearPhotoBtn.addEventListener('click', () => {
+      if (photoUrl) URL.revokeObjectURL(photoUrl);
+      photoUrl = null;
+      photoEl.value = '';
+      clearPhotoBtn.hidden = true;
+      void redraw();
+    });
+
+    downloadBtn.addEventListener('click', async () => {
+      if (!selectedName) return;
+      await redraw();
+      const safe = selectedName.replace(/[^\w\-]+/g, '_').slice(0, 32);
+      downloadCanvasPng(canvas, `hotpicklab-${safe}-name-card.png`);
+    });
+
+    // Prefill from Pet Name Lab "Your pick" → Make name card
+    const params = new URLSearchParams(window.location.search);
+    const qName = (params.get('name') || '').trim();
+    const qSpecies = params.get('species');
+    const qMeta = params.get('meta') || '';
+    if (qSpecies === 'dog' || qSpecies === 'cat') {
+      speciesEl.value = qSpecies;
+    }
+    renderNameButtons();
+    if (qName) {
+      const meta =
+        qMeta ||
+        `${capitalize(listEl.value)} · ${speciesEl.value === 'dog' ? 'Dog' : 'Cat'}`;
+      selectName(qName, meta);
+      customEl.value = qName;
+    }
+  </script>
+</ToolLayout>
+
+<style>
+  .pnc {
+    width: min(100%, 560px);
+    margin: 0 auto;
+  }
+
+  .pnc-badge {
+    display: inline-block;
+    margin: 0 0 0.75rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: #3d2818;
+    color: #ffb089;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .pnc-h1 {
+    margin: 0 0 0.45rem;
+    font-size: clamp(1.5rem, 4vw, 1.95rem);
+    line-height: 1.2;
+  }
+
+  .pnc-lead,
+  .pnc-note,
+  .pnc-selected {
+    margin: 0 0 1rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+
+  .pnc-selected strong {
+    color: var(--text);
+  }
+
+  .pnc-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.1rem 1.15rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .pnc-h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+  }
+
+  .pnc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+  }
+
+  .pnc-field {
+    display: grid;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+
+  .pnc-field select,
+  .pnc-field input[type='text'] {
+    width: 100%;
+    padding: 0.55rem 0.65rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #0f1528;
+    color: var(--text);
+  }
+
+  .pnc-names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    max-height: 220px;
+    overflow: auto;
+    padding: 0.15rem;
+  }
+
+  .pnc-name {
+    border: 1px solid var(--border);
+    background: #0f1528;
+    color: var(--text);
+    border-radius: 999px;
+    padding: 0.35rem 0.7rem;
+    font-weight: 600;
+    font-size: 0.86rem;
+    cursor: pointer;
+  }
+
+  .pnc-name.is-on,
+  .pnc-name:hover {
+    border-color: var(--accent);
+  }
+
+  .pnc-preview-wrap {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #0a0e1a;
+    margin-bottom: 0.85rem;
+  }
+
+  #pnc-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .pnc-btn {
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .pnc-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .pnc-btn-ghost {
+    margin-top: 0.55rem;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    border-radius: 8px;
+    padding: 0.45rem 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  input[type='file'] {
+    color: var(--muted);
+    font-size: 0.88rem;
+    max-width: 100%;
+  }
+</style>

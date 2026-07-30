@@ -297,10 +297,30 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   <section id="pnl-results" class="pnl-results" hidden>
     <div class="pnl-hot">
-      <p class="pnl-hot-label">Hot Pick</p>
+      <p class="pnl-hot-label">Hot Pick · Suggested</p>
       <h2 id="pnl-hot-name"></h2>
       <p id="pnl-hot-reason" class="pnl-hot-reason"></p>
+      <p class="pnl-hot-hint muted">
+        Hot Pick is a recommendation only. Choose <strong>Your pick</strong> below — it can be a
+        different name.
+      </p>
     </div>
+
+    <div class="pnl-your-pick" id="pnl-your-pick">
+      <p class="pnl-your-label">Your pick</p>
+      <h2 id="pnl-your-name">—</h2>
+      <p class="pnl-your-hint muted">
+        Tap a name in the compare list to set Your pick. Then make a free name card.
+      </p>
+      <a
+        class="btn pnl-btn pnl-make-card"
+        id="pnl-make-card"
+        href="/tools/pet-name-card"
+        hidden
+        >Make name card</a
+      >
+    </div>
+
     <div id="pnl-compare-cards" class="pnl-cards"></div>
     <aside class="pnl-ad" aria-label="Sponsored">
       <p class="muted">Sponsored placement</p>
@@ -679,6 +699,67 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   .pnl-hot-reason {
     margin: 0;
     color: var(--pnl-muted);
+  }
+
+  .pnl-hot-hint {
+    margin: 0.65rem 0 0;
+    font-size: 0.85rem;
+  }
+
+  .pnl-your-pick {
+    margin: 0 0 1rem;
+    padding: 1rem 1.05rem;
+    border-radius: var(--pnl-radius);
+    border: 1px solid var(--pnl-accent);
+    background: rgba(255, 107, 53, 0.1);
+  }
+
+  .pnl-your-label {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pnl-accent);
+  }
+
+  .pnl-your-pick h2 {
+    margin: 0.2rem 0 0.35rem;
+    font-size: 1.65rem;
+    color: var(--pnl-text);
+  }
+
+  .pnl-your-hint {
+    margin: 0 0 0.85rem;
+    font-size: 0.85rem;
+  }
+
+  .pnl-make-card {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  :global(.pnl-card.is-pick) {
+    outline: 2px solid var(--pnl-accent);
+    outline-offset: 2px;
+  }
+
+  :global(.pnl-card-pick) {
+    margin-top: 0.65rem;
+    width: 100%;
+    border: 1px solid var(--pnl-border);
+    background: transparent;
+    color: var(--pnl-muted);
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+  }
+
+  :global(.pnl-card.is-pick .pnl-card-pick) {
+    border-color: var(--pnl-accent);
+    color: var(--pnl-text);
   }
 
   /* Compare result cards are JS-injected — must be :global or styles never apply */
