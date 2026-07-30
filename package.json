@@ -18,7 +18,8 @@
     "verify-images": "node scripts/verify-product-images.mjs",
     "scrape-images": "node scripts/scrape-all-amazon-images.mjs",
     "build-naming-data": "node scripts/build-naming-data.mjs",
-    "smoke:pet-lab": "node scripts/smoke-pet-name-lab.mjs"
+    "smoke:pet-lab": "node scripts/smoke-pet-name-lab.mjs",
+    "predeploy": "npm run build && npm run smoke:pet-lab && node scripts/predeploy-hard-check.mjs"
   },
   "dependencies": {
     "astro": "^5.7.10",

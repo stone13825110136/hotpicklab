@@ -170,6 +170,8 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
         </optgroup>
       </select>
     </label>
+  </section>
+  <div class="pnl-generate-row">
     <button
       type="button"
       class="btn pnl-btn"
@@ -178,7 +180,7 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     >
       Generate names
     </button>
-  </section>
+  </div>
   {
     startEmpty && (
       <p class="pnl-idle-hint muted">
@@ -362,24 +364,29 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 <style>
   .pnl {
-    --pnl-bg: #ffffff;
-    --pnl-surface: #f4f8f7;
+    --pnl-bg: #f3faf8;
+    --pnl-surface: #ffffff;
     --pnl-input: #ffffff;
     --pnl-text: #12151a;
     --pnl-muted: #4a5568;
     --pnl-accent: #ff6b35;
     --pnl-accent-2: #0d6e62;
-    --pnl-border: #d8dee8;
+    --pnl-border: #c5d8d3;
     --pnl-radius: 16px;
 
-    width: min(100%, 920px);
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
     color: var(--pnl-text);
     background: var(--pnl-bg);
     border: 1px solid var(--pnl-border);
     border-radius: calc(var(--pnl-radius) + 2px);
-    padding: 1.25rem 1rem 1.5rem;
-    box-shadow: 0 12px 28px rgba(18, 21, 26, 0.06);
+    padding: 1.35rem 1.15rem 1.6rem;
+    box-shadow: 0 10px 28px rgba(13, 110, 98, 0.06);
+  }
+
+  .pnl-compact {
+    margin-top: 0;
   }
 
   .pnl a {
@@ -393,8 +400,8 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   .pnl-btn,
   .pnl .btn {
     display: inline-block;
-    padding: 0.55rem 0.9rem;
-    border-radius: 8px;
+    padding: 0.7rem 1.15rem;
+    border-radius: 10px;
     border: none;
     background: var(--pnl-accent);
     color: #111;
@@ -408,6 +415,16 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   .pnl .btn:disabled {
     opacity: 0.45;
     cursor: not-allowed;
+  }
+
+  .pnl-generate-row {
+    margin: -0.35rem 0 1.15rem;
+  }
+
+  .pnl-generate-row .pnl-btn {
+    width: 100%;
+    max-width: 20rem;
+    box-shadow: 0 10px 24px rgba(255, 107, 53, 0.22);
   }
 
   .pnl-btn-more {
@@ -516,14 +533,14 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   .pnl-controls {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 0.75rem;
     align-items: end;
     padding: 1rem;
     background: var(--pnl-surface);
     border: 1px solid var(--pnl-border);
     border-radius: var(--pnl-radius);
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.85rem;
   }
 
   .pnl-idle-hint {
@@ -633,11 +650,12 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     padding: 0.65rem 0.7rem;
     border-radius: 10px;
     border: 1px solid var(--pnl-border);
-    background: var(--pnl-input);
+    background: var(--pnl-surface);
     color: var(--pnl-text);
     cursor: pointer;
     font: inherit;
     min-width: 0;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.8) inset;
   }
 
   .pnl-chip:hover {

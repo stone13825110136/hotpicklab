@@ -156,9 +156,10 @@ const fullTitle = `${title} | ${SITE.name}`;
   }
 
   .tool-page-main {
-    display: grid;
-    place-items: center;
-    padding: 1.5rem 1rem 2rem;
+    display: block;
+    width: min(100% - 2rem, var(--max));
+    margin-inline: auto;
+    padding: 1.5rem 0 2rem;
   }
 
   .tool-page-footer {
@@ -174,8 +175,8 @@ const fullTitle = `${title} | ${SITE.name}`;
   }
 
   .tool-related {
-    width: min(100%, 420px);
-    margin: 1rem auto 0;
+    width: 100%;
+    margin: 1rem 0 0;
     text-align: center;
     font-size: 0.9rem;
   }
