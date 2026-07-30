@@ -102,8 +102,16 @@ const payload = {
 
     <section class="pnc-panel">
       <h2 class="pnc-h2" id="pnc-photo-title">2. Photo (optional)</h2>
-      <p class="pnc-note">Stays in this browser only. Clear anytime.</p>
+      <p class="pnc-note">Stays in this browser only. Drag inside the circle to center the face.</p>
       <input id="pnc-photo" type="file" accept="image/*" />
+      <div id="pnc-crop" class="pnc-crop" hidden>
+        <canvas id="pnc-crop-canvas" width="320" height="320" aria-label="Drag to center the pet face"></canvas>
+        <p class="pnc-crop-hint">Drag to move · use zoom for a closer crop</p>
+        <label class="pnc-zoom">
+          <span>Zoom</span>
+          <input id="pnc-zoom" type="range" min="1" max="3" step="0.05" value="1" />
+        </label>
+      </div>
       <button type="button" class="pnc-btn-ghost" id="pnc-clear-photo" hidden>Remove photo</button>
     </section>
 
@@ -117,7 +125,12 @@ const payload = {
   </div>
 
   <script>
-    import { drawNameIdentityCard, downloadCanvasPng } from '../../lib/naming/name-card';
+    import {
+      drawNameIdentityCard,
+      downloadCanvasPng,
+      normalizePhotoCrop,
+      type PhotoCrop,
+    } from '../../lib/naming/name-card';
     import type { Species } from '../../lib/naming/types';
 
     type ListKey = 'cute' | 'strong' | 'unique' | 'classic' | 'boy' | 'girl';
@@ -136,13 +149,21 @@ const payload = {
     const selectedLabel = document.getElementById('pnc-selected-label')!;
     const photoEl = document.getElementById('pnc-photo') as HTMLInputElement;
     const clearPhotoBtn = document.getElementById('pnc-clear-photo') as HTMLButtonElement;
+    const cropWrap = document.getElementById('pnc-crop')!;
+    const cropCanvas = document.getElementById('pnc-crop-canvas') as HTMLCanvasElement;
+    const zoomEl = document.getElementById('pnc-zoom') as HTMLInputElement;
     const canvas = document.getElementById('pnc-canvas') as HTMLCanvasElement;
     const downloadBtn = document.getElementById('pnc-download') as HTMLButtonElement;
 
     let selectedName = '';
     let selectedMeta = '';
     let photoUrl: string | null = null;
+    let photoImg: HTMLImageElement | null = null;
+    let photoCrop: PhotoCrop = { focusX: 0.5, focusY: 0.38, zoom: 1 };
     let renderToken = 0;
+    let drag: { x: number; y: number; focusX: number; focusY: number } | null = null;
+
+    const CROP_R = 148;
 
     function currentList(): NameHit[] {
       const species = speciesEl.value as Species;
@@ -180,12 +201,79 @@ const payload = {
       void redraw();
     }
 
+    function paintCropPreview() {
+      if (!photoImg) return;
+      const ctx = cropCanvas.getContext('2d');
+      if (!ctx) return;
+      const w = cropCanvas.width;
+      const h = cropCanvas.height;
+      const cx = w / 2;
+      const cy = h / 2;
+      const crop = normalizePhotoCrop(photoImg.width, photoImg.height, photoCrop, CROP_R);
+      photoCrop = crop;
+      zoomEl.value = String(crop.zoom);
+
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = '#0a0e1a';
+      ctx.fillRect(0, 0, w, h);
+
+      const diameter = CROP_R * 2;
+      const scale = (diameter / Math.min(photoImg.width, photoImg.height)) * crop.zoom;
+      const dw = photoImg.width * scale;
+      const dh = photoImg.height * scale;
+      const dx = cx - crop.focusX * dw;
+      const dy = cy - crop.focusY * dh;
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, CROP_R, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.clip();
+      ctx.drawImage(photoImg, dx, dy, dw, dh);
+      ctx.restore();
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, CROP_R, 0, Math.PI * 2);
+      ctx.strokeStyle = 'rgba(255, 107, 53, 0.95)';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      // Dim outside circle
+      ctx.save();
+      ctx.fillStyle = 'rgba(10, 14, 26, 0.55)';
+      ctx.beginPath();
+      ctx.rect(0, 0, w, h);
+      ctx.arc(cx, cy, CROP_R, 0, Math.PI * 2, true);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    async function loadPhoto(url: string | null) {
+      photoImg = null;
+      if (!url) {
+        cropWrap.hidden = true;
+        return;
+      }
+      const img = new Image();
+      await new Promise<void>((resolve, reject) => {
+        img.onload = () => resolve();
+        img.onerror = () => reject(new Error('photo load failed'));
+        img.src = url;
+      });
+      photoImg = img;
+      photoCrop = { focusX: 0.5, focusY: 0.38, zoom: 1 };
+      zoomEl.value = '1';
+      cropWrap.hidden = false;
+      paintCropPreview();
+    }
+
     async function redraw() {
       if (!selectedName) return;
       const token = ++renderToken;
       await drawNameIdentityCard(canvas, {
         name: selectedName,
         photoUrl,
+        photoCrop: photoUrl ? photoCrop : null,
         meta: selectedMeta,
       });
       if (token !== renderToken) return;
@@ -210,21 +298,79 @@ const payload = {
       selectName(v, `Custom · ${speciesEl.value === 'dog' ? 'Dog' : 'Cat'}`);
     });
 
-    photoEl.addEventListener('change', () => {
+    photoEl.addEventListener('change', async () => {
       const file = photoEl.files?.[0];
       if (photoUrl) URL.revokeObjectURL(photoUrl);
       photoUrl = file ? URL.createObjectURL(file) : null;
       clearPhotoBtn.hidden = !photoUrl;
+      try {
+        await loadPhoto(photoUrl);
+      } catch {
+        photoUrl = null;
+        photoImg = null;
+        cropWrap.hidden = true;
+      }
       void redraw();
     });
 
     clearPhotoBtn.addEventListener('click', () => {
       if (photoUrl) URL.revokeObjectURL(photoUrl);
       photoUrl = null;
+      photoImg = null;
       photoEl.value = '';
       clearPhotoBtn.hidden = true;
+      cropWrap.hidden = true;
       void redraw();
     });
+
+    zoomEl.addEventListener('input', () => {
+      if (!photoImg) return;
+      photoCrop = normalizePhotoCrop(photoImg.width, photoImg.height, {
+        ...photoCrop,
+        zoom: Number(zoomEl.value) || 1,
+      }, CROP_R);
+      paintCropPreview();
+      void redraw();
+    });
+
+    function pointerToCanvas(e: PointerEvent) {
+      const rect = cropCanvas.getBoundingClientRect();
+      const sx = cropCanvas.width / rect.width;
+      const sy = cropCanvas.height / rect.height;
+      return { x: (e.clientX - rect.left) * sx, y: (e.clientY - rect.top) * sy };
+    }
+
+    cropCanvas.addEventListener('pointerdown', (e) => {
+      if (!photoImg) return;
+      cropCanvas.setPointerCapture(e.pointerId);
+      const p = pointerToCanvas(e);
+      drag = { x: p.x, y: p.y, focusX: photoCrop.focusX ?? 0.5, focusY: photoCrop.focusY ?? 0.38 };
+    });
+
+    cropCanvas.addEventListener('pointermove', (e) => {
+      if (!drag || !photoImg) return;
+      const p = pointerToCanvas(e);
+      const crop = normalizePhotoCrop(photoImg.width, photoImg.height, photoCrop, CROP_R);
+      const diameter = CROP_R * 2;
+      const scale = (diameter / Math.min(photoImg.width, photoImg.height)) * crop.zoom;
+      const dw = photoImg.width * scale;
+      const dh = photoImg.height * scale;
+      // Dragging image right → focus moves left
+      const next: PhotoCrop = {
+        zoom: crop.zoom,
+        focusX: drag.focusX - (p.x - drag.x) / dw,
+        focusY: drag.focusY - (p.y - drag.y) / dh,
+      };
+      photoCrop = normalizePhotoCrop(photoImg.width, photoImg.height, next, CROP_R);
+      paintCropPreview();
+      void redraw();
+    });
+
+    function endDrag() {
+      drag = null;
+    }
+    cropCanvas.addEventListener('pointerup', endDrag);
+    cropCanvas.addEventListener('pointercancel', endDrag);
 
     downloadBtn.addEventListener('click', async () => {
       if (!selectedName) return;
@@ -248,12 +394,12 @@ const payload = {
         photoTitle.textContent = '1. Photo (optional)';
         previewTitle.textContent = '2. Preview & download';
         leadEl.textContent =
-          'Your pick is locked in. Add an optional photo, then download. Nothing is uploaded. No payment.';
+          'Your pick is locked in. Add an optional photo, drag to center the face, then download. Nothing is uploaded.';
       } else {
         photoTitle.textContent = '2. Photo (optional)';
         previewTitle.textContent = '3. Preview & download';
         leadEl.textContent =
-          'Pick a name → optionally add a pet photo → download. Nothing is uploaded. No payment.';
+          'Pick a name → add a photo and drag to center the face → download. Nothing is uploaded. No payment.';
       }
     }
 
@@ -433,5 +579,45 @@ const payload = {
     color: var(--muted);
     font-size: 0.88rem;
     max-width: 100%;
+  }
+
+  .pnc-crop {
+    margin-top: 0.85rem;
+  }
+
+  #pnc-crop-canvas {
+    display: block;
+    width: min(100%, 320px);
+    height: auto;
+    margin: 0 auto;
+    border-radius: 16px;
+    cursor: grab;
+    touch-action: none;
+    background: #0a0e1a;
+    border: 1px solid var(--border);
+  }
+
+  #pnc-crop-canvas:active {
+    cursor: grabbing;
+  }
+
+  .pnc-crop-hint {
+    margin: 0.45rem 0 0.55rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  .pnc-zoom {
+    display: grid;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .pnc-zoom input[type='range'] {
+    width: 100%;
   }
 </style>

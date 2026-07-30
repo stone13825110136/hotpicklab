@@ -1,9 +1,20 @@
 /** Client-safe Identity Card drawing (Stories-friendly). No server upload. */
 
+export type PhotoCrop = {
+  /** 0–1, image X of the circle center (default 0.5) */
+  focusX?: number;
+  /** 0–1, image Y of the circle center (default ~0.38 — faces sit higher) */
+  focusY?: number;
+  /** 1 = cover fill, up to 3 */
+  zoom?: number;
+};
+
 export type NameCardOptions = {
   name: string;
   /** Optional object URL or data URL — drawn locally only */
   photoUrl?: string | null;
+  /** Pan/zoom inside the circular photo */
+  photoCrop?: PhotoCrop | null;
   /** Supporting line under the name */
   blurb?: string;
   /** Small meta, e.g. "Cute · Dog" */
@@ -14,6 +25,7 @@ export type NameCardOptions = {
 
 const DEFAULT_W = 1080;
 const DEFAULT_H = 1350;
+const DEFAULT_FOCUS_Y = 0.38;
 
 /** Small line under the name: vibe/why — not product marketing, not "Our dog." */
 function whyBlurb(meta?: string): string {
@@ -23,6 +35,26 @@ function whyBlurb(meta?: string): string {
   if (m.includes('unique')) return 'Unique · still easy to use.';
   if (m.includes('classic')) return 'Classic · familiar to say.';
   return 'Short, sweet, easy to call.';
+}
+
+export function normalizePhotoCrop(
+  imgW: number,
+  imgH: number,
+  crop: PhotoCrop | null | undefined,
+  radius: number,
+): Required<PhotoCrop> {
+  const zoom = Math.min(3, Math.max(1, crop?.zoom ?? 1));
+  const diameter = radius * 2;
+  const scale = (diameter / Math.min(imgW, imgH)) * zoom;
+  const dw = imgW * scale;
+  const dh = imgH * scale;
+  const minFX = Math.min(0.5, radius / dw);
+  const maxFX = Math.max(0.5, 1 - radius / dw);
+  const minFY = Math.min(0.5, radius / dh);
+  const maxFY = Math.max(0.5, 1 - radius / dh);
+  const focusX = Math.min(maxFX, Math.max(minFX, crop?.focusX ?? 0.5));
+  const focusY = Math.min(maxFY, Math.max(minFY, crop?.focusY ?? DEFAULT_FOCUS_Y));
+  return { focusX, focusY, zoom };
 }
 
 function roundRect(
@@ -78,17 +110,22 @@ function drawCoverCircle(
   cx: number,
   cy: number,
   radius: number,
+  crop?: PhotoCrop | null,
 ) {
+  const { focusX, focusY, zoom } = normalizePhotoCrop(img.width, img.height, crop, radius);
+  const diameter = radius * 2;
+  const scale = (diameter / Math.min(img.width, img.height)) * zoom;
+  const dw = img.width * scale;
+  const dh = img.height * scale;
+  const dx = cx - focusX * dw;
+  const dy = cy - focusY * dh;
+
   ctx.save();
   ctx.beginPath();
   ctx.arc(cx, cy, radius, 0, Math.PI * 2);
   ctx.closePath();
   ctx.clip();
-
-  const size = Math.min(img.width, img.height);
-  const sx = (img.width - size) / 2;
-  const sy = (img.height - size) / 2;
-  ctx.drawImage(img, sx, sy, size, size, cx - radius, cy - radius, radius * 2, radius * 2);
+  ctx.drawImage(img, dx, dy, dw, dh);
   ctx.restore();
 
   ctx.beginPath();
@@ -120,7 +157,7 @@ export async function drawNameIdentityCard(
   if (hasPhoto && opts.photoUrl) {
     try {
       const img = await loadImage(opts.photoUrl);
-      drawCoverCircle(ctx, img, w / 2, photoCy, photoRadius);
+      drawCoverCircle(ctx, img, w / 2, photoCy, photoRadius, opts.photoCrop);
     } catch {
       // Keep card usable without photo if load fails
     }
