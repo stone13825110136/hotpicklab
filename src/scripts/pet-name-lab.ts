@@ -214,17 +214,17 @@ function bindCompareCard(card: HTMLElement, n: ScoredName) {
     });
   }
 
-  // Whole card is selectable. Only skip the fun-card summary (so it can expand)
-  // and any real links.
+  // Whole card selects Your pick — including the fun summary/arrow.
+  // Fun can still expand; that click must not skip the pick (no double-tap).
   card.addEventListener('click', (e) => {
     const t = e.target as HTMLElement | null;
-    if (t?.closest('summary') || t?.closest('a')) return;
+    if (t?.closest('a')) return;
     setYourPick(n);
   });
   card.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
     const t = e.target as HTMLElement | null;
-    if (t?.closest('summary') || t?.closest('a') || t?.closest('button')) return;
+    if (t?.closest('a') || t?.closest('button') || t?.closest('summary')) return;
     e.preventDefault();
     setYourPick(n);
   });
@@ -245,7 +245,7 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
       ? `<div class="pnl-fun-wrap">
           <p class="pnl-fun-teaser"><span class="pnl-fun-label">Fun vibe</span> ${n.tarot.name}</p>
           <details class="pnl-fun-details">
-            <summary>Tap to read the short fun card (optional)</summary>
+            <summary>Optional fun card</summary>
             <p class="pnl-tarot-vibe">${n.tarot.vibe}</p>
             <p class="pnl-fun">Fun reading · Not a prediction · Does not change Hot Pick</p>
           </details>
@@ -255,13 +255,14 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
       n.name === hot.name
         ? `<p class="pnl-score">Suggested Hot Pick · score ${n.practical}/100</p>`
         : `<p class="pnl-score">Practical score ${n.practical}/100</p>`;
+    // Pick button above fun — primary action first; fun arrow must not steal the tap.
     card.innerHTML = `
       <header>
         <h3>${n.name}</h3>
         ${suggested}
       </header>
-      ${tarotBlock}
       <button type="button" class="pnl-card-pick">Use as Your pick</button>
+      ${tarotBlock}
     `;
     bindCompareCard(card, n);
     cards.appendChild(card);
