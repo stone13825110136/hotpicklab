@@ -97,8 +97,11 @@ function mountChip(n: ScoredName, grid: HTMLElement) {
   btn.type = 'button';
   btn.className = 'pnl-chip' + (selected.has(n.name) ? ' is-on' : '');
   btn.setAttribute('aria-pressed', selected.has(n.name) ? 'true' : 'false');
-  btn.title = 'Tap to select for Compare';
-  btn.innerHTML = `<span class="pnl-chip-name">${n.name}</span><span class="pnl-chip-meta">Score ${n.practical}/100 · ${n.tags.slice(0, 2).join(' · ')} · tap to select</span>`;
+  btn.title = selected.has(n.name) ? 'Selected — tap to remove' : 'Tap to select for Compare';
+  const metaBit = selected.has(n.name)
+    ? 'Selected ✓ · tap to remove'
+    : `Score ${n.practical}/100 · ${n.tags.slice(0, 2).join(' · ')} · tap to select`;
+  btn.innerHTML = `<span class="pnl-chip-name">${n.name}</span><span class="pnl-chip-meta">${metaBit}</span>`;
   btn.addEventListener('click', () => {
     if (selected.has(n.name)) selected.delete(n.name);
     else {

@@ -699,7 +699,19 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   .pnl-chip.is-on {
     border-color: var(--pnl-accent);
-    box-shadow: inset 0 0 0 1px var(--pnl-accent);
+    border-width: 2px;
+    background: rgba(255, 107, 53, 0.16);
+    box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.28);
+    color: var(--pnl-text);
+  }
+
+  .pnl-chip.is-on .pnl-chip-name {
+    color: #c2410c;
+  }
+
+  .pnl-chip.is-on .pnl-chip-meta {
+    color: #9a3412;
+    font-weight: 650;
   }
 
   .pnl-chip-name {

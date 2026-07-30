@@ -88,6 +88,13 @@ assert(nameCardSrc.includes('whyBlurb') || nameCardSrc.includes('Cute · easy to
 // Lab script selection contract
 const labTs = readFileSync(join(root, 'src/scripts/pet-name-lab.ts'), 'utf8');
 assert(labTs.includes('setYourPick'), 'Your pick setter exists');
+assert(labTs.includes('Selected ✓'), 'selected chip shows Selected ✓ label');
+assert(
+  readFileSync(join(root, 'src/components/naming/PetNameLabEmbed.astro'), 'utf8').includes(
+    'rgba(255, 107, 53, 0.16)',
+  ),
+  'selected chip has strong orange fill',
+);
 assert(labTs.includes("closest('summary')") || labTs.includes('setYourPick(n)'), 'card click can set Your pick');
 assert(!labTs.includes("closest('details') || t?.closest('summary')"), 'fun summary no longer blocks pick alone');
 
