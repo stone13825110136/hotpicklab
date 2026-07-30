@@ -2,7 +2,7 @@ export const SITE = {
   name: 'HotPick Lab',
   tagline: 'Name it, draw it, pick it.',
   description:
-    'Free dog and cat name lab: shortlist names, compare your favorites, and get one Hot Pick. Fun vibe cards are entertainment only — not a prediction.',
+    'Free pet name generator for dogs and cats. Shortlist scored dog names and cat names, compare favorites, and get one Hot Pick. Fun vibe cards are entertainment only — not a prediction.',
   url: 'https://hotpicklab.com',
   author: 'HotPick Lab',
   contactEmail: 'contact@hotpicklab.com',

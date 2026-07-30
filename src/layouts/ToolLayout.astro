@@ -8,6 +8,8 @@ interface Props {
   keywords?: string[];
   backHref?: string;
   backLabel?: string;
+  /** Local / draft tools: keep out of search indexes */
+  noindex?: boolean;
 }
 
 const {
@@ -16,6 +18,7 @@ const {
   keywords = [],
   backHref = '/tools',
   backLabel = 'All tools',
+  noindex = false,
 } = Astro.props;
 
 const fullTitle = `${title} | ${SITE.name}`;
@@ -36,7 +39,7 @@ const fullTitle = `${title} | ${SITE.name}`;
     <meta property="og:type" content="website" />
     <meta property="og:url" content={new URL(Astro.url.pathname, SITE.url).href} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
   </head>
   <body class="tool-page-body notranslate">
     <header class="tool-page-header">

@@ -8,7 +8,7 @@ export const prerender = true;
 type SitemapEntry = { path: string; lastmod?: string };
 
 export const GET: APIRoute = () => {
-  const today = '2026-07-27';
+  const today = '2026-07-30';
   const core: SitemapEntry[] = [
     { path: '', lastmod: today },
     { path: '/tools', lastmod: today },
