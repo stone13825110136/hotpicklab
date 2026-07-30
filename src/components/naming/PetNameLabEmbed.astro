@@ -311,7 +311,7 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       <p class="pnl-your-label">Your pick</p>
       <h2 id="pnl-your-name">—</h2>
       <p class="pnl-your-hint muted">
-        This is the name you’ll use for a free name card — not necessarily the Hot Pick.
+        Tap any name card to set Your pick (not only the Hot Pick). Then make a free name card.
       </p>
       <a
         class="btn pnl-btn pnl-make-card"
@@ -739,24 +739,6 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     text-decoration: none;
   }
 
-  :global(.pnl-card-pick) {
-    margin-top: 0.65rem;
-    width: 100%;
-    border: 1px solid var(--pnl-border);
-    background: transparent;
-    color: var(--pnl-muted);
-    border-radius: 8px;
-    padding: 0.4rem 0.6rem;
-    font-weight: 600;
-    font-size: 0.82rem;
-    cursor: pointer;
-  }
-
-  :global(.pnl-card.is-pick .pnl-card-pick) {
-    border-color: var(--pnl-accent);
-    color: var(--pnl-text);
-  }
-
   /* Compare result cards are JS-injected — must be :global or styles never apply */
   :global(.pnl-cards) {
     display: grid;
@@ -769,6 +751,12 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     border-radius: var(--pnl-radius);
     border: 1px solid var(--pnl-border);
     background: var(--pnl-surface);
+    cursor: pointer;
+    transition: border-color 0.15s ease, outline-color 0.15s ease;
+  }
+
+  :global(.pnl-card:hover) {
+    border-color: rgba(255, 107, 53, 0.55);
   }
 
   :global(.pnl-card h3) {
@@ -776,7 +764,7 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     color: var(--pnl-text);
   }
 
-  /* Hot Pick suggestion = soft teal cue, NOT the same orange selection frame */
+  /* Hot Pick suggestion = soft teal cue, NOT the orange selection frame */
   :global(.pnl-card.is-hot) {
     border-color: rgba(34, 211, 238, 0.45);
     background: rgba(34, 211, 238, 0.06);
@@ -799,6 +787,27 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     margin: 0.2rem 0 0.5rem;
     color: var(--pnl-muted);
     font-size: 0.85rem;
+  }
+
+  :global(.pnl-card-pick) {
+    margin-top: 0.65rem;
+    width: 100%;
+    border: 1px solid var(--pnl-border);
+    background: rgba(255, 107, 53, 0.12);
+    color: var(--pnl-text);
+    border-radius: 8px;
+    padding: 0.55rem 0.6rem;
+    font-weight: 700;
+    font-size: 0.88rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+  }
+
+  :global(.pnl-card.is-pick .pnl-card-pick) {
+    border-color: var(--pnl-accent);
+    background: var(--pnl-accent);
+    color: #111;
   }
 
   :global(.pnl-fun-wrap) {

@@ -172,8 +172,14 @@ function setYourPick(n: ScoredName) {
   const cardLink = document.getElementById('pnl-make-card') as HTMLAnchorElement | null;
   if (nameEl) nameEl.textContent = n.name;
   if (cardLink) {
-    const species = (el<HTMLSelectElement>('pnl-species').value || 'dog') as Species;
-    const vibe = (el<HTMLSelectElement>('pnl-vibe').value || 'cute') as Vibe;
+    let species: Species = 'dog';
+    let vibe: Vibe = 'cute';
+    try {
+      species = (el<HTMLSelectElement>('pnl-species').value || 'dog') as Species;
+      vibe = (el<HTMLSelectElement>('pnl-vibe').value || 'cute') as Vibe;
+    } catch {
+      /* filters missing on rare embeds — still allow pick */
+    }
     const params = new URLSearchParams({
       name: n.name,
       species,
@@ -183,13 +189,44 @@ function setYourPick(n: ScoredName) {
     cardLink.href = `/tools/pet-name-card?${params.toString()}`;
     cardLink.hidden = false;
   }
-  // Refresh pick highlight on cards
   document.querySelectorAll('#pnl-compare-cards .pnl-card').forEach((node) => {
     const article = node as HTMLElement;
     const isPick = article.dataset.name === n.name;
     article.classList.toggle('is-pick', isPick);
+    article.setAttribute('aria-pressed', isPick ? 'true' : 'false');
     const btn = article.querySelector('.pnl-card-pick');
-    if (btn) btn.textContent = isPick ? 'Your pick' : 'Use as Your pick';
+    if (btn) btn.textContent = isPick ? 'Your pick ✓' : 'Use as Your pick';
+  });
+}
+
+function bindCompareCard(card: HTMLElement, n: ScoredName) {
+  card.dataset.name = n.name;
+  card.tabIndex = 0;
+  card.setAttribute('aria-pressed', 'false');
+  card.style.cursor = 'pointer';
+
+  const pickBtn = card.querySelector('.pnl-card-pick') as HTMLButtonElement | null;
+  if (pickBtn) {
+    pickBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setYourPick(n);
+    });
+  }
+
+  // Whole card is selectable. Only skip the fun-card summary (so it can expand)
+  // and any real links.
+  card.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement | null;
+    if (t?.closest('summary') || t?.closest('a')) return;
+    setYourPick(n);
+  });
+  card.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const t = e.target as HTMLElement | null;
+    if (t?.closest('summary') || t?.closest('a') || t?.closest('button')) return;
+    e.preventDefault();
+    setYourPick(n);
   });
 }
 
@@ -215,7 +252,9 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
         </div>`
       : '';
     const suggested =
-      n.name === hot.name ? `<p class="pnl-score">Suggested Hot Pick · score ${n.practical}/100</p>` : `<p class="pnl-score">Practical score ${n.practical}/100</p>`;
+      n.name === hot.name
+        ? `<p class="pnl-score">Suggested Hot Pick · score ${n.practical}/100</p>`
+        : `<p class="pnl-score">Practical score ${n.practical}/100</p>`;
     card.innerHTML = `
       <header>
         <h3>${n.name}</h3>
@@ -224,8 +263,7 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
       ${tarotBlock}
       <button type="button" class="pnl-card-pick">Use as Your pick</button>
     `;
-    const pickBtn = card.querySelector('.pnl-card-pick') as HTMLButtonElement;
-    pickBtn.addEventListener('click', () => setYourPick(n));
+    bindCompareCard(card, n);
     cards.appendChild(card);
   }
 
@@ -233,7 +271,7 @@ function renderResults(compared: ScoredName[], hot: ScoredName) {
   el<HTMLElement>('pnl-hot-reason').textContent =
     hot.reason ?? `Highest practical score (${hot.practical}/100) in your shortlist.`;
 
-  // Default Your pick to Hot Pick — user can change.
+  // Default Your pick to Hot Pick — user can change by tapping any card.
   setYourPick(hot);
 
   panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
