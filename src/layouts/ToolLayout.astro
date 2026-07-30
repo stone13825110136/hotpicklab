@@ -40,11 +40,17 @@ const fullTitle = `${title} | ${SITE.name}`;
     <meta property="og:url" content={new URL(Astro.url.pathname, SITE.url).href} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="tool-page-body notranslate">
     <header class="tool-page-header">
       <div class="container tool-page-header-inner">
-        <a class="logo" href="/">{SITE.name}</a>
+        <a class="logo" href="/" translate="no">{SITE.name}</a>
         <a class="back-link" href={backHref}>← {backLabel}</a>
       </div>
     </header>
@@ -62,14 +68,14 @@ const fullTitle = `${title} | ${SITE.name}`;
 
 <style is:global>
   :root {
-    --bg: #0b1020;
-    --surface: #141b2f;
-    --text: #eef2ff;
-    --muted: #9aa8c7;
+    --bg: #f6f7f9;
+    --surface: #ffffff;
+    --text: #12151a;
+    --muted: #4a5568;
     --accent: #ff6b35;
-    --accent-2: #22d3ee;
-    --border: #24304d;
-    --radius: 12px;
+    --accent-2: #0d6e62;
+    --border: #d8dee8;
+    --radius: 16px;
     --max: 960px;
   }
 
@@ -81,9 +87,12 @@ const fullTitle = `${title} | ${SITE.name}`;
   body {
     margin: 0;
     padding: 0;
-    background: var(--bg);
+    background:
+      radial-gradient(ellipse 70% 45% at 12% 0%, rgba(26, 163, 143, 0.14), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 90% 5%, rgba(255, 107, 53, 0.1), transparent 50%),
+      var(--bg);
     color: var(--text);
-    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-family: 'IBM Plex Sans', system-ui, -apple-system, Segoe UI, sans-serif;
     line-height: 1.6;
   }
 
@@ -123,7 +132,7 @@ const fullTitle = `${title} | ${SITE.name}`;
 
   .tool-page-header {
     border-bottom: 1px solid var(--border);
-    background: rgba(11, 16, 32, 0.92);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(8px);
   }
 
@@ -135,7 +144,8 @@ const fullTitle = `${title} | ${SITE.name}`;
   }
 
   .logo {
-    font-weight: 800;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
     color: var(--text);
     text-decoration: none;
   }
@@ -156,6 +166,7 @@ const fullTitle = `${title} | ${SITE.name}`;
     padding: 1rem 1rem 1.5rem;
     font-size: 0.85rem;
     border-top: 1px solid var(--border);
+    background: var(--surface);
   }
 
   .tool-page-footer p {
@@ -170,6 +181,6 @@ const fullTitle = `${title} | ${SITE.name}`;
   }
 
   .tool-related a {
-    color: var(--muted);
+    color: var(--accent-2);
   }
 </style>
