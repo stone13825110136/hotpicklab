@@ -26,8 +26,8 @@ import { SITE } from '../lib/site';
         <p class="brand-mark" translate="no">{SITE.name}</p>
         <h1>Name your dog or cat like you mean it</h1>
         <p class="lede">
-          Shortlist scored names, compare favorites, set <strong>Your pick</strong>, and walk away
-          with one name you’ll actually call — not a wall of random suggestions.
+          Shortlist scored names, compare favorites, set <strong>Your pick</strong>, then download a
+          free <strong>name card</strong> you can share — not a wall of random suggestions.
         </p>
         <div class="cta-row">
           <a class="cta" href="/tools/pet-name-lab">Start Pet Name Lab</a>
@@ -37,16 +37,18 @@ import { SITE } from '../lib/site';
         <p class="cta-note">Free · No sign-up · Optional fun vibe cards (entertainment only)</p>
       </div>
 
-      <aside class="hero-stage" aria-label="Name energy">
-        <div class="name-orbit">
-          <span class="chip chip-a">Daisy</span>
-          <span class="chip chip-b">Bean</span>
-          <span class="chip chip-c">Luna</span>
-          <span class="chip chip-d">Arrow</span>
-          <span class="chip chip-e">Miso</span>
-        </div>
-        <p class="stage-kicker">Compare → Your pick → Name card</p>
-        <p class="stage-line">Hot Pick suggests. You decide.</p>
+      <aside class="hero-stage" aria-label="Sample name card">
+        <p class="stage-kicker">What you get</p>
+        <img
+          class="hero-card-shot"
+          src="/images/naming/sample-name-card.png"
+          alt="Sample name card: Meet Mochi, cute dog photo, free HotPick Lab name card"
+          width="1080"
+          height="1350"
+          loading="eager"
+          decoding="async"
+        />
+        <p class="stage-line">Compare → Your pick → Name card</p>
       </aside>
     </div>
   </section>
@@ -197,94 +199,16 @@ import { SITE } from '../lib/site';
 
   .hero-stage {
     position: relative;
-    min-height: 280px;
-    border-radius: 22px;
-    padding: 1.5rem 1.35rem 1.35rem;
-    background: linear-gradient(145deg, #141b2f 0%, #1c273f 55%, #243048 100%);
-    color: #eef2ff;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.35rem 0 0;
     animation: rise-in 0.85s ease 0.15s both;
   }
 
-  .name-orbit {
-    position: relative;
-    height: 168px;
-    margin-bottom: 1rem;
-  }
-
-  .chip {
-    position: absolute;
-    padding: 0.45rem 0.85rem;
-    border-radius: 999px;
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 0.95rem;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(4px);
-  }
-
-  .chip-a {
-    left: 8%;
-    top: 18%;
-    color: #7dfff0;
-    animation: float-a 5.5s ease-in-out infinite;
-  }
-  .chip-b {
-    left: 42%;
-    top: 6%;
-    color: #ffb089;
-    animation: float-b 6.2s ease-in-out infinite;
-  }
-  .chip-c {
-    right: 10%;
-    top: 28%;
-    color: #fff;
-    animation: float-c 5.8s ease-in-out infinite;
-  }
-  .chip-d {
-    left: 22%;
-    bottom: 8%;
-    color: #9ad7ff;
-    animation: float-a 6.5s ease-in-out infinite reverse;
-  }
-  .chip-e {
-    right: 22%;
-    bottom: 18%;
-    color: #ffd9a8;
-    animation: float-b 5.2s ease-in-out infinite reverse;
-  }
-
-  @keyframes float-a {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-  @keyframes float-b {
-    0%,
-    100% {
-      transform: translateY(0) translateX(0);
-    }
-    50% {
-      transform: translateY(-14px) translateX(4px);
-    }
-  }
-  @keyframes float-c {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
-  }
-
   .stage-kicker {
-    margin: 0 0 0.25rem;
+    margin: 0;
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -292,11 +216,27 @@ import { SITE } from '../lib/site';
     color: #ff6b35;
   }
 
+  .hero-card-shot {
+    display: block;
+    width: min(100%, 340px);
+    height: auto;
+    border-radius: 22px;
+    box-shadow: 0 18px 40px rgba(18, 40, 36, 0.14);
+  }
+
+  @media (min-width: 860px) {
+    .hero-card-shot {
+      width: min(100%, 380px);
+    }
+  }
+
   .stage-line {
     margin: 0;
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 650;
+    color: var(--ink-soft);
+    text-align: center;
   }
 
   @keyframes rise-in {

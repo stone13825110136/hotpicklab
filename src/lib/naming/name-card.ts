@@ -15,6 +15,16 @@ export type NameCardOptions = {
 const DEFAULT_W = 1080;
 const DEFAULT_H = 1350;
 
+/** Small line under the name: vibe/why — not product marketing, not "Our dog." */
+function whyBlurb(meta?: string): string {
+  const m = (meta || '').toLowerCase();
+  if (m.includes('cute')) return 'Cute · easy to call.';
+  if (m.includes('strong')) return 'Strong · easy to shout.';
+  if (m.includes('unique')) return 'Unique · still easy to use.';
+  if (m.includes('classic')) return 'Classic · familiar to say.';
+  return 'Short, sweet, easy to call.';
+}
+
 function roundRect(
   ctx: CanvasRenderingContext2D,
   x: number,
@@ -125,7 +135,8 @@ export async function drawNameIdentityCard(
   ctx.fillStyle = '#4a5f5a';
   ctx.font = '500 30px "IBM Plex Sans", system-ui, sans-serif';
   ctx.letterSpacing = '0';
-  ctx.fillText(hasPhoto ? "Meet" : "Your pet's name", w / 2, hasPhoto ? 170 : 250);
+  // Announce voice for sharing — not product marketing
+  ctx.fillText('Meet', w / 2, hasPhoto ? 170 : 250);
 
   const nameY = hasPhoto ? 680 : 560;
   const nameSize = fitNameFont(ctx, name, w - 140);
@@ -133,7 +144,7 @@ export async function drawNameIdentityCard(
   ctx.font = `700 ${nameSize}px Georgia, "Times New Roman", serif`;
   ctx.fillText(name, w / 2, nameY);
 
-  const blurb = (opts.blurb || 'A name you’ll actually use.').trim();
+  const blurb = (opts.blurb || whyBlurb(opts.meta)).trim();
   ctx.fillStyle = '#4a5f5a';
   ctx.font = '400 34px "IBM Plex Sans", system-ui, sans-serif';
   wrapCentered(ctx, blurb, w / 2, nameY + 70, w - 180, 44);
@@ -145,10 +156,14 @@ export async function drawNameIdentityCard(
   ctx.lineTo(w * 0.78, h - 260);
   ctx.stroke();
 
+  // Species/meta stays small under the why line (e.g. Dog) — not competing with the name
   if (opts.meta) {
+    const speciesOnly = opts.meta.includes('·')
+      ? opts.meta.split('·').pop()!.trim()
+      : opts.meta;
     ctx.fillStyle = '#24574f';
     ctx.font = '600 28px "IBM Plex Sans", system-ui, sans-serif';
-    ctx.fillText(opts.meta, w / 2, h - 200);
+    ctx.fillText(speciesOnly, w / 2, h - 200);
   }
 
   ctx.fillStyle = '#2f7a6d';
