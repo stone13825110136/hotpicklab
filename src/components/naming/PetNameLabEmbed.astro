@@ -301,16 +301,17 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       <h2 id="pnl-hot-name"></h2>
       <p id="pnl-hot-reason" class="pnl-hot-reason"></p>
       <p class="pnl-hot-hint muted">
-        Hot Pick is a recommendation only. Choose <strong>Your pick</strong> below — it can be a
-        different name.
+        Recommendation only. Tap a name below to set <strong>Your pick</strong> — it can differ.
       </p>
     </div>
+
+    <div id="pnl-compare-cards" class="pnl-cards"></div>
 
     <div class="pnl-your-pick" id="pnl-your-pick">
       <p class="pnl-your-label">Your pick</p>
       <h2 id="pnl-your-name">—</h2>
       <p class="pnl-your-hint muted">
-        Tap a name in the compare list to set Your pick. Then make a free name card.
+        This is the name you’ll use for a free name card — not necessarily the Hot Pick.
       </p>
       <a
         class="btn pnl-btn pnl-make-card"
@@ -321,7 +322,6 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       >
     </div>
 
-    <div id="pnl-compare-cards" class="pnl-cards"></div>
     <aside class="pnl-ad" aria-label="Sponsored">
       <p class="muted">Sponsored placement</p>
     </aside>
@@ -707,7 +707,7 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
   }
 
   .pnl-your-pick {
-    margin: 0 0 1rem;
+    margin: 1rem 0;
     padding: 1rem 1.05rem;
     border-radius: var(--pnl-radius);
     border: 1px solid var(--pnl-accent);

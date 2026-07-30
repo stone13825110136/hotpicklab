@@ -20,96 +20,132 @@ import { SITE } from '../lib/site';
   ]}
 >
   <section class="hero">
+    <div class="hero-atmosphere" aria-hidden="true"></div>
     <div class="shell hero-grid">
       <div class="hero-copy">
         <p class="brand-mark" translate="no">{SITE.name}</p>
-        <h1>Pick a pet name you’ll actually use</h1>
+        <h1>Name your dog or cat like you mean it</h1>
         <p class="lede">
-          Shortlist dog or cat names, compare a few favorites, and land on one
-          <strong>Hot Pick</strong> — not a wall of random suggestions.
+          Shortlist scored names, compare favorites, set <strong>Your pick</strong>, and walk away
+          with one name you’ll actually call — not a wall of random suggestions.
         </p>
         <div class="cta-row">
-          <a class="cta" href="/tools/pet-name-lab">Open Pet Name Lab</a>
-          <a class="cta cta-secondary" href="/dog-names">Dog name lists</a>
-          <a class="cta cta-secondary" href="/cat-names">Cat name lists</a>
-          <p class="cta-note">Free · No sign-up · Optional fun vibe cards (entertainment only)</p>
+          <a class="cta" href="/tools/pet-name-lab">Start Pet Name Lab</a>
+          <a class="cta cta-secondary" href="/dog-names">Dog names</a>
+          <a class="cta cta-secondary" href="/cat-names">Cat names</a>
         </div>
+        <p class="cta-note">Free · No sign-up · Optional fun vibe cards (entertainment only)</p>
       </div>
 
-      <aside class="flow-sheet" aria-label="How it works">
-        <ol>
-          <li><span>1</span> Choose dog or cat, gender, and vibe</li>
-          <li><span>2</span> Shortlist practical-scored names</li>
-          <li><span>3</span> Compare 2–5 favorites</li>
-          <li><span>4</span> Get one Hot Pick</li>
-        </ol>
+      <aside class="hero-stage" aria-label="Name energy">
+        <div class="name-orbit">
+          <span class="chip chip-a">Daisy</span>
+          <span class="chip chip-b">Bean</span>
+          <span class="chip chip-c">Luna</span>
+          <span class="chip chip-d">Arrow</span>
+          <span class="chip chip-e">Miso</span>
+        </div>
+        <p class="stage-kicker">Compare → Your pick → Name card</p>
+        <p class="stage-line">Hot Pick suggests. You decide.</p>
       </aside>
     </div>
   </section>
 
   <section class="shell path" id="labs">
-    <h2>Naming labs</h2>
+    <div class="path-head">
+      <h2>Jump in</h2>
+      <p>Three ways to start — same goal: a name that sticks.</p>
+    </div>
     <div class="path-grid">
-      <article>
-        <p class="tag">Available now</p>
+      <a class="path-card path-card-hot" href="/tools/pet-name-lab">
+        <p class="tag">Primary</p>
         <h3>Pet Name Lab</h3>
-        <p>Dog and cat names with scores, compare, and one Hot Pick.</p>
-        <a href="/tools/pet-name-lab">Try it →</a>
-      </article>
-      <article>
-        <p class="tag">Available now</p>
+        <p>Score, compare, set Your pick, make a free name card.</p>
+        <span class="path-go">Open lab →</span>
+      </a>
+      <a class="path-card" href="/dog-names">
+        <p class="tag">Lists</p>
         <h3>Dog name lists</h3>
-        <p>Cute, strong, unique, classic — plus boy and girl shortlists.</p>
-        <a href="/dog-names">Browse dog names →</a>
-      </article>
-      <article>
-        <p class="tag">Available now</p>
+        <p>Cute, strong, unique, classic — boy &amp; girl shortlists.</p>
+        <span class="path-go">Browse dogs →</span>
+      </a>
+      <a class="path-card" href="/cat-names">
+        <p class="tag">Lists</p>
         <h3>Cat name lists</h3>
-        <p>Cute, strong, unique, classic — plus boy and girl shortlists.</p>
-        <a href="/cat-names">Browse cat names →</a>
-      </article>
+        <p>Cute, strong, unique, classic — boy &amp; girl shortlists.</p>
+        <span class="path-go">Browse cats →</span>
+      </a>
     </div>
   </section>
 </Layout>
 
 <style>
   .hero {
-    padding: 2.75rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 0 2.5rem;
+    isolation: isolate;
+  }
+
+  .hero-atmosphere {
+    position: absolute;
+    inset: -10% -5% auto;
+    height: 120%;
+    background:
+      radial-gradient(ellipse 70% 55% at 15% 20%, rgba(26, 163, 143, 0.28), transparent 60%),
+      radial-gradient(ellipse 55% 50% at 88% 10%, rgba(255, 107, 53, 0.2), transparent 55%),
+      linear-gradient(165deg, #e8f4f1 0%, #f6f7f9 48%, #f3ebe4 100%);
+    z-index: -1;
+    animation: atmosphere-shift 14s ease-in-out infinite alternate;
+  }
+
+  @keyframes atmosphere-shift {
+    from {
+      transform: scale(1) translate3d(0, 0, 0);
+    }
+    to {
+      transform: scale(1.04) translate3d(-1.5%, 1%, 0);
+    }
   }
 
   .hero-grid {
     display: grid;
-    gap: 1.75rem;
+    gap: 2rem;
     align-items: center;
   }
 
   @media (min-width: 860px) {
     .hero-grid {
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
     }
   }
 
   .brand-mark {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(1.45rem, 3vw, 1.85rem);
-    margin: 0 0 0.85rem;
+    font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+    margin: 0 0 0.75rem;
     color: var(--signal);
+    letter-spacing: -0.02em;
+    animation: rise-in 0.7s ease both;
   }
 
   h1 {
-    margin: 0 0 0.75rem;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-size: clamp(1.85rem, 4.5vw, 2.75rem);
-    line-height: 1.12;
-    letter-spacing: -0.02em;
+    margin: 0 0 0.85rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.05rem, 5.2vw, 3.15rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    animation: rise-in 0.75s ease 0.06s both;
   }
 
   .lede {
-    margin: 0 0 1.25rem;
+    margin: 0 0 1.35rem;
     color: var(--ink-soft);
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     max-width: 34rem;
+    animation: rise-in 0.75s ease 0.12s both;
   }
 
   .cta-row {
@@ -117,83 +153,180 @@ import { SITE } from '../lib/site';
     flex-wrap: wrap;
     gap: 0.65rem;
     align-items: center;
+    animation: rise-in 0.75s ease 0.18s both;
   }
 
   .cta {
     display: inline-block;
-    padding: 0.7rem 1.05rem;
+    padding: 0.78rem 1.2rem;
     border-radius: 999px;
-    background: var(--signal);
+    background: #ff6b35;
     color: #fff;
-    font-weight: 650;
+    font-weight: 700;
     text-decoration: none;
+    box-shadow: 0 10px 28px rgba(255, 107, 53, 0.28);
+    transition: transform 0.18s ease, background 0.18s ease;
   }
 
   .cta:hover {
-    background: var(--signal-bright);
+    background: #ff814f;
+    color: #fff;
     text-decoration: none;
+    transform: translateY(-2px);
   }
 
   .cta-secondary {
-    background: transparent;
+    background: rgba(255, 255, 255, 0.72);
     color: var(--ink);
     border: 1px solid var(--line);
+    box-shadow: none;
   }
 
   .cta-secondary:hover {
     border-color: var(--signal);
-    background: transparent;
+    background: #fff;
+    color: var(--ink);
   }
 
   .cta-note {
-    flex-basis: 100%;
-    margin: 0.25rem 0 0;
+    margin: 0.85rem 0 0;
     color: var(--muted);
     font-size: 0.9rem;
+    animation: rise-in 0.75s ease 0.22s both;
   }
 
-  .flow-sheet {
-    background: var(--panel-dark);
-    color: #e8eef8;
-    border-radius: 16px;
-    padding: 1.25rem 1.35rem;
+  .hero-stage {
+    position: relative;
+    min-height: 280px;
+    border-radius: 22px;
+    padding: 1.5rem 1.35rem 1.35rem;
+    background: linear-gradient(145deg, #141b2f 0%, #1c273f 55%, #243048 100%);
+    color: #eef2ff;
+    overflow: hidden;
+    animation: rise-in 0.85s ease 0.15s both;
   }
 
-  .flow-sheet ol {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: 0.75rem;
+  .name-orbit {
+    position: relative;
+    height: 168px;
+    margin-bottom: 1rem;
   }
 
-  .flow-sheet li {
-    display: flex;
-    gap: 0.7rem;
-    align-items: center;
-    font-size: 0.95rem;
-  }
-
-  .flow-sheet span {
-    display: inline-grid;
-    place-items: center;
-    width: 1.55rem;
-    height: 1.55rem;
+  .chip {
+    position: absolute;
+    padding: 0.45rem 0.85rem;
     border-radius: 999px;
-    background: var(--signal);
-    color: #fff;
+    font-family: var(--font-display);
     font-weight: 700;
-    font-size: 0.8rem;
-    flex-shrink: 0;
+    font-size: 0.95rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(4px);
+  }
+
+  .chip-a {
+    left: 8%;
+    top: 18%;
+    color: #7dfff0;
+    animation: float-a 5.5s ease-in-out infinite;
+  }
+  .chip-b {
+    left: 42%;
+    top: 6%;
+    color: #ffb089;
+    animation: float-b 6.2s ease-in-out infinite;
+  }
+  .chip-c {
+    right: 10%;
+    top: 28%;
+    color: #fff;
+    animation: float-c 5.8s ease-in-out infinite;
+  }
+  .chip-d {
+    left: 22%;
+    bottom: 8%;
+    color: #9ad7ff;
+    animation: float-a 6.5s ease-in-out infinite reverse;
+  }
+  .chip-e {
+    right: 22%;
+    bottom: 18%;
+    color: #ffd9a8;
+    animation: float-b 5.2s ease-in-out infinite reverse;
+  }
+
+  @keyframes float-a {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes float-b {
+    0%,
+    100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-14px) translateX(4px);
+    }
+  }
+  @keyframes float-c {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .stage-kicker {
+    margin: 0 0 0.25rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ff6b35;
+  }
+
+  .stage-line {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 650;
+  }
+
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .path {
-    padding: 0.5rem 0 3.5rem;
+    padding: 0.75rem 0 3.75rem;
   }
 
-  .path h2 {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    margin: 0 0 1rem;
+  .path-head {
+    margin-bottom: 1.1rem;
+  }
+
+  .path-head h2 {
+    font-family: var(--font-display);
+    margin: 0 0 0.35rem;
+    font-size: clamp(1.4rem, 3vw, 1.75rem);
+  }
+
+  .path-head p {
+    margin: 0;
+    color: var(--muted);
   }
 
   .path-grid {
@@ -202,15 +335,32 @@ import { SITE } from '../lib/site';
     gap: 0.9rem;
   }
 
-  .path-grid article {
+  .path-card {
+    display: block;
     background: var(--panel);
     border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 1.05rem 1.1rem;
+    border-radius: 16px;
+    padding: 1.15rem 1.15rem 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+  }
+
+  .path-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(13, 110, 98, 0.45);
+    box-shadow: 0 14px 30px rgba(18, 21, 26, 0.08);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .path-card-hot {
+    border-color: rgba(255, 107, 53, 0.45);
+    background: linear-gradient(160deg, #fff 0%, #fff6f1 100%);
   }
 
   .tag {
-    margin: 0 0 0.3rem;
+    margin: 0 0 0.35rem;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -218,19 +368,28 @@ import { SITE } from '../lib/site';
     color: var(--signal);
   }
 
-  .path-grid h3 {
-    margin: 0 0 0.4rem;
-    font-size: 1.05rem;
+  .path-card-hot .tag {
+    color: #ff6b35;
   }
 
-  .path-grid p {
-    margin: 0 0 0.7rem;
+  .path-card h3 {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+  }
+
+  .path-card p {
+    margin: 0 0 0.85rem;
     color: var(--muted);
     font-size: 0.92rem;
   }
 
-  .path-grid a {
-    font-weight: 650;
+  .path-go {
+    font-weight: 700;
+    color: #ff6b35;
+  }
+
+  .path-card:not(.path-card-hot) .path-go {
     color: var(--signal);
   }
 </style>
