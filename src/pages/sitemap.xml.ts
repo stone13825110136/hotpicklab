@@ -7,17 +7,24 @@ export const prerender = true;
 
 type SitemapEntry = { path: string; lastmod?: string };
 
+/** Canonical live URLs use trailing slashes (host 308s bare paths). */
+function canonicalLoc(path: string): string {
+  if (!path || path === '/') return `${SITE.url}/`;
+  const clean = path.startsWith('/') ? path : `/${path}`;
+  return `${SITE.url}${clean.endsWith('/') ? clean : `${clean}/`}`;
+}
+
 export const GET: APIRoute = () => {
-  const today = '2026-07-30';
+  const today = '2026-08-06';
   const core: SitemapEntry[] = [
-    { path: '', lastmod: today },
-    { path: '/tools', lastmod: today },
-    { path: '/tools/pet-name-lab', lastmod: today },
-    { path: '/disclosure', lastmod: today },
-    { path: '/privacy', lastmod: today },
+    { path: '/', lastmod: today },
+    { path: '/tools/', lastmod: today },
+    { path: '/tools/pet-name-lab/', lastmod: today },
+    { path: '/disclosure/', lastmod: today },
+    { path: '/privacy/', lastmod: today },
   ];
   const naming: SitemapEntry[] = allNamingSeoPaths().map((path) => ({
-    path,
+    path: path.endsWith('/') ? path : `${path}/`,
     lastmod: today,
   }));
   const entries = [...core, ...naming];
@@ -26,7 +33,7 @@ export const GET: APIRoute = () => {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${entries
   .map((entry) => {
-    const loc = new URL(entry.path || '/', SITE.url).href;
+    const loc = canonicalLoc(entry.path);
     const lastmod = entry.lastmod ? `\n    <lastmod>${entry.lastmod}</lastmod>` : '';
     return `  <url>\n    <loc>${loc}</loc>${lastmod}\n  </url>`;
   })
